@@ -1,0 +1,8 @@
+name: (Ubuntu) Install OpenGL Deps
+runs:
+  using: "composite"
+  steps:
+    - name: Install OpenGL deps
+      shell: bash
+      run: |
+        sudo apt-get install mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev libxmu-dev libxi-dev libgl-dev

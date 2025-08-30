@@ -1,0 +1,8 @@
+breathe==4.36.0
+exhale==0.3.7
+Sphinx==8.2.3
+furo==2025.7.19
+sphinx_design==0.6.1
+sphinx-mathjax-offline==0.0.2
+sphinxcontrib-bibtex==2.6.5
+sphinxcontrib-jsmath==1.0.1

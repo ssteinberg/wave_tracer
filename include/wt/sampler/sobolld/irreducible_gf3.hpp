@@ -1,0 +1,161 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <cstdint>
+#include <vector>
+
+#include <filesystem>
+#include <fstream>
+#include <sstream>
+
+#include <cassert>
+#include <stdexcept>
+
+#include <wt/util/array.hpp>
+
+#include "integer3.hpp"
+
+namespace wt::sampler::sobolld {
+
+/**
+ * @brief From "Quad-Optimized Low-Discrepancy Sequences", Victor Ostromoukhov, Nicolas Bonneel, David Coeurjolly, Jean-Claude Iehl, 2024
+ *        https://github.com/liris-origami/Quad-Optimized-LDS
+ */
+struct irreducible_gf3_t {
+    static constexpr auto sobolld_gfn_seq_length =	11;	        // 3^10 = 59049     3^20 = 3486784401
+    static constexpr auto sobolld_irreducible_entries = 48; 	// entries in initIrreducibleGF3.dat
+
+    using digit_t = std::int64_t;
+
+    wt::array_t<digit_t, sobolld_irreducible_entries> sobol_dj;
+    wt::array_t<digit_t, sobolld_irreducible_entries> sobol_sj;
+    wt::array_t<digit_t, sobolld_irreducible_entries> sobol_aj;
+    wt::array_t<digit_t, sobolld_irreducible_entries,32> sobol_mk;
+
+    irreducible_gf3_t(const std::filesystem::path &path) {
+        load_mk(path);
+    }
+
+    /**
+     * @brief digits is preallocated output buffer of length len.
+     */
+    static inline void to_digit_array(digit_t* digits, digit_t val, const int base, const int len) noexcept {
+        for (auto i=0; i<len; ++i) {
+            digits[i] = val % base;
+            val = val/base;
+        }
+    }
+
+    /**
+     * @brief digits is input of length len.
+     */
+    static inline digit_t from_digit_array(const digit_t* digits, const int base, const int len) noexcept {
+        digit_t pow=1, res=0;
+        for (auto i=0; i<len; ++i) {
+            res += pow * digits[i];
+            pow *= base;
+        }
+        return res;
+    }
+
+    template <std::size_t len=sobolld_gfn_seq_length>
+    static inline digit_t multiply_by_factor_in_gfn(const digit_t x, const digit_t factor, const int base) noexcept {
+        wt::array_t<digit_t, len> digits;
+        to_digit_array(digits.data(), x,base,len);
+
+        for (auto i=0; i<len; ++i)
+            digits[i] = (digits[i] * factor) % base;
+
+        return from_digit_array(digits.data(), base, len);
+    }
+
+    /**
+     * @brief data must be a preallocated buffer of length len. lst is input of length polynomial_degree+1.
+     */
+    static inline digit_t bit_xor_gfn(digit_t* data, const int base, const digit_t* lst, const int len, const int polynomial_degree) noexcept {
+        wt::array_t<digit_t, sobolld_gfn_seq_length,sobolld_gfn_seq_length> digits;
+
+        for (int i=0; i<=polynomial_degree; ++i) {
+            to_digit_array(data, lst[i],base,len);
+            for(auto j=0; j<len; ++j)
+                digits[i][j] = data[j];
+        }
+
+        std::array<digit_t, sobolld_gfn_seq_length+1> final_digits;
+        for (auto i=0; i<len; ++i) {
+            final_digits[i] = 0;
+            for (auto j=0; j<=polynomial_degree; ++j)
+                final_digits[i] += digits[j][i];
+            final_digits[i] %= base;
+        }
+        return from_digit_array(final_digits.data(), base, len);
+    }
+
+    // msobol is expected to be pre-filled
+    static inline void generate_mkgf3(const digit_t ipolynomial, const digit_t polynomial_degree, 
+                                      digit_t* msobol, const int base) noexcept {
+        assert(polynomial_degree+1<=sobolld_gfn_seq_length);
+
+        std::array<digit_t, sobolld_gfn_seq_length> polynomial, d, lst;
+        to_digit_array(polynomial.data(), ipolynomial,base,polynomial_degree+1);
+
+        for (int i=polynomial_degree+1; i<=sobolld_gfn_seq_length; ++i) {
+            lst[0] = msobol[i-polynomial_degree-1];
+            for (int j=1; j<polynomial_degree+1; ++j)
+                lst[j] = pow3tab[j] * 
+                         multiply_by_factor_in_gfn(msobol[i-j-1], convert_to_gf3[polynomial[polynomial_degree-j]], base);
+
+            msobol[i-1] = bit_xor_gfn(d.data(), base, lst.data(), i, polynomial_degree);
+        }
+    }
+
+private:
+    static constexpr wt::array_t<digit_t, 3> convert_to_gf3 = { 0,2,1 };
+
+private:
+    inline void load_mk(const std::filesystem::path &path) {
+        static constexpr int dim_from = 1;
+
+        std::ifstream file(path, std::ios::in);
+        if (file.bad() || file.fail())
+            throw std::runtime_error("Could not open \"" + path.string() + "\"");
+
+        std::vector<std::string> entries;
+        entries.reserve(sobolld_irreducible_entries);
+        std::string line;
+        while (std::getline(file, line) && entries.size()<sobolld_irreducible_entries) {
+            if (line.starts_with('d'))
+                continue;
+            entries.emplace_back(line);
+        }
+
+        int index;
+        for (index=dim_from; index<entries.size() && index<sobolld_irreducible_entries; ++index) {
+            std::stringstream ss(entries[index]);
+
+            digit_t d=0, sj, aj;
+            ss >> d >> sj >> aj;
+
+            if (d==0)
+                throw std::runtime_error("Unexpected/corrupt data in \"" + path.string() + "\"");
+
+            sobol_aj[index] = aj;
+            sobol_sj[index] = sj;
+            sobol_dj[index] = d;
+            for (int i=0; i<sj; ++i)
+                ss >> sobol_mk[index][i];
+        }
+        if (index<sobolld_irreducible_entries)
+            throw std::runtime_error("Underflow in \"" + path.string() + "\"");
+    }
+};
+
+}

@@ -1,0 +1,44 @@
+name: (Windows latest) Build and Test
+on:
+   push:
+     tags:
+       - "*"
+     paths:
+       - src/**
+       - include/**
+     branches: [main]
+permissions:
+   contents: read
+
+jobs:
+  build_windows:
+     name: Test build and compilation
+
+     timeout-minutes: 200
+     runs-on: windows-latest
+     env:
+       VCPKG_ROOT: "vcpkg"
+       VCPKG_DISABLE_METRICS: "true"
+
+     steps:
+       - uses: actions/checkout@v4
+
+       - uses: lukka/get-cmake@latest
+       - name: Restore artifacts, setup vcpkg
+         uses: lukka/run-vcpkg@v11
+
+       - name: Update submodules
+         run: |
+           git rm scenes || true; git submodule update --init --recursive
+
+       - name: Configure
+         run: |
+           cmake -S . -B ./build -DCMAKE_BUILD_TYPE=Release
+       - name: Build
+         run: |
+           cmake --build ./build --config Release
+
+       - name: Test run
+         run: |
+           build/wave_tracer version 1>&2
+

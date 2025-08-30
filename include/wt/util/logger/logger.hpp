@@ -1,0 +1,420 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <string>
+#include <syncstream>
+
+#include <memory>
+#include <vector>
+#include <map>
+#include <optional>
+
+#include <atomic>
+#include <mutex>
+
+#include <wt/wt_context.hpp>
+
+#include "termcolor.hpp"
+#include "progressbar.hpp"
+
+
+namespace wt::logger {
+
+using log_verbosity_e = verbosity_e;
+
+class logger_t {
+    using endl_type = std::ostream&(std::ostream&);
+
+    static constexpr auto progress_bar_width = 34;
+
+public:
+    // synced-streams, each with its own verbosity level
+    struct osyncstreams_t {
+        std::vector<std::pair<std::osyncstream, log_verbosity_e>> ss;
+        std::vector<const std::ostream*> os_refs;
+
+        void set(const std::vector<std::pair<std::ostream*,log_verbosity_e>>& oss) {
+            bool recreate = ss.size()!=oss.size();
+            if (!recreate) {
+                for (auto i=0ul;i<oss.size();++i)
+                    if (oss[i].first!=os_refs[i]) {
+                        recreate = true; break;
+                    }
+            }
+
+            if (recreate) {
+                ss.clear();
+                os_refs.clear();
+                ss.reserve(oss.size());
+                os_refs.reserve(oss.size());
+
+                for (const auto& s : oss) {
+                    ss.emplace_back(std::osyncstream{ *s.first }, s.second);
+                    os_refs.emplace_back(s.first);
+                    if (termcolour::is_colourized(*s.first))
+                        termcolour::set_colourized(ss.back().first);
+                }
+            }
+        }
+
+        template <typename T>
+        auto& write(T&& arg, log_verbosity_e level, bool skip_sout) {
+            const auto& rng = ss | std::views::drop(skip_sout ? 1 : 0);
+            for (auto& s : rng) {
+                if (s.second>=level)
+                    s.first << std::forward<T>(arg);
+            }
+            return *this;
+        }
+        auto& write(logger_t::endl_type endl, log_verbosity_e level, bool skip_sout) {
+            const auto& rng = ss | std::views::drop(skip_sout ? 1 : 0);
+            for (auto& s : rng) {
+                if (s.second>=level)
+                    s.first << endl;
+            }
+            return *this;
+        }
+        void emit() {
+            for (auto& s : ss) {
+                s.first.flush();
+                s.first.emit();
+            }
+        }
+
+        auto& operator[](std::size_t idx) noexcept { return ss[idx]; }
+        auto begin() noexcept { return ss.begin(); }
+        auto end()   noexcept { return ss.end(); }
+    };
+
+private:
+    static thread_local osyncstreams_t sss;
+
+public:
+    struct logger_guard_t {
+        template <typename T>
+        inline auto& operator<<(T&& arg) {
+            logger->sss.write(std::forward<T>(arg), level, !sout_enabled);
+            return *this;
+        }
+        inline auto& operator<<(logger_t::endl_type endl) {
+            logger->sss.write(endl, level, !sout_enabled);
+            return *this;
+        }
+
+        inline logger_guard_t(
+                logger_t *logger,
+                std::unique_lock<std::mutex> l,
+                log_verbosity_e level,
+                bool sout_enabled = true)
+            : logger(logger), level(level), sout_enabled(sout_enabled), l(std::move(l))
+        {}
+        inline ~logger_guard_t() noexcept { if (logger) logger->end_print(); }
+        logger_guard_t(logger_guard_t&&) = default;
+    private:
+        logger_t *logger;
+        log_verbosity_e level;
+        bool sout_enabled;
+        std::unique_lock<std::mutex> l;
+    };
+
+    struct logger_progress_bar_t {
+        inline void set_progress(float p) {
+            if (logger)
+                (*logger->bars)[pbidx].set_progress(p);
+        }
+        inline void increase_max_ticks(std::size_t ticks=1) {
+            if (logger)
+                logger->pbs[pbidx].max_ticks += ticks;
+        }
+        inline void set_max_ticks(std::size_t ticks) {
+            if (logger)
+                logger->pbs[pbidx].max_ticks = ticks;
+        }
+        inline void tick() {
+            if (logger) {
+                auto& pb = logger->pbs[pbidx];
+
+                const auto max = pb.max_ticks;
+                const auto ticks = ++pb.ticks;
+                assert(max>0);
+
+                (*logger->bars)[pbidx].set_progress(ticks / (f_t)max);
+            }
+        }
+        inline void set_foreground_colour(colour col) {
+            if (logger)
+                (*logger->bars)[pbidx].set_foreground_colour(col);
+        }
+        inline void set_prefix(std::string prefix) {
+            if (logger)
+                (*logger->bars)[pbidx].set_prefix(std::move(prefix));
+        }
+        inline void set_postfix(std::string postfix) {
+            if (logger)
+                (*logger->bars)[pbidx].set_postfix(std::move(postfix));
+        }
+        inline void set_show_elapsed_time(bool v) {
+            if (logger)
+                (*logger->bars)[pbidx].set_show_elapsed_time(v);
+        }
+        inline void set_show_remaining_time(bool v) {
+            if (logger)
+                (*logger->bars)[pbidx].set_show_remaining_time(v);
+        }
+        inline void complete() {
+            if (logger)
+                logger->complete_pb(pbidx);
+        }
+        inline void detach() {
+            if (logger)
+                logger->detach_pb(pbidx);
+        }
+
+        inline logger_progress_bar_t(
+                logger_t *logger,
+                std::unique_lock<std::mutex> l,
+                std::size_t pbidx=0) 
+            : logger(logger), pbidx(pbidx), l(std::move(l))
+        {}
+        inline ~logger_progress_bar_t() noexcept {
+            if (logger)
+                logger->pbs_print();
+        }
+        logger_progress_bar_t(logger_progress_bar_t&&) = default;
+    private:
+        logger_t *logger;
+        std::size_t pbidx;
+        std::unique_lock<std::mutex> l;
+    };
+
+private:
+    std::optional<colour> col;
+    std::optional<font_style> style;
+
+    void start_print() {
+        sss.set(oss);
+
+        if (active_pbs>0 && !sout_pbs_disabled) {
+            termcolour::move_up(sss[0].first, active_pbs);
+            termcolour::erase_line(sss[0].first);
+        }
+
+        for (auto& s : sss) {
+            if (col)    termcolour::set_stream_colour(s.first, *col);
+            if (style)  termcolour::set_font_style(s.first, *style);
+        }
+    }
+    inline void end_print() {
+        if (!sout_pbs_disabled) {
+            for (std::size_t l=0;l<active_pbs;++l)
+                sss[0].first << "\n\r";
+        }
+        for (auto& s : sss)
+            s.first << termcolour::reset;
+        sss.emit();
+    }
+
+    void pbs_print() {
+        // update bars
+        if (bars && !sout_pbs_disabled) {
+            sss.set(oss);
+            bars->print_progress(&sss[0].first);
+            sss.emit();
+        }
+    }
+
+    inline void clear_pbs() {
+        pbs_print();
+
+        bars = {};
+        pbs.clear();
+        pbs_names.clear();
+
+        active_pbs = 0;
+    }
+    void complete_pb(std::size_t pbidx) {
+        for (auto it = pbs_names.begin(); it!=pbs_names.end(); ++it)
+            if (it->second==pbidx) {
+                (*bars)[pbidx].set_progress(1.f);
+                (*bars)[pbidx].mark_as_completed();
+                pbs_names.erase(it);
+                break;
+            }
+        if (pbs_names.empty()) {
+            clear_pbs();
+        }
+    }
+    void detach_pb(std::size_t pbidx) {
+        for (auto it = pbs_names.begin(); it!=pbs_names.end(); ++it)
+            if (it->second==pbidx) {
+                pbs_names.erase(it);
+                break;
+            }
+        if (pbs_names.empty()) {
+            clear_pbs();
+        }
+    }
+
+    struct bar_t {
+        std::unique_ptr<indicators::block_progress_bar_t> pb;
+
+        std::size_t max_ticks=0;
+        std::size_t ticks=0;
+        
+        f_t prev_prog = 0;
+    };
+    std::vector<bar_t> pbs;
+    std::map<std::string,std::size_t> pbs_names;
+
+    using bars_t = indicators::dynamic_progress;
+	std::unique_ptr<bars_t> bars;
+
+public:
+    explicit logger_t(std::ostream& os,
+                      std::optional<colour> col = std::nullopt,
+                      std::optional<font_style> style = std::nullopt)
+        : col(col), style(style), oss({ std::make_pair(&os, log_verbosity_e::normal) })
+    {
+        log_level = oss.front().second;
+    }
+
+    inline auto log(log_verbosity_e level) {
+        assert(level!=log_verbosity_e::quiet);
+        if (log_level<level)
+            return logger_guard_t{ nullptr, std::unique_lock<std::mutex>{}, level };
+
+        std::unique_lock l(m);
+
+        if (log_disabled)
+            return logger_guard_t{ nullptr, std::move(l), level };
+
+        start_print();
+        return logger_guard_t{ this, std::move(l), level, sout_enabled };
+    }
+
+    inline auto operator()(log_verbosity_e level = log_verbosity_e::normal) noexcept {
+        return log(level);
+    }
+    
+    inline void set_sout_level(log_verbosity_e level) noexcept {
+        std::unique_lock l(m);
+        oss[0].second = level;
+
+        if (log_level<level)
+            log_level = level;
+    }
+    inline auto get_sout_level(log_verbosity_e level) noexcept {
+        std::unique_lock l(m);
+        return oss[0].second;
+    }
+    inline void set_sout_enabled(bool enabled) noexcept {
+        sout_enabled = enabled;
+    }
+
+    inline void add_ostream(std::ostream& os, log_verbosity_e level) noexcept {
+        std::unique_lock l(m);
+        oss.emplace_back(&os, level);
+
+        if (log_level<level)
+            log_level = level;
+    }
+    inline void set_ostream_level(std::ostream& os, log_verbosity_e level) noexcept {
+        std::unique_lock l(m);
+        oss[0].second = level;
+
+        for (auto& s : oss) {
+            if (s.first==&os) {
+                s.second = level;
+                if (log_level<level)
+                    log_level = level;
+
+                return;
+            }
+        }
+        assert(false);
+    }
+    inline void remove_ostream(std::ostream& os) noexcept {
+        std::unique_lock l(m);
+        for (auto it=oss.begin();it!=oss.end();++it) {
+            if (it->first==&os) {
+                oss.erase(it);
+
+                auto ll = log_verbosity_e::quiet;
+                for (const auto& s : oss)
+                    if (ll<s.second) ll = s.second;
+                log_level = ll;
+
+                return;
+            }
+        }
+        assert(false);
+    }
+
+    void add_progress_bar(std::string name, colour col) {
+        std::unique_lock l(m);
+
+        if (!bars) 
+            bars = std::make_unique<bars_t>();
+
+		pbs.emplace_back(std::make_unique<indicators::block_progress_bar_t>(
+                col,
+                font_style::bold,
+                progress_bar_width,
+                true, true, true,
+                "", "",
+                "⎹", "⎸"
+            )
+        );
+        pbs_names.emplace(std::move(name), pbs.size()-1);
+        bars->push_back(*pbs.back().pb);
+
+        ++active_pbs;
+    }
+    void end_progress_bars_group() {
+        std::unique_lock l(m);
+        clear_pbs();
+    }
+    auto pb(const std::string &name) {
+        std::unique_lock l(m);
+
+        const auto it = pbs_names.find(name);
+        if (it==pbs_names.end())
+            throw std::runtime_error("(logger::pb) invalid progress bar");
+
+        return logger_progress_bar_t{ this, std::move(l), it->second };
+    }
+
+    void disable_log() {
+        std::unique_lock l(m);
+        log_disabled = true;
+    }
+
+    void disable_sout_progress_bars() {
+        std::unique_lock l(m);
+        sout_pbs_disabled=true;
+    }
+
+private:
+    std::vector<std::pair<std::ostream*,log_verbosity_e>> oss;
+    bool sout_enabled = true;
+    bool log_disabled = false, sout_pbs_disabled = false;
+
+    std::mutex m;
+    std::size_t active_pbs;
+
+    std::atomic<log_verbosity_e> log_level;
+};
+
+extern logger_t cout;
+extern logger_t cwarn;
+extern logger_t cerr;
+
+}

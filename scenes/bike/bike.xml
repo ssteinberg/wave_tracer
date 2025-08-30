@@ -1,0 +1,2072 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+
+<!-- Defaults, these can be set via the command line: -Darg=value -->
+
+	<default name="spp" value="16"/>
+	<default name="res" value="1024"/>
+
+<!-- Camera and Rendering Parameters -->
+
+	<integrator type="plt_bdpt">
+		<integer name="max_depth" value="16" />
+	</integrator>
+
+    <sensor type="perspective" id="camera">
+		<string name="fov_axis" value="x"/>
+
+		<!-- Main scene -->
+		<quantity name="fov" value="85°"/>
+		<transform name="to_world">
+			<rotate x="1" angle="-155.99056501966254°"/>
+			<rotate y="1" angle="-54.01709063599027°"/>
+			<rotate z="1" angle="-179.999991348578°"/>
+			<translate x="5.978367m" y="0.817505m" z="1.805977m"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+
+		<film type="array" >
+            <integer name="width" value="$res" />
+            <integer name="height" value="($res*0.75)" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D65" />
+			</response>
+		</film>
+    </sensor>
+
+
+<!-- Emitters -->
+
+	<emitter type="directional">
+		<transform name="to_world">
+		   <matrix value=" 0.586561, -0.150898, -0.795724, 10.403347m,
+		   				  -0.799779, 0.046955, -0.598455, 4.684721m,
+						   0.127668, 0.987434, -0.093143, 1.163081m,
+						   0.000000, 0.000000, 0.000000, 1.000000"/>
+		</transform>
+		<spectrum name="irradiance" blackbody="4750K">
+			<float name="scale" value="6e-3" />
+		</spectrum>
+	</emitter>
+	<shape type="rectangle">
+		<quantity name="length" value="40m" />
+		<transform name="to_world" >
+            <lookat target="4.1m,2m,1.2m"
+                    origin="30m,30m,-1m"
+                    up="1,0,0" />
+		</transform>
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0"/>
+		</bsdf>
+		<emitter type="area">
+			<spectrum name="radiance" blackbody="5000K">
+				<float name="scale" value="9e-4" />
+			</spectrum>
+		</emitter>
+	</shape>
+
+
+<!-- Bike -->
+
+	<!-- TODO: diffractive materials -->
+	<!-- <bsdf type="grating" id="mat-Wheel_Metal">
+		<float name="q" value="1" />
+		<float name="pitch" value="10" />
+                <string name="lobes" value="0, 0, .225, 0, .2" />
+
+		<boolean name="gratingInDirectionU" value="false" />
+		<float name="lobesSamplingWeight" value=".99" />
+
+		<bsdf type="surface_spm">
+			<string name="material" value="Al" />
+			<float name="q" value=".4" />
+			<float name="sigma2" value="4" />
+		</bsdf>
+	</bsdf>
+	<bsdf type="thindielectric" id="mat-Spoke_Guard">
+		<float name="intIOR" value="1.25"/>
+		<float name="q" value=".09" />
+		<float name="sigma2" value=".6" />
+
+		<float name="thicknessScale" value=".010"/>
+		<texture name="thickness" type="bitmap">
+			<path name="filename" value="textures/spoke_guard_thickness.png" />
+		</texture>
+
+		<float name="birefringence" value=".0005" />
+		<vector name="opticAxis" x=".15" y="-.04" z="-1" />
+		<float name="birefringenceIntensityScale" value="2" />
+	</bsdf> -->
+
+	<bsdf type="surface_spm" id="mat-Wheel_Metal">
+        <spectrum name="IOR" material="Al" />
+        <surface_profile type="fractal">
+            <spectrum name="roughness" constant=".1" />
+            <float name="gamma" value="3" />
+        </surface_profile>
+	</bsdf>
+	<bsdf type="twosided" id="mat-Spoke_Guard">
+	<bsdf type="diffuse" >
+		<spectrum name="reflectance" constant=".025" />
+	</bsdf>
+	</bsdf>
+
+	<bsdf type="surface_spm" id="mat-Spoke_Guard_Bump">
+		<spectrum name="IOR" constant="1.25"/>
+        <surface_profile type="gaussian">
+            <spectrum name="roughness" constant=".01" />
+        </surface_profile>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Rubber">
+		<spectrum constant=".0118" name="reflectance"/>
+	</bsdf>
+	<bsdf id="mat-Chains" scale=".9">
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Ir" />
+			<surface_profile type="gaussian">
+				<spectrum name="roughness" constant=".15" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf type="scale" id="mat-Gears">
+		<spectrum name="scale" rgb=".35,.34,.34" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".075" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf type="surface_spm" id="mat-Metal">
+        <spectrum name="IOR" material="Al" />
+        <surface_profile type="fractal">
+            <spectrum name="roughness" constant=".2" />
+            <float name="gamma" value="3" />
+        </surface_profile>
+	</bsdf>
+	<!-- TODO -->
+	<!-- <bsdf type="clearcoat" id="mat-BodyR"> -->
+		<!-- <float name="intIOR" value="1.5"/> -->
+
+		<bsdf type="scale" id="mat-BodyR">
+			<texture name="scale" type="transform">
+            	<matrix value="1,0, 0,-1" />
+				<texture bitmap="textures/Body2_DiffuseR_plt.png" />
+			</texture>
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".2" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	<!-- </bsdf> -->
+	<bsdf type="scale" id="mat-Steer_Metal">
+		<texture name="scale" type="transform">
+			<matrix value="1,0, 0,-1" />
+			<texture bitmap="textures/Linen_Diffuse.png" />
+		</texture>
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Mg" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".025" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Steer_Plastic">
+		<texture name="reflectance" type="transform">
+			<matrix value="1,0, 0,-1" />
+			<texture bitmap="textures/Linen_Diffuse.png" />
+		</texture>
+	</bsdf>
+	<!-- TODO -->
+	<!-- <bsdf type="normalmap" id="mat-Winding"> -->
+		<bsdf type="diffuse" id="mat-Winding">
+			<texture name="reflectance" type="transform">
+				<matrix value="1,0, 0,-1" />
+				<texture bitmap="textures/Linen_Diffuse.png" />
+			</texture>
+		</bsdf>
+		<!-- <texture type="bitmap">
+			<path name="filename" value="textures/Map__4_Normal_Bump.tga" />
+			<float name="gamma" value="1.0" />
+		</texture>
+	</bsdf> -->
+	<bsdf id="mat-DarkMetal" scale=".04">
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".0001" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf id="mat-Black_Metal" scale=".5">
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".01" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Wheel">
+		<texture name="reflectance" type="transform">
+			<matrix value="1,0, 0,-1" />
+			<texture bitmap="textures/Wheel_Diffuse.png" />
+		</texture>
+	</bsdf>
+	<!-- TODO -->
+	<!-- <bsdf type="bumpmap" id="mat-Tire_Tread"> -->
+		<bsdf type="diffuse" id="mat-Tire_Tread">
+			<texture name="reflectance" type="transform">
+				<matrix value="1,0, 0,-1" />
+				<texture bitmap="textures/Tire_Diffuse.png" />
+			</texture>
+		</bsdf>
+		<!-- <texture type="scale">
+			<float name="scale" value=".0015"/>
+			<texture type="bitmap">
+				<path name="filename" value="textures/Tire_Normal.png" />
+			</texture>
+		</texture>
+	</bsdf> -->
+	<bsdf type="scale" id="mat-Seat_Metal">
+		<texture name="scale" type="transform">
+			<matrix value="1,0, 0,-1" />
+			<texture bitmap="textures/Seat_Diffuse.png" />
+		</texture>
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Mg" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".01" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Leather">
+		<texture name="reflectance" type="transform">
+            <matrix value="1,0, 0,-1" />
+			<texture type="bitmap">
+				<path name="filename" value="textures/Seat_Diffuse.png" />
+			</texture>
+		</texture>
+	</bsdf>
+	<bsdf type="scale" id="mat-Main_Gear">
+		<texture name="scale" type="transform">
+			<matrix value="1,0, 0,-1" />
+			<texture bitmap="textures/Main_Gear_Diffuse.png" />
+		</texture>
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+		</bsdf>
+	</bsdf>
+	<bsdf type="surface_spm" id="mat-Front_Derailleur">
+        <spectrum name="IOR" material="Al" />
+		<surface_profile type="fractal">
+			<spectrum name="roughness" constant=".0001" />
+			<float name="gamma" value="3" />
+		</surface_profile>
+	</bsdf>
+	<bsdf type="scale" id="mat-Rear_Derailleur">
+		<texture name="scale" type="transform">
+			<matrix value="1,0, 0,-1" />
+			<texture bitmap="textures/Rear_Derailleur.png" />
+		</texture>
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".0001" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf id="mat-aux" scale=".15">
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Mg" />
+			<surface_profile type="gaussian">
+				<spectrum name="roughness" constant=".25" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+
+
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_derailleur_metal_front.ply"/>
+		<ref id="mat-Front_Derailleur" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_cables_back.ply"/>
+		<ref id="mat-Rubber" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_chain.ply"/>
+		<ref id="mat-Chains" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_chain_gears.ply"/>
+		<ref id="mat-Gears" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_metal_bits.ply"/>
+		<ref id="mat-Metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_derailleur_front.ply"/>
+		<ref id="mat-DarkMetal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_derailleur_back_arm.ply"/>
+		<ref id="mat-DarkMetal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_metal_bits_dark.ply"/>
+		<ref id="mat-Black_Metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_metal_bits_dark_front.ply"/>
+		<ref id="mat-Black_Metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_frameR.ply"/>
+		<ref id="mat-BodyR" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_steer_metal.ply"/>
+		<ref id="mat-Steer_Metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_steer_plastic.ply"/>
+		<ref id="mat-Steer_Plastic" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_handle_winding.ply"/>
+		<ref id="mat-Winding" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_dark_metal_bits.ply"/>
+		<ref id="mat-Black_Metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_wheel_back.ply"/>
+		<ref id="mat-Wheel" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_wheel_back_dark_metal.ply"/>
+		<ref id="mat-DarkMetal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_wheel_metal_rim_front.ply"/>
+		<ref id="mat-Wheel_Metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_tire_front.ply"/>
+		<ref id="mat-Tire_Tread" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_seat_metal.ply"/>
+		<ref id="mat-Seat_Metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_seat_leather.ply"/>
+		<ref id="mat-Leather" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_gear_main.ply"/>
+		<ref id="mat-Main_Gear" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_derailleur_metal_rear.ply"/>
+		<ref id="mat-Rear_Derailleur" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_plastics_front.ply"/>
+		<ref id="mat-aux" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_cables_front.ply"/>
+		<ref id="mat-Rubber" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_plastics.ply"/>
+		<ref id="mat-aux" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_plastics_seat.ply"/>
+		<ref id="mat-aux" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_metal_bits_front.ply"/>
+		<ref id="mat-Metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_wheel_front.ply"/>
+		<ref id="mat-Wheel" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_wheel_front_dark_metal.ply"/>
+		<ref id="mat-DarkMetal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_wheel_metal_rim_back.ply"/>
+		<ref id="mat-Wheel_Metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_tire_back.ply"/>
+		<ref id="mat-Tire_Tread" name="bsdf"/>
+	</shape>
+	<!-- TODO -->
+	<!-- <shape type="ply">
+		<path name="filename" value="meshes/bike_spoke_guard.ply"/>
+		<ref id="mat-Spoke_Guard" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bike_spoke_guard_bump.ply"/>
+		<ref id="mat-Spoke_Guard_Bump" name="bsdf"/>
+	</shape> -->
+
+
+
+<!-- Glass Windows -->
+
+	<!-- TODO -->
+	<bsdf type="dielectric" id="glass" >
+		<!-- <float name="extIOR" value="1" /> -->
+		<spectrum name="IOR" material="BK7" />
+
+		<!-- <float name="thickness" value=".002"/>
+		<float name="birefringenceScale" value=".0015" />
+		<texture name="birefringence" type="bitmap">
+			<path name="filename" value="textures/window_birefringence.png" />
+		</texture>
+
+		<vector name="opticAxis" x="-.1" y=".04" z=".3" /> -->
+	</bsdf>
+
+	<shape type="ply">
+		<path name="filename" value="meshes/window1.ply"/>
+		<boolean name="face_normals" value="true" />
+		<ref id="glass" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/window2.ply"/>
+		<boolean name="face_normals" value="true" />
+		<ref id="glass" name="bsdf"/>
+	</shape>
+
+	
+
+<!-- Paintings -->
+
+	<bsdf type="diffuse" id="mat-canvas">
+		<spectrum constant=".5" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-painting1">
+		<texture name="reflectance" type="transform">
+            <matrix value="1,0, 0,1" />
+			<texture bitmap="textures/canvas_cat.png" />
+		</texture>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-painting2">
+		<texture name="reflectance" type="transform">
+            <matrix value="1,0, 0,1" />
+			<texture bitmap="textures/canvas_landscape.png" />
+		</texture>
+	</bsdf>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cylinder001.ply"/>
+		<ref id="mat-canvas" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cylinder002.ply"/>
+		<ref id="mat-canvas" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Object001.ply"/>
+		<ref id="mat-canvas" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Painting001.ply"/>
+		<ref id="mat-painting1" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cylinder001.001.ply"/>
+		<ref id="mat-canvas" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cylinder002.001.ply"/>
+		<ref id="mat-canvas" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Object001.001.ply"/>
+		<ref id="mat-canvas" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Painting002.ply"/>
+		<ref id="mat-painting2" name="bsdf"/>
+	</shape>
+
+
+
+<!-- TV -->
+	
+	<bsdf type="diffuse" id="mat-TV-plastics">
+		<spectrum constant=".2" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-TV-buttons">
+		<spectrum constant=".03" name="reflectance"/>
+	</bsdf>
+	<bsdf type="surface_spm" id="mat-TV-metal">
+        <spectrum name="IOR" material="Al" />
+        <surface_profile type="fractal">
+            <spectrum name="roughness" constant=".01" />
+            <float name="gamma" value="3" />
+        </surface_profile>
+	</bsdf>
+	<bsdf type="surface_spm" id="mat-TV-screen">
+        <spectrum name="IOR" constant="1.8" />
+        <surface_profile type="gaussian">
+            <spectrum name="roughness" constant=".1" />
+        </surface_profile>
+	</bsdf>
+
+	<shape type="ply">
+		<path name="filename" value="meshes/TV.buttons.ply"/>
+		<ref id="mat-TV-buttons" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/TV.metal.ply"/>
+		<ref id="mat-TV-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/TV.plastics.ply"/>
+		<ref id="mat-TV-plastics" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/TV.screen.ply"/>
+		<ref id="mat-TV-screen" name="bsdf"/>
+	</shape>
+
+
+
+<!-- Living Room -->
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_plaid_diff.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_plaid_norm_bump_1.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).001.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_rug_skarreso_diff.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_rug_skarreso_norm_02.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).002.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_rug_skarreso_diff.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).003.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_rug_skarreso_diff.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).004.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_wood_001_diff.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_wood_001_norm.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).005.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_wood_r.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).006.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_book_4.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).007.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_book_side.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).008.ply"/>
+		<bsdf type="scale">
+			<texture name="scale" bitmap="textures/mfize_bronze_001_diff.png" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Cu" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".2" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).009.ply"/>
+		<bsdf type="twosided">
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_twigs_wood.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_twigs_wood_norm.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).010.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_flower.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_flower_norm.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).011.ply"/>
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_twigs_buds.png" />
+				</texture>
+			</bsdf>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).012.ply"/>
+		<bsdf type="dielectric">
+			<spectrum name="IOR" constant="1.3" />
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).013.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_paint_wood_001.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).014.ply"/>
+		<bsdf type="diffuse">
+			<spectrum rgb="0.69483700, 0.6930900, 0.68839200" name="reflectance"/>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).015.ply"/>
+		<bsdf type="diffuse">
+			<spectrum rgb="0.2, 0.2, 0.2" name="reflectance"/>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).017.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_book_1.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).018.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_book_3.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).019.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_book_8.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).020.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_book_10.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).021.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_book_14.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).022.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_book_15.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).023.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_book_16.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).024.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_pinecone_3.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).025.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_pinecone_2.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).026.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_pinecone_1.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).027.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_cloth_1.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).028.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_cloth_1.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_cloth_norm.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).029.ply"/>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="bitmap">
+				<path name="filename" value="textures/mfize_wood_d.png" />
+			</texture>
+		</bsdf>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).030.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_dec_pillow_4.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_norm.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).031.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_dec_pillow_2.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_norm.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).032.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_dec_pillow_3_sheep.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_norm.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).033.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_dec_pillow_1.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_norm.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Pohjanmaan_Aria_sofas_2013_V-Ray 3.50.04 (GGX).034.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/mfize_plaid_diff.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/mfize_plaid_norm_bump_1.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+
+
+
+<!-- BSDFs -->
+
+	<bsdf type="dielectric" id="mat-306">
+        <spectrum name="IOR" constant="1.35" />
+	</bsdf>
+
+	<bsdf type="surface_spm" id="mat-rail">
+        <spectrum name="IOR" material="Ir" />
+        <surface_profile type="fractal">
+            <spectrum name="roughness" constant=".2" />
+            <float name="gamma" value="3" />
+        </surface_profile>
+	</bsdf>
+
+	<bsdf type="twosided" id="default-bsdf">
+		<bsdf type="diffuse" id="default-bsdf-diffuse">
+			<spectrum rgb="0.4, 0.4, 0.4" name="reflectance"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="mat-63.001">
+		<bsdf type="diffuse" id="mat63-diffuse">
+			<spectrum rgb="0.983700, 0.930900, 0.839200" name="reflectance"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-carpet">
+		<spectrum rgb="0.300000, 0.410000, 0.440000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-305">
+		<spectrum rgb="0.400000, 0.4500000, 0.4700000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-307">
+		<spectrum rgb="0.620630, 0.620630, 0.667370" name="reflectance"/>
+	</bsdf>
+	<bsdf type="twosided" id="mat-Back_185">
+		<bsdf type="diffuse" id="mat185-diffuse">
+			<spectrum constant="1" name="reflectance"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="surface_spm" id="mat-sweethome3d_window_pane_186">
+        <spectrum name="IOR" constant="1.1" />
+        <surface_profile type="gaussian">
+            <spectrum name="roughness" constant=".01" />
+        </surface_profile>
+	</bsdf>
+	<bsdf id="mat-lamp" scale=".9">
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Ti" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".1" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf id="body_lamp_ceiling" scale=".81">
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".01" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-279">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-280">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-278">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-63">
+		<spectrum rgb="0.983700, 0.930900, 0.839200" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-119">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-166">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-20">
+		<spectrum rgb="0.571400, 0.328300, 0.044300" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-monitorLCD9_189">
+		<spectrum rgb="0.000000, 0.000000, 0.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-117">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-121">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Base_182">
+		<spectrum rgb="0.049000, 0.049000, 0.049000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-118">
+		<spectrum rgb="0.033849, 0.012167, 0.007307" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-113">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-wall_1_2">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-112">
+		<spectrum rgb="0.090000, 0.290000, 0.480000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-monitorLCD_188">
+		<spectrum rgb="0.426306, 0.405309, 0.405309" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-face_arriere_2_322">
+		<spectrum rgb="0.048000, 0.080000, 0.216000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-pages_3_316">
+		<spectrum rgb="0.768000, 0.728000, 0.632000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-face_arriere_4_314">
+		<spectrum rgb="0.800000, 0.800000, 0.800000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-face_avant_308">
+		<spectrum rgb="0.550000, 0.132000, 0.257400" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-pages_311">
+		<spectrum rgb="0.860000, 0.860000, 0.860000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-face_arriere_3_327">
+		<spectrum rgb="0.352000, 0.504000, 0.112000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-face_arriere_1_324">
+		<spectrum rgb="0.000000, 0.256000, 0.464000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-tranche_315">
+		<spectrum rgb="0.422175, 0.081523, 0.129990" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-313">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-PolyMesh_1_2_2_344">
+		<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-wire_088144225">
+		<spectrum rgb="1.000000, 0.000000, 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-face_avant_308.001">
+		<spectrum rgb="0.550000, 0.132000, 0.257400" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-pages_311.001">
+		<spectrum rgb="0.860000, 0.860000, 0.860000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-face_avant_308.002">
+		<spectrum rgb="0.150000, 0.132000, 0.7400" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-pages_311.002">
+		<spectrum rgb="0.860000, 0.860000, 0.860000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Default OBJ">
+		<spectrum rgb="1.000000, 0.000000, 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Mat_3">
+		<spectrum rgb="1.000000, 0.000000, 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Mat">
+		<spectrum rgb="1.000000, 0.000000, 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Mat_1">
+		<spectrum rgb="1.000000, 0.000000, 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Doors">
+		<texture name="reflectance" type="bitmap">
+			<path name="filename" value="textures/leon_doors.png" />
+		</texture>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Base">
+		<texture name="reflectance" type="bitmap">
+			<path name="filename" value="textures/leon_wood.png" />
+		</texture>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Stoppers">
+		<spectrum rgb="0.100000, 0.100000, 0.100000" name="reflectance"/>
+	</bsdf>
+
+
+<!-- Shapes -->
+
+	<shape type="ply">
+		<path name="filename" value="meshes/Books_LOD0.ply"/>
+		<!-- <bsdf type="normalmap"> -->
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="bitmap">
+					<path name="filename" value="textures/Books_Diffuse.png" />
+				</texture>
+			</bsdf>
+			<!-- <texture type="bitmap"> -->
+				<!-- <path name="filename" value="textures/Books_Normal.png" /> -->
+				<!-- <float name="gamma" value="1.0" /> -->
+			<!-- </texture> -->
+		<!-- </bsdf> -->
+	</shape>
+
+	<shape type="ply">
+		<path name="filename" value="meshes/Cylinder.002.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.057.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.056.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Plane_346.ply"/>
+		<ref id="mat-63.001" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/306.ply"/>
+		<ref id="mat-306" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/348.ply"/>
+		<ref id="mat-63.001" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/305.ply"/>
+		<ref id="mat-305" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/307.ply"/>
+		<ref id="mat-307" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Plane.005.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Plane.004.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Fenetre_2_222.001.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.013.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.011.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.010.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.009.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall lamp back.001.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall lamp glass.001.ply"/>
+		<ref id="mat-sweethome3d_window_pane_186" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall lamp base.001.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.008.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.007.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Plane.003.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.006.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.002.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.001.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Bord_2_254.003.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Bord_2_254.000.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Rail_haut_258.001.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Bord_2_254.001.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Bord_2_254.002.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Rail_bas_257.001.ply"/>
+		<ref id="mat-rail" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/152.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/167.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/141.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_7_34.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/monitorLCD9_189.ply"/>
+		<ref id="mat-monitorLCD9_189" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/134.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/45.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/27.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/123.ply"/>
+		<ref id="mat-121" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/119.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/220.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cable_183.ply"/>
+		<ref id="mat-Base_182" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Montant_225.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/132.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_10_40.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_3_26.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_11_43.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/173.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Rampe_13_61.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/20.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/148.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/35.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/135.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall lamp base.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/156.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/129.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/32.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/31.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/113.ply"/>
+		<ref id="mat-113" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/136.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/39.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Lampe_184.ply"/>
+		<ref id="mat-lamp" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/122.ply"/>
+		<ref id="mat-121" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/177.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/41.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/139.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/174.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/160.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/176.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/159.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Poignee_219.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/117.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall_1_2.ply"/>
+		<ref id="mat-wall_1_2" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/127.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/131.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_2_25.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Fenetre_2_222.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/179.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/175.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/180.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_4_29.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/36.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall_2_4.ply"/>
+		<ref id="mat-wall_1_2" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/145.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/121.ply"/>
+		<ref id="mat-121" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_8_37.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_12_44.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/124.ply"/>
+		<ref id="mat-121" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/166.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/140.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Bord_46.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/172.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/151.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Base_182.ply"/>
+		<ref id="mat-lamp" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/165.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_21.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall_1_3.ply"/>
+		<ref id="mat-wall_1_2" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall lamp glass.ply"/>
+		<ref id="mat-sweethome3d_window_pane_186" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/137.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/115.ply"/>
+		<ref id="mat-113" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/150.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/112.ply"/>
+		<ref id="mat-112" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/monitorLCD_188.ply"/>
+		<ref id="mat-monitorLCD_188" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/155.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/164.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/170.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/28.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/158.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/169.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/120.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_6_33.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/154.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/142.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_5_30.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/178.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/130.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/143.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/181.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/118.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/138.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Bord_1_47.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/144.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/128.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/168.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/125.ply"/>
+		<ref id="mat-121" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/153.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/133.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/23.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall lamp back.ply"/>
+		<ref id="mat-Back_185" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_1_22.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/146.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/157.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/116.ply"/>
+		<ref id="mat-113" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/24.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/163.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/114.ply"/>
+		<ref id="mat-113" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/42.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Marche_9_38.ply"/>
+		<ref id="mat-20" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/161.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/171.ply"/>
+		<ref id="mat-166" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/149.ply"/>
+		<ref id="mat-119" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/wall_2_5.ply"/>
+		<ref id="mat-wall_1_2" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/162.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/147.ply"/>
+		<ref id="mat-118" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/126.ply"/>
+		<ref id="mat-117" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_2_330.ply"/>
+		<ref id="mat-face_arriere_2_322" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_1_336.ply"/>
+		<ref id="mat-pages_3_316" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bas_tranche_1_318.ply"/>
+		<ref id="mat-face_arriere_4_314" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bas_tranche_2_321.ply"/>
+		<ref id="mat-face_arriere_4_314" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_5_340.ply"/>
+		<ref id="mat-pages_3_316" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bas_tranche_312.ply"/>
+		<ref id="mat-face_avant_308" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_311.ply"/>
+		<ref id="mat-pages_311" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_4_332.ply"/>
+		<ref id="mat-pages_3_316" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_2_335.ply"/>
+		<ref id="mat-pages_3_316" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_3_327.ply"/>
+		<ref id="mat-face_arriere_3_327" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_1_324.ply"/>
+		<ref id="mat-face_arriere_1_324" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_319.ply"/>
+		<ref id="mat-tranche_315" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_1_337.ply"/>
+		<ref id="mat-face_arriere_1_324" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bas_tranche_5_328.ply"/>
+		<ref id="mat-face_arriere_4_314" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/PolyMesh_2_1_1_345.ply"/>
+		<ref id="body_lamp_ceiling" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_4_314.ply"/>
+		<ref id="mat-face_arriere_4_314" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/313.ply"/>
+		<ref id="mat-313" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/zshelf.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_5_326.ply"/>
+		<ref id="mat-tranche_315" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_4_325.ply"/>
+		<ref id="mat-face_arriere_4_314" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_5_317.ply"/>
+		<ref id="mat-tranche_315" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bas_tranche_341.ply"/>
+		<ref id="mat-face_arriere_4_314" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_2_322.ply"/>
+		<ref id="mat-face_arriere_2_322" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/PolyMesh_1_2_2_344.ply"/>
+		<ref id="mat-PolyMesh_1_2_2_344" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bas_tranche_3_320.ply"/>
+		<ref id="mat-face_arriere_4_314" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_339.ply"/>
+		<ref id="mat-tranche_315" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_3_316.ply"/>
+		<ref id="mat-pages_3_316" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_1_329.ply"/>
+		<ref id="mat-face_arriere_1_324" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_3_331.ply"/>
+		<ref id="mat-face_arriere_3_327" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_4_338.ply"/>
+		<ref id="mat-face_arriere_4_314" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_315.ply"/>
+		<ref id="mat-tranche_315" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_310.ply"/>
+		<ref id="mat-face_avant_308" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_309.ply"/>
+		<ref id="mat-face_avant_308" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_333.ply"/>
+		<ref id="mat-pages_3_316" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_5_343.ply"/>
+		<ref id="mat-tranche_315" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_308.ply"/>
+		<ref id="mat-face_avant_308" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_3_342.ply"/>
+		<ref id="mat-face_arriere_3_327" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_2_334.ply"/>
+		<ref id="mat-face_arriere_2_322" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/bas_tranche_4_323.ply"/>
+		<ref id="mat-face_arriere_4_314" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.054.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Plane.007.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.053.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.052.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.051.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.050.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.049.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.048.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.047.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.046.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.045.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.044.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.043.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.042.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.041.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.040.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.039.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.038.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.037.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.036.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.035.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.034.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.033.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.032.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.031.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.003.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.030.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.029.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.028.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.027.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.026.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.025.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.024.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.023.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.022.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.021.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.020.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.016.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.019.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.018.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.017.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Cube.015.ply"/>
+		<ref id="default-bsdf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_310.001.ply"/>
+		<ref id="mat-face_avant_308.001" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_308.001.ply"/>
+		<ref id="mat-face_avant_308.001" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_311.001.ply"/>
+		<ref id="mat-pages_311.001" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_309.001.ply"/>
+		<ref id="mat-face_avant_308.001" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_310.002.ply"/>
+		<ref id="mat-face_avant_308.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_308.002.ply"/>
+		<ref id="mat-face_avant_308.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_311.002.ply"/>
+		<ref id="mat-pages_311.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_309.002.ply"/>
+		<ref id="mat-face_avant_308.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_arriere_310.003.ply"/>
+		<ref id="mat-face_avant_308.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/face_avant_308.003.ply"/>
+		<ref id="mat-face_avant_308.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/pages_311.003.ply"/>
+		<ref id="mat-pages_311.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/tranche_309.003.ply"/>
+		<ref id="mat-face_avant_308.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Leon Wooden Sideboard_H98x240-Doors.ply"/>
+		<ref id="mat-Doors" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Leon Wooden Sideboard_H98x240-Base.ply"/>
+		<ref id="mat-Base" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<path name="filename" value="meshes/Leon Wooden Sideboard_H98x240-Stoppers.ply"/>
+		<ref id="mat-Stoppers" name="bsdf"/>
+	</shape>
+</scene>
+

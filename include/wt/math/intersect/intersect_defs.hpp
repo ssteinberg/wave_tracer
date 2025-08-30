@@ -1,0 +1,79 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <wt/math/common.hpp>
+#include <wt/math/barycentric.hpp>
+#include <wt/math/range.hpp>
+#include <wt/math/simd/wide_vector.hpp>
+
+namespace wt::intersect {
+
+struct intersect_edge_sphere_ret_t {
+    f_t t1={},t2={};
+};
+
+struct intersect_edge_circle_ret_t {
+    int points = 0;
+    pqvec2_t u1,u2;
+    f_t t1={},t2={};
+};
+
+struct intersect_ray_tri_ret_t {
+    length_t dist = limits<length_t>::infinity();
+    barycentric_t bary;
+};
+template <std::size_t W>
+struct intersect_ray_tri_w_ret_t {
+    /** @brief Distance to intersection, or `-inf` if no intersection. */
+    length_w_t<W> result;
+    /** @brief Barycentrics. Only valid for elements where there is an intersection (`result[i]>=0`). */
+    f_w_t<W> baryx,baryy;
+};
+
+struct intersect_cone_edge_ret_t {
+    pqvec3_t p0,p1;
+    pqrange_t<> range;
+    int pts;
+};
+
+struct intersect_cone_plane_ret_t {
+    pqrange_t<> range;
+    pqvec3_t near, far;
+};
+
+struct intersect_cone_tri_ret_t {
+    length_t dist = limits<length_t>::infinity();
+    pqvec3_t p;
+};
+
+template <std::size_t W>
+struct intersect_ray_aabb_w_ret_t {
+    // intersection mask
+    b_w_t<W> mask;
+    // intersection range
+    length_w_t<W> min, max;
+};
+
+struct intersect_ball_aabb_ret_t {
+    // ball intersects AABB or its shell (includes full containment of ball in AABB or vice versa)
+    bool intersects;
+    // ball is strictly contained in the AABB
+    bool contains;
+};
+template <std::size_t W>
+struct intersect_ball_aabb_w_ret_t {
+    // ball intersects AABB or its shell (includes full containment of ball in AABB or vice versa)
+    b_w_t<W> intersects_mask;
+    // ball is strictly contained in the AABB
+    b_w_t<W> contains_mask;
+};
+
+}

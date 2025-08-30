@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- wall -->
+<shape type="rectangle">
+    <point name="p" x="-100 mm" y="-$H mm" z="$S mm" />
+    <point name="x" x="200 mm" y="0mm" z="0mm" />
+    <point name="y" x="0mm" y="(2*$H) mm" z="0mm" />
+    
+    <ref id="mat_wall_1" />
+</shape>
+
+<!-- floor -->
+<shape type="rectangle">
+    <point name="p" x="-100 mm" y="-$H mm" z="($L-100) mm" />
+    <point name="x" x="200 mm" y="0mm" z="0mm" />
+    <point name="y" x="0mm" y="0mm" z="($S-$L+100) mm" />
+    
+    <ref id="mat_floor" />
+</shape>
+
+<!-- screen -->
+<shape type="rectangle">
+    <point name="p" x="(-$D/2) mm" y="-$H mm" z="$Z mm" />
+    <point name="x" x="($D/2 - ($W+$Wslit)/2) mm" y="0mm" z="0mm" />
+    <point name="y" x="0mm" y="(2*$H) mm" z="0mm" />
+
+    <boolean name="enabled" value="$screen" />
+
+    <ref id="mat_screen_1" />
+</shape>
+<shape type="rectangle">
+    <point name="p" x="(-$W/2+$Wslit/2) mm" y="-$H mm" z="$Z mm" />
+    <point name="x" x="($W-$Wslit) mm" y="0mm" z="0mm" />
+    <point name="y" x="0mm" y="(2*$H) mm" z="0mm" />
+
+    <boolean name="enabled" value="$screen" />
+
+    <ref id="mat_screen_1" />
+</shape>
+<shape type="rectangle">
+    <point name="p" x="(($W+$Wslit)/2) mm" y="-$H mm" z="$Z mm" />
+    <point name="x" x="($D/2 - ($W+$Wslit)/2) mm" y="0mm" z="0mm" />
+    <point name="y" x="0mm" y="(2*$H) mm" z="0mm" />
+
+    <boolean name="enabled" value="$screen" />
+
+    <ref id="mat_screen_1" />
+</shape>
+
+<!-- reflectors -->
+<shape type="rectangle">
+    <point name="p" x="(-$Wa/2) mm" y="-$Hr mm" z="$Za mm" />
+    <point name="x" x="$Wa mm" y="0mm" z="0 mm" />
+    <point name="y" x="0mm" y="(2*$Hr) mm" z="0mm" />
+
+    <boolean name="enabled" value="($reflectors && $Wa>0)" />
+
+    <ref id="mat_screen_2" />
+</shape>
+
+<shape type="rectangle">
+    <point name="p" x="(-($Wa/2+$Ws+$Wb)) mm" y="-$Hr mm" z="$Zb mm" />
+    <point name="x" x="$Wb mm" y="0mm" z="($Za-$Zb) mm" />
+    <point name="y" x="0mm" y="(2*$Hr) mm" z="0mm" />
+
+    <boolean name="enabled" value="$reflectors" />
+
+    <ref id="mat_screen_2" />
+</shape>
+<shape type="rectangle">
+    <point name="p" x="($Wa/2+$Ws) mm" y="-$Hr mm" z="$Za mm" />
+    <point name="x" x="$Wb mm" y="0mm" z="($Zb-$Za) mm" />
+    <point name="y" x="0mm" y="(2*$Hr) mm" z="0mm" />
+
+    <boolean name="enabled" value="$reflectors" />
+
+    <ref id="mat_screen_2" />
+</shape>

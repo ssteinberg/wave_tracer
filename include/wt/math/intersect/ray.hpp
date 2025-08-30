@@ -1,0 +1,363 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <optional>
+
+#include "intersect_defs.hpp"
+
+#include <wt/math/common.hpp>
+#include <wt/math/barycentric.hpp>
+#include <wt/math/range.hpp>
+
+#include <wt/math/simd/wide_vector.hpp>
+#include <wt/math/shapes/aabb.hpp>
+#include <wt/math/shapes/ray.hpp>
+
+namespace wt::intersect {
+
+/**
+ * @brief Ray-plane intersection test.
+ * @tparam line if TRUE performs a line-plane intersection
+ */
+template <bool line=false>
+inline std::optional<f_t> intersect_ray_plane(
+        const pqvec3_t& p0,
+        const pqvec3_t& p1,
+        const pqvec3_t& pp,
+        const dir3_t& n) noexcept {
+    const auto dn = m::dot(p1-p0,n);
+    if (dn==zero)
+        return std::nullopt;
+    const auto d = (f_t)(m::dot(pp-p0,n) / dn);
+    if (line || d>=zero)
+        return d;
+    return std::nullopt;
+}
+inline std::optional<f_t> intersect_line_plane(
+        const pqvec3_t& p0,
+        const pqvec3_t& p1,
+        const pqvec3_t& pp,
+        const dir3_t& n) noexcept {
+    return intersect_ray_plane<true>(p0,p1, pp, n);
+}
+
+/**
+ * @brief Ray-triangle intersection test.
+ *        Möller–Trumbore ray-triangle intersection, 1997, 10.1080/10867651.1997.10487468
+ */
+inline bool test_ray_tri(const ray_t& r, 
+                         const pqvec3_t& a,
+                         const pqvec3_t& b,
+                         const pqvec3_t& c,
+                         const pqrange_t<>& range = pqrange_t<>::positive(),
+                         const f_t tol = 0) noexcept {
+    const auto ray = r.o-a;
+    const auto e1 = b-a;
+    const auto e2 = c-a;
+    const auto crs = m::cross(r.d, e2);
+    auto det = m::dot(e1, crs);
+    if (det==zero)
+        return false;
+
+    const auto recp_det = f_t(1)/det;
+
+    const auto q = m::cross(ray, e1);
+    const auto qe2 = m::dot(q, e2);
+
+    const auto bx = m::dot(ray, crs);
+    const auto by = m::dot(r.d, q);
+
+    return bx*recp_det>=-tol && by*recp_det>=-tol && 
+           (bx+by)*recp_det<=1+tol && 
+           range.contains(qe2*recp_det);
+}
+
+/**
+ * @brief Ray-triangle intersection test. Wide test.
+ *        Möller–Trumbore ray-triangle intersection, 1997, 10.1080/10867651.1997.10487468
+ *
+ * @param ro ray origins
+ * @param rd ray directions
+ * @param a first vertices of triangles
+ * @param b second vertices of triangles
+ * @param c third vertices of triangles
+ */
+template <std::size_t W>
+inline auto test_ray_tri(const pqvec3_w_t<W>& ro,
+                         const vec3_w_t<W>& rd,
+                         const pqvec3_w_t<W>& a,
+                         const pqvec3_w_t<W>& b,
+                         const pqvec3_w_t<W>& c,
+                         const pqrange_t<>& range = pqrange_t<>::positive()) noexcept {
+    const auto ray = ro-a;
+    const auto e1 = b-a;
+    const auto e2 = c-a;
+    const auto crs = m::cross(rd, e2);
+    auto det = m::dot(e1, crs);
+
+    const auto recp_det = f_w_t<W>::one() / det;
+
+    // valid discriminant
+    auto valid = det != det.zero();
+
+    const auto q = m::cross(ray, e1);
+    const auto qe2 = m::dot(q, e2);
+
+    const auto betax = m::dot(ray, crs);
+    const auto betay = m::dot(rd, q);
+    const auto bxy = betax + betay;
+    const auto z = qe2 * recp_det;
+
+    // barycentrics test
+    const auto cond1 = (betax * recp_det) >= zero;
+    const auto cond2 = (betay * recp_det) >= zero;
+    const auto cond3 = (bxy * recp_det) <= f_w_t<W>::one();
+    // range check
+    const auto cond4 = z >= length_w_t<W>(range.min);
+    const auto cond5 = z <= length_w_t<W>(range.max);
+
+    return valid && cond1 && cond2 && cond3 && cond4 && cond5;
+}
+
+/**
+ * @brief Ray-rectangle intersection test. a-b, b-c, c-d, d-a are the edges of the rectangle.
+ */
+inline bool test_ray_rectangle(const ray_t& r, 
+                               const pqvec3_t& a,
+                               const pqvec3_t& b,
+                               const pqvec3_t& c,
+                               const pqvec3_t& d,
+                               const pqrange_t<>& range = pqrange_t<>::positive()) noexcept {
+    return test_ray_tri(r, a,b,c, range) || test_ray_tri(r, a,c,d, range);
+}
+
+
+/**
+ * @brief Ray-triangle intersection.
+ *        Möller–Trumbore ray-triangle intersection, 1997, 10.1080/10867651.1997.10487468
+ */
+inline std::optional<intersect_ray_tri_ret_t> intersect_ray_tri(
+        const ray_t& r, 
+        const pqvec3_t& a,
+        const pqvec3_t& b,
+        const pqvec3_t& c,
+        const pqrange_t<>& range = pqrange_t<>::positive()) noexcept {
+    const auto ray = r.o-a;
+    const auto e1 = b-a;
+    const auto e2 = c-a;
+    const auto crs = m::cross(r.d, e2);
+    auto det = m::dot(e1, crs);
+    if (det==zero)
+        return std::nullopt;
+
+    const f_t sdet = det>=zero?1:-1;
+    det *= sdet;
+
+    const auto q = m::cross(ray, e1);
+    const auto qe2 = sdet*m::dot(q, e2);
+
+    auto bx = sdet*m::dot(ray, crs);
+    auto by = sdet*m::dot(r.d, q);
+    if (bx>=zero && by>=zero && bx+by<=det && (det*range).contains(qe2)) {
+        const auto recp_det = f_t(1)/det;
+        const auto dist = qe2 * recp_det;
+
+        const auto bux = bx * recp_det;
+        const auto buy = by * recp_det;
+
+        return intersect_ray_tri_ret_t{ dist, barycentric_t(vec2_t{ 1-(bux+buy),bux }) };
+    }
+
+    return std::nullopt;
+}
+
+/**
+ * @brief Ray-triangle intersection. Returns distance or -inf if no intersection. Wide test.
+ *        Möller–Trumbore ray-triangle intersection, 1997, 10.1080/10867651.1997.10487468
+ *
+ * @param ro ray origins
+ * @param rd ray directions
+ * @param a first vertices of triangles
+ * @param b second vertices of triangles
+ * @param c third vertices of triangles
+ */
+template <std::size_t W>
+inline intersect_ray_tri_w_ret_t<W> intersect_ray_tri(
+        const pqvec3_w_t<W>& ro,
+        const vec3_w_t<W>& rd,
+        const pqvec3_w_t<W>& a,
+        const pqvec3_w_t<W>& b,
+        const pqvec3_w_t<W>& c,
+        const pqrange_t<>& range = pqrange_t<>::positive()) noexcept {
+    const auto ray = ro-a;
+    const auto e1 = b-a;
+    const auto e2 = c-a;
+    const auto crs = m::cross(rd, e2);
+    auto det = m::dot(e1, crs);
+
+    const auto recp_det = f_w_t<W>::one() / det;
+
+    // valid discriminant
+    auto valid = det != det.zero();
+
+    const auto q = m::cross(ray, e1);
+    const auto qe2 = m::dot(q, e2);
+
+    const auto betax = m::dot(ray, crs);
+    const auto betay = m::dot(rd, q);
+    const auto z = qe2 * recp_det;
+
+    const auto baryy = betax * recp_det;
+    const auto baryz = betay * recp_det;
+    const auto baryx = f_w_t<W>::one() - (baryy + baryz);
+
+    // barycentrics test
+    const auto cond1 = baryx >= zero;
+    const auto cond2 = baryy >= zero;
+    const auto cond3 = baryz >= zero;
+    // range check
+    const auto cond4 = range.contains(z);
+
+    valid &= cond1 && cond2 && cond3 && cond4;
+    const auto result = m::selectv(-length_w_t<W>::inf(), z, valid);
+
+    return {
+        .result = result,
+        .baryx = baryx, .baryy = baryy
+    };
+}
+
+/**
+ * @brief Ray-AABB intersection test. Returns intersection range. If range is empty, no intersection occurs.
+ */
+inline pqrange_t<> intersect_ray_aabb(
+        const ray_t& r,
+        aabb_t aabb,
+        const pqrange_t<>& range = pqrange_t<>::positive()) noexcept {
+    const auto aabb_min = m::mix(aabb.min, aabb.max, r.invd<vec3_t{ 0 });
+    const auto aabb_max = m::mix(aabb.max, aabb.min, r.invd<vec3_t{ 0 });
+    const auto a = (aabb_min - r.o) * r.invd;
+    const auto b = (aabb_max - r.o) * r.invd;
+
+    // avoid NaNs
+    const auto contains = r.o <= aabb.max && r.o >= aabb.min;
+    const vec3b_t d0 = glm::equal(vec3_t{ r.d }, vec3_t{ 0 });
+    const auto inf = m::mix(
+            -pqvec3_t::infinity(), 
+            +pqvec3_t::infinity(), 
+            contains
+        );
+
+    const auto t1 = m::mix(a, -inf, d0);
+    const auto t2 = m::mix(b, +inf, d0);
+
+    return pqrange_t<>{ m::max_element(t1), m::min_element(t2) } & range;
+}
+
+/**
+ * @brief Ray-AABB intersection test. Returns intersection mask and range. Wide test.
+ *
+ * @param ro ray origins
+ * @param rd ray directions
+ * @param rinvd reciprocals of ray directions
+ * @param aabb_min minimum of AABBs
+ * @param aabb_max maximum of AABBs
+ */
+template <std::size_t W>
+inline intersect_ray_aabb_w_ret_t<W> intersect_ray_aabb(
+        const pqvec3_w_t<W>& ro,
+        const vec3_w_t<W>& rd,
+        const vec3_w_t<W>& rinvd,
+        const pqvec3_w_t<W>& aabb_min,
+        const pqvec3_w_t<W>& aabb_max,
+        const pqrange_t<>& range = pqrange_t<>::positive()) noexcept {
+    const auto min = m::selectv(aabb_min, aabb_max, rinvd<zero);
+    const auto max = m::selectv(aabb_max, aabb_min, rinvd<zero);
+    const auto a = (min - ro) * rinvd;
+    const auto b = (max - ro) * rinvd;
+
+    // avoid NaNs
+    const auto contains_mask = (ro <= aabb_max) & (ro >= aabb_min);
+    const auto d0 = rd == zero;
+    const auto inf = m::selectv(-pqvec3_w_t<W>::inf(),
+                                +pqvec3_w_t<W>::inf(),
+                                contains_mask);
+
+    const auto t1 = m::selectv(a, -inf, d0);
+    const auto t2 = m::selectv(b, +inf, d0);
+    const auto rmin = m::max(t1.x(), t1.y(), t1.z(), length_w_t<W>{ range.min });
+    const auto rmax = m::min(t2.x(), t2.y(), t2.z(), length_w_t<W>{ range.max });
+
+    return {
+        .mask = rmin <= rmax,
+        .min = rmin,
+        .max = rmax
+    };
+}
+
+/**
+ * @brief Ray-AABB intersection test. Returns intersection range. If range is empty, no intersection occurs.
+ *        Fast variant: ignores NaNs.
+ */
+inline pqrange_t<> intersect_ray_aabb_fast(
+        const ray_t& r,
+        aabb_t aabb,
+        const pqrange_t<>& range = pqrange_t<>::positive()) noexcept {
+    const auto aabb_min = m::mix(aabb.min, aabb.max, r.invd<vec3_t{ 0 });
+    const auto aabb_max = m::mix(aabb.max, aabb.min, r.invd<vec3_t{ 0 });
+    const auto t1 = (aabb_min - r.o) * r.invd;
+    const auto t2 = (aabb_max - r.o) * r.invd;
+
+    return pqrange_t<>{ m::max_element(t1), m::min_element(t2) } & range;
+}
+
+/**
+ * @brief Ray-AABB intersection test. Returns intersection range. If range is empty, no intersection occurs.
+ *        Fast variant: ignores NaNs.
+ *
+ * @param ro ray origins
+ * @param rinvd reciprocals of ray directions
+ * @param aabb_min minimum of AABBs
+ * @param aabb_max maximum of AABBs
+ */
+template <std::size_t W>
+inline intersect_ray_aabb_w_ret_t<W> intersect_ray_aabb_fast(
+        const pqvec3_w_t<W>& ro,
+        const vec3_w_t<W>& rinvd,
+        const pqvec3_w_t<W>& aabb_min,
+        const pqvec3_w_t<W>& aabb_max,
+        const pqrange_t<>& range = pqrange_t<>::positive()) noexcept {
+    const auto min = m::selectv(aabb_min, aabb_max, bvec3_w_t<W>{ rinvd });
+    const auto max = m::selectv(aabb_max, aabb_min, bvec3_w_t<W>{ rinvd });
+
+    const auto t1 = (min - ro) * rinvd;
+    const auto t2 = (max - ro) * rinvd;
+    const auto rmin = m::max(t1.x(), t1.y(), t1.z(), length_w_t<W>{ range.min });
+    const auto rmax = m::min(t2.x(), t2.y(), t2.z(), length_w_t<W>{ range.max });
+
+    return {
+        .mask = rmin <= rmax,
+        .min = rmin,
+        .max = rmax
+    };
+}
+
+/**
+ * @brief Ray-AABB intersection test. 
+ */
+inline bool test_ray_aabb(const ray_t& r,
+                          aabb_t aabb,
+                          const pqrange_t<>& range = pqrange_t<>::positive()) noexcept {
+    const auto ret = intersect_ray_aabb(r,aabb);
+    return !ret.empty() && ret.overlaps(range);
+}
+
+}

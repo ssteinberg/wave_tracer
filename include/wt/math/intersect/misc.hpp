@@ -1,0 +1,249 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <optional>
+#include <utility>
+
+#include "intersect_defs.hpp"
+
+#include <wt/math/common.hpp>
+#include <wt/math/shapes/aabb.hpp>
+
+
+namespace wt::intersect {
+
+/**
+ * @brief Edge-edge intersection test
+ */
+inline std::optional<pqvec2_t> intersect_edge_edge(
+        pqvec2_t u1, pqvec2_t u2,
+        pqvec2_t v1, pqvec2_t v2) noexcept {
+    const auto d = (u1.x-u2.x)*(v1.y-v2.y) - (u1.y-u2.y)*(v1.x-v2.x);
+    const auto t = ((u1.x-v1.x)*(v1.y-v2.y) - (u1.y-v1.y)*(v1.x-v2.x)) / d;
+    if (t>=0 && t<=1)
+        return u1 + t*(u2-u1);
+
+    return std::nullopt;
+}
+
+/**
+ * @brief Edge-ellipsoid intersection test
+ */
+inline intersect_edge_sphere_ret_t intersect_edge_ellipsoid(
+        pqvec3_t point0,
+        pqvec3_t point1,
+        const pqvec3_t& ellipsoid_centre,
+        const dir3_t& x, const dir3_t& y, const pqvec3_t& ellipsoid_axes) noexcept {
+    const auto z = m::cross(x,y);
+
+    point0 -= ellipsoid_centre;
+    point1 -= ellipsoid_centre;
+
+    const auto p0 = vec3_t{ pqvec3_t{ m::dot(point0,x), m::dot(point0,y), m::dot(point0,z) } / ellipsoid_axes };
+    const auto p1 = vec3_t{ pqvec3_t{ m::dot(point1,x), m::dot(point1,y), m::dot(point1,z) } / ellipsoid_axes };
+
+    const auto d = p1-p0;
+    const auto a = m::dot(d,d);
+    const auto b = m::dot(p0,d)*2;
+    const auto c = m::dot(p0,p0)-1;
+
+    const auto det2 = b*b - 4*a*c;
+    if (det2<=0 || a==0) return {};
+
+    const auto recp_a = 1/a;
+    const auto det = m::sqrt(det2);
+    auto t1 = f_t(.5)*(-b - m::sign(b)*det)*recp_a;
+    auto t2 = t1==0 ? -b*recp_a : c*recp_a/t1;
+    if (t1>t2)
+        std::swap(t1,t2);
+
+    return {
+        .t1 = t1,
+        .t2 = t2,
+    };
+}
+
+/**
+ * @brief Edge-ellipse (axis-aligned) intersection test
+ * @tparam line If TRUE perform line-ellipse test (line that passes through points p0,p1)
+ */
+template <bool line=false>
+inline intersect_edge_circle_ret_t intersect_edge_ellipse(
+        pqvec2_t point0,
+        pqvec2_t point1,
+        const length_t rx, const length_t ry) noexcept {
+    const auto scale = pqvec2_t{ rx,ry };
+    const auto recp_scale = f_t(1) / scale;
+    const auto p0 = u::to_num(point0 * recp_scale);
+    const auto p1 = u::to_num(point1 * recp_scale);
+    
+    const auto d = p1-p0;
+
+    const auto a = m::dot(d,d);
+    const auto b = 2*m::dot(p0,d);
+    const auto c = m::dot(p0,p0) - 1;
+
+    const auto det2 = b*b - 4*a*c;
+    if (det2<=0 || a==0) return {};
+
+    const auto recp_a = 1/a;
+    const auto det = m::sqrt(det2);
+    auto t1 = f_t(.5)*(-b - m::sign(b)*det)*recp_a;
+    auto t2 = t1==0 ? -b*recp_a : c*recp_a/t1;
+    if (t1>t2)
+        std::swap(t1,t2);
+
+    const bool u1valid = line || (t1>=0&&1>=t1);
+    const bool u2valid = line || (t2>=0&&1>=t2);
+
+    intersect_edge_circle_ret_t ret;
+    ret.t1=t1;
+    ret.t2=t2;
+
+    if (!u1valid && !u2valid) {
+        ret.points = 0;
+        return ret;
+    }
+
+    if (u1valid && u2valid) {
+        ret.points = 2;
+        ret.u1 = (p0+t1*d) * scale;
+        ret.u2 = (p0+t2*d) * scale;
+        return ret;
+    }
+    
+    ret.points = 1;
+    ret.u1 = (u1valid ? p0+t1*d : p0+t2*d) * scale;
+    ret.t1 = u1valid ? t1 : t2;
+    ret.t2 = u1valid ? t2 : t1;
+    return ret;
+}
+inline intersect_edge_circle_ret_t intersect_edge_circle(
+        const pqvec2_t& p0,
+        const pqvec2_t& p1,
+        const length_t r) noexcept {
+    return intersect_edge_ellipse(p0, p1, r,r);
+}
+inline intersect_edge_circle_ret_t intersect_line_ellipse(
+        const pqvec2_t& p0,
+        const pqvec2_t& p1,
+        const length_t rx, const length_t ry) noexcept {
+    return intersect_edge_ellipse<true>(p0, p1, rx, ry);
+}
+inline intersect_edge_circle_ret_t intersect_line_circle(
+        const pqvec2_t& p0,
+        const pqvec2_t& p1,
+        const length_t r) noexcept {
+    return intersect_edge_ellipse<true>(p0, p1, r,r);
+}
+
+inline bool test_edge_plane(const pqvec3_t& p0,
+                            const pqvec3_t& p1,
+                            const pqvec3_t& pp,
+                            const dir3_t& n) noexcept {
+    const auto d = m::dot(pp-p0,n);
+    return d>=0*u::m && m::dot(p1-p0,n)>=d;
+}
+
+/**
+ * @brief Returns the intersection point between a plane and an edge.
+ * @param p0 first edge point
+ * @param p1 second edge point
+ * @param pp a plane point
+ * @param n plane normal
+ */
+inline std::optional<pqvec3_t> intersect_edge_plane(
+        const pqvec3_t& p0,
+        const pqvec3_t& p1,
+        const pqvec3_t& pp,
+        const dir3_t& n) noexcept {
+    const auto d0 = m::dot(pp-p0,n);
+    const auto d1 = m::dot(pp-p1,n);
+    const auto E = p1-p0;
+    const auto E_dot_N = m::dot(E,n);
+
+    if (m::sign(d0)==m::sign(d1) || E_dot_N==0*u::m)
+        return std::nullopt;
+
+    const auto d = d0 / E_dot_N;
+    if (d>=0&&1>=d)
+        return p0 + d*E;
+    return std::nullopt;
+}
+
+
+namespace detail {
+
+inline bool test_aabb_tri_sat(const pqvec3_t& v0, 
+                              const pqvec3_t& v1, 
+                              const pqvec3_t& v2, 
+                              const pqvec3_t& extents, 
+                              const vec3_t& axis) noexcept {
+    auto p0 = m::dot(v0, axis);
+    auto p1 = m::dot(v1, axis);
+    auto p2 = m::dot(v2, axis);
+
+    auto r = extents.x * m::abs(m::dot(dir3_t{ 1, 0, 0 }, axis)) +
+             extents.y * m::abs(m::dot(dir3_t{ 0, 1, 0 }, axis)) +
+             extents.z * m::abs(m::dot(dir3_t{ 0, 0, 1 }, axis));
+
+    auto maxP = m::max(p0, m::max(p1, p2));
+    auto minP = m::min(p0, m::min(p1, p2));
+
+    return !(m::max(-maxP, minP) > r);
+}
+
+}
+
+// From https://bronsonzgeb.com/index.php/2021/05/29/gpu-mesh-voxelizer-part-2/
+inline bool test_aabb_tri(const aabb_t &aabb,
+                          pqvec3_t a,
+                          pqvec3_t b,
+                          pqvec3_t c) noexcept {
+    const auto centre = aabb.centre();
+    const auto extent = aabb.extent();
+    a -= centre;
+    b -= centre;
+    c -= centre;
+
+    const auto ab = m::normalize(b-a);
+    const auto bc = m::normalize(c-b);
+    const auto ca = m::normalize(a-c);
+
+    const auto a00 = vec3_t{ .0, -ab.z, ab.y };
+    const auto a01 = vec3_t{ .0, -bc.z, bc.y };
+    const auto a02 = vec3_t{ .0, -ca.z, ca.y };
+
+    const auto a10 = vec3_t{ ab.z, .0, -ab.x };
+    const auto a11 = vec3_t{ bc.z, .0, -bc.x };
+    const auto a12 = vec3_t{ ca.z, .0, -ca.x };
+
+    const auto a20 = vec3_t{ -ab.y, ab.x, .0 };
+    const auto a21 = vec3_t{ -bc.y, bc.x, .0 };
+    const auto a22 = vec3_t{ -ca.y, ca.x, .0 };
+
+    return 
+        detail::test_aabb_tri_sat(a,b,c, extent, a00) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, a01) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, a02) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, a10) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, a11) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, a12) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, a20) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, a21) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, a22) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, vec3_t{ 1,0,0 }) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, vec3_t{ 0,1,0 }) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, vec3_t{ 0,0,1 }) &&
+        detail::test_aabb_tri_sat(a,b,c, extent, m::cross(ab, bc));
+}
+
+}

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+	<default name="spp" value="1024"/>
+	<default name="res" value="1920"/>
+	<default name="white" value="D50"/>
+
+	<integrator type="plt_path" >
+		<string name="direction" value="backward" />
+		<integer name="max_depth" value="32" />
+	</integrator>
+
+	<sensor type="perspective" polarimetric="true" id="camera">
+		<string name="fov_axis" value="y" />
+		<quantity name="fov" value="25°" />
+		<transform name="to_world" >
+			<lookat origin="7.45999 m, 0.25 m, 4.71817 m" target="-2.80873 m, 0.25 m, 2.68425 m" up="0,0,1" />
+		</transform>
+
+		<integer name="samples" value="$spp" />
+
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="(round($res*1440/1920))" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="$white" />
+			</response>
+		</film>
+	</sensor>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/light.ply" />
+		<bsdf type="diffuse">
+			<spectrum name="reflectance" constant=".1"/>
+		</bsdf>
+		<emitter type="area">
+			<spectrum name="radiance" blackbody="5000K">
+				<float name="scale" value="5e-3" />
+			</spectrum>
+		</emitter>
+	</shape>
+
+
+	<bsdf type="twosided" id="Room" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant=".3"/>
+			<bsdf type="diffuse" >
+				<spectrum name="reflectance" constant="1"/>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RoomBack" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1"/>
+			<bsdf type="diffuse" >
+				<spectrum name="reflectance" constant="1"/>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="Table" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1"/>
+			<bsdf type="diffuse" >
+				<texture type="bitmap" name="reflectance">
+					<path value="textures/wood2.png"/>
+				</texture>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="normalmap" id="CC">
+        <texture type="bitmap">
+            <path value="textures/Calibrite_Colorchecker_Normal.png" />
+            <string name="colour_encoding" value="linear" />
+        </texture>
+		<bsdf type="diffuse">
+			<texture type="bitmap" name="reflectance">
+				<path value="textures/Calibrite_Colorchecker_BaseColor.png"/>
+			</texture>
+		</bsdf>
+	</bsdf>
+
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<boolean name="face_normals" value="true" />
+		<path value="models/room.ply" />
+		<ref id="Room" />
+	</shape>
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<boolean name="face_normals" value="true" />
+		<path value="models/room_back.ply" />
+		<ref id="RoomBack" />
+	</shape>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<boolean name="face_normals" value="true" />
+		<path value="models/table.ply" />
+		<ref id="Table" />
+	</shape>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/stand.ply" />
+		<bsdf type="diffuse">
+			<spectrum name="reflectance" rgb=".25,.2,.1"/>
+		</bsdf>
+	</shape>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/colourchecker.ply" />
+		<ref id="CC" />
+	</shape>
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/colourchecker2.ply" />
+		<ref id="CC" />
+	</shape>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/sphere.ply" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="F2" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".0" />
+			</surface_profile>
+		</bsdf>
+	</shape>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/dragon.ply" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Au" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".035" />
+			</surface_profile>
+		</bsdf>
+	</shape>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/bar1.ply" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Au" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".01" />
+			</surface_profile>
+		</bsdf>
+	</shape>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/bar2.ply" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Ag" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".1" />
+			</surface_profile>
+		</bsdf>
+	</shape>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/bar3.ply" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Cu" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".225" />
+			</surface_profile>
+		</bsdf>
+	</shape>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1m" />
+		<path value="models/bar4.ply" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Co" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".025" />
+			</surface_profile>
+		</bsdf>
+	</shape>
+
+
+</scene>

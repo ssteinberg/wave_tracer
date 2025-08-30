@@ -1,0 +1,240 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <string>
+
+#include <wt/texture/texture.hpp>
+#include <wt/texture/quantity.hpp>
+
+#include <wt/math/common.hpp>
+#include <wt/interaction/surface_profile/surface_profile.hpp>
+
+namespace wt::surface_profile {
+
+using fractalT_t = quantity<isq::area[square(u::mm)]>;
+
+namespace fractal_profile_details {
+
+static constexpr f_t max_GGX_alpha = .75;                    // nothing beyond this makes the slightest of sense
+static constexpr fractalT_t maxT = m::sqr(70 * u::mm);     // equivalent to minimal roughness of about alpha=0.0005
+
+static constexpr inline fractalT_t roughness_to_T(f_t alpha, const Wavenumber auto meank) noexcept {
+    // Aims to match GGX roughness with gamma=3 at 550nm wavelength, normal incidence.
+    
+    const f_t alpha2 = m::sqr(m::clamp<f_t>(alpha, 0, max_GGX_alpha));
+    return m::min<fractalT_t>(maxT, (1-alpha2) / (4*m::sqr(meank)*alpha2));
+}
+static constexpr inline surface_profile_t::rms2_t roughness_to_sigmah2(f_t alpha, const Wavenumber auto meank) noexcept {
+    // Aims to match GGX roughness with gamma=3 at 550nm wavelength, normal incidence.
+    
+    const f_t alpha2 = m::sqr(m::clamp<f_t>(alpha, 0, max_GGX_alpha));
+    return m::sqr(2*meank)/(1-alpha2);
+}
+static constexpr inline f_t T_to_roughness(f_t T, const Wavenumber auto meank) noexcept {
+    return f_t(1) / m::sqrt(1 + 4*m::sqr(meank)*T);
+}
+
+static constexpr inline auto roughness_to_alpha(f_t alpha) noexcept {
+    return m::sqr(alpha / f_t(9.));
+}
+
+}
+
+/**
+ * @brief Surface with fractal statistics (aka K-Correlation model).
+ *        Implements sampling and evaluation.
+ *
+ *        Surface statistics are parametrized by either of:
+ *        1. Perceptual roughness and \f$ \gamma \f$ (log-log space slope of the fractal profile); in the optical regime the perceptual roughness is parameterized such that it produces a lobe shape similar to a classical microfacet surface with a GGX NDF (and matches GGX when \f$ \gamma=3 \f$).
+ *        2. Or, by surface correlation length squared (T), RMS surface roughness (\f$ \sigma_h \f$) and \f$ \gamma \f$.
+ */
+class fractal_t final : public surface_profile_t {
+private:
+    bool roughness_parametrized;
+    f_t gamma;
+    std::shared_ptr<texture::texture_t> roughness_tex;
+    std::unique_ptr<texture::quantity_t<fractalT_t>> T_tex;
+    std::unique_ptr<texture::quantity_t<rms_t>> sigmah_tex;
+
+    [[nodiscard]] inline auto sigma2_normalized(const auto& T, const wavenumber_t k) const noexcept {
+        const auto x = (f_t)(1 + k*k * T);
+        const auto p = gamma==3 ? x : m::pow(x, (gamma-1)/2);
+        return 1/(1 - f_t(1)/p);
+    }
+
+    struct params_t {
+        fractalT_t T;
+        f_t sigma2_norm;
+        f_t alpha;
+    };
+    [[nodiscard]] inline auto fractal_params(const texture_query_t& query) const noexcept {
+        constexpr auto meank = wavelen_to_wavenum(550 * u::nm);
+
+        const auto k = query.k;
+
+        if (roughness_parametrized) {
+            const auto roughness = roughness_tex->f(query).x;
+            const auto T = fractal_profile_details::roughness_to_T(roughness, meank);
+            const auto sigma2_norm = this->sigma2_normalized(T, k);
+            return params_t{
+                .T = T,
+                .sigma2_norm = sigma2_norm,
+                .alpha = fractal_profile_details::roughness_to_alpha(roughness),
+            };
+        } else {
+            const auto T = T_tex->f(query);
+            const auto sigmah2 = m::sqr(sigmah_tex->f(query));
+            const auto sigma2_norm = this->sigma2_normalized(T, k);
+            return params_t{
+                .T = T,
+                .sigma2_norm = sigma2_norm,
+                .alpha = (f_t)(sigmah2 * square(u::mm)),
+            };
+        }
+    }
+
+    template <QuantityOf<inverse(isq::length)> Qz>
+    [[nodiscard]] inline f_t psd(const params_t& params,
+                                 const qvec2<Qz>& z, 
+                                 const Wavenumber auto& k) const noexcept {
+        const auto x = 1 + params.T*m::dot(z,z);
+        const auto p = gamma==3 ? (f_t)(x*x) : m::pow((f_t)x, (gamma+1)/2);
+        const auto f = 1/p;
+        return params.sigma2_norm * (f_t)(m::inv_two_pi * k*k * (gamma-1) * params.T * f);
+    }
+
+public:
+    fractal_t(std::string id,
+              f_t gamma, 
+              std::unique_ptr<texture::quantity_t<fractalT_t>>&& T_tex,
+              std::unique_ptr<texture::quantity_t<rms_t>>&& sigmah_tex) noexcept 
+        : surface_profile_t(std::move(id)),
+          roughness_parametrized(false),
+          gamma(gamma), 
+          T_tex(std::move(T_tex)),
+          sigmah_tex(std::move(sigmah_tex))
+    {}
+    fractal_t(std::string id,
+              f_t gamma, 
+              std::shared_ptr<texture::texture_t>&& roughness_tex) noexcept 
+        : surface_profile_t(std::move(id)),
+          roughness_parametrized(true),
+          gamma(gamma), 
+          roughness_tex(std::move(roughness_tex))
+    {}
+
+    /**
+     * @brief Variance of the surface profile.
+     */
+    [[nodiscard]] variance_t variance(const texture_query_t& query) const noexcept override {
+        return 1 / fractal_params(query).T;
+    }
+
+    /**
+     * @brief RMS roughness of the surface profile.
+     */
+    [[nodiscard]] rms_t rms_roughness(const texture_query_t& query) const noexcept override {
+        return 1 / m::sqrt(fractal_params(query).T);
+    }
+
+    /**
+     * @brief Fraction of scatter contained in specular term.
+     * @param k wavenumber
+     */
+    [[nodiscard]] f_t alpha(const dir3_t& wi,
+                            const dir3_t& wo,
+                            const texture_query_t& query) const noexcept override {
+        const auto& k = query.k;
+        const auto params = fractal_params(query);
+        const auto a = m::sqr((m::abs(wi.z)+m::abs(wo.z)) * (f_t)(k*u::mm)) * params.alpha;
+        return m::exp(-a);
+    }
+    /**
+     * @brief Fraction of scatter contained in specular term.
+     * @param k wavenumber
+     */
+    [[nodiscard]] f_t alpha(const dir3_t& wi,
+                            const texture_query_t& query) const noexcept override {
+        return alpha(wi, wi, query);
+    }
+
+    [[nodiscard]] bool is_delta_only(wavenumber_t k) const noexcept override {
+        if (roughness_parametrized) {
+            const auto rmv = roughness_tex->mean_value(k);
+            return rmv ? *rmv==0 : false;
+        } else {
+            const auto tmv = T_tex->mean_value(k);
+            return tmv ? *tmv==zero : false;
+        }
+    }
+    
+    /**
+     * @brief Returns true for profiles that make use of the surface interaction footprint data
+     */
+    [[nodiscard]] bool needs_interaction_footprint() const noexcept override {
+        return roughness_parametrized ?
+            roughness_tex->needs_interaction_footprint() :
+            T_tex->needs_interaction_footprint() || sigmah_tex->needs_interaction_footprint();
+    }
+
+    /**
+     * @brief Evaluates the fractal lobe power spectral density (PSD).
+     */
+    [[nodiscard]] f_t psd(const dir3_t& wi,
+                          const dir3_t& wo,
+                          const texture_query_t& query) const noexcept override {
+        const auto& k = query.k;
+        const auto params = fractal_params(query);
+
+        const auto z = k * (vec2_t{ wi } + vec2_t{ wo });
+        return psd(params, z, k);
+    }
+
+    /**
+     * @brief Samples a scattered direction.
+     */
+    [[nodiscard]] surface_profile_sample_ret_t sample(
+            const dir3_t& wi,
+            const texture_query_t& query,
+            sampler::sampler_t& sampler) const noexcept override;
+
+    /**
+     * @brief Provides the sampling density. 
+     */
+    [[nodiscard]] f_t pdf(const dir3_t& wi, 
+                          const dir3_t& wo,
+                          const texture_query_t& query) const noexcept override {
+        const auto& k = query.k;
+        const auto params = fractal_params(query);
+
+        const auto zeta_k = vec2_t{ wi } + vec2_t{ wo };
+        const auto f_k = m::length(zeta_k);
+        const auto s = m::sqrt(m::max<f_t>(0,1-m::sqr(wi.z)));
+
+        const f_t phi_max = f_k==0 || s==0 ?
+            m::pi :
+            m::acos(m::clamp<f_t>((m::sqr(f_k) + m::sqr(s) - 1)/(2*f_k*s), -1,1)).numerical_value_in(u::ang::rad);
+
+        const auto zeta = zeta_k*k;
+        const auto psd = this->psd(params, zeta, k);
+        const auto w   = m::inv_pi * phi_max;
+        const auto pdf = w>f_t(1e-2) ? 1/w * m::abs(wo.z) * psd : 0;
+
+        return (f_t)pdf;
+    }
+
+    [[nodiscard]] scene::element::info_t description() const override;
+
+public:
+    static std::unique_ptr<surface_profile_t> load(std::string id, scene::loader::loader_t* loader, const scene::loader::node_t& node, const wt::wt_context_t &context);
+};
+
+}

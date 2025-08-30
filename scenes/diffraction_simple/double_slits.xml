@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+	<default name="spp" value="32"/>
+	<default name="res" value="1024"/>
+	
+	<default name="screen" value="true"/>
+	<default name="reflectors" value="false"/>
+	
+	<default name="db_min" value="-18"/>
+	<default name="db_max" value="25"/>
+
+	<default name="screenIOR" value="(1,100i)"/>
+
+	<default name="L" value="-500" />
+	<default name="Lscale" value="1633" />
+
+	<default name="S" value="50" />
+	<default name="E" value="5" />
+	<default name="extent" value="250" />
+
+	<default name="D" value="12" />
+	<default name="H" value="20" />
+	<default name="Hr" value="20" />
+	<default name="Z" value="-15" />
+
+	<default name="lambda" value=".05"/>
+	<default name="W" value=".65" />
+	<default name="Wslit" value=".35" />
+
+	<default name="Za" value="-2.5" />
+	<default name="Zb" value="-1.5" />
+	<default name="Wa" value="0" />
+	<default name="Ws" value=".8" />
+	<default name="Wb" value="2.2" />
+
+	<default name="optical_overview" value="false"/>
+	<default name="pattern" value="true"/>
+
+
+	<integrator type="plt_bdpt" >
+		<integer name="max_depth" value="16" />
+	</integrator>
+
+
+	<!-- sensors -->
+
+	<sensor type="virtual_plane" id="pattern">
+		<boolean name="enabled" value="($pattern==true && $optical_overview==false)" />
+
+		<transform name="to_world">
+			<lookat origin="0mm, 0mm, ($S-.0001) mm" target="0mm, 0mm, $E mm" up="0,-1,0"/>
+		</transform>
+
+		<quantity name="extent" value="$extent mm, ($extent/4) mm" />
+		<quantity name="alpha" value=".001°" />
+		<integer name="samples" value="$spp" />
+		
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="$res/4" />
+			
+			<float name="rfilter_scale" value=".05" />
+			<response type="monochromatic">
+				<spectrum type="discrete" wavelength="$lambda mm" />
+				<tonemap type="dB">
+					<range value="$db_min .. $db_max" />
+				</tonemap>
+			</response>
+		</film>
+	</sensor>
+
+	<sensor type="perspective" id="optical_sensor">
+		<boolean name="enabled" value="($optical_overview==true)" />
+
+		<quantity name="fov" value="35°"/>
+		<transform name="to_world">
+			<lookat origin="-50mm, 100mm, -100mm" target="0mm, -10mm, ($S/2) mm" up="0,1,0"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+
+		<boolean name="ray_trace_only" value="true" />
+		
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="$res" />
+			
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D50" />
+			</response>
+		</film>
+	</sensor>
+
+	<sensor type="perspective">
+		<boolean name="enabled" value="($optical_overview==false && $pattern==false)" />
+
+		<quantity name="fov" value="35°"/>
+		<transform name="to_world">
+			<lookat origin="-70mm, 140mm, -160mm" target="0mm, -10mm, ($S/2) mm" up="0,1,0"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+		
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="$res" />
+			
+			<response type="monochromatic">
+				<spectrum type="discrete" wavelength="$lambda mm" />
+				<tonemap type="dB">
+					<range value="$db_min .. $db_max" />
+					<string name="colourmap" value="Turbo" />
+				</tonemap>
+			</response>
+		</film>
+	</sensor>
+
+
+	<!-- emitters -->
+
+	<emitter type="spot" id="source">
+		<transform name="to_world">
+			<lookat origin="0mm, 0mm, $L mm" target="0mm, 0mm, 0mm"/>
+		</transform>
+		<quantity name="beam_width" value=".1°" />
+		<quantity name="cutoff_angle" value=".2°" />
+		<spectrum name="radiant_intensity" type="discrete" wavelength="$lambda mm" value="$Lscale" />
+	</emitter>
+
+	<!-- emitters for optical preview -->
+
+	<emitter type="directional">
+		<transform name="to_world">
+            <lookat target="0m,0m,0m"
+                    origin="-2m,3.5m,-1m"
+                    up="1,0,0" />
+		</transform>
+		<spectrum name="irradiance" blackbody="5750K">
+			<float name="scale" value="1e-6" />
+		</spectrum>
+	</emitter>
+	<emitter type="directional">
+		<transform name="to_world">
+            <lookat target="0m,0m,0m"
+                    origin="-1m,4m,1m"
+                    up="1,0,0" />
+		</transform>
+		<spectrum name="irradiance" blackbody="6500K">
+			<float name="scale" value="6e-5" />
+		</spectrum>
+	</emitter>
+
+
+	<!-- materials -->
+	
+	<bsdf type="twosided" id="mat_screen_1" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" constant="$screenIOR"/>
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".3" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="mat_floor" >
+		<bsdf type="composite" >
+			<bin wavelength_range="300nm .. 800nm">
+				<bsdf type="diffuse" >
+					<spectrum name="reflectance" rgb="0.8, 0.5, 0.35" />
+				</bsdf>
+			</bin>
+			<bin wavelength_range="1um .. 1m">
+				<bsdf type="diffuse" >
+					<spectrum name="reflectance" constant="0.1" />
+				</bsdf>
+			</bin>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="mat_wall_1" >
+        <bsdf type="diffuse" >
+            <spectrum name="reflectance" type="composite">
+                <bin wavelength_range="300nm .. 800nm">
+					<spectrum rgb="0.539479, 0.539479, 0.539480" />
+                </bin>
+                <bin wavelength_range="1um .. 1m">
+					<spectrum constant="0.9" />
+                </bin>
+            </spectrum>
+        </bsdf>
+	</bsdf>
+
+
+	<!-- geometry -->
+
+	<include path="bits/geometry.xml" />
+
+</scene>

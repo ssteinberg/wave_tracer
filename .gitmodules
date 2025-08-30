@@ -1,0 +1,55 @@
+
+[submodule "deps/glm"]
+	path = deps/glm
+	url = https://github.com/g-truc/glm
+[submodule "deps/tinybvh"]
+	path = deps/tinybvh
+	url = https://git.uwaterloo.ca/shlomist/tinybvh
+[submodule "deps/tinyobjloader"]
+	path = deps/tinyobjloader
+	url = https://github.com/tinyobjloader/tinyobjloader
+[submodule "deps/miniply"]
+	path = deps/miniply
+	url = https://github.com/vilya/miniply
+[submodule "deps/avir"]
+	path = deps/avir
+	url = https://github.com/avaneev/avir
+[submodule "deps/tinycolormap"]
+	path = deps/tinycolormap
+	url = https://github.com/yuki-koyama/tinycolormap
+[submodule "deps/magic_enum"]
+	path = deps/magic_enum
+	url = https://github.com/Neargye/magic_enum
+[submodule "deps/function2"]
+	path = deps/function2
+	url = https://github.com/Naios/function2
+[submodule "deps/sockpp"]
+	path = deps/sockpp
+	url = https://github.com/fpagliughi/sockpp
+[submodule "deps/gcem"]
+	path = deps/gcem
+	url = https://github.com/kthohr/gcem
+[submodule "deps/mp-units"]
+	path = deps/mp-units
+	url = https://github.com/mpusz/mp-units
+[submodule "deps/tinyexpr-plusplus"]
+	path = deps/tinyexpr-plusplus
+	url = https://git.uwaterloo.ca/shlomist/tinyexpr-plusplus
+[submodule "deps/GitHash"]
+	path = deps/GitHash
+	url = https://github.com/Svalorzen/GitHash
+[submodule "deps/libcerf"]
+	path = deps/libcerf
+	url = https://jugit.fz-juelich.de/mlz/libcerf
+[submodule "deps/CLI11"]
+	path = deps/CLI11
+	url = https://github.com/CLIUtils/CLI11
+[submodule "deps/imgui"]
+	path = deps/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "deps/implot"]
+	path = deps/implot
+	url = https://github.com/epezent/implot
+[submodule "deps/imgui_toggle"]
+	path = deps/imgui_toggle
+	url = https://github.com/cmdwtf/imgui_toggle

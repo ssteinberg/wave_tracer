@@ -1,0 +1,113 @@
+/*
+ *
+ * wave tracer
+ * Copyright  Shlomi Steinberg
+ * Authors:  Umut Emre, Shlomi Steinberg
+ *
+ * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+ *
+ */
+
+#pragma once
+
+#include <string>
+#include <chrono>
+#include <fstream>
+
+#include <utility>
+#include <optional>
+#include <memory>
+
+#include <wt/math/defs.hpp>
+#include <wt/util/concepts.hpp>
+
+
+namespace wt::stats {
+
+struct stat_collector_flags_t {
+    bool print_throughput = true;   // when applicable print events/time stats
+    bool ignore_when_empty = true;  // do not print when no data was collected
+};
+
+/**
+ * @brief Formats integral data types for stats printing. Avoids very long numbers by using metric suffixes.
+ */
+template <typename T>
+inline std::optional<std::pair<f_t,std::string>> stat_value_with_suffix(T i) noexcept {
+    if constexpr (!std::is_integral_v<T>)
+        return {};
+
+    static constexpr std::pair<char,std::size_t> suffixes[] = {
+        { 'T',1000000000000 },
+        { 'G',1000000000 },
+        { 'M',1000000 },
+        { 'k',1000 },
+    };
+
+    for (const auto& p : suffixes) {
+        const auto cutoff = p.second;
+        if (i>cutoff)
+            return std::make_pair(i / f_t(p.second), std::string{ p.first });
+    }
+    return {};
+}
+
+template <typename R, typename P>
+inline auto format_stat_throughput(const std::chrono::duration<R,P>& mean_time) noexcept {
+    using namespace std::chrono_literals;
+
+    std::string ret;
+    if (mean_time>0ns) {
+        // print total evens/sec count
+        const auto hz = 1/std::chrono::duration<double,std::ratio<1,1>>(mean_time).count();
+        const auto throughput_and_suffix = stat_value_with_suffix((std::size_t)hz);
+        
+        if (hz>1000 && throughput_and_suffix)
+            ret += std::format("{:.2f}{}hz", throughput_and_suffix->first, throughput_and_suffix->second);
+        else 
+            ret += std::format("{:.2f}hz", hz);
+    }
+
+    return ret;
+}
+
+class stat_collector_t {
+    friend class stat_collector_registry_t;
+
+    virtual std::ostream& output(std::ostream&) const = 0;
+    virtual std::ostream& output(std::ofstream&) const = 0;
+    
+    virtual stat_collector_t& operator+=(const stat_collector_t& rhs) = 0;
+    [[nodiscard]] virtual std::unique_ptr<stat_collector_t> zero() const = 0; 
+
+public:
+    static constexpr auto print_indent = 4;
+    static constexpr auto name_label_maxw = 32;
+
+protected:
+    explicit stat_collector_t(std::string name, stat_collector_flags_t flags) noexcept
+        : flags(flags), name(std::move(name)) 
+    {}
+
+protected:
+    stat_collector_flags_t flags = {};
+
+public:
+    const std::string name;
+
+    virtual ~stat_collector_t() noexcept {}
+
+    [[nodiscard]] virtual bool is_empty() const noexcept = 0;
+
+    // pretty printer for formatted values
+    friend std::ostream& operator<<(std::ostream& os, const wt::stats::stat_collector_t& stat) {
+        return stat.output(os);
+    }
+
+    // prints unformatted "name,bin,value" tuples (as a CSV entry)
+    friend std::ostream& operator<<(std::ofstream& os, const wt::stats::stat_collector_t& stat) {
+        return stat.output(os);
+    }
+};
+
+}  // namespace wt

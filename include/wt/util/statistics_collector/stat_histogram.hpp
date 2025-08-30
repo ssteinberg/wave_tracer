@@ -1,0 +1,182 @@
+/*
+ *
+ * wave tracer
+ * Copyright  Shlomi Steinberg
+ * Authors:  Umut Emre, Shlomi Steinberg
+ *
+ * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+ *
+ */
+
+#pragma once
+
+#include <string>
+#include <array>
+#include <algorithm>
+#include <iterator>
+#include <functional>
+
+#include <wt/math/common.hpp>
+#include <wt/math/range.hpp>
+#include <wt/util/concepts.hpp>
+
+#include "stat_collector.hpp"
+
+
+namespace wt::stats {
+
+namespace stat_histogram {
+
+struct stats_t {
+    double mean, stddev;
+};
+
+extern void pretty_print_histogram(std::ostream& os,
+                                   const std::string& label,
+                                   const std::function<std::string(std::size_t)>& bin_to_label,
+                                   const std::size_t* values,
+                                   std::size_t count,
+                                   const stats_t& stats);
+
+}
+
+class stat_histogram_generic_t : public stat_collector_t {
+    using stat_collector_t::stat_collector_t;
+
+public:
+    [[nodiscard]] virtual range_t<std::size_t> get_range() const noexcept = 0;
+    [[nodiscard]] virtual std::vector<std::size_t> get_bins() const noexcept = 0;
+};
+
+/**
+ * @brief Histogram to count frequency of values appearing in uniformly distributed bins in a given range. 
+ *        NOT thread-safe.
+ */
+template <std::size_t N>
+class stat_histogram_t final : public stat_histogram_generic_t {
+    using T = std::size_t;
+
+private:
+    T start, end;
+    // bins 0 and N+1 reserved for under and overflow values
+    std::array<std::size_t, N+2> bins = {};
+    std::array<T, N+1> bin_lowerbounds = {};
+
+    std::size_t samples_count{};
+    double val_sum{};
+    double val2_sum{};
+
+    [[nodiscard]] auto extract_statistics() const noexcept {
+        return stat_histogram::stats_t{
+            .mean = val_sum / samples_count,
+            .stddev = m::sqrt(
+                    (val2_sum*samples_count - m::sqr(val_sum)) / 
+                    (samples_count * (samples_count-1))
+                ),
+        };
+    }
+
+    [[nodiscard]] inline std::size_t index_of(T value) const noexcept {
+        if (value < start)
+            return 0;
+        const auto it = std::upper_bound(bin_lowerbounds.cbegin(), bin_lowerbounds.cend(), value);
+        return std::distance(bin_lowerbounds.cbegin(), it);
+    }
+
+    std::ostream& output(std::ostream& os) const override {
+        if (this->flags.ignore_when_empty && is_empty())
+            return os;
+
+        std::function<std::string(std::size_t)> bin_to_label = [this](std::size_t bin) {
+                std::stringstream ss;
+                ss << std::setprecision(2) << m::mix(start,end,bin/f_t(N));
+                return std::move(ss).str();
+            };
+        stat_histogram::pretty_print_histogram(os, this->name, 
+                                               bin_to_label,
+                                               bins.data(), N+2,
+                                               extract_statistics());
+
+        return os;
+    }
+
+    std::ostream& output(std::ofstream& fs) const override {
+        if (this->flags.ignore_when_empty && bins == std::array<std::size_t, N + 2>{})
+            return fs;
+
+        for (std::size_t i = 0; i <= N+1; ++i) {
+            const auto bin = i==0   ? "(-∞," + std::to_string(bin_lowerbounds[i]) + ")" :
+                             i==N+1 ? "[" + std::to_string(bin_lowerbounds[i-1]) + ",+∞)" :
+                             "[" + std::to_string(bin_lowerbounds[i-1]) + "," + std::to_string(bin_lowerbounds[i]) + ")";
+            fs << name << ", \"" 
+               << bin << "\", " 
+               << std::format("{:d}",bins[i]) 
+               << std::endl;
+        }
+
+        return fs;
+    }
+
+    stat_collector_t& operator+=(const stat_collector_t& rhs) override {
+        const auto& rhs_hist = dynamic_cast<const stat_histogram_t&>(rhs);
+        for (std::size_t i = 0; i < N + 2; ++i) {
+            bins[i] += rhs_hist.bins[i];
+        }
+        samples_count += rhs_hist.samples_count;
+        val_sum += rhs_hist.val_sum;
+        val2_sum += rhs_hist.val2_sum;
+        return *this;
+    }
+
+    [[nodiscard]] std::unique_ptr<stat_collector_t> zero() const override {
+        return std::make_unique<stat_histogram_t<N>>(name, start, end, flags); 
+    }
+
+public:
+    /**
+     * @brief Histogram with range [start, end), bins are uniformly distributed 
+     * between start and end. Includes underflow and overflow bins automatically.
+     * @param traversal_mode inclusive start value of histogram range
+     * @param end non-inclusive end value 
+     */
+    stat_histogram_t(std::string name, T start, T end,
+                     stat_collector_flags_t flags = {}) noexcept
+        : stat_histogram_generic_t(std::move(name), flags), start(start), end(end)
+    {
+        assert(end>start);
+        
+        constexpr auto is_fp = std::is_floating_point_v<T>;
+        using Fp = std::conditional_t<is_fp, T, f_t>;
+
+        const auto step = (end-start)/Fp(N);
+        for (auto i=0ul;i<N+1;++i) {
+            const auto x = step*i + (is_fp ? 0 : Fp(.5));
+            const auto v = i==N ? end : (start + (T)x);
+            bin_lowerbounds[i] = v;
+        }
+    }
+    stat_histogram_t(std::string name, T start, stat_collector_flags_t flags = {}) noexcept
+        : stat_histogram_t(std::move(name), start, start+N, flags)
+    {}
+
+    [[nodiscard]] range_t<std::size_t> get_range() const noexcept override { return {start,end }; }
+    [[nodiscard]] std::vector<std::size_t> get_bins() const noexcept override {
+        return { bins.begin(), bins.end() };
+    }
+    [[nodiscard]] bool is_empty() const noexcept override {
+        return samples_count==0;
+    }
+
+    void increment_count_of(T value) noexcept {
+        const auto bin_index = index_of(value);
+        assert(bin_index==N+1 || bin_lowerbounds[bin_index]>value);
+        bins[bin_index] += 1;
+
+        ++samples_count;
+        const auto val_dbl = (double)value;
+        val_sum += val_dbl;
+        val2_sum += m::sqr(val_dbl);
+    }
+};
+
+}  // namespace wt

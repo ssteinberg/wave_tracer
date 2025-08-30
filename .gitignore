@@ -1,0 +1,26 @@
+/build
+/debug
+/debugOg
+/release
+/profile
+/docsbuild
+
+*.o
+/compile_commands.json
+/*cppcheck-build-dir
+/.cache
+mipmap_cache
+.env
+
+/renders
+
+/public_repo
+
+/vtune/
+/*.sh
+
+# for vscode debugging 
+.vscode/launch.json
+
+perf_stats.csv
+log.txt

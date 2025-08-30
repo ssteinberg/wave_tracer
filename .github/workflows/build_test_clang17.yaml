@@ -1,0 +1,58 @@
+name: (Ubuntu latest clang-17) Build and Test
+on:
+   push:
+     tags:
+       - "*"
+     paths:
+       - src/**
+       - include/**
+     branches: [main]
+permissions:
+   contents: read
+
+env:
+  BUILD_TYPE: Release
+  CLANG: 17
+
+jobs:
+  build_clang:
+     name: Test build and compilation
+
+     timeout-minutes: 200
+     runs-on: ubuntu-latest
+     env:
+       VCPKG_ROOT: "vcpkg"
+       VCPKG_DISABLE_METRICS: "true"
+
+     steps:
+       - uses: actions/checkout@v4
+
+       - uses: lukka/get-cmake@latest
+       - name: Restore artifacts, setup vcpkg
+         uses: lukka/run-vcpkg@v11
+
+       - name: Install clang-17
+         run: |
+           wget https://apt.llvm.org/llvm.sh && \
+           chmod u+x llvm.sh && \
+           sudo ./llvm.sh $CLANG
+       - name: Install build deps
+         run: |
+           sudo apt-get install libltdl-dev
+       - name: Install OpenGL deps
+         uses: ./.github/actions/ubuntu_install_opengl_deps
+
+       - name: Update submodules
+         run: |
+           git rm scenes || true; git submodule update --init --recursive
+
+       - name: Configure
+         run: |
+           CC=/usr/bin/clang-$CLANG CXX=/usr/bin/clang++-$CLANG cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
+       - name: Build
+         run: |
+           CC=/usr/bin/clang-$CLANG CXX=/usr/bin/clang++-$CLANG cmake --build build -j4
+
+       - name: Test run
+         run: |
+           build/wave_tracer version 1>&2

@@ -1,0 +1,259 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <string>
+
+#include <wt/math/common.hpp>
+#include <wt/math/shapes/ray.hpp>
+#include <wt/math/frame.hpp>
+#include <wt/math/rotation.hpp>
+
+#include <wt/math/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/matrix_inverse.hpp>
+#include <glm/gtx/transform.hpp>
+
+#include <wt/math/type_traits.hpp>
+
+#include <cassert>
+#include <wt/util/concepts.hpp>
+#include <wt/util/assert.hpp>
+
+namespace wt {
+
+struct transform_point_t {};
+static constexpr auto transform_point = transform_point_t{};
+
+struct transform_vector_t {};
+static constexpr auto transform_vector = transform_vector_t{};
+
+template <FloatingPoint Fp=f_t>
+class transform_generic_t {
+public:
+    using mat4_t = mat4<Fp>;
+    using mat3_t = mat3<Fp>;
+
+    using v3_t  = vec3<Fp>;
+    using v4_t  = vec4<Fp>;
+    using pqv3_t = qvec3<quantity<isq::length[u::m],Fp>>;
+    using d3_t  = dirvec3<Fp>;
+    using angle_type = quantity<angular::angle[u::ang::rad],Fp>;
+
+private:
+    // TODO: matrices with partial units
+
+    mat4_t m = mat4_t(Fp(1));      // transform
+    mat4_t m_invT = mat4_t(Fp(1)); // inverse transpose of transform
+    
+    explicit transform_generic_t(const mat4_t& m, const mat4_t& m_invT)
+        : m(m), m_invT(m_invT)
+    {
+        // sanity
+        assert_iszero(m::determinant(m*m::transpose(m_invT)) - 1);
+    }
+
+    static transform_generic_t translate(const v3_t &translate) noexcept {
+        return transform_generic_t{ glm::translate(translate) };
+    }
+
+public:
+    constexpr transform_generic_t() : m(Fp(1)), m_invT(Fp(1)) {}
+    explicit transform_generic_t(const mat4_t& m)
+        : transform_generic_t(m,glm::inverseTranspose(m))
+    {}
+    transform_generic_t(const transform_generic_t&) = default;
+    transform_generic_t& operator=(const transform_generic_t&) = default;
+
+    [[nodiscard]] inline auto transpose() const noexcept {
+        return transform_generic_t{ m::transpose(m), m::transpose(m_invT) };
+    }
+    [[nodiscard]] inline auto inverse_transpose() const noexcept {
+        return transform_generic_t{ m_invT, m };
+    }
+    [[nodiscard]] inline auto inverse() const noexcept {
+        return transform_generic_t{ m_invT, m }.transpose();
+    }
+
+    /**
+     * @brief Transforms a 3-dimensional unitless vector as a vector (w=0 in homogeneous coordinates).
+     */
+    [[nodiscard]] inline auto operator()(const v3_t& v, transform_vector_t) const noexcept {
+        const auto u = m * v4_t{ v.x,v.y,v.z,0 };
+        return v3_t{ u.x,u.y,u.z };
+    }
+
+    /**
+     * @brief Transforms a 3-dimensional length vector as a point (w=1 in homogeneous coordinates).
+     */
+    template <QuantityVectorWithRep<Fp> QV>
+        requires (element_count_v<QV> == 3)
+    [[nodiscard]] inline auto operator()(const QV& v, transform_point_t) const noexcept {
+        using QV4 = qvec4<vector_element_type_t<QV>>;
+        const auto u = m * QV4{ v.x,v.y,v.z,1*u::m };
+        return QV{ u.x,u.y,u.z };
+    }
+    /**
+     * @brief Transforms a 3-dimensional length vector as a vector (w=0 in homogeneous coordinates).
+     */
+    template <QuantityVectorWithRep<Fp> QV>
+        requires (element_count_v<QV> == 3)
+    [[nodiscard]] inline auto operator()(const QV& v, transform_vector_t) const noexcept {
+        using QV4 = qvec4<vector_element_type_t<QV>>;
+        const auto u = m * QV4{ v.x,v.y,v.z,0*u::m };
+        return QV{ u.x,u.y,u.z };
+    }
+    /**
+     * @brief Applies the inverse-transpose of this transform to a 3-dimensional direction.
+     */
+    [[nodiscard]] inline auto operator()(const d3_t& v) const noexcept {
+        return m::normalize(inverse_transpose()(v3_t{ v }, transform_vector));
+    }
+
+    /**
+     * @brief Transforms and re-orthogonalizes a frame.
+     */
+    [[nodiscard]] inline auto operator()(const frame_t& frame) const noexcept {
+        // transform and re-orthogonalize
+        const auto n = (*this)(frame.n);
+        auto t = (*this)(frame.t);
+
+        auto b = m::normalize(m::cross(n,t));
+        t = m::normalize(m::cross(b,n));
+
+        const bool flip_handness = m::determinant(mat3_t(m))*frame.handness() < 0;
+        if (flip_handness)
+            b =-b;
+
+        return frame_t{
+            .t = t,
+            .b = b,
+            .n = n,
+        };
+    }
+
+    [[nodiscard]] inline auto operator()(const ray_t& ray) const noexcept {
+        const auto d = (*this)(ray.d);
+        const auto o = (*this)(ray.o, transform_point);
+        return ray_t{ o,d };
+    }
+
+    inline transform_generic_t& operator*=(const transform_generic_t& t) noexcept {
+        m*=t.m;
+        m_invT*=t.m_invT;
+        return *this;
+    }
+    inline auto operator*(const transform_generic_t& t) const noexcept {
+        return transform_generic_t{ m*t.m,m_invT*t.m_invT };
+    }
+
+    [[nodiscard]] inline bool operator==(const transform_generic_t& t) const noexcept {
+        return m==t.m;
+    }
+    [[nodiscard]] inline bool operator!=(const transform_generic_t& t) const noexcept {
+        return !(*this==t);
+    }
+
+    [[nodiscard]] inline const auto& matrix() const noexcept { return m; }
+    [[nodiscard]] inline const auto& matrix_inverse_transpose() const noexcept { return m_invT; }
+
+    /**
+     * @brief Explicit cast to a different floating-point type `S`.
+     */
+    template <FloatingPoint S>
+    [[nodiscard]] explicit operator transform_generic_t<S>() const noexcept {
+        using MS = transform_generic_t<S>::mat4_t;
+        return transform_generic_t<S>((MS)matrix());
+    }
+
+    std::string description() const noexcept {
+        return std::format("{}",m);
+    }
+
+public:
+    static transform_generic_t rotate(d3_t from, d3_t to) noexcept {
+        auto R = mat4_t{ util::rotation_matrix(from,to) };
+        R[3][3] = 1;
+
+        return transform_generic_t{ R };
+    }
+    static transform_generic_t rotate(v3_t axis, angle_type angle) noexcept {
+        return transform_generic_t{ glm::rotate(angle.numerical_value_in(u::ang::rad), axis) };
+    }
+    static transform_generic_t translate(const pqv3_t &translate) noexcept {
+        return transform_generic_t{ 
+            glm::translate(u::to_m(translate)) 
+        };
+    }
+    static transform_generic_t scale(const v3_t &scale) noexcept {
+        return transform_generic_t{ glm::scale(scale) };
+    }
+    static transform_generic_t lookat(const pqv3_t &origin, 
+                              const pqv3_t &target, 
+                              const v3_t &up) noexcept {
+        const auto d = m::normalize(target-origin);
+        const auto l = m::normalize(m::cross(up, d));
+        const auto u = m::cross(d, l);
+
+        const auto o = u::to_m(origin);
+
+        mat4_t m;
+        m[0][0]=l.x;   m[0][1]=l.y;   m[0][2]=l.z;   m[0][3]=0;
+        m[1][0]=u.x;   m[1][1]=u.y;   m[1][2]=u.z;   m[1][3]=0;
+        m[2][0]=d.x;   m[2][1]=d.y;   m[2][2]=d.z;   m[2][3]=0;
+        m[3][0]=o.x;   m[3][1]=o.y;   m[3][2]=o.z;   m[3][3]=1;
+        return transform_generic_t{ m };
+    }
+    
+    static transform_generic_t to_frame(const frame_t& f) noexcept {
+        return from_frame(f).transpose();
+    }
+    static transform_generic_t from_frame(const frame_t& f) noexcept {
+        mat4_t m(
+            f.t.x, f.b.x, f.n.x, 0,
+            f.t.y, f.b.y, f.n.y, 0,
+            f.t.z, f.b.z, f.n.z, 0,
+            0, 0, 0, 1
+        );
+        return transform_generic_t{ m };
+    }
+
+    // infinite far plane
+    static transform_generic_t perspective(
+            const angle_t fov, 
+            const Fp aspect,
+            const Fp znear) noexcept {
+        const Fp h = m::cot(fov/2);
+        const Fp w = h/aspect;
+        auto P = m::zero<mat4_t>();
+        P[0][0] = w;
+        P[1][1] = h;
+        P[2][2] = 0;
+        P[2][3] = 1;
+        P[3][2] = znear;
+        return transform_generic_t{ P };
+    }
+    // NDC to viewport
+    static transform_generic_t viewport(const vec2_t& size) noexcept {
+        return 
+            scale({ .5*(size.x-1),.5*(size.y-1),1 }) *
+            translate(v3_t{ 1,1,0 }) *
+            scale({ -1,-1,1 });
+    }
+};
+
+/** @brief Transform that uses `f_t` as the floating-point type. */
+using transform_t = transform_generic_t<f_t>;
+/** @brief Explicit 32-bit `float` transforms. Useful when a transform is loaded from input data and needs to be converted to `transform_t`. */
+using transform_f_t = transform_generic_t<float>;
+/** @brief Explicit 64-bit `double` transforms. Useful when a transform is loaded from input data and needs to be converted to `transform_t`. */
+using transform_d_t = transform_generic_t<double>;
+
+}

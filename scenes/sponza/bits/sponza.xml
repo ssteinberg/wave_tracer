@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<bsdf type="twosided" id="leaf">
+	<bsdf type="mask">
+		<texture name="mask" bitmap="textures/sponza_thorn_mask.png" />
+		<bsdf type="diffuse">
+			<texture name="reflectance" bitmap="textures/sponza_thorn_diff.png" />
+<!-- map_bump textures/sponza_thorn_bump.png -->
+		</bsdf>
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="vase_round">
+	<bsdf type="scale">
+		<texture name="scale" bitmap="textures/vase_round.png" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Fe" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".15" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+<!-- map_bump textures/vase_round_bump.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="Material__57">
+	<bsdf type="mask">
+		<texture name="mask" bitmap="textures/vase_plant_mask.png" />
+		<bsdf type="diffuse">
+			<texture name="reflectance" bitmap="textures/vase_plant.png" />
+		</bsdf>
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="Material__298">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/background.png" />
+<!-- map_bump textures/background_bump.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="bricks">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/spnza_bricks_a_diff.png" />
+<!-- map_bump textures/spnza_bricks_a_bump.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="arch">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_arch_diff.png" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="ceiling">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_ceiling_a_diff.png" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="column_a">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_column_a_diff.png" />
+<!-- map_bump textures/sponza_column_a_bump.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="floor">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_floor_a_diff.png" />
+<!-- map_Ks textures/floor_gloss.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="column_c">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_column_c_diff.png" />
+<!-- map_bump textures/sponza_column_c_bump.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="details">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_details_diff.png" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="column_b">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_column_b_diff.png" />
+<!-- map_bump textures/sponza_column_b_bump.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="Material__47">
+	<bsdf type="diffuse">
+		<spectrum name="reflectance" constant="1" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="flagpole">
+	<bsdf type="scale">
+		<texture name="scale" bitmap="textures/sponza_flagpole_diff.png" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".05" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="fabric_e">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_fabric_green_diff.png" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="fabric_d">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_fabric_blue_diff.png" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="fabric_a">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_fabric_diff.png" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="fabric_g">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_curtain_blue_diff.png" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="fabric_c">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_curtain_diff.png" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="fabric_f">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_curtain_green_diff.png" />
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="chain">
+	<bsdf type="mask">
+		<texture name="mask" bitmap="textures/chain_texture_mask.png" />
+		<bsdf type="scale">
+			<texture name="scale" bitmap="textures/chain_texture.png" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".05" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+<!-- map_bump textures/chain_texture_bump.png -->
+		</bsdf>
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="vase_hanging">
+	<bsdf type="scale">
+		<texture name="scale" bitmap="textures/vase_hanging.png" />
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Cu" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".02" />
+				<float name="gamma" value="3" />
+			</surface_profile>
+		</bsdf>
+<!-- map_Ks textures/vase_hanging.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="vase">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/vase_dif.png" />
+<!-- map_bump textures/vase_bump.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="Material__25">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/lion.png" />
+<!-- map_bump textures/lion_bump.png -->
+	</bsdf>
+</bsdf>
+
+<bsdf type="twosided" id="roof">
+	<bsdf type="diffuse">
+		<texture name="reflectance" bitmap="textures/sponza_roof_diff.png" />
+	</bsdf>
+</bsdf>
+
+
+<shape type="obj" id="mesh_leaf">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="leaf" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="leaf" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_vase_round">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="vase_round" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="vase_round" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_Material__57">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="Material__57" />
+	<boolean name="face_normals" value="true"/>
+
+	<quantity name="scale" value="1cm" />
+	<ref id="Material__57" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_Material__298">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="Material__298" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="Material__298" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_bricks">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="bricks" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="bricks" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_arch">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="arch" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="arch" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_ceiling">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="ceiling" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="ceiling" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_column_a">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="column_a" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="column_a" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_floor">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="floor" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="floor" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_column_c">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="column_c" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="column_c" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_details">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="details" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="details" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_column_b">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="column_b" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="column_b" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_Material__47">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="Material__47" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="Material__47" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_flagpole">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="flagpole" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="flagpole" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_fabric_e">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="fabric_e" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="fabric_e" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_fabric_d">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="fabric_d" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="fabric_d" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_fabric_a">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="fabric_a" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="fabric_a" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_fabric_g">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="fabric_g" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="fabric_g" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_fabric_c">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="fabric_c" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="fabric_c" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_fabric_f">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="fabric_f" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="fabric_f" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_chain">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="chain" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="chain" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_vase_hanging">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="vase_hanging" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="vase_hanging" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_vase">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="vase" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="vase" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_Material__25">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="Material__25" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="Material__25" name="bsdf" />
+</shape>
+<shape type="obj" id="mesh_roof">
+	<path name="filename" value="sponza.obj" />
+	<string name="mtl" value="roof" />
+
+	<quantity name="scale" value="1cm" />
+	<ref id="roof" name="bsdf" />
+</shape>
+

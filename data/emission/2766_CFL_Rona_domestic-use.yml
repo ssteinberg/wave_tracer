@@ -1,0 +1,16 @@
+Category: CFL
+Brand: Rona
+Model: domestic-use
+Usage: domestic
+CCT (calculated): 7045
+MSI: 0.91
+SLI: 0.91
+IPI: 0.86
+PercentBlue: 37.66
+Rotational Angle: null
+Vertical Angle: null
+URL: https://lspdd.com/database/2766
+Normalization: Constant lumen
+DATA:
+  - type: tabulated intensity
+    data: |

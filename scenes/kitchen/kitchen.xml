@@ -1,0 +1,2052 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0">
+	<default name="spp" value="1024" />
+	<default name="res" value="1920" />
+
+	<integrator type="plt_path">
+		<string name="direction" value="backward"/>
+		<integer name="max_depth" value="128" />
+	</integrator>
+
+	<sensor type="perspective" id="camera">
+		<quantity name="fov" value="60°" />
+		<string name="fov_axis" value="x" />
+
+		<transform name="to_world">
+			<matrix value="-0.89874, -0.0182716, -0.4381, 1.211m, 0, 0.999131, -0.0416703, 1.80475m, 0.438481, -0.0374507, -0.89796, 3.85239m, 0, 0, 0, 1"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+		<film type="array" >
+			<integer name="width" value="($res)" />
+			<integer name="height" value="$res*.5625" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D50" />
+			</response>
+		</film>
+	</sensor>
+
+	<bsdf type="twosided" id="ChromeHandle" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.64, 0.64, 0.64"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RadioHandle" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.389509, 0.372589, 0.293747"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RadioInside" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.015078, 0.015078, 0.015078"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RadioKnob" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.358375, 0.300936, 0.128617"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RadioPlastic" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.64, 0.600153, 0.43449"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RadioSurround" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.066822, 0.028495, 0.013827"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="SteelPot" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.578596" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".025" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="KettleGreen" >
+		<bsdf type="scale" >
+			<spectrum name="scale" rgb="0.0399472, 0.14198, 0.0033027" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Co" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="dielectric" id="RadioGlass" >
+		<spectrum name="IOR" constant="1.5" />
+	</bsdf>
+	<bsdf type="twosided" id="Utensils" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.578596" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Ag" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="MetalHandles" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.510193" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".075" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="SmallWorktop" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Worktopt-light.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="ExtractorHood" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.578596" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".08" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Walls" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="1, 1, 1"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Plates" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.578596" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" constant="(1,.8i)" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".12" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="dielectric" id="WineGlasses" >
+		<spectrum name="IOR" constant="1.5" />
+	</bsdf>
+	<bsdf type="twosided" id="Tabletop" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Tabletop-light.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="ChoppingBoard" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Chopping-Board.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="CupboardUnits" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.547857, 0.547857, 0.547857"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BookCover" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.0805638, 0.081309, 0.0801467"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="LeftPage" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Kitchen-book-leftpage.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BookPages" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Kitchen-bookpage-large.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Carrots" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Kitchen-carrot-uv.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Tomatoes" >
+		<bsdf type="scale" >
+			<spectrum name="scale" rgb="0.8, 0, 0.00293232" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" constant="(1.5,2.5i)" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Pepper-Green" >
+		<bsdf type="scale" >
+			<spectrum name="scale" rgb="0.06, 0.4, 0" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" constant="(1.5,2.5i)" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Pepper-Yellow" >
+		<bsdf type="scale" >
+			<spectrum name="scale" rgb="1, 0.4, 0" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" constant="(1.5,2.5i)" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Pepper-Red" >
+		<bsdf type="scale" >
+			<spectrum name="scale" rgb="0.6, 0, 0" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" constant="(1.5,2.5i)" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Mushrooms" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.300837, 0.281435, 0.243189"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="SlicedMushroms" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Kitchen-mushroom-texture.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="ChoppingKnifeBlade" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".02" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="ChoppingKnifeHandle" >
+		<bsdf type="scale" >
+			<spectrum name="scale" rgb="0.028991, 0.028991, 0.028991" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="ChoppingKnifeEdge" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="WhitePot" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.578596" />
+			<bsdf type="surface_spm" >
+				<spectrum name="IOR" material="Al" />
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Worktops" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Worktopt-light.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Towel" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Tea-Towel.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Tiles" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.394083, 0.325037, 0.263175"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="WallSocket" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.571765, 0.563535, 0.559972"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="CookerBlack" >
+		<bsdf type="scale" >
+			<spectrum name="scale" rgb="0.015396, 0.015396, 0.015396" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".12" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="CookerIron" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.001373" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".02" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="dielectric" id="CookerGlass" >
+		<spectrum name="IOR" constant="1.5" />
+	</bsdf>
+	<bsdf type="twosided" id="CookerChrome" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BushLogo" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="W" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RadioMetalRing" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RadioDialBack" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/radio-dial-idea.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RadioDialLine" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Pb" />
+		</bsdf>
+	</bsdf>
+	<bsdf type="dielectric" id="MicrowaveGlass" >
+		<spectrum name="IOR" constant="1.5" />
+	</bsdf>
+	<bsdf type="twosided" id="Microwave" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.578596" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".1" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="MicrowaveBack" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.578596" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".05" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="dielectric" id="MicrowaveDigital" >
+		<spectrum name="IOR" constant="1.5" />
+	</bsdf>
+	<bsdf type="twosided" id="WindowFrame" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.572423, 0.572423, 0.572423"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="mask" id="Blinds" >
+		<spectrum name="mask" constant="0.612066"/>
+		<bsdf type="twosided" >
+			<bsdf type="diffuse" >
+				<spectrum name="reflectance" rgb="0.612066, 0.499505, 0.378676"/>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BlindStringKnob" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.578596, 0.578596, 0.578596"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BlindString" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.217638, 0.217638, 0.217638"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="WindowLock" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Pb" />
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="TableMats" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.047366, 0.047366, 0.047366"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Cutlery" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".1" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Home" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.578596, 0.578596, 0.578596"/>
+		</bsdf>
+	</bsdf>
+	<!-- <bsdf type="bumpmap" >
+		<texture name="map" type="bitmap" >
+			<path value="textures/cushion-bump.png" />
+		</texture> -->
+		<bsdf type="twosided" id="Cushion1" >
+			<bsdf type="diffuse" >
+				<texture name="reflectance" type="bitmap" >
+					<path value="textures/cushion-red.png" />
+				</texture>
+			</bsdf>
+		</bsdf>
+	<!-- </bsdf> -->
+	<bsdf type="twosided" id="TableCross" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.612066" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="PotHandles" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.00631" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".1" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Kettle" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".05" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="KettleHandle" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.00631" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".1" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Burners" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.578596" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="W" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BurnersTop" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.00631" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BreadBinHandle" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="1" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Fe" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<!-- <bsdf type="bumpmap" >
+		<texture name="map" type="bitmap" >
+			<path value="textures/bread-bin-front-bump.png" />
+		</texture> -->
+		<bsdf type="twosided" id="BreadBinFront" >
+			<bsdf type="diffuse" >
+				<texture name="reflectance" type="bitmap" >
+					<path value="textures/Worktopt-light.png" />
+				</texture>
+			</bsdf>
+		</bsdf>
+	<!-- </bsdf> -->
+	<bsdf type="twosided" id="BreadBinSides" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Worktopt-light.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BreadBinTop" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Worktopt-light.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="WoodTop" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Tabletop-light.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="CushionTies" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/cushion-red.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Cable" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.612066" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Cu" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="CeilingLightFitting" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.578596" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="gaussian">
+					<spectrum name="roughness" constant=".1" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Floor" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/wood.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Ceiling" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.612066, 0.612066, 0.612066"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="MushroomEnds" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/Kitchen-mushroom-texture.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="PepperStems" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.136099, 0.284452, 0.00552174"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Bulb" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0, 0, 0"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Grout" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.79311, 0.79311, 0.79311"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="LampCable" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.479179, 0.479179, 0.479179"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Lamp" >
+		<bsdf type="scale" >
+			<spectrum name="scale" rgb="0.541798, 0.297653, 0.0528416" />
+			<bsdf type="surface_spm">
+				<spectrum name="IOR" material="Al" />
+				<surface_profile type="fractal">
+					<spectrum name="roughness" constant=".1" />
+					<float name="gamma" value="3" />
+				</surface_profile>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="LampInside" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.578596, 0.578596, 0.578596"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Window" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.571765, 0.563535, 0.559972"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Skirting" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.578913, 0.578913, 0.578913"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BlindEnds" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.047366, 0.047366, 0.047366"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BlindWoodStrip" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.578596, 0.578596, 0.578596"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RadioEdges" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Pb" />
+		</bsdf>
+	</bsdf>
+
+	<shape type="obj" >
+		<path value="models/Mesh129.obj" />
+		<ref id="WallSocket" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh165.obj" />
+		<ref id="WindowLock" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh263.obj" />
+		<ref id="ExtractorHood" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh126.obj" />
+		<ref id="CushionTies" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh087.obj" />
+		<ref id="CushionTies" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh130.obj" />
+		<ref id="CushionTies" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh088.obj" />
+		<ref id="Cable" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh124.obj" />
+		<ref id="Cushion1" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh136.obj" />
+		<ref id="Cushion1" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh251.obj" />
+		<ref id="Cushion1" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh164.obj" />
+		<ref id="Cushion1" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh147.obj" />
+		<ref id="CeilingLightFitting" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh171.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WallSocket" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh140.obj" />
+		<ref id="BreadBinTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh122.obj" />
+		<ref id="WineGlasses" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh172.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh113.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh139.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh174.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh144.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh175.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh247.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh083.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh178.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh167.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh183.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh099.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh284.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh173.obj" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh184.obj" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh155.obj" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh159.obj" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh232.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh121.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh278.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh120.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh235.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh243.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh117.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh157.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh116.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh207.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh107.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh112.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh287.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh105.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh103.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh102.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh100.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh095.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh098.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh259.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh143.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh255.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh128.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh150.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh200.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh085.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh114.obj" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh182.obj" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh082.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh106.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh132.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh166.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Tabletop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh161.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WoodTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh137.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="ExtractorHood" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh145.obj" />
+		<ref id="Tiles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh133.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh074.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh068.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh125.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh079.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh169.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh093.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh097.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh181.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh260.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh274.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh066.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh141.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh238.obj" />
+		<ref id="CookerIron" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh076.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh177.obj" />
+		<ref id="CookerBlack" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh185.obj" />
+		<ref id="CookerChrome" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh186.obj" />
+		<ref id="CookerChrome" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh188.obj" />
+		<ref id="CookerBlack" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh189.obj" />
+		<ref id="CookerChrome" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh115.obj" />
+		<ref id="CookerBlack" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh162.obj" />
+		<ref id="LeftPage" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh134.obj" />
+		<ref id="BreadBinSides" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh192.obj" />
+		<ref id="BreadBinHandle" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh131.obj" />
+		<ref id="BreadBinTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh077.obj" />
+		<ref id="BreadBinSides" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh229.obj" />
+		<ref id="BreadBinFront" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh281.obj" />
+		<ref id="PotHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh194.obj" />
+		<ref id="SteelPot" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh195.obj" />
+		<ref id="SlicedMushroms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh104.obj" />
+		<ref id="SlicedMushroms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh196.obj" />
+		<ref id="SlicedMushroms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh197.obj" />
+		<ref id="SlicedMushroms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh256.obj" />
+		<ref id="SlicedMushroms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh081.obj" />
+		<ref id="SlicedMushroms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh209.obj" />
+		<ref id="SlicedMushroms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh210.obj" />
+		<ref id="SlicedMushroms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh211.obj" />
+		<ref id="Carrots" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh213.obj" />
+		<ref id="Carrots" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh216.obj" />
+		<ref id="Carrots" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh146.obj" />
+		<ref id="Carrots" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh219.obj" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh220.obj" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh221.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh268.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh223.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh227.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh199.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh271.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh233.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh202.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh230.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh240.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh176.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh234.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh142.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="TableCross" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh069.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Worktops" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh236.obj" />
+		<ref id="Worktops" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh135.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Floor" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh153.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Ceiling" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh239.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Walls" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh242.obj" />
+		<ref id="Tomatoes" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh244.obj" />
+		<ref id="MushroomEnds" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh249.obj" />
+		<ref id="MushroomEnds" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh075.obj" />
+		<ref id="SlicedMushroms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh291.obj" />
+		<ref id="Mushrooms" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh254.obj" />
+		<ref id="Pepper-Yellow" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh257.obj" />
+		<ref id="PepperStems" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh258.obj" />
+		<ref id="Pepper-Green" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh089.obj" />
+		<ref id="PepperStems" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh261.obj" />
+		<ref id="Pepper-Red" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh119.obj" />
+		<ref id="PepperStems" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh264.obj" />
+		<ref id="PepperStems" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh127.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh091.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh225.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh266.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh190.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh245.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh267.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh179.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh269.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh270.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh214.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh108.obj" />
+		<ref id="Cutlery" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh080.obj" />
+		<ref id="SteelPot" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh272.obj" />
+		<ref id="PotHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh273.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="KettleHandle" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh275.obj" />
+		<ref id="KettleHandle" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh086.obj" />
+		<ref id="KettleGreen" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh241.obj" />
+		<ref id="Kettle" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh222.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh276.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh279.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh248.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh282.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh277.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh180.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh285.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh170.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh293.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh215.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh252.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh204.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh286.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh096.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh288.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh253.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh109.obj" />
+		<ref id="Utensils" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh289.obj" />
+		<ref id="MicrowaveBack" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh152.obj" />
+		<ref id="Microwave" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh226.obj" />
+		<ref id="Microwave" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh290.obj" />
+		<ref id="Microwave" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh292.obj" />
+		<ref id="Microwave" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh208.obj" />
+		<ref id="Microwave" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh191.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="MicrowaveGlass" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh201.obj" />
+		<ref id="MicrowaveDigital" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh294.obj" />
+		<ref id="Microwave" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh065.obj" />
+		<ref id="WineGlasses" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh064.obj" />
+		<ref id="TableMats" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh094.obj" />
+		<ref id="Plates" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh063.obj" />
+		<ref id="BookPages" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh062.obj" />
+		<ref id="BookCover" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh092.obj" />
+		<ref id="BookPages" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh061.obj" />
+		<ref id="ChoppingKnifeBlade" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh059.obj" />
+		<ref id="ChoppingKnifeHandle" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh058.obj" />
+		<ref id="ChoppingKnifeEdge" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh057.obj" />
+		<ref id="ChoppingBoard" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh056.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WallSocket" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh055.obj" />
+		<ref id="Bulb" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh138.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Grout" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh224.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WoodTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh054.obj" />
+		<ref id="Tiles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh053.obj" />
+		<ref id="LampCable" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh052.obj" />
+		<ref id="Lamp" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh050.obj" />
+		<ref id="LampInside" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh049.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh163.obj" />
+		<ref id="Window" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh154.obj" />
+		<ref id="Window" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh078.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh246.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh048.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh047.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh046.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh045.obj" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh044.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh043.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh041.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh193.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh040.obj" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh218.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh039.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WindowFrame" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh187.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Skirting" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh073.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh042.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh037.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh035.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh034.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh033.obj" />
+		<ref id="MetalHandles" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh038.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh072.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh231.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh032.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="SmallWorktop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh031.obj" />
+		<ref id="SmallWorktop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh030.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh029.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh028.obj" />
+		<ref id="Burners" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh027.obj" />
+		<ref id="BurnersTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh198.obj" />
+		<ref id="Burners" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh026.obj" />
+		<ref id="BurnersTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh071.obj" />
+		<ref id="Burners" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh149.obj" />
+		<ref id="BurnersTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh025.obj" />
+		<ref id="Burners" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh203.obj" />
+		<ref id="BurnersTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh024.obj" />
+		<ref id="Burners" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh023.obj" />
+		<ref id="BurnersTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh022.obj" />
+		<ref id="Burners" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh020.obj" />
+		<ref id="BurnersTop" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh084.obj" />
+		<ref id="CookerBlack" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh019.obj" />
+		<ref id="CookerChrome" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh017.obj" />
+		<ref id="CookerChrome" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh280.obj" />
+		<ref id="CookerBlack" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh015.obj" />
+		<ref id="CookerBlack" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh014.obj" />
+		<ref id="CookerChrome" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh090.obj" />
+		<ref id="CookerBlack" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh206.obj" />
+		<ref id="CookerGlass" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh228.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh111.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh168.obj" />
+		<ref id="ExtractorHood" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh148.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh013.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh012.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh158.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Worktops" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh237.obj" />
+		<ref id="Worktops" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh011.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh018.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="CupboardUnits" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh262.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Walls" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh010.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Walls" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh212.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="BlindEnds" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh156.obj" />
+		<ref id="BlindStringKnob" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh151.obj" />
+		<ref id="BlindString" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh009.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="BlindWoodStrip" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh110.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Blinds" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh118.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="BlindEnds" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh008.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="BlindEnds" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh007.obj" />
+		<ref id="Blinds" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh250.obj" />
+		<ref id="RadioHandle" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh021.obj" />
+		<ref id="RadioPlastic" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh205.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="BushLogo" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh067.obj" />
+		<ref id="BushLogo" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh283.obj" />
+		<boolean name="face_normals" value="true" />
+		<ref id="RadioDialLine" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh005.obj" />
+		<ref id="RadioDialBack" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh016.obj" />
+		<ref id="RadioMetalRing" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh265.obj" />
+		<ref id="RadioGlass" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh006.obj" />
+		<ref id="RadioPlastic" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh004.obj" />
+		<ref id="RadioPlastic" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh060.obj" />
+		<ref id="ChromeHandle" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh123.obj" />
+		<ref id="RadioPlastic" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh160.obj" />
+		<ref id="RadioInside" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh051.obj" />
+		<ref id="RadioKnob" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh003.obj" />
+		<ref id="RadioSurround" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh002.obj" />
+		<ref id="RadioEdges" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh001.obj" />
+		<ref id="RadioEdges" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh036.obj" />
+		<ref id="WhitePot" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh070.obj" />
+		<ref id="Towel" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh101.obj" />
+		<ref id="Towel" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh000.obj" />
+		<ref id="WallSocket" />
+	</shape>
+	<shape type="obj" >
+		<path value="models/Mesh217.obj" />
+		<ref id="Home" />
+	</shape>
+
+	<shape type="rectangle" >
+		<transform name="to_world" >
+			<matrix value="0.811764, 1.25471e-014, 5.48452e-022, 0.060314m, -9.254e-015, 1.10064, 6.63724e-009, 1.97379m, 0, 5.90839e-008, 0.549328, -3.1173m, 0, 0, 0, 1"/>
+		</transform>
+		<bsdf type="twosided" >
+			<bsdf type="diffuse" >
+				<spectrum name="reflectance" rgb="0, 0, 0"/>
+			</bsdf>
+		</bsdf>
+		<emitter type="area" >
+			<spectrum name="radiance" blackbody="5000K">
+				<float name="scale" value="4e-3" />
+			</spectrum>
+		</emitter>
+	</shape>
+	<shape type="rectangle" >
+		<transform name="to_world" >
+			<matrix value="-0.0290284, 3.30012e-015, -7.54979e-008, -2.38843m, 4.38317e-009, 2.18557e-008, -0.5, 1.6129m, 0, -0.244301, -1.06788e-008, -1.04852m, 0, 0, 0, 1"/>
+		</transform>
+		<bsdf type="twosided" >
+			<bsdf type="diffuse" >
+				<spectrum name="reflectance" rgb="0, 0, 0"/>
+			</bsdf>
+		</bsdf>
+		<emitter type="area" >
+			<spectrum name="radiance" blackbody="4000K">
+				<float name="scale" value="6e-3" />
+			</spectrum>
+		</emitter>
+	</shape>
+	<shape type="rectangle" >
+		<transform name="to_world" >
+			<matrix value="-0.0290284, 3.30012e-015, -7.54979e-008, -2.38843m, 4.38317e-009, 2.18557e-008, -0.5, 1.6129m, 0, -0.244301, -1.06788e-008, -1.58497m, 0, 0, 0, 1"/>
+		</transform>
+		<bsdf type="twosided" >
+			<bsdf type="diffuse" >
+				<spectrum name="reflectance" rgb="0, 0, 0"/>
+			</bsdf>
+		</bsdf>
+		<emitter type="area" >
+			<spectrum name="radiance" blackbody="4000K">
+				<float name="scale" value="6e-3" />
+			</spectrum>
+		</emitter>
+	</shape>
+	<shape type="rectangle" >
+		<transform name="to_world" >
+			<matrix value="-0.0290284, 3.30012e-015, -7.54979e-008, -2.38843m, 4.38317e-009, 2.18557e-008, -0.5, 1.6129m, 0, -0.244301, -1.06788e-008, -2.14209m, 0, 0, 0, 1"/>
+		</transform>
+		<bsdf type="twosided" >
+			<bsdf type="diffuse" >
+				<spectrum name="reflectance" rgb="0, 0, 0"/>
+			</bsdf>
+		</bsdf>
+		<emitter type="area" >
+			<spectrum name="radiance" blackbody="4000K">
+				<float name="scale" value="6e-3" />
+			</spectrum>
+		</emitter>
+	</shape>
+</scene>

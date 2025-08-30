@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+	<default name="spp" value="8"/>
+	<default name="res" value="512"/>
+
+	<integrator type="plt_bdpt" >
+		<integer name="max_depth" value="8" />
+	</integrator>
+
+	<sensor type="perspective" polarimetric="true" id="camera">
+		<quantity name="fov" value="19.75°" />
+		<transform name="to_world" >
+			<lookat origin="0m, 1m, 6.8m" target="0m, 1m, 0m" up="0, 1, 0"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="$res" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D50" />
+			</response>
+		</film>
+	</sensor>
+
+	<bsdf type="twosided" id="LeftWallBSDF" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0.4"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RightWallBSDF" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0.4"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="FloorBSDF" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0.4"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="CeilingBSDF" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0.4"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BackWallBSDF" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0.4"/>
+		</bsdf>
+	</bsdf>
+
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="0, 1, 0, 0m,  0, 0, 2, 0m,  1, 0, 0, 0m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="FloorBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="-1, 0, 0, 0m,  0, 0, -2, 2m,  0, -1, 0, 0m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="CeilingBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="0, 1, 0, 0m,  -1, 0, 0, 1m,  0, 0, 2, -1m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="BackWallBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="0, 0, -2, 1m,  -1, 0, 0, 1m,  0, 1, 0, 0m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="RightWallBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="0, 0, 2, -1m,  -1, 0, 0, 1m,  0, -1, 0, 0m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="LeftWallBSDF" />
+	</shape>
+
+	<shape type="sphere" id="ball">
+		<point name="center" x="0m" y="1m" z="0m" />
+		<quantity name="radius" value=".8m" />
+		<integer name="tessellation" value="128" />
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" constant="1.5"/>
+		</bsdf>
+	</shape>
+
+	<shape type="cube">
+		<quantity name="length" value=".15m" />
+		<transform name="to_world" >
+			<scale x="3.1" y=".04" z="3.1" />
+			<translate x=".0m" y="1.98m" z=".0m" />
+		</transform>
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".01"/>
+		</bsdf>
+		<emitter type="area">
+			<spectrum name="radiance" blackbody="5000K">
+				<float name="scale" value="2e-3" />
+			</spectrum>
+		</emitter>
+	</shape>
+</scene>

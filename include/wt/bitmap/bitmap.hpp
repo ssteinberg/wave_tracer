@@ -1,0 +1,408 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <memory>
+#include <cstddef>
+#include <algorithm>
+
+#include <optional>
+#include <cassert>
+#include <utility>
+
+#include <wt/math/common.hpp>
+#include <wt/bitmap/pixel_layout.hpp>
+#include <wt/bitmap/texel_convert.hpp>
+
+#include <magic_enum/magic_enum_format.hpp>
+
+#include <lancir.h>
+
+namespace wt::bitmap {
+
+
+/**
+ * @brief Generic bitmap class. "Pixels" can be arbitrary types. 
+ *        For texel types (snorm/unorm/fp elements), where T satisfies the texel concept, conversion between layouts and texel types and bitmap resizing is provided.
+ */
+template <typename T = f_t, std::size_t Dims=2>
+class bitmap_t {
+    static_assert(Dims>=1 && Dims<=3);
+
+public:
+    using size_t = vec<Dims, std::uint32_t>;
+
+private:
+    std::unique_ptr<T[]> storage;
+    size_t size;
+    pixel_layout_t layout;
+
+    explicit bitmap_t(std::unique_ptr<T[]>&& storage,
+                      size_t size,
+                      pixel_layout_t layout) 
+        : storage(std::move(storage)),
+          size(size),
+          layout(layout)
+    {}
+
+public:
+    [[nodiscard]] static auto create(size_t size,
+                                     pixel_layout_t layout, 
+                                     std::optional<T> fill_val=std::nullopt) {
+        const auto comps = layout.components;
+        const std::size_t pxs = m::prod(size);
+        auto bitmap = bitmap_t{
+            std::make_unique<T[]>(pxs*comps),
+            size, layout
+        };
+        if (fill_val)
+            bitmap.fill(fill_val.value());
+        return bitmap;
+    }
+    [[nodiscard]] static auto create(std::uint32_t w, std::uint32_t h,
+                                     pixel_layout_t layout, 
+                                     std::optional<T> fill_val=std::nullopt) requires (Dims==2) {
+        return create({ w,h }, layout, fill_val);
+    }
+
+    bitmap_t() noexcept = default;
+    bitmap_t(bitmap_t&&) noexcept = default;
+    bitmap_t(const bitmap_t& o) 
+        : size(o.size),
+          layout(o.layout),
+          storage(std::make_unique<T[]>(o.total_elements()))
+    {
+        std::copy(o.storage.get(),o.storage.get()+o.total_elements(),
+                  storage.get());
+    }
+
+    bitmap_t& operator=(bitmap_t&&) noexcept = default;
+
+    [[nodiscard]] inline auto* data() noexcept             { return storage.get(); }
+    [[nodiscard]] inline const auto* data() const noexcept { return storage.get(); }
+
+    [[nodiscard]] inline const auto width() const noexcept  requires (Dims>=1) { return size.x; }
+    [[nodiscard]] inline const auto height() const noexcept requires (Dims>=2) { return size.y; }
+    [[nodiscard]] inline const auto depth() const noexcept  requires (Dims>=3) { return size.z; }
+    [[nodiscard]] inline const auto dimensions() const noexcept      { return size; }
+
+    [[nodiscard]] inline const auto pixel_layout() const noexcept    { return layout.layout; }
+    [[nodiscard]] inline const auto components() const noexcept      { return layout.components; }
+    [[nodiscard]] inline const auto component_bytes() const noexcept { return sizeof(T); }
+    
+    [[nodiscard]] inline std::size_t bytes() const noexcept {
+        return total_elements() * component_bytes();
+    }
+    [[nodiscard]] inline std::size_t total_elements() const noexcept {
+        return m::prod(size) * components();
+    }
+    [[nodiscard]] inline std::size_t total_pixels() const noexcept {
+        return m::prod(size);
+    }
+
+    inline auto& operator[](std::uint64_t idx) noexcept {
+        return storage[idx];
+    }
+    inline const auto& operator[](std::uint64_t idx) const noexcept {
+        return storage[idx];
+    }
+
+    inline auto& operator()(std::uint32_t x, std::uint32_t c) noexcept requires(Dims==1) {
+        return storage[x*components()+c];
+    }
+    inline const auto& operator()(std::uint32_t x, std::uint32_t c) const noexcept requires(Dims==1) {
+        return storage[x*components()+c];
+    }
+    inline auto& operator()(std::uint32_t x, 
+                            std::uint32_t y, 
+                            std::uint32_t c) noexcept requires(Dims==2) {
+        return storage[(x+y*width())*components()+c];
+    }
+    inline const auto& operator()(std::uint32_t x, 
+                                  std::uint32_t y, 
+                                  std::uint32_t c) const noexcept requires(Dims==2) {
+        return storage[(x+y*width())*components()+c];
+    }
+    inline auto& operator()(std::uint32_t x, 
+                            std::uint32_t y, 
+                            std::uint32_t z, 
+                            std::uint32_t c) noexcept requires(Dims==3) {
+        return storage[(x+y*width()+z*width()*height())*components()+c];
+    }
+    inline const auto& operator()(std::uint32_t x, 
+                                  std::uint32_t y, 
+                                  std::uint32_t z, 
+                                  std::uint32_t c) const noexcept requires(Dims==3) {
+        return storage[(x+y*width()+z*width()*height())*components()+c];
+    }
+
+    inline auto& operator()(const size_t& idx,
+                            std::uint32_t c) noexcept requires(Dims==1) {
+        return (*this)(idx.x,c);
+    }
+    inline const auto& operator()(const size_t& idx,
+                                  std::uint32_t c) const noexcept requires(Dims==1) {
+        return (*this)(idx.x,c);
+    }
+    inline auto& operator()(const size_t& idx,
+                            std::uint32_t c) noexcept requires(Dims==2) {
+        return (*this)(idx.x,idx.y,c);
+    }
+    inline const auto& operator()(const size_t& idx,
+                                  std::uint32_t c) const noexcept requires(Dims==2) {
+        return (*this)(idx.x,idx.y,c);
+    }
+    inline auto& operator()(const size_t& idx,
+                            std::uint32_t c) noexcept requires(Dims==3) {
+        return (*this)(idx.x,idx.y,idx.z,c);
+    }
+    inline const auto& operator()(const size_t& idx,
+                                  std::uint32_t c) const noexcept requires(Dims==3) {
+        return (*this)(idx.x,idx.y,idx.z,c);
+    }
+
+    [[nodiscard]] inline auto* begin() noexcept { return storage.get(); }
+    [[nodiscard]] inline auto* end()   noexcept { return storage.get()+total_elements(); }
+    [[nodiscard]] inline const auto* begin()  const noexcept { return storage.get(); }
+    [[nodiscard]] inline const auto* end()    const noexcept { return storage.get()+total_elements(); }
+    [[nodiscard]] inline const auto* cbegin() const noexcept { return storage.get(); }
+    [[nodiscard]] inline const auto* cend()   const noexcept { return storage.get()+total_elements(); }
+    
+    auto& operator+=(const bitmap_t &s) {
+        if (s.size!=size || s.layout!=layout) {
+            assert(false);
+            return *this;
+        }
+        for (std::size_t idx=0;idx<total_elements();++idx)
+            storage[idx] += s.storage[idx];
+        return *this;
+    }
+
+    inline void fill(const T& val) {
+        std::fill(storage.get(),storage.get()+total_elements(),val);
+    }
+
+    /**
+     * @brief Converts pixel layout and underlying type.
+     *        conv(const T* src_pixel, NewT* dst_pixel) does the conversion between pixels.
+     */
+    template <typename NewT, typename Converter>
+    [[nodiscard]] inline auto convert(pixel_layout_t new_layout, const Converter& conv) const {
+        const auto comps = components();
+        const auto new_comps = new_layout.components;
+
+        auto new_surface = bitmap_t<NewT>::create(size, new_layout);
+        for (std::size_t idx=0;idx<total_pixels();++idx)
+            conv(&data()[idx*comps], 
+                 &new_surface.data()[idx*new_comps]);
+        return new_surface;
+    }
+    /**
+     * @brief Converts the underlying type. Conversion is done via a static_cast on each pixel element.
+     */
+    template <typename NewT>
+    [[nodiscard]] inline auto convert() const {
+        if constexpr (std::is_same_v<T, NewT>)
+            return *this;
+
+        auto new_surface = bitmap_t<NewT>::create(size, pixel_layout());
+        for (std::size_t idx=0;idx<total_elements();++idx)
+            new_surface.data()[idx] = static_cast<NewT>(data()[idx]);
+        return new_surface;
+    }
+
+    /**
+     * @brief Converts pixel layout and underlying type. Pixel layout must not be Custom. Conversion is done automatically via layout and texel conversion (for snorm/unorm/fp bitmaps).
+     */
+    template <texel NewT>
+    [[nodiscard]] auto convert_texels(pixel_layout_t new_layout) const
+        requires is_texel_v<T>
+    {
+        const auto layout = this->layout;
+        if constexpr (std::is_same_v<T, NewT>)
+            if (layout==new_layout)
+                return *this;
+
+        const auto comps = layout.components;
+        const auto new_comps = new_layout.components;
+
+        auto new_surface = bitmap_t<NewT>::create(size, new_layout);
+        for (std::size_t idx=0;idx<total_pixels();++idx) {
+            vec4_t texels;
+            // to fp
+            for (int c=0;c<comps;++c)
+                texels[c] = convert_texel<f_t>(data()[idx*comps+c]);
+            // convert layout
+            texels = convert_pixel_layout(layout.layout, new_layout.layout, texels);
+            // to target
+            for (int c=0;c<new_comps;++c)
+                new_surface.data()[idx*new_comps+c] = convert_texel<NewT>(texels[c]);
+        }
+        return new_surface;
+    }
+    /**
+     * @brief Converts the underlying type. Pixel layout must not be Custom. Conversion is done automatically via texel conversion (for snorm/unorm/fp bitmaps).
+     */
+    template <texel NewT>
+    [[nodiscard]] inline auto convert_texels() const 
+        requires is_texel_v<T>
+    {
+        return convert_texels<NewT>(layout);
+    }
+
+    /**
+     * @brief Resizes the bitmap. Pixel layout must not be Custom. For snorm/unorm/fp bitmaps.
+     */
+    [[nodiscard]] auto resize(size_t new_size) const&
+        requires is_texel_v<T> && (Dims<=2)
+    {
+        if (new_size==size)
+            return *this;
+
+        assert(pixel_layout()!=pixel_layout_e::Custom);
+
+        auto new_surface = create(new_size,layout);
+
+        std::uint32_t h = 1, new_h = 1;
+        if constexpr (Dims==2) {
+            h = size.y;
+            new_h = new_size.y;
+        }
+
+        avir::CLancIR resizer;
+        resizer.resizeImage(data(), size.x,h,
+                            new_surface.data(), new_size.x,new_h,
+                            components());
+        
+        return new_surface;
+    }
+
+    /**
+     * @brief Resizes the bitmap. Pixel layout must not be Custom. For snorm/unorm/fp bitmaps.
+     */
+    [[nodiscard]] inline auto resize(std::uint32_t new_width, std::uint32_t new_height) const&
+        requires is_texel_v<T> && (Dims==2)
+    {
+        return resize({ new_width, new_height });
+    }
+
+    /**
+     * @brief Resizes the bitmap. Pixel layout must not be Custom. For snorm/unorm/fp bitmaps.
+     */
+    [[nodiscard]] inline auto resize(size_t new_size) &&
+        requires is_texel_v<T> && (Dims<=2)
+    {
+        if (new_size==size)
+            return std::move(*this);
+        return resize(new_size);
+    }
+
+    /**
+     * @brief Resizes the bitmap. Pixel layout must not be Custom. For snorm/unorm/fp bitmaps.
+     */
+    [[nodiscard]] inline auto resize(std::uint32_t new_width, std::uint32_t new_height) &&
+        requires is_texel_v<T> && (Dims==2)
+    {
+        const auto& new_size = size_t{ new_width, new_height };
+        if (new_size==size)
+            return std::move(*this);
+        return resize(new_size);
+    }
+};
+
+template <typename T, typename NewT, std::size_t Dims>
+[[nodiscard]] inline auto convert(const bitmap_t<T, Dims>& bm) {
+    return bm.template convert<NewT>();
+}
+template <typename T, typename NewT, std::size_t Dims>
+[[nodiscard]] inline auto convert(bitmap_t<T, Dims>&& bm) {
+    if (std::is_same_v<T, NewT>)
+        return std::move(bm);
+    return bm.template convert<NewT>();
+}
+
+template <texel T, texel NewT, std::size_t Dims>
+[[nodiscard]] inline auto convert_texels(const bitmap_t<T, Dims>& bm) {
+    return bm.template convert_texels<NewT>();
+}
+template <texel T, texel NewT, std::size_t Dims>
+[[nodiscard]] inline auto convert_texels(pixel_layout_e new_layout, const bitmap_t<T, Dims>& bm) {
+    return bm.template convert_texels<NewT>(new_layout);
+}
+template <texel T, texel NewT, std::size_t Dims>
+[[nodiscard]] inline auto convert_texels(bitmap_t<T, Dims>&& bm) {
+    if (std::is_same_v<T, NewT>)
+        return std::move(bm);
+    return bm.template convert_texels<NewT>();
+}
+template <texel T, texel NewT, std::size_t Dims>
+[[nodiscard]] inline auto convert_texels(pixel_layout_e new_layout, bitmap_t<T, Dims>&& bm) {
+    if (std::is_same_v<T, NewT>)
+        return std::move(bm);
+    return bm.template convert_texels<NewT>();
+}
+
+template <texel T>
+[[nodiscard]] inline auto resize(const bitmap_t<T,2>& bm,
+                                 std::uint32_t new_width, 
+                                 std::uint32_t new_height) {
+    return bm.resize(new_width,new_height);
+}
+template <texel T>
+[[nodiscard]] inline auto resize(bitmap_t<T,2>&& bm,
+                                 std::uint32_t new_width, 
+                                 std::uint32_t new_height) {
+    return std::move(bm).resize(new_width,new_height);
+}
+
+template <texel T, std::size_t Dims>
+[[nodiscard]] inline auto resize(const bitmap_t<T, Dims>& bm,
+                                 typename bitmap_t<T, Dims>::size_t new_size) {
+    return bm.resize(new_size);
+}
+template <texel T, std::size_t Dims>
+[[nodiscard]] inline auto resize(bitmap_t<T, Dims>&& bm,
+                                 typename bitmap_t<T, Dims>::size_t new_size) {
+    return std::move(bm).resize(new_size);
+}
+
+/**
+ * @brief Copy a component from a source bitmap, to this bitmap.
+ *        Only works if both bitmaps have identical size, otherwise, resize() first.
+ */
+template <texel T, std::size_t Dims>
+bool copy_component(const bitmap_t<T, Dims>& src, bitmap_t<T, Dims>& dst,
+                    std::uint32_t to_cmp, std::uint32_t from_cmp = 0) noexcept {
+    const auto comps = dst.components();
+    const auto srccomps = src.components();
+    if (to_cmp >= comps || from_cmp >= srccomps) {
+        assert(false);
+        return false;
+    }
+    if (dst.dimensions() != src.dimensions()) {
+        assert(false);
+        return false;
+    }
+
+    for (std::size_t idx=0;idx<dst.total_pixels();++idx)
+        dst.data()[idx*comps+to_cmp] = src.data()[idx*srccomps+from_cmp];
+    return true;
+}
+
+
+// aliases
+template <typename T = f_t>
+using bitmap1d_t = bitmap_t<T, 1>;
+template <typename T = f_t>
+using bitmap2d_t = bitmap_t<T, 2>;
+template <typename T = f_t>
+using bitmap3d_t = bitmap_t<T, 3>;
+
+}

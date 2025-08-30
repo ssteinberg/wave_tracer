@@ -1,0 +1,35 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <wt/scene/scene.hpp>
+#include <wt/emitter/emitter.hpp>
+#include <wt/sampler/sampler.hpp>
+#include <wt/bsdf/common.hpp>
+
+#include <wt/math/common.hpp>
+#include <wt/math/frame.hpp>
+
+namespace wt::integrator {
+
+inline auto shading_normals_correction_scale(const bsdf::transport_e transport_mode,
+                                             const f_t wig,
+                                             const f_t wog,
+                                             const f_t wis,
+                                             const f_t wos) noexcept {
+    constexpr f_t max = 1e+2;
+    if (transport_mode==bsdf::transport_e::forward) {
+        const auto x = m::abs(wis*wog/(wos*wig));
+        return m::min(x,max);
+    }
+    return f_t(1);
+}
+
+}

@@ -1,0 +1,133 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <vector>
+#include <concepts>
+#include <type_traits>
+
+#include <wt/util/unreachable.hpp>
+
+#include <wt/math/norm_integers.hpp>
+#include <wt/spectrum/colourspace/RGB/RGB.hpp>
+
+namespace wt::bitmap {
+
+/** @brief Texture colour encoding mode.
+ */
+enum class colour_encoding_type_e : std::uint8_t {
+    linear,
+    sRGB,
+    gamma,
+};
+
+/**
+ * @brief Texture colour encoding setting. Support sRGB, fixed gamma or linear.
+ */
+struct colour_encoding_t {
+    f_t gamma;
+
+    constexpr colour_encoding_t(colour_encoding_type_e type, f_t gamma=2.2) noexcept {
+        if (type==colour_encoding_type_e::linear || gamma==1) this->gamma = 1;
+        if (type==colour_encoding_type_e::sRGB)               this->gamma = -1;
+        if (type==colour_encoding_type_e::gamma)              this->gamma = gamma;
+        assert(type!=colour_encoding_type_e::gamma || gamma>0);
+    }
+    constexpr colour_encoding_t() noexcept : colour_encoding_t(colour_encoding_type_e::linear) {}
+
+    colour_encoding_t(const colour_encoding_t&) noexcept = default;
+    colour_encoding_t(colour_encoding_t&&) noexcept = default;
+    colour_encoding_t& operator=(const colour_encoding_t&) noexcept = default;
+    colour_encoding_t& operator=(colour_encoding_t&&) noexcept = default;
+
+    [[nodiscard]] inline bool operator==(const colour_encoding_t& o) const noexcept = default;
+    [[nodiscard]] inline bool operator==(const colour_encoding_type_e& o) const noexcept {
+        return static_cast<colour_encoding_type_e>(*this) == o;
+    }
+
+    [[nodiscard]] inline constexpr auto type() const noexcept {
+        if (gamma == 1)  return colour_encoding_type_e::linear;
+        if (gamma == -1) return colour_encoding_type_e::sRGB;
+        return colour_encoding_type_e::gamma;
+    }
+    [[nodiscard]] inline constexpr operator colour_encoding_type_e() const noexcept { return type(); }
+
+    template <std::integral T>
+    [[nodiscard]] inline f_t to_fp(T i) const noexcept {
+        if constexpr (std::is_signed_v<T>) return m::snorm_to_fp(i);
+        else                               return m::unorm_to_fp(i);
+    }
+    template <std::integral T>
+    [[nodiscard]] inline T from_fp(f_t x) const noexcept {
+        if constexpr (std::is_signed_v<T>) return m::fp_to_snorm<T>(x);
+        else                               return m::fp_to_unorm<T>(x);
+    }
+    template <std::integral T>
+    [[nodiscard]] inline f_t to_linear_fp(T i) const noexcept {
+        if (type()==colour_encoding_type_e::linear) 
+            return to_fp(i);
+        if (type()==colour_encoding_type_e::sRGB) {
+            if constexpr (std::is_same_v<T,std::uint8_t> || std::is_same_v<T,std::uint16_t>)
+                return to_linear_fp_srgb_lut(i);
+            return colourspace::sRGB::to_linear(to_fp(i));
+        }
+        if (type()==colour_encoding_type_e::gamma)
+            return m::pow(to_fp(i),gamma);
+        unreachable();
+    }
+    template <std::integral T>
+    [[nodiscard]] inline T from_linear_fp(f_t x) const noexcept {
+        if (type()==colour_encoding_type_e::sRGB) {
+            x = colourspace::sRGB::from_linear(x);
+        }
+        else if (type()==colour_encoding_type_e::gamma)
+            x = m::pow(x,1/gamma);
+        return from_fp<T>(x);
+    }
+
+private:
+    // LUT for 8-bit and 16-bit sRGB linearization
+    struct srgb_lut_t {
+        std::vector<f_t> srgb_to_linear_lut8;
+        std::vector<f_t> srgb_to_linear_lut16;
+
+        srgb_lut_t() noexcept;
+    
+        [[nodiscard]] inline f_t operator()(std::uint8_t i) const noexcept {
+            return srgb_to_linear_lut8[i];
+        }
+        [[nodiscard]] inline f_t operator()(std::uint16_t i) const noexcept {
+            constexpr std::uint16_t lsbs_mask = (1<<lut16_lsbs)-1;
+            constexpr auto lsbs_norm = f_t(1)/f_t(lsbs_mask);
+
+            // const auto f = m::unorm_to_fp(i);
+            const auto idx0 = m::min<std::size_t>(i>>lut16_lsbs, lut16_count-1);
+            const auto idx1 = m::min<std::size_t>(idx0+1, lut16_count-1);
+            const auto f = f_t(i&lsbs_mask) * lsbs_norm;
+
+            return m::mix(srgb_to_linear_lut16[idx0], srgb_to_linear_lut16[idx1], f);
+        }
+
+    private:
+        static constexpr std::size_t lut16_msbs = 13;
+        static constexpr std::size_t lut16_lsbs = 16-lut16_msbs;
+        static constexpr std::size_t lut16_count = 1<<lut16_msbs;
+    };
+    static const srgb_lut_t srgb_lut;
+
+    [[nodiscard]] inline f_t to_linear_fp_srgb_lut(std::uint8_t i) const noexcept {
+        return srgb_lut(i);
+    }
+    [[nodiscard]] inline f_t to_linear_fp_srgb_lut(std::uint16_t i) const noexcept {
+        return srgb_lut(i);
+    }
+};
+
+}

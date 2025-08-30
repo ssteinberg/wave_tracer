@@ -1,0 +1,16 @@
+Category: CFL
+Brand: Globe
+Model: domestic-use
+Usage: domestic
+CCT (calculated): 4288
+MSI: 0.76
+SLI: 0.71
+IPI: 0.97
+PercentBlue: 30.34
+Rotational Angle: null
+Vertical Angle: null
+URL: https://lspdd.com/database/2764
+Normalization: Constant lumen
+DATA:
+  - type: tabulated intensity
+    data: |

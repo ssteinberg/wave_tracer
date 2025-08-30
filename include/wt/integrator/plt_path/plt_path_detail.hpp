@@ -1,0 +1,831 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <wt/integrator/integrator_context.hpp>
+#include <wt/integrator/plt_path/plt_path.hpp>
+#include <wt/integrator/traversal.hpp>
+#include <wt/integrator/stats.hpp>
+
+#include <wt/interaction/fsd/free_space_diffraction.hpp>
+
+#include <wt/math/intersect/cone_intersection_tolerance.hpp>
+#include <wt/math/intersect/ray.hpp>
+
+#include <wt/sampler/uniform.hpp>
+#include <wt/sensor/sensor/virtual_sensor.hpp>
+#include <wt/scene/scene.hpp>
+
+
+namespace wt::integrator::plt_path {
+
+
+using transport_e = bsdf::transport_e;
+
+
+template <beam::Beam BeamType>
+struct path_walk_data_t {
+    BeamType beam;
+
+    // information about last path vertex and previous beam
+    vertex_geo_variant_t prev_vert_geo;
+    std::optional<BeamType> prev_vert_beam;
+
+    bool sampled_fsd = false;
+
+    // transport mode and options
+    const plt_path_t::options_t& opts;
+    static constexpr transport_e transport = BeamType::transport;
+
+    // directional pdf and measure from previous interaction (for MIS)
+    solid_angle_sampling_pd_t from_previous_dpd = solid_angle_sampling_pd_t::discrete(0);
+
+    // fsd BSDF for last interaction
+    std::unique_ptr<free_space_diffraction_t> fsd_bsdf;
+
+    // for RR
+    f_t throughput = 1;
+
+    // context (scene, sensor, accelerating data structure)
+    const integrator_context_t& ctx;
+
+    // use a uniform sampler for path sampling
+    static sampler::uniform_t sampler;
+
+
+    // transforms a beam after interaction
+    inline void transform_surface_interaction(const intersection_surface_t& intersection,
+                                              const dir3_t& woworld,
+                                              const f_t scale,
+                                              const bsdf::bsdf_result_t& bsdf,
+                                              const f_t eta,
+                                              const solid_angle_sampling_pd_t pdf_fwd) noexcept {
+        from_previous_dpd = pdf_fwd;
+        prev_vert_geo = intersection;
+        prev_vert_beam = beam;
+        sampled_fsd = false;
+
+        // beam after interaction with surface
+        beam.transform_surface_interaction(intersection, woworld, bsdf, scale);
+        assert(m::isfinite(beam.intensity()));
+        // throughput
+        throughput *= scale * bsdf.mean_intensity();
+        if (eta!=1)
+            throughput /= m::sqr(eta);
+    }
+    // transforms a beam after interaction
+    inline void transform_region_interaction(const pqvec3_t& p,
+                                             const length_t beam_z_dist,
+                                             const dir3_t& woworld,
+                                             const f_t weight,
+                                             const solid_angle_sampling_pd_t pdf_fwd) noexcept {
+        from_previous_dpd = pdf_fwd;
+        prev_vert_geo = p;
+        prev_vert_beam = beam;
+        sampled_fsd = false;
+
+        // TODO: polarimetric volumetric interactions
+        // beam after interaction at a region
+        beam.transform_region_interaction(p, beam_z_dist, woworld, weight);
+        assert(m::isfinite(beam.intensity()));
+        // throughput
+        throughput *= weight;
+    }
+    inline void transform_fsd_interaction(
+            const pqvec3_t& wp,
+            const length_t beam_z_dist,
+            const dir3_t& woworld,
+            const f_t weight,
+            const solid_angle_sampling_pd_t pdf_fwd) noexcept {
+        from_previous_dpd = pdf_fwd;
+        prev_vert_geo = wp;
+        prev_vert_beam = beam;
+        sampled_fsd = true;
+
+        beam.transform_region_interaction(wp, beam_z_dist, woworld, weight);
+        assert(m::isfinite(beam.intensity()));
+        // throughput
+        throughput *= weight;
+    }
+
+    inline void set_fsd_bsdf(std::unique_ptr<free_space_diffraction_t> fsd_bsdf_ptr) noexcept {
+        fsd_bsdf = std::move(fsd_bsdf_ptr);
+    }
+
+    // walk step (do RR if requested)
+    inline bool continue_walk(
+            std::uint32_t depth,
+            bool allow_RR) noexcept {
+        if (depth>=opts.max_depth) return false;
+        
+        // zero throughput?
+        if (beam.intensity()==zero) return false;
+
+        // RR?
+        if (!allow_RR || !opts.RR) return true;
+
+        const auto r = throughput<1 ? m::max(throughput, f_t(.5)) : 1;
+        if (sampler.r()<=r) {
+            const auto scale = 1/r;
+            beam *= scale;
+            throughput *= scale;
+            return true;
+        }
+        return false;
+    }
+};
+
+template <beam::Beam BeamType>
+sampler::uniform_t path_walk_data_t<BeamType>::sampler = sampler::uniform_t{};
+
+
+/*
+ * Light-matter interaction functions
+ */
+
+
+// interaction with a surface
+template <beam::Beam BeamType>
+inline bool sample_surface_interaction(path_walk_data_t<BeamType>& data,
+                                       const intersection_surface_t& intersection) noexcept {
+    const auto& k = data.beam.k();
+    const auto& bsdf = intersection.shape->get_bsdf();
+
+    // BSDF query and intersection record
+    const auto bsdf_query = bsdf::bsdf_query_t{ 
+        .intersection = intersection,
+        .k = k,
+        .transport = data.transport,
+    };
+
+    const auto& ng = bsdf_query.intersection.ng();
+    const auto wiworld = -data.beam.dir();
+    const auto wi = bsdf_query.intersection.shading.to_local(wiworld);
+    const auto wig = m::dot(wiworld, ng);
+    const auto wis = wi.z;
+
+    if (wig*wis<=0)
+        return false;
+
+    // sample a BSDF interactions
+    const auto bsdf_sample = bsdf.sample(wi, 
+                                         bsdf_query,
+                                         data.sampler);
+    if (!bsdf_sample || bsdf_sample->dpd==zero)
+        return false;
+
+    assert(bsdf_sample->weighted_bsdf.mean_intensity()>=0 && m::isfinite(bsdf_sample->weighted_bsdf.mean_intensity()));
+
+    const auto& wo = bsdf_sample->wo;
+    const auto woworld = m::normalize(vec3_t{ bsdf_query.intersection.shading.to_world(wo) });
+    const auto wog = m::dot(woworld, ng);
+    const auto wos = wo.z;
+
+    // record stat
+    stats::record_surface_interaction();
+
+    if (wog*wos<=0)
+        return false;
+
+    // transform beam on interaction
+    data.transform_surface_interaction(bsdf_query.intersection, woworld, 1, 
+                                       bsdf_sample->weighted_bsdf, std::real(bsdf_sample->eta),
+                                       bsdf_sample->dpd);
+
+    return true;
+}
+
+// null interaction (trace restart)
+template <beam::Beam BeamType>
+inline bool sample_null_interaction(path_walk_data_t<BeamType>& data,
+                                    const pqvec3_t& interaction_wp,
+                                    const length_t beam_dist) noexcept {
+    // do not create a vertex, null transform
+    data.beam.transform_restart(interaction_wp, beam_dist);
+
+    // record stat
+    stats::record_null_interaction();
+
+    return true;
+}
+
+// free-space diffraction interaction
+template <beam::Beam BeamType>
+inline bool sample_fsd_interaction(
+        path_walk_data_t<BeamType>& data,
+        const pqvec3_t& interaction_wp,
+        const length_t beam_dist) noexcept {
+    const auto& prev_wp = intersection_position(data.prev_vert_geo);
+    const auto sample = data.fsd_bsdf->sample(data.ctx.ads, prev_wp, data.sampler);
+
+    data.transform_fsd_interaction(
+        interaction_wp,
+        beam_dist,
+        sample.wo,
+        sample.weight,
+        solid_angle_sampling_pd_t::discrete(0)
+    );
+
+    return true;
+}
+
+
+/*
+ * Random Walk
+ */
+
+struct wavefront_intersection_t {
+    // the primary triangle -- the triangle under the sampled interaction point
+    const ads::tri_t* primary = nullptr;
+    std::optional<intersection_surface_t> intersection;
+
+    // intersection record for primary
+    intersect::intersect_ray_tri_ret_t primary_intersection_record = { .dist = limits<length_t>::infinity() };
+};
+
+inline auto find_closest_triangle(const ads::intersection_record_t::triangles_accessor_t& tris,
+                                  const ads::ads_t& ads,
+                                  const pqrange_t<>& interaction_z_range,
+                                  const pqvec3_t& origin,
+                                  const dir3_t& beam_dir) noexcept {
+    wavefront_intersection_t id;
+
+    for (const auto& tuid : tris) {
+        const auto& tri = ads.tri(tuid);
+
+        // numeric tolerance for tests when looking for triangle under sampled interaction point
+        const auto fptol = intersect::cone_intersection_tolerance(origin, aabb_t::from_points(tri.a,tri.b,tri.c));
+        // triangle lies under interaction point? select closest
+        const auto intr = intersect::intersect_ray_tri(ray_t{ origin, beam_dir }, 
+                                                       tri.a, tri.b, tri.c,
+                                                       interaction_z_range.grow(fptol));
+        if (intr && intr->dist<id.primary_intersection_record.dist) {
+            id.primary = &tri;
+            id.primary_intersection_record = *intr;
+        }
+    }
+
+    return id;
+}
+
+// splat to light image for direct-to-sensor connections
+inline void splat_forward(
+        const integrator_context_t& ctx,
+        const sensor::sensor_element_sample_t& sensor_element,
+        const radiant_flux_stokes_t& L,
+        const wavenumber_t& k) noexcept {
+    ctx.sensor->splat_direct(ctx.film_surface,
+                             sensor_element,
+                             L, k);
+}
+
+// splat to block, for sensor samples
+inline void splat_backward(
+        const integrator_context_t& ctx,
+        const sensor::block_handle_t& block,
+        const sensor::sensor_element_sample_t& sensor_element,
+        const radiant_flux_stokes_t& L,
+        const wavenumber_t& k) noexcept {
+    ctx.sensor->splat(
+        block,
+        sensor_element,
+        L, k);
+}
+
+// power MIS heuristic
+inline f_t MIS(const Quantity auto& pd1, const Quantity auto& pd2) noexcept {
+    assert(pd1!=zero);
+    if (pd2==zero)
+        return 1;
+    return (f_t)(pd1*pd1 / (pd1*pd1 + pd2*pd2));
+}
+
+// UTD FSD
+inline auto do_fsd(const ads::ads_t& ads,
+                   const elliptic_cone_t& cone_from_src,
+                   const vertex_geo_variant_t& src_geo,
+                   const pqvec3_t& dst,
+                   const free_space_diffraction_t& fsd_bsdf,
+                   const Wavenumber auto& k) noexcept {
+    const auto& src = cone_from_src.o();
+    const auto dst_geo = vertex_geo_variant_t{ dst };
+
+    const auto fsd = fsd_bsdf.f(src, dst);
+    c_t ts = {}, th = {};
+    for (const auto& f : fsd) {
+        const auto &e = ads.edge(f.edge_idx);
+        const auto eintr = intersection_edge_t{ e, f.p };
+        if (shadow(ads, eintr, src_geo) ||
+            shadow(ads, eintr, dst_geo))
+            continue;
+
+        const auto d = f.ro + f.ri;
+        const auto phase = std::exp(c_t{ 0, -u::to_num(d*k) });
+        ts += phase * f.utd.Ds;
+        th += phase * f.utd.Dh;
+    }
+
+    if (cone_from_src.contains(dst)) {
+        if (!shadow(ads, src_geo, dst_geo)) {
+            // direct path
+            const auto d = m::length(dst - src);
+            const auto phase = std::exp(c_t{ 0, -u::to_num(d*k) });
+            ts += phase;
+            th += phase;
+        }
+    }
+
+    return std::make_pair(ts,th);
+}
+
+// next-event estimation (backward transport)
+template <beam::Beam BeamType>
+inline spectral_radiant_flux_stokes_t nee_backward(
+        path_walk_data_t<BeamType>& data,
+        const wavefront_intersection_t& wf_intersection,
+        const int depth) noexcept {
+    auto& beam = data.beam;
+    const auto& k = beam.k();
+
+    // NEE from surface
+    if (wf_intersection.intersection) {
+        const auto& intersection = *wf_intersection.intersection;
+        const auto& bsdf = intersection.shape->get_bsdf();
+        // ignore delta BSDFs
+        if (bsdf.is_delta_only(k))
+            return {};
+
+        // sample a direct connection
+        const auto direct_sample =
+            data.ctx.scene->sample_emitter_direct(data.sampler, data.ctx.sensor, intersection.wp, k);
+        const auto sampled_emitter_pm = direct_sample.emitter_pdf;
+        assert(sampled_emitter_pm>0);
+        if (direct_sample.beam.intensity()==zero)
+            return {};
+
+        const auto wiworld = -beam.dir();
+        const auto woworld = -direct_sample.beam.dir();
+        const auto& ng = intersection.ng();
+        const auto wi  = intersection.shading.to_local(wiworld);
+        const auto wo  = intersection.shading.to_local(woworld);
+        const auto wig = m::dot(wiworld, ng);
+        const auto wog = m::dot(woworld, ng);
+        if (wi.z*wig<=0 || wo.z*wog<=0)
+            return {};
+
+        // eval BSDF
+        const auto bsdf_query = bsdf::bsdf_query_t{ 
+            .intersection = intersection,
+            .k = k,
+            .transport = BeamType::transport,
+        };
+        const auto f = bsdf.f(wi, wo, bsdf_query);
+        if (f.mean_intensity()==zero)
+            return {};
+
+        // shadow
+        // TODO: proper conic shadow queries
+        const auto emitter_geo = direct_sample.surface ? 
+            vertex_geo_variant_t{ *direct_sample.surface } : vertex_geo_variant_t{ direct_sample.beam.origin() };
+        if (shadow(*data.ctx.ads, intersection, emitter_geo))
+            return {};
+
+        // transform beam
+        auto nee_beam = beam;
+        nee_beam.transform_surface_interaction(intersection, woworld, f, 1);
+
+        const auto sL = beam::integrate_beams(nee_beam, direct_sample.beam);
+        assert(sL.intensity()>=zero);
+
+        // MIS
+        f_t mis = 1;
+        const auto& pd_nee = direct_sample.dpd;
+        if (!pd_nee.is_discrete()) {
+            const auto pd_brdf = bsdf.pdf(wi, wo, bsdf_query);
+            const auto pd_direct = pd_nee.density() * sampled_emitter_pm;
+            mis = MIS(pd_direct, pd_brdf);
+        }
+        assert(mis>zero);
+
+        // update stats
+        stats::record_connected_path(depth);
+
+        return sL * mis;
+    }
+
+    return {};
+}
+
+// handle emissive surfaces (backward transport only)
+template <beam::Beam BeamType>
+inline spectral_radiant_flux_stokes_t emission(
+        path_walk_data_t<BeamType>& data,
+        const intersection_surface_t& intersection,
+        const int depth) noexcept 
+    requires (BeamType::transport==transport_e::backward)
+{
+    auto& beam = data.beam;
+    const auto* shape = intersection.shape;
+
+    if (const auto& emitter = shape->get_emitter().get(); emitter) {
+        const auto sL = emitter->Li(beam, &intersection);
+        assert(sL.intensity()>=zero);
+
+        // MIS
+        f_t mis = 1;
+        if (!data.from_previous_dpd.is_discrete()) {
+            const auto emitter_pm = data.ctx.scene->pdf_emitter(data.ctx.sensor, emitter);
+            const auto emitter_ppd = emitter->pdf_position(intersection);
+
+            // compute solid angle probability density of NEE for this emitter sample
+            const auto dn = m::dot(-beam.dir(), intersection.ng());
+            const auto recp_dn = (dn!=zero ? 1/m::abs(dn) : 0) / u::ang::sr;
+            const auto l2 = m::length2(beam.origin() - intersection.wp);
+            const auto pd_nee = solid_angle_density_t{ emitter_ppd.density_or_zero() * l2 * recp_dn };
+
+            const auto pd_brdf = data.from_previous_dpd.density();
+            const auto pd_direct = pd_nee * emitter_pm;
+            mis = MIS(pd_brdf, pd_direct);
+        }
+        assert(mis>zero);
+
+        // update stats
+        stats::record_connected_path(depth);
+
+        return sL * mis;
+    }
+    return {};
+}
+
+// next-event estimation (forward transport)
+template <beam::Beam BeamType>
+inline void nee_forward(
+        path_walk_data_t<BeamType>& data,
+        const pqvec3_t interaction_wp,
+        const length_t beam_dist,
+        const QuantityOf<inverse(isq::length)> auto& recp_spectral_pd,
+        const int depth) noexcept {
+    const auto& beam = data.beam;
+    const auto& k = beam.k();
+
+    // only do NEE on FSD
+    // TODO: general forward NEE
+    if (!data.fsd_bsdf)
+        return;
+
+    if (const auto* virtual_sensor = dynamic_cast<const sensor::virtual_coverage_sensor_t*>(data.ctx.sensor); virtual_sensor) {
+        auto sensor_direct = data.ctx.sensor->sample_direct(
+                data.sampler, interaction_wp, beam.k());
+        if ((sensor_direct.dpd.is_discrete() || sensor_direct.dpd!=zero) && 
+            sensor_direct.beam.intensity()>zero) {
+            const auto fsd = do_fsd(
+                    *data.ctx.ads,
+                    beam.get_envelope(), data.prev_vert_geo,
+                    sensor_direct.beam.origin(),
+                    *data.fsd_bsdf, k);
+
+            const f_t f = (std::norm(fsd.first) + std::norm(fsd.second)) / 2;
+            assert(m::isfinite(f) && f>=0);
+            if (f == 0)
+                return;
+
+            auto fsd_beam = beam;
+            fsd_beam.transform_region_interaction(interaction_wp, beam_dist, -sensor_direct.beam.dir(), f);
+
+            // TODO: MIS + spectral MIS
+            auto mis = recp_spectral_pd;
+
+            const auto sL = beam::integrate_beams(sensor_direct.beam, fsd_beam);
+            const auto L = sL * mis;
+            splat_forward(data.ctx, sensor_direct.element, L, k);
+        }
+    }
+}
+
+// connections to sensor (forward transport)
+template <beam::Beam BeamType>
+inline void sensing(
+        path_walk_data_t<BeamType>& data,
+        const pqvec3_t& origin_wp,
+        const Length auto& beam_propagation_distance,
+        const QuantityOf<inverse(isq::length)> auto& recp_spectral_pd,
+        const int depth) noexcept {
+    auto& beam = data.beam;
+    const auto& k = beam.k();
+
+    if (const auto* virtual_sensor = dynamic_cast<const sensor::virtual_coverage_sensor_t*>(data.ctx.sensor); virtual_sensor) {
+        // virtual sensor: it is connectible but has no associated geometry
+        // check if we intersect the sensor
+        auto max_distance = beam_propagation_distance - 
+                            m::max<length_t>(0*u::m,m::dot(beam.dir(), origin_wp-beam.origin()));
+        auto direct_connect = virtual_sensor->Si(beam, { 0*u::m, max_distance });
+        if (direct_connect) {
+            const auto& sensor_element_sample = direct_connect->element;
+            const auto sL = beam::integrate_beams(direct_connect->beam, beam);
+
+            // TODO: MIS + spectral MIS
+            auto mis = recp_spectral_pd;
+
+            const auto L = sL * mis;
+            splat_forward(data.ctx, sensor_element_sample, L, k);
+        }
+    }
+}
+
+template <beam::Beam BeamType>
+inline spectral_radiant_flux_stokes_t random_walk(
+        path_walk_data_t<BeamType>& data,
+        const QuantityOf<inverse(isq::length)> auto& recp_spectral_pd,
+        const int depth=1) noexcept {
+    spectral_radiant_flux_stokes_t L = {};
+
+    //
+    // trace and intersect beam
+
+    auto& beam = data.beam;
+    const auto traversal_opts = traversal_opts_t{
+        .force_ray_tracing = data.ctx.sensor->ray_trace_only(),
+        .detect_edges = data.opts.FSD
+    };
+    const auto intersection = traverse(*data.ctx.ads,
+                                       beam.get_envelope(),
+                                       data.prev_vert_geo,
+                                       wavenum_to_wavelen(beam.k()),
+                                       traversal_opts);
+    if (intersection.record.empty()) {
+        // no intersection found
+        // TODO: infinite emitters, and MIS with infinite emitters
+        return L;
+    }
+
+    // beam travel distance to first intersection
+    const auto dist_to_interaction = intersection.record.distance();
+    // ballistic propagation?
+    const bool is_ballistic = intersection.ballistic || beam.is_ray();
+
+    const auto& beam_frame = beam.frame();
+    const auto& envelope = beam.get_envelope();
+
+    // intersected triangles and edges
+    const auto& tris  = intersection.record.triangles();
+    const auto* edges = &intersection.record.edges();
+    assert(!tris.empty());
+    assert(!is_ballistic || (tris.size()==1 && edges->empty()));
+
+    // beam source world position
+    const auto origin_wp = intersection.origin;
+    // world position of (centre of) interaction region start
+    const auto interaction_wp = origin_wp + dist_to_interaction * beam.dir();
+
+
+    //
+    // evaluate fsd from previous interaction
+
+    if (data.fsd_bsdf) {
+        // TODO: polarization
+
+        const auto& prev_cone = data.prev_vert_beam->get_envelope();
+        const auto fsd = do_fsd(
+                *data.ctx.ads,
+                prev_cone, data.prev_vert_geo, interaction_wp,
+                *data.fsd_bsdf, beam.k());
+        data.fsd_bsdf = {};
+
+        const auto f = (std::norm(fsd.first) + std::norm(fsd.second)) / 2;
+        assert(m::isfinite(f) && f>=0);
+
+        if (data.sampled_fsd)
+            data.beam *= f;
+        else {
+            data.prev_vert_beam->transform_region_interaction(origin_wp, m::length(origin_wp-prev_cone.o()), beam.dir(), f);
+            data.beam += *data.prev_vert_beam;
+        }
+    }
+
+
+    //
+    // check which triangle falls under the intersection point, if any,
+
+    wavefront_intersection_t wf_intersection;
+    if (is_ballistic) {
+        assert(intersection.record.has_raytracing_intersection_record());
+
+        wf_intersection.primary = &data.ctx.ads->tri(*tris.begin());
+        wf_intersection.primary_intersection_record = intersection.record.get_raytracing_intersection_record();
+    }
+    else {
+        const auto interaction_z_range = pqrange_t<>{
+            dist_to_interaction,
+            dist_to_interaction+intersection.intersection_region_depth
+        };
+        wf_intersection = find_closest_triangle(
+                tris, *data.ctx.ads,
+                interaction_z_range, origin_wp, beam.dir());
+    }
+
+    // distance to interaction region end, or triangle intersection
+    const auto& interaction_region_end = wf_intersection.primary ?
+        wf_intersection.primary_intersection_record.dist : dist_to_interaction;
+
+    // create surface intersection
+    if (wf_intersection.primary) {
+        const auto& tri = *wf_intersection.primary;
+        const auto* shape = data.ctx.scene->shapes()[tri.shape_idx].get();
+        const auto& sampled_tri_wp = origin_wp + wf_intersection.primary_intersection_record.dist * beam.dir();
+
+        wf_intersection.intersection = intersection_surface_t{
+            shape, tri.n,
+            tri.shape_tri_idx, 
+            wf_intersection.primary_intersection_record.bary, sampled_tri_wp
+        };
+        // intersection footprint between beam and surface
+        // TODO: accurate footprint
+        wf_intersection.intersection->footprint =
+            data.beam.surface_footprint_static(*wf_intersection.intersection, dist_to_interaction);
+    }
+
+
+    // for ballistic: find edges around intersection
+    if (is_ballistic && !beam.is_ray() && !traversal_opts.force_ray_tracing) {
+        const auto zdist = envelope.axes(dist_to_interaction).x * beam::beam_generic_t::major_axis_to_z_scale();
+        const auto eintr = data.ctx.ads->intersect(envelope, pqrange_t<>{ dist_to_interaction - zdist/2, dist_to_interaction + zdist/2 });
+        edges = &eintr.edges();
+    }
+
+    // if we have edges, construct fsd BSDF
+    if (!edges->empty()) {
+        std::chrono::high_resolution_clock::time_point fsd_start_timepoint;
+        if constexpr (stats::additional_plt_counters)
+            fsd_start_timepoint = std::chrono::high_resolution_clock::now();
+
+        // create fsd aperture
+        const auto footprint = beam.footprint(dist_to_interaction);
+        auto fsd_bsdf_ptr = std::make_unique<free_space_diffraction_t>(
+                        data.ctx.ads,
+                        interaction_wp, beam_frame, footprint,
+                        -data.beam.dir(), beam.k(), *edges);
+        if (!fsd_bsdf_ptr->empty())
+            data.fsd_bsdf = std::move(fsd_bsdf_ptr);
+
+        // record stat
+        stats::record_fsd_interaction(fsd_start_timepoint);
+    }
+
+
+    if constexpr (stats::additional_plt_counters) {
+        const auto size = beam.wavefront(dist_to_interaction).cross_section_area();
+        stats::record_interaction_region(size);
+    }
+
+
+    //
+    // NEE
+
+    if constexpr (BeamType::transport == transport_e::backward)
+    if (depth<data.opts.max_depth)
+        L += nee_backward(
+                data,
+                wf_intersection,
+                depth+1);
+
+    if constexpr (BeamType::transport == transport_e::forward)
+    if (depth<data.opts.max_depth)
+        nee_forward(
+                data,
+                interaction_wp,
+                dist_to_interaction,
+                recp_spectral_pd,
+                depth+1);
+
+
+    //
+    // organic connections
+
+    // emission (backward transport)
+    if constexpr (BeamType::transport == transport_e::backward)
+    if (wf_intersection.intersection) {
+        L += emission(data,
+                      *wf_intersection.intersection,
+                      depth);
+    }
+
+    // sensing (forward transport)
+    if constexpr (BeamType::transport == transport_e::forward)
+        sensing(data, origin_wp,
+                interaction_region_end,
+                recp_spectral_pd, depth);
+
+
+    //
+    // do interactions
+
+    bool sampled_null = false;
+    if (wf_intersection.intersection) {
+        // sampled a surface interaction
+        if (!sample_surface_interaction(data, *wf_intersection.intersection))
+            return L;
+    } else if (data.fsd_bsdf) {
+        // sampled free-space diffraction
+        assert(!is_ballistic && data.opts.FSD);
+
+        // sample fsd
+        if (!sample_fsd_interaction(data, interaction_wp, dist_to_interaction))
+            return L;
+    } else {
+        // no edges, continue propagation
+        assert(!is_ballistic);
+
+        // do null
+        sampled_null = true;
+        if (!sample_null_interaction(data, interaction_wp, dist_to_interaction))
+            return L;
+    }
+
+
+    //
+    // continue walk
+
+    const bool do_RR = !sampled_null;
+    if (data.continue_walk(depth, do_RR))
+        L += random_walk(data, recp_spectral_pd, sampled_null ? depth : depth+1);
+
+    if constexpr (BeamType::transport == transport_e::backward)
+        return L;
+    return {};
+}
+
+inline void integrate_backward(
+        const integrator_context_t& ctx,
+        const sensor::block_handle_t& block,
+        const vec3u32_t& sensor_element,
+        const plt_path_t::options_t& opts) noexcept {
+    if (opts.max_depth==0) return;
+
+    // draw spectral sample
+    const auto emitter_wavenumber = ctx.scene->sample_emitter_and_spectrum(ctx.sensor);
+    const auto& k = emitter_wavenumber.wavenumber.k;
+
+    // spectral (importance) sampling weight:
+    // for discrete spectral samples, division by the sampling probability mass.
+    // for continuos spectra, importance sample over all probability densities to sample this k.
+    const wavenumber_t recp_spectral_pd = (emitter_wavenumber.wavenumber.wpd.is_discrete() ?
+        f_t(1) / wavenumber_density_t{ emitter_wavenumber.wavenumber.wpd.mass() * u::mm } :
+        f_t(1) / ctx.scene->sum_spectral_pdf_for_all_emitters(ctx.sensor, k));
+
+    // draw sensor sample
+    const auto sensor_sample = ctx.sensor->sample(ctx.scene->sampler(), sensor_element, k);
+    
+    // path trace
+    auto data = path_walk_data_t{
+        .beam = sensor_sample.beam,
+        .prev_vert_geo  = sensor_sample.beam.origin(),
+        .opts = opts,
+        .ctx = ctx
+    };
+    const auto L = random_walk(
+        data,
+        recp_spectral_pd
+    );
+
+    assert(L.intensity()>=zero && L.isfinite());
+
+    splat_backward(data.ctx, block, sensor_sample.element,
+                   L * recp_spectral_pd, k);
+}
+
+
+inline void integrate_forward(
+        const integrator_context_t& ctx,
+        const vec3u32_t& sensor_element,
+        const plt_path_t::options_t& opts) noexcept {
+    if (opts.max_depth==0) return;
+
+    // draw spectral sample and emitter sample
+    const auto emitter_wavenumber = ctx.scene->sample_emitter_and_spectrum_and_source_beam(ctx.sensor);
+    const auto& emitter_sample    = emitter_wavenumber.emitter_sample;
+
+    const auto& k = emitter_wavenumber.wavenumber.k;
+    const auto recp_spectral_pd = f_t(1) / ctx.scene->sum_spectral_pdf_for_all_emitters(ctx.sensor, k);
+
+    // path trace
+    auto data = path_walk_data_t{
+        .beam = emitter_sample.beam,
+        .prev_vert_geo  = emitter_sample.beam.origin(),
+        .opts = opts,
+        .ctx = ctx
+    };
+    random_walk(
+        data,
+        recp_spectral_pd
+    );
+}
+
+
+}

@@ -1,0 +1,146 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <string>
+#include <optional>
+#include <vector>
+#include <chrono>
+
+#include <wt/util/logger/termcolor.hpp>
+
+
+namespace wt::logger::indicators {
+
+
+//
+// based on github.com/p-ranav/indicators by Pranav
+// (MIT)
+// with very minor modifications
+//
+
+
+class block_progress_bar_t {
+public:
+    explicit block_progress_bar_t(colour foreground_colour,
+                                  std::optional<font_style> style = {},
+                                  std::uint32_t barwidth = 100,
+                                  bool show_percentage = true,
+                                  bool show_elapsed_time = false,
+                                  bool show_remaining_time = false,
+                                  std::string prefix  = "",
+                                  std::string postfix = "",
+                                  std::string start = "[",
+                                  std::string end   = "]");
+
+    inline void set_progress(float value) noexcept {
+        progress_ = value;
+        save_start_time();
+    }
+
+    inline float current() noexcept {
+        return progress_;
+    }
+
+    [[nodiscard]] inline bool is_completed() const { return completed; }
+
+    inline void mark_as_completed() {
+        completed = true;
+    }
+
+    [[nodiscard]] inline const auto& get_foreground_colour() const noexcept { return foreground_colour; }
+    [[nodiscard]] inline const auto& get_prefix() const noexcept { return prefix; }
+    [[nodiscard]] inline const auto& get_postfix() const noexcept { return postfix; }
+
+    inline void set_foreground_colour(colour v) noexcept { foreground_colour = v; }
+    inline void set_prefix(std::string v) noexcept { prefix = std::move(v); }
+    inline void set_postfix(std::string v) noexcept { postfix = std::move(v); }
+
+    inline void set_show_elapsed_time(bool v) noexcept { show_elapsed_time = v; }
+    inline void set_show_remaining_time(bool v) noexcept { show_remaining_time = v; }
+
+    inline const auto& get_start_time() const noexcept { return start_time_point_; }
+
+    static constexpr auto max_progress = 1.f;
+
+private:
+    colour foreground_colour;
+    std::optional<font_style> style;
+    std::uint32_t barwidth;
+    bool show_percentage;
+    bool show_elapsed_time;
+    bool show_remaining_time;
+    std::string prefix;
+    std::string postfix;
+    const std::string start;
+    const std::string end;
+
+    bool saved_start_time = false;
+    bool completed = false;
+    float progress_ = 0;
+    std::chrono::time_point<std::chrono::high_resolution_clock> start_time_point_;
+
+    friend class dynamic_progress;
+    bool multi_progress_mode_{false};
+
+    void save_start_time() {
+        if (!saved_start_time) {
+            start_time_point_ = std::chrono::high_resolution_clock::now();
+            saved_start_time = true;
+        }
+    }
+
+    [[nodiscard]] std::pair<std::string, int> get_prefix_text() const;
+    [[nodiscard]] std::pair<std::string, int> get_postfix_text() const;
+
+public:
+    void print_progress(std::ostream* os, bool from_multi_progress = false);
+};
+
+
+class dynamic_progress {
+    using Indicator = block_progress_bar_t;
+
+public:
+    inline Indicator &operator[](size_t index) noexcept {
+        return bars_[index].get();
+    }
+
+    inline size_t push_back(Indicator &bar) noexcept {
+        bar.multi_progress_mode_ = true;
+        bars_.emplace_back(bar);
+        return bars_.size() - 1;
+    }
+
+private:	
+    bool started_{false};
+    std::vector<std::reference_wrapper<Indicator>> bars_;
+    size_t total_count_{0};
+
+public:
+    inline void print_progress(std::ostream* os) noexcept {
+        if (bars_.empty())
+            return;
+
+        if (started_)
+            termcolour::move_up(*os, static_cast<int>(total_count_));
+        for (auto &bar : bars_) {
+            bar.get().print_progress(os, true);
+            *os << "\n";
+        }
+        if (!started_)
+            started_ = true;
+        total_count_ = bars_.size();
+        *os << termcolour::reset;
+    }
+};
+
+
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+	<default name="spp" value="8"/>
+	<default name="res" value="512"/>
+
+	<integrator type="plt_path" >
+		<integer name="max_depth" value="16" />
+		<boolean name="russian_roulette" value="true" />
+		<string name="direction" value="backward"/>
+	</integrator>
+
+	<sensor type="perspective" id="camera">
+		<quantity name="fov" value="19.75°" />
+		<transform name="to_world" >
+			<lookat origin="0m, 1m, 6.8m" target="0m, 1m, 0m" up="0, 1, 0"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="$res" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D50" />
+			</response>
+		</film>
+	</sensor>
+
+	<bsdf id="metal" type="normalmap" >
+		<texture type="transform">
+			<matrix value="2,0, 0,2" />
+			<texture type="bitmap">
+				<path value="textures/metal_0078_normal_4k.png" />
+				<string name="colour_encoding" value="linear" />
+			</texture>
+		</texture>
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<texture name="roughness" type="function">
+					<function value=".5 * pow(max(0, roughness-.1),1.5)" />
+					<texture name="roughness" type="transform">
+						<matrix value="2,0, 0,2" />
+						<texture type="bitmap">
+							<path value="textures/metal_0078_roughness_4k.png" />
+							<string name="colour_encoding" value="linear" />
+						</texture>
+					</texture>
+				</texture>
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+
+	<bsdf id="tiles" type="normalmap" >
+		<texture type="bitmap">
+			<path value="textures/tiles_0122_normal_4k.png" />
+			<string name="colour_encoding" value="linear" />
+		</texture>
+		<bsdf type="diffuse">
+			<texture name="reflectance" type="scale">
+				<spectrum name="scale" constant="1"/>
+				<texture type="bitmap">
+					<path value="textures/tiles_0122_color_4k.png" />
+				</texture>
+			</texture>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="LeftWallBSDF" >
+		<bsdf type="scale">
+			<spectrum name="scale" rgb="0,.5,1"/>
+			<ref id="tiles" />
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RightWallBSDF" >
+		<bsdf type="scale">
+			<spectrum name="scale" rgb="1,1,0"/>
+			<ref id="tiles" />
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="FloorBSDF" >
+		<bsdf type="scale">
+			<spectrum name="scale" rgb="0,1,1"/>
+			<ref id="tiles" />
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="CeilingBSDF" >
+		<bsdf type="scale">
+			<spectrum name="scale" rgb="1,0,0"/>
+			<ref id="tiles" />
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BackWallBSDF" >
+		<ref id="metal" />
+	</bsdf>
+
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="0, 1, 0, 0m,  0, 0, 2, 0m,  1, 0, 0, 0m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="FloorBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="-1, 0, 0, 0m,  0, 0, -2, 2m,  0, -1, 0, 0m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="CeilingBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="0, -1, 0, 0m,  1, 0, 0, 1m,  0, 0, -2, -1m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="BackWallBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="0, 0, 2, 1m,  1, 0, 0, 1m,  0, -1, 0, 0m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="RightWallBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2m" />
+		<transform name="to_world" >
+			<matrix value="0, 0, -2, -1m,  1, 0, 0, 1m,  0, 1, 0, 0m,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="LeftWallBSDF" />
+	</shape>
+	<shape type="sphere">
+		<point name="center" x="0m" y="1.6m" z=".5m" />
+		<quantity name="radius" value="35mm" />
+
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".0"/>
+		</bsdf>
+
+		<emitter type="area">
+			<spectrum name="radiance" blackbody="5000K">
+				<float name="scale" value=".25" />
+			</spectrum>
+		</emitter>
+	</shape>
+</scene>

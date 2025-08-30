@@ -1,0 +1,608 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <wt/beam/beam_generic.hpp>
+#include <wt/interaction/polarimetric/stokes.hpp>
+
+namespace wt {
+
+namespace beam {
+
+using transport_e = bsdf::transport_e;
+
+/**
+ * @brief Helper structure that holds the polarimetric radiometric data associated with a beam:
+ *        for forward transport: a Stokes parameters vector; 
+ *        for backward transport: a Mueller operator.
+ *        Keeps track of the frame of the data (the frame of the Stokes vector or the incident frame of the Mueller matrix), and provides transformation facilities.
+ */
+template <transport_e transport, Quantity Q>
+struct beam_radiometric_data_t {};
+
+template <Quantity Q>
+struct beam_radiometric_data_t<transport_e::forward, Q> {
+    using stokes_t = stokes_parameters_t<Q>;
+
+    static constexpr auto transport = transport_e::forward;
+
+    /** @brief Stokes parameter vector.
+     */
+    stokes_t S;
+    /** @brief Frame of ``S``.
+     */
+    frame_t frame;
+
+    [[nodiscard]] inline auto mean_intensity() const noexcept {
+        return S.intensity();
+    }
+    [[nodiscard]] inline auto isfinite() const noexcept { return S.isfinite(); }
+    [[nodiscard]] inline auto isnan() const noexcept { return S.isnan(); }
+
+    /**
+     * @brief For a surface interaction: transforms ``S`` using a Mueller operator ``mueller_op``.
+     *        Frames of ``M`` are assumed to be the SP surface frames.
+     */
+    inline void apply_bsdf(const mueller_operator_t& mueller_op,
+                           const dir3_t& wo,
+                           const intersection_surface_t& surface,
+                           const frame_t& frame_after_interaction) noexcept {
+        const auto& SPin  = surface.sp_frame(frame.n);
+        const auto& SPout = surface.sp_frame(wo);
+        // apply operator
+        S = mueller_op(S,
+                       frame,
+                       SPin, 
+                       frame_after_interaction,
+                       SPout);
+        frame = frame_after_interaction;
+    }
+    /**
+     * @brief For an edge interaction: transforms ``S`` using a Mueller operator ``mueller_op``.
+     *        Frames of ``M`` are assumed to be the SH surface frames.
+     */
+    inline void apply_bsdf(const mueller_operator_t& mueller_op,
+                           const dir3_t& wo,
+                           const intersection_edge_t& edge,
+                           const frame_t& frame_after_interaction) noexcept {
+        const auto& SHin  = edge.sh_frame(frame.n);
+        const auto& SHout = edge.sh_frame(wo);
+        // apply operator
+        S = mueller_op(S,
+                       frame,
+                       SHin, 
+                       frame_after_interaction,
+                       SHout);
+        frame = frame_after_interaction;
+    }
+
+    template <Quantity Q2>
+        requires std::is_convertible_v<Q, Q2>
+    [[nodiscard]] inline operator beam_radiometric_data_t<transport, Q2>() const noexcept {
+        return beam_radiometric_data_t<transport,Q2>{
+            .S = (stokes_parameters_t<Q2>)S,
+            .frame = frame
+        };
+    }
+
+    inline auto& operator+=(const beam_radiometric_data_t& o) noexcept {
+        S += o.S.reorient(o.frame, frame);
+        return *this;
+    }
+    inline auto operator+(const beam_radiometric_data_t& o) const noexcept {
+        auto ret = *this;
+        ret.S += o.S.reorient(o.frame, ret.frame);
+        return ret;
+    }
+
+    inline auto& operator*=(const f_t scale) noexcept {
+        this->S *= scale;
+        return *this;
+    }
+    inline auto& operator/=(const f_t scale) noexcept {
+        this->S /= scale;
+        return *this;
+    }
+    template <ScalarOrUnit SQ>
+    inline friend auto operator*(const beam_radiometric_data_t& db, const SQ scale) noexcept {
+        using RQ = decltype(std::declval<Q>()*std::declval<SQ>());
+        const auto s = db.S * scale;
+        return beam_radiometric_data_t<transport, RQ>{ .S=s, .frame=db.frame };
+    }
+    template <ScalarOrUnit SQ>
+    inline friend auto operator*(const SQ scale, const beam_radiometric_data_t& db) noexcept {
+        using RQ = decltype(std::declval<SQ>()*std::declval<Q>());
+        const auto s = scale * db.S;
+        return beam_radiometric_data_t<transport, RQ>{ .S=s, .frame=db.frame };
+    }
+    template <ScalarOrUnit SQ>
+    inline friend auto operator/(const beam_radiometric_data_t& db, const SQ scale) noexcept {
+        using RQ = decltype(std::declval<Q>()/std::declval<SQ>());
+        const auto s = db.S / scale;
+        return beam_radiometric_data_t<transport, RQ>{ .S=s, .frame=db.frame };
+    }
+};
+
+template <Quantity Q>
+struct beam_radiometric_data_t<transport_e::backward, Q> {
+    using stokes_t = stokes_parameters_t<spectral_radiant_flux_t>;
+
+    static constexpr auto transport = transport_e::backward;
+
+    /** @brief Mueller operator.
+     */
+    mueller_operator_t M;
+
+    /** @brief Incident frame of ``M``.
+     */
+    frame_t frame;
+
+    Q scale{};
+
+    [[nodiscard]] inline auto mean_intensity() const noexcept {
+        return M.mean_intensity() * scale;
+    }
+    [[nodiscard]] inline auto isfinite() const noexcept {
+        return M.isfinite() && m::isfinite(scale);
+    }
+    [[nodiscard]] inline auto isnan() const noexcept {
+        return M.isnan() || m::isnan(scale);
+    }
+
+    /**
+     * @brief For a surface interaction: composes a Mueller operator to the right of current operator ``mueller_op``.
+     *        Frames are assumed to be the SP surface frames.
+     */
+    inline void apply_bsdf(const mueller_operator_t& mueller_op,
+                           const dir3_t& wo,
+                           const intersection_surface_t& surface,
+                           const frame_t& frame_after_interaction) noexcept {
+        const auto& SPin  = surface.sp_frame(wo);
+        const auto& SPout = surface.sp_frame(frame.n);
+        // compose Muller ops
+        M = compose(M, mueller_op, frame, SPout);
+        // new incident frame is the incident SP frame
+        frame = SPin;
+    }
+    /**
+     * @brief For an edge interaction: composes a Mueller operator to the right of current operator ``mueller_op``.
+     *        Frames are assumed to be the SH surface frames.
+     */
+    inline void apply_bsdf(const mueller_operator_t& mueller_op,
+                           const dir3_t& wo,
+                           const intersection_edge_t& edge,
+                           const frame_t& frame_after_interaction) noexcept {
+        const auto& SHin  = edge.sh_frame(wo);
+        const auto& SHout = edge.sh_frame(frame.n);
+        // compose Muller ops
+        M = compose(M, mueller_op, frame, SHout);
+        // new incident frame is the incident SP frame
+        frame = SHin;
+    }
+
+    template <Quantity Q2>
+        requires std::is_convertible_v<Q, Q2>
+    [[nodiscard]] inline operator beam_radiometric_data_t<transport, Q2>() const noexcept {
+        return beam_radiometric_data_t<transport,Q2>{
+            .M = M,
+            .frame = frame,
+            .scale = (Q2)scale,
+        };
+    }
+
+    inline auto& operator+=(const beam_radiometric_data_t& o) noexcept {
+        M += o.M.change_incident_frame(o.frame, frame);
+        return *this;
+    }
+    inline auto operator+(const beam_radiometric_data_t& o) const noexcept {
+        auto ret = *this;
+        ret.M += o.M.change_incident_frame(o.frame, frame);
+        return ret;
+    }
+
+    inline auto& operator*=(const f_t scale) noexcept {
+        this->scale *= scale;
+        return *this;
+    }
+    inline auto& operator/=(const f_t scale) noexcept {
+        this->scale /= scale;
+        return *this;
+    }
+    template <ScalarOrUnit SQ>
+    inline friend auto operator*(const beam_radiometric_data_t& data, const SQ scale) noexcept {
+        using RQ = decltype(std::declval<Q>()*std::declval<SQ>());
+        const auto s = data.scale * scale;
+        return beam_radiometric_data_t<transport, RQ>{
+            .M=data.M,
+            .frame=data.frame,
+            .scale=s
+        };
+    }
+    template <ScalarOrUnit SQ>
+    inline friend auto operator*(const SQ scale, const beam_radiometric_data_t& data) noexcept {
+        using RQ = decltype(std::declval<SQ>()*std::declval<Q>());
+        const auto s = scale * data.scale;
+        return beam_radiometric_data_t<transport, RQ>{
+            .M=data.M,
+            .frame=data.frame,
+            .scale=s
+        };
+    }
+    template <ScalarOrUnit SQ>
+    inline friend auto operator/(const beam_radiometric_data_t& data, const SQ scale) noexcept {
+        using RQ = decltype(std::declval<Q>()/std::declval<SQ>());
+        const auto s = data.scale / scale;
+        return beam_radiometric_data_t<transport, RQ>{
+            .M=data.M,
+            .frame=data.frame,
+            .scale=s
+        };
+    }
+};
+
+}
+
+/**
+ * @brief Beam paired with radiometric data: see `wt::beam::beam_radiometric_data_t`.
+ */
+template <beam::transport_e Transport, Quantity Q>
+class beam_t final : public beam::beam_generic_t {
+    template <beam::transport_e,Quantity>
+    friend class beam_t;
+
+    using data_t = beam::beam_radiometric_data_t<Transport, Q>;
+    static_assert(Transport==data_t::transport);
+
+public:
+    static constexpr auto transport = Transport;
+    
+private:
+    wavenumber_t beamk;
+    alignas(16) data_t data;
+
+    beam_t(const beam::beam_generic_t& o,
+           const data_t& data,
+           const wavenumber_t k) noexcept
+        : beam_generic_t(o),
+          data(data),
+          beamk(k)
+    {}
+
+public:
+    beam_t(const ray_t& ray,
+           const data_t::stokes_t& S,
+           const frame_t& frame,
+           const wavenumber_t k,
+           const beam::sourcing_geometry_t& sourcing_geometry) noexcept
+           requires(transport==beam::transport_e::forward)
+        : beam_generic_t(ray, sourcing_geometry),
+          beamk(k),
+          data{ .S=S, .frame=frame }
+    {}
+    beam_t(const elliptic_cone_t& envelope,
+           const data_t::stokes_t& S,
+           const frame_t& frame,
+           const wavenumber_t k) noexcept
+           requires(transport==beam::transport_e::forward)
+        : beam_generic_t(envelope),
+          beamk(k),
+          data{ .S=S, .frame=frame }
+    {}
+    beam_t(const ray_t& ray,
+           const Q& s,
+           const wavenumber_t k,
+           const beam::sourcing_geometry_t& sourcing_geometry) noexcept
+           requires(transport==beam::transport_e::forward)
+        : beam_generic_t(ray, sourcing_geometry),
+          beamk(k),
+          data{ .S=data_t::stokes_t::unpolarized(s), .frame=this->frame() }
+    {}
+    beam_t(const elliptic_cone_t& envelope,
+           const Q& s,
+           const wavenumber_t k) noexcept
+           requires(transport==beam::transport_e::forward)
+        : beam_generic_t(envelope),
+          beamk(k),
+          data{ .S=data_t::stokes_t::unpolarized(s), .frame=this->frame() }
+    {}
+
+    beam_t(const ray_t& ray,
+           const mueller_operator_t& M,
+           const Q& scale,
+           const frame_t& Mframe,
+           const wavenumber_t k,
+           const beam::sourcing_geometry_t& sourcing_geometry) noexcept
+           requires(transport==beam::transport_e::backward)
+        : beam_generic_t(ray, sourcing_geometry),
+          beamk(k),
+          data{ .M=M, .frame=Mframe, .scale=scale }
+    {}
+    beam_t(const elliptic_cone_t& envelope,
+           const mueller_operator_t& M,
+           const Q& scale,
+           const frame_t& Mframe,
+           const wavenumber_t k) noexcept
+           requires(transport==beam::transport_e::backward)
+        : beam_generic_t(envelope),
+          beamk(k),
+          data{ .M=M, .frame=Mframe, .scale=scale }
+    {}
+    beam_t(const ray_t& ray,
+           const Q& scale,
+           const wavenumber_t k,
+           const beam::sourcing_geometry_t& sourcing_geometry) noexcept
+           requires(transport==beam::transport_e::backward)
+        : beam_generic_t(ray, sourcing_geometry),
+          beamk(k),
+          data{ .M=mueller_operator_t::identity(), .frame=this->frame(), .scale=scale }
+    {}
+    beam_t(const elliptic_cone_t& envelope,
+           const Q& scale,
+           const wavenumber_t k) noexcept
+           requires(transport==beam::transport_e::backward)
+        : beam_generic_t(envelope),
+          beamk(k),
+          data{ .M=mueller_operator_t::identity(), .frame=this->frame(), .scale=scale }
+    {}
+
+    beam_t(const beam_t&) noexcept = default;
+
+    static constexpr auto beam_transport() noexcept { return transport; }
+
+    [[nodiscard]] inline const auto& radiometric_data() const noexcept { return data; }
+
+    /**
+     * @brief Returns the intensity of the beam radiometric data.
+     */
+    [[nodiscard]] inline auto intensity() const noexcept { return data.mean_intensity(); }
+
+    [[nodiscard]] inline auto isfinite() const noexcept { return data.isfinite(); }
+    [[nodiscard]] inline auto isnan() const noexcept { return data.isnan(); }
+
+    /**
+     * @brief Returns the beam's wavenumber.
+     */
+    [[nodiscard]] wavenumber_t k() const noexcept override { return beamk; }
+
+    /**
+     * @brief Interact with a surface and scatter into direction wo.
+     * @param bsdf the interaction BSDF
+     * @param weight interaction sampling weight and other scaling factors
+     */
+    inline void transform_surface_interaction(const intersection_surface_t& surface,
+                                              const dir3_t& wo,
+                                              const bsdf::bsdf_result_t& bsdf,
+                                              const f_t weight) noexcept {
+        const auto& p = surface.wp;
+
+        // construct a new elliptical cone that passes through the interaction footprint
+        const auto ray = ray_t{ p, wo };
+        length_t new_self_intersection_distance;
+        this->envelope = elliptic_cone_t::cone_through_ellipse(
+                surface, ray,
+                envelope.get_tan_alpha(),  // identical beam alpha
+                &new_self_intersection_distance);
+
+        // apply BSDF
+        data.apply_bsdf(weight * bsdf.M, wo, surface, this->envelope.frame());
+        this->self_intersection_distance = new_self_intersection_distance;
+        assert(this->self_intersection_distance>=0*u::m);
+    }
+
+    /**
+     * @brief Interact at a region around a point (volumetric scattering, fsd, etc.) and scatter into direction wo.
+     * TODO: polarimetric volumetric interactions
+     *
+     * @param wp interaction point
+     * @param dist distance of propagation from previous interaction
+     * @param weight interaction sampling weight and other scaling factors
+     */
+    inline void transform_region_interaction(const pqvec3_t& wp,
+                                             const length_t dist,
+                                             const dir3_t& wo,
+                                             const f_t weight) noexcept {
+        // beam transformation on interaction:
+        // construct a new elliptical cone that contains the interaction region
+        const auto axes_local = footprint(dist);
+        this->envelope = elliptic_cone_t::cone_through_ellipsoid(
+                axes_local, envelope.frame(),
+                ray_t{ wp, wo },
+                envelope.get_tan_alpha());  // identical beam alpha
+
+        // apply BSDF
+        // TODO: volumetric BSDF and intersections
+        data *= weight;
+        data.frame = this->envelope.frame();
+        // no surface, no clip
+        this->self_intersection_distance = 0 * u::m;
+    }
+
+    /**
+     * @brief Interact at an edge, and scatter into direction wo.
+     * TODO: polarimetric edge interactions
+     *
+     * @param interaction_centre_wp centre of interaction
+     * @param edge_interaction_wp interation point on edge interaction
+     * @param dist distance of propagation from previous interaction
+     * @param weight interaction sampling weight and other scaling factors
+     */
+    inline void transform_edge_interaction(const intersection_edge_t& intersection,
+                                           const pqvec3_t& interaction_centre_wp,
+                                           const pqvec3_t& edge_interaction_wp,
+                                           const length_t dist,
+                                           const dir3_t& wo,
+                                           const f_t weight) noexcept {
+        // beam transformation on interaction:
+        // construct a new elliptical cone that contains the interaction region
+        const auto axes_local = footprint(dist);
+        const auto ray = ray_t{ interaction_centre_wp, wo };
+        this->envelope = elliptic_cone_t::cone_through_ellipsoid(
+                axes_local, envelope.frame(),
+                ray,
+                envelope.get_tan_alpha());  // identical beam alpha
+
+        // apply BSDF
+        data.apply_bsdf(weight * mueller_operator_t::identity(),
+                        wo, intersection, this->envelope.frame());
+        // no surface, no clip
+        this->self_intersection_distance = 0 * u::m;
+    }
+ 
+    /**
+     * @brief Restart propagation (null interaction).
+     *
+     * @param wp beam's new origin
+     * @param dist distance of propagation from previous interaction to `wp'
+     */
+    inline auto transform_restart(const pqvec3_t& wp,
+                                  const length_t dist) noexcept {
+        this->envelope.set_o(wp);
+        this->envelope.set_x0(envelope.x0() + dist*envelope.get_tan_alpha());
+
+        // no surface, no clip
+        this->self_intersection_distance = 0 * u::m;
+    }
+
+    template <Quantity Q2>
+        requires std::is_convertible_v<Q, Q2>
+    [[nodiscard]] inline operator beam_t<transport, Q2>() const noexcept {
+        return beam_t<transport,Q2>(
+                *this,
+                (beam::beam_radiometric_data_t<transport,Q2>)data,
+                k());
+    }
+
+    inline auto& operator+=(const beam_t& o) noexcept {
+        this->data += o.data;
+        return *this;
+    }
+    inline auto operator+(const beam_t& o) const noexcept {
+        auto ret = *this;
+        ret.data += o.data;
+        return ret;
+    }
+
+    inline auto& operator*=(const f_t scale) noexcept {
+        this->data *= scale;
+        return *this;
+    }
+    inline auto& operator/=(const f_t scale) noexcept {
+        this->data /= scale;
+        return *this;
+    }
+    template <ScalarOrUnit SQ>
+    inline friend auto operator*(const beam_t& beam, const SQ scale) noexcept {
+        using RQ = decltype(std::declval<Q>()*std::declval<SQ>());
+        const auto data = beam.data * scale;
+        return beam_t<transport, RQ>(beam, data, beam.k());
+    }
+    template <ScalarOrUnit SQ>
+    inline friend auto operator*(const SQ scale, const beam_t& beam) noexcept {
+        using RQ = decltype(std::declval<SQ>()*std::declval<Q>());
+        const auto data = scale * beam.data;
+        return beam_t<transport, RQ>(beam, data, beam.k());
+    }
+    template <ScalarOrUnit SQ>
+    inline friend auto operator/(const beam_t& beam, const SQ scale) noexcept {
+        using RQ = decltype(std::declval<Q>()/std::declval<SQ>());
+        const auto data = beam.data / scale;
+        return beam_t<transport, RQ>(beam, data, beam.k());
+    }
+};
+
+
+// importance (quantum efficiency) beam
+using importance_beam_t =
+        beam_t<beam::transport_e::backward, QE_t>;
+// diffuse importance (i.e. QE × flux per area) beam
+// this is the importance analogue of an irradiance beam
+using diffuse_importance_beam_t =
+        beam_t<beam::transport_e::backward, QE_solid_angle_t>;
+// importance intensity (i.e. QE × solid angle) beam
+// this is the importance analogue of an radiant intensity beam
+using importance_intensity_beam_t =
+        beam_t<beam::transport_e::backward, QE_area_t>;
+// importance flux (i.e. QE × area × solid angle) beam
+using importance_flux_beam_t =
+        beam_t<beam::transport_e::backward, QE_flux_t>;
+
+using radiant_flux_beam_t =
+        beam_t<beam::transport_e::forward, radiant_flux_t>;
+using irradiance_beam_t =
+        beam_t<beam::transport_e::forward, irradiance_t>;
+using radiant_intensity_beam_t =
+        beam_t<beam::transport_e::forward, radiant_intensity_t>;
+using radiance_beam_t =
+        beam_t<beam::transport_e::forward, radiance_t>;
+
+using spectral_radiant_flux_beam_t =
+        beam_t<beam::transport_e::forward, spectral_radiant_flux_t>;
+using spectral_irradiance_beam_t =
+        beam_t<beam::transport_e::forward, spectral_irradiance_t>;
+using spectral_radiant_intensity_beam_t =
+        beam_t<beam::transport_e::forward, spectral_radiant_intensity_t>;
+using spectral_radiance_beam_t =
+        beam_t<beam::transport_e::forward, spectral_radiance_t>;
+
+
+namespace beam {
+
+/**
+ * @brief Observed result of an integration of a detection (quantum efficiency) beam over a radiation beam. Result is the observed power Stokes parameters vector.
+ * @param S detection beam
+ * @param I radiation beam
+ */
+[[nodiscard]] inline spectral_radiant_flux_stokes_t integrate_beams(
+        const importance_flux_beam_t& S, 
+        const spectral_radiance_beam_t& I) noexcept {
+    assert(S.isfinite() && 
+           I.isfinite() && 
+           S.intensity()>=zero && 
+           I.intensity()>=zero);
+    assert_iszero(m::eft::dot(S.dir(), I.dir()) + 1);    // must point into opposite directions
+
+    const auto& Md = S.radiometric_data();
+    const auto& Sd = I.radiometric_data();
+
+    if (S.intensity()==zero || I.intensity()==zero)
+        return spectral_radiant_flux_stokes_t::zero();
+    return (spectral_radiant_flux_stokes_t)(
+        Md.scale * Md.M(Sd.S, Sd.frame, Md.frame)
+    );
+}
+
+/**
+ * @brief Observed result of an integration of a detection (quantum efficiency) beam over a radiation beam. Result is the observed power Stokes parameters vector.
+ * @param S detection beam
+ * @param I radiation beam
+ */
+[[nodiscard]] inline spectral_radiant_flux_stokes_t integrate_beams(
+        const importance_beam_t& S, 
+        const spectral_radiant_flux_beam_t& I) noexcept {
+    assert(S.isfinite() && 
+           I.isfinite() && 
+           S.intensity()>=zero && 
+           I.intensity()>=zero);
+    assert_iszero(m::eft::dot(S.dir(), I.dir()) + 1);    // must point into opposite directions
+
+    const auto& Md = S.radiometric_data();
+    const auto& Sd = I.radiometric_data();
+
+    if (S.intensity()==zero || I.intensity()==zero)
+        return spectral_radiant_flux_stokes_t::zero();
+    return (spectral_radiant_flux_stokes_t)(
+        Md.scale * Md.M(Sd.S, Sd.frame, Md.frame)
+    );
+}
+
+}
+
+
+}

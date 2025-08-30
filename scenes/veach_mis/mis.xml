@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+	<default name="spp" value="128"/>
+	<default name="res" value="1440"/>
+
+	<integrator type="plt_path" >
+		<integer name="max_depth" value="32" />
+		<string name="direction" value="backward" />
+	</integrator>
+
+	<sensor type="perspective" id="camera">
+		<string name="fov_axis" value="x" />
+		<quantity name="fov" value="29°" />
+		<transform name="to_world" >
+			<matrix value="-4.37113e-008, 0, -1, 28.2792cm, 0, 1, 0, 3.3cm, 1, 0, -4.37113e-008, 1.23612e-006cm, 0, 0, 0, 1"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="(round($res*3/4))" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D65" />
+			</response>
+		</film>
+	</sensor>
+
+	<bsdf type="twosided" id="Diffuse" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.33, 0.33, 0.33"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Wall" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.15, 0.35, 0.4"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Null" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="surface_spm" id="Mat2">
+        <spectrum name="IOR" material="Al" />
+        <surface_profile type="fractal">
+            <spectrum name="roughness" constant=".0005" />
+            <float name="gamma" value="3" />
+        </surface_profile>
+	</bsdf>
+
+	<bsdf type="surface_spm" id="Mat3">
+        <spectrum name="IOR" material="Cu" />
+        <surface_profile type="fractal">
+            <spectrum name="roughness" constant=".009" />
+            <float name="gamma" value="3" />
+        </surface_profile>
+	</bsdf>
+
+	<bsdf type="surface_spm" id="Mat4">
+        <spectrum name="IOR" material="Co" />
+        <surface_profile type="fractal">
+            <spectrum name="roughness" constant=".05" />
+            <float name="gamma" value="3" />
+        </surface_profile>
+	</bsdf>
+
+	<bsdf type="surface_spm" id="Mat5">
+        <spectrum name="IOR" material="Ag" />
+        <surface_profile type="gaussian">
+            <spectrum name="roughness" constant=".15" />
+            <!-- <float name="gamma" value="1.5" /> -->
+        </surface_profile>
+	</bsdf>
+
+	<shape type="cube" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="0.805757, 0.0961775, 0, 0.264069cm, -0.673242, 0.115108, 0, 4.09801cm, 0, 0, 4, 0cm, 0, 0, 0, 1"/>
+		</transform>
+		<ref id="Mat2" />
+	</shape>
+	<shape type="cube" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="0.972057, 0.0567134, 0, 3.06163cm, -0.396994, 0.138865, 0, 2.71702cm, 0, 0, 4, 0cm, 0, 0, 0, 1"/>
+		</transform>
+		<ref id="Mat3" />
+	</shape>
+	<shape type="cube" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="1.03191, 0.0277252, 0, 7.09981cm, -0.194077, 0.147415, 0, 1.81891cm, 0, 0, 4, 0cm, 0, 0, 0, 1"/>
+		</transform>
+		<ref id="Mat4" />
+	</shape>
+	<shape type="cube" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="1.04217, 0.0182831, 0, 10.6769cm, -0.127982, 0.148882, 0, 1.23376cm, 0, 0, 4, 0cm, 0, 0, 0, 1"/>
+		</transform>
+		<ref id="Mat5" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="9.9, 0, 0, 4.9cm, 0, -4.32743e-007, 9.9, 0cm, 0, -23.76, -1.03858e-006, 0cm, 0, 0, 0, 1"/>
+		</transform>
+		<ref id="Diffuse" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="-4.32743e-007, -4.32743e-007, 9.9, -5cm, -9.9, 1.89158e-014, -4.32743e-007, 9.9cm, 0, -23.76, -1.03858e-006, 0cm, 0, 0, 0, 1"/>
+		</transform>
+		<ref id="Wall" />
+	</shape>
+
+	<shape type="sphere" >
+		<quantity name="radius" value="1cm" />
+		<point name="center" x="0cm" y="6.5cm" z="-2.8cm" />
+		<ref id="Null" />
+		<emitter type="area" >
+			<spectrum name="radiance" emitter="2488_CFL_Globe_Twister">
+				<float name="scale" value="1.5" />
+			</spectrum>
+		</emitter>
+	</shape>
+	<shape type="sphere" >
+		<quantity name="radius" value="0.5cm" />
+		<point name="center" x="0cm" y="6.5cm" z="0cm" />
+		<ref id="Null" />
+		<emitter type="area" >
+			<spectrum name="radiance" emitter="2769_HPS_GE_domestic-use">
+				<float name="scale" value=".0048" />
+			</spectrum>
+		</emitter>
+	</shape>
+	<shape type="sphere" >
+		<quantity name="radius" value="0.05cm" />
+		<point name="center" x="0cm" y="6.5cm" z="2.7cm" />
+		<ref id="Null" />
+		<emitter type="area" >
+			<spectrum name="radiance" type="gaussian" wavelength="470nm" value="2.4" stddev="3nm" />
+		</emitter>
+	</shape>
+</scene>
+

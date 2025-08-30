@@ -1,0 +1,13 @@
+span.eqno {
+    float: right;
+}
+span.eqno a.headerlink {
+    position: relative;
+    z-index: 1;
+}
+
+@media(prefers-color-scheme:dark){
+figure img {
+    background: white;
+}
+}

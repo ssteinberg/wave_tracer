@@ -1,0 +1,126 @@
+/*
+ *
+ * wave tracer
+ * Copyright  Shlomi Steinberg
+ * Authors:  Umut Emre, Shlomi Steinberg
+ *
+ * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+ *
+ */
+
+#pragma once
+
+#include <array>
+#include <string>
+
+#include <wt/math/common.hpp>
+#include <wt/util/concepts.hpp>
+#include <wt/util/logger/logger.hpp>
+
+#include "stat_collector.hpp"
+
+namespace wt::stats {
+
+class stat_counter_event_generic_t : public stat_collector_t {
+    using stat_collector_t::stat_collector_t;
+};
+
+/**
+ * @brief Counter to track N discrete outcomes from an event.
+ *        NOT thread-safe.
+ */
+template <std::size_t N>
+class stat_counter_event_t final : public stat_counter_event_generic_t {
+    std::array<std::size_t, N> counters = {};
+    std::array<std::string, N> event_names;
+    bool empty=true;
+
+    std::ostream& output(std::ostream& os) const override {
+        if (this->flags.ignore_when_empty && is_empty())
+            return os;
+
+        constexpr std::size_t maxlabelw = name_label_maxw-print_indent-1;
+        auto label = name.length()<=maxlabelw ? name : name.substr(0, maxlabelw);
+        if (label.length()<maxlabelw)
+            label += std::string(maxlabelw-label.length(), ' ');
+
+        const auto total = std::accumulate(counters.cbegin(), counters.cend(), 
+                                           0ul, std::plus<>());
+        std::array<f_t, N> perc;
+        for (auto i=0ul;i<N;++i)
+            perc[i] = m::clamp<f_t>(total>0 ? counters[i]/f_t(total)*100 : 0, 0, 100);
+
+        std::string str;
+        const auto counter_and_suffix = stat_value_with_suffix(total);
+        if (counter_and_suffix)
+            str = std::format("{:>9.4f}{}", counter_and_suffix->first, counter_and_suffix->second);
+        else
+            str = std::format("{:>10}", total);
+
+
+        using namespace logger::termcolour;
+
+        os << std::string(print_indent, ' ') 
+           << reset << bright_white
+           << label << '\t'
+           << bright_yellow << bold
+           << str
+           << reset;
+        os << "   \t";
+
+        bool need_sep = false;
+        for (auto i=0ul;i<N;++i) {
+            if (counters[i]==0 && this->flags.ignore_when_empty) continue;
+
+            if (need_sep)
+               os << reset << grey << "\t❙ ";
+            need_sep = true;
+
+            os << dark << white << event_names[i] << " "
+               << blue << bold
+               << std::setprecision(1) << std::fixed << perc[i] << "%";
+        }
+
+        os
+           << reset
+           << '\n';
+
+        return os;
+    }
+    std::ostream& output(std::ofstream& fs) const override {
+        if (this->flags.ignore_when_empty && counters == std::array<std::size_t, N>{})
+            return fs;
+
+        for (auto n=0ul;n<N;++n)
+            fs << name << ", " << event_names[n] << ", " << counters[n] << std::endl;
+        return fs;
+    }
+
+    stat_collector_t& operator+=(const stat_collector_t& rhs) override {
+        const auto& rhs_counter = dynamic_cast<const stat_counter_event_t&>(rhs);
+        for (auto n=0ul;n<N;++n)
+            counters[n] += rhs_counter.counters[n];
+        return *this;
+    }
+
+    [[nodiscard]] std::unique_ptr<stat_collector_t> zero() const override {
+        return std::make_unique<stat_counter_event_t>(name, event_names, flags);
+    }
+
+public:
+    explicit stat_counter_event_t(std::string name, 
+                                  std::array<std::string, N> event_names,
+                                  stat_collector_flags_t flags = {}) noexcept
+        : stat_counter_event_generic_t(std::move(name), flags), 
+          event_names(std::move(event_names))
+    {}
+
+    [[nodiscard]] bool is_empty() const noexcept override {
+        return std::ranges::all_of(counters, [](const auto& v) { return v==0; });
+    }
+
+    void record(std::size_t event, std::size_t count=1) noexcept { counters[event]+=count; }
+    void set_amount(std::size_t event, std::size_t count) noexcept { counters[event] = count; }
+};
+
+}  // namespace wt

@@ -1,0 +1,67 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <string>
+#include <memory>
+
+#include <wt/integrator/integrator.hpp>
+#include <wt/bsdf/common.hpp>
+
+#include <wt/wt_context.hpp>
+
+namespace wt::integrator {
+
+/**
+ * @brief PLT uni-directional path tracer.
+ *        Supports tracing either from a sensor or an emitter.
+ */
+class plt_path_t final : public integrator_t {
+public:
+    struct options_t {
+        std::uint16_t max_depth = 1024;
+
+        bool RR = true;
+        bool FSD = true;
+
+        bsdf::transport_e transport_direction;
+    };
+
+private:
+    options_t options;
+
+public:
+    plt_path_t(const wt_context_t &ctx,
+               std::string id, 
+               options_t opts) noexcept;
+
+    [[nodiscard]] sensor::sensor_write_flags_e sensor_write_flags() const noexcept override {
+        // forward integrators will always use a direct connections to sensor strategy
+        return options.transport_direction == bsdf::transport_e::forward ?
+            sensor::sensor_write_flags_e::writes_direct_splats :
+            sensor::sensor_write_flags_e::writes_block_splats;
+    }
+
+    void integrate(const integrator_context_t& ctx,
+                   const sensor::block_handle_t& block,
+                   const vec3u32_t& sensor_element,
+                   std::uint32_t samples_per_element) const noexcept override;
+
+    [[nodiscard]] scene::element::info_t description() const override;
+
+public:
+    static std::shared_ptr<integrator_t> load(
+            const std::string& id,
+            scene::loader::loader_t* loader, 
+            const scene::loader::node_t& node,
+            const wt::wt_context_t &context);
+};
+
+}

@@ -1,0 +1,312 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <memory>
+#include <string>
+#include <array>
+#include <utility>
+
+#include <concepts>
+
+#include <wt/scene/element/scene_element.hpp>
+
+#include <wt/wt_context.hpp>
+
+#include <wt/math/common.hpp>
+#include <wt/math/barycentric.hpp>
+
+namespace wt::sampler {
+
+/**
+ * @brief Samplers handle generating random numbers.
+ *        Generators are expected to be thread-safe.
+ */
+class sampler_t : public scene::scene_element_t {
+public:
+    static constexpr std::string scene_element_class() noexcept { return "sampler"; }
+
+public:
+    sampler_t(std::string id)
+         : scene_element_t(std::move(id))
+    {}
+    virtual ~sampler_t() noexcept = default;
+    
+    sampler_t(sampler_t&&) = default;
+    sampler_t(const sampler_t&) = default;
+
+    /**
+     * @brief Draws samples from the sampler.
+     * 
+     * @return f_t a single sample
+     */
+    [[nodiscard]] virtual f_t r() noexcept = 0;
+    /**
+     * @brief Draws samples from the sampler.
+     * 
+     * @return vec2_t two sample
+     */
+    [[nodiscard]] virtual vec2_t r2() noexcept = 0;
+    /**
+     * @brief Draws samples from the sampler.
+     * 
+     * @return vec3_t three samples sample
+     */
+    [[nodiscard]] virtual vec3_t r3() noexcept = 0;
+    /**
+     * @brief Draws samples from the sampler.
+     * 
+     * @return vec4_t four sample
+     */
+    [[nodiscard]] virtual vec4_t r4() noexcept = 0;
+
+
+    /**
+     * @brief Samples a value from a discrete distribution.
+     *
+     * @param pb lambda giving the probability of an event index (may be unnormalized)
+     * @tparam normalized are the pb-s normalized
+     * @return probability and drawn event index pair
+     */
+    template <bool normalized=false, std::regular_invocable<int> PF>
+    [[nodiscard]] inline constexpr std::pair<f_t,std::size_t> discrete(std::size_t count, PF pb) noexcept {
+        f_t P = 0;
+        if constexpr (normalized) P = 1;
+        else
+            for (auto i=0ul;i<count;++i) P += f_t(pb(i));
+
+        const auto p = r() * P;
+        f_t cdf = 0;
+        for (auto i=0ul;i<count-1;++i) {
+            const auto ep = f_t(pb(i));
+            cdf += ep;
+            if (p<cdf)
+                return std::make_pair(ep/P, i);
+        }
+
+        const auto last = int(count)-1;
+        return std::make_pair(f_t(pb(last))/P, last);
+    }
+    /**
+     * @brief Samples a value from a discrete distribution.
+     *
+     * @param ps array of probabilities (may be unnormalized)
+     * @tparam normalized are the ps-s normalized
+     * @return probability and drawn event index pair
+     */
+    template <int N, bool normalized=false, typename T = f_t>
+    [[nodiscard]] inline constexpr std::pair<f_t,std::size_t> discrete(const std::array<T, N>& ps) noexcept {
+        return discrete<normalized>(N, [&](std::size_t i) { return ps[i]; });
+    }
+
+    /**
+     * @brief Samples a random integer in [start,end)
+     */
+    [[nodiscard]] inline constexpr f_t uniform_int_interval(int start, int end) noexcept {
+        assert(end>start);
+        return m::min(end-1, int(r()*(end-start))+start);
+    }
+
+
+    /**
+     * @brief Transforms a unit square into the unit hemisphere with uniform solid angle density.
+     *
+     * @param u ∈[0,1]² random unit square point 
+     */
+    [[nodiscard]] static inline auto uniform_hemisphere(vec2_t u) noexcept {
+        const auto z = u.x;
+        const auto rr = m::sqrt(m::max<f_t>(0, 1-m::sqr(z)));
+        const auto phi = m::two_pi*u.y * u::ang::rad;
+        return dir3_t{ rr*m::cos(phi), rr*m::sin(phi), z };
+    }
+    /**
+     * @brief Samples a point on the unit hemisphere uniformly w.r.t. solid angle.
+     */
+    [[nodiscard]] inline auto uniform_hemisphere() noexcept {
+        return uniform_hemisphere(r2());
+    }
+    /**
+     * @brief PDF of a point on the uniform unit hemisphere
+     */
+    [[nodiscard]] static constexpr inline auto uniform_hemisphere_pdf() noexcept {
+        return m::inv_two_pi;
+    }
+
+    /**
+     * @brief Transforms a unit square into the unit sphere with uniform solid angle density.
+     *
+     * @param u ∈[0,1]² random unit square point 
+     */
+    [[nodiscard]] static inline auto uniform_sphere(const vec2_t& u) noexcept {
+        const auto z = 1 - 2*u.x;
+        const auto rr = m::sqrt(m::max<f_t>(0, 1-m::sqr(z)));
+        const auto phi = m::two_pi*u.y * u::ang::rad;
+        return dir3_t{ rr*m::cos(phi), rr*m::sin(phi), z };
+    }
+    /**
+     * @brief Samples a point on the unit sphere uniformly w.r.t. solid angle.
+     */
+    [[nodiscard]] inline auto uniform_sphere() noexcept {
+        return uniform_sphere(r2());
+    }
+    /**
+     * @brief PDF of a point on the uniform unit sphere
+     */
+    [[nodiscard]] static constexpr inline auto uniform_sphere_pdf() noexcept {
+        return m::inv_four_pi;
+    }
+
+    /**
+     * @brief Transforms a unit square into a "concentric"-mapped unit disk with uniform area density.
+     *
+     * @param u ∈[0,1]² random unit square point 
+     */
+    [[nodiscard]] static constexpr inline auto concentric_disk(const vec2_t& u) noexcept {
+        const auto offset = f_t(2)*u - vec2_t{ 1,1 };
+
+        f_t rr;
+        angle_t theta;
+        if (offset.x == 0 && offset.y == 0) {
+            rr = 0;
+            theta = 0 * u::ang::rad;
+        }
+        else if (m::abs(offset.x) > m::abs(offset.y)) {
+            rr = offset.x;
+            theta = m::pi_4 * (offset.y / offset.x) * u::ang::rad;
+        } else {
+            rr = offset.y;
+            theta = (m::pi_2 - m::pi_4 * (offset.x / offset.y)) * u::ang::rad;
+        }
+        return rr * vec2_t{ m::cos(theta), m::sin(theta) };
+    }
+    /**
+     * @brief Samples a point on the unit disk uniformly w.r.t. area.
+     */
+    [[nodiscard]] inline auto concentric_disk() noexcept {
+        return concentric_disk(r2());
+    }
+    /**
+     * @brief PDF of a point on the uniform unit disk
+     */
+    [[nodiscard]] static constexpr inline auto concentric_disk_pdf() noexcept {
+        return m::inv_pi;
+    }
+
+    /**
+     * @brief Transforms a unit square into the unit sphere with cosine-weighted solid angle density.
+     *
+     * @param u ∈[0,1]² random unit square point 
+     */
+    [[nodiscard]] static inline auto cosine_hemisphere(const vec2_t& u) noexcept {
+        const auto d = concentric_disk(u);
+        const auto z = 
+            m::sqrt(m::max<f_t>(0, 1-m::sqr(d.x)-m::sqr(d.y)));
+        return dir3_t{ d.x, d.y, z };
+    }
+    /**
+     * @brief Samples a point on the unit sphere uniformly w.r.t. cosine-weighted solid angle.
+     */
+    [[nodiscard]] inline auto cosine_hemisphere() noexcept {
+        return cosine_hemisphere(r2());
+    }
+    /**
+     * @brief PDF of a point on the cosine-weighted unit sphere
+     */
+    [[nodiscard]] static constexpr inline auto cosine_hemisphere_pdf(const f_t cosine) noexcept {
+        return m::inv_pi * cosine;
+    }
+
+    /**
+     * @brief Transforms a unit square into a spherical cap of some solid angle
+     *
+     * @param solid_angle solid angle of spherical cap
+     * @param u ∈[0,1]² random unit square point 
+     */
+    [[nodiscard]] static inline auto uniform_cone(f_t solid_angle, const vec2_t& u) noexcept {
+        const auto cos_theta_max = 1 - m::inv_two_pi*solid_angle;
+        const auto cos_theta = 1 + u.x*(cos_theta_max-1);
+        const auto sin_theta = m::sqrt(m::max<f_t>(0, 1 - m::sqr(cos_theta)));
+        const auto phi = m::two_pi*u.y * u::ang::rad;
+        return dir3_t{ 
+            m::cos(phi)*sin_theta, 
+            m::sin(phi)*sin_theta,
+            cos_theta
+        };
+    }
+    /**
+     * @brief Samples a point on a spherical cap uniformly w.r.t. solid angle.
+     *
+     * @param solid_angle solid angle of spherical cap
+     */
+    [[nodiscard]] inline auto uniform_cone(f_t solid_angle) noexcept {
+        return uniform_cone(solid_angle, r2());
+    }
+    /**
+     * @brief PDF of a point on a spherical cap.
+     *
+     * @param solid_angle solid angle of spherical cap
+     */
+    [[nodiscard]] static constexpr inline auto uniform_cone_pdf(f_t solid_angle) noexcept {
+        return f_t(1) / (solid_angle);
+    }
+
+    /**
+     * @brief Transforms a unit square into the 2D normal distribution (Box-Mueller)
+     *
+     * @param u ∈[0,1]² random unit square point 
+     */
+    [[nodiscard]] static constexpr inline auto normal2d(const vec2_t& u) noexcept {
+        const auto r = m::sqrt(-2*m::log(1-u.x));
+        const auto theta = m::two_pi * u.y * u::ang::rad;
+        return vec2_t{ 
+            r*m::cos(theta), 
+            r*m::sin(theta),
+        };
+    }
+    /**
+     * @brief Samples a point from the 2D normal distribution (Box-Mueller)
+     */
+    [[nodiscard]] inline auto normal2d() noexcept {
+        return normal2d(r2());
+    }
+    /**
+     * @brief PDF of a normally-distributed point
+     *
+     * @param pt normally-distributed point
+     */
+    [[nodiscard]] static constexpr inline auto normal2d_pdf(const vec2_t& pt) noexcept {
+        return m::inv_two_pi * m::exp(-m::dot(pt,pt)/2);
+    }
+    
+    /**
+     * @brief Transforms a unit square into a triangle
+     *
+     * @param u ∈[0,1]² random unit square point 
+     * @return the barycentric coordinates
+     */
+    [[nodiscard]] static constexpr inline auto uniform_triangle(vec2_t u) noexcept {
+        if (u.x+u.y>1) 
+            u = vec2_t{ 1,1 } - u;
+		
+        return barycentric_t{ u };
+    }
+    /**
+     * @brief Samples at uniform a random point on a triangle
+     * @return the barycentric coordinates
+     */
+    [[nodiscard]] inline auto uniform_triangle() noexcept {
+        return uniform_triangle(r2());
+    }
+
+public:
+    static std::shared_ptr<sampler_t> load(std::string id, scene::loader::loader_t* loader, const scene::loader::node_t& node, const wt::wt_context_t &context);
+};
+
+}

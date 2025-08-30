@@ -1,0 +1,610 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <bit>
+#include <cmath>
+#include <cstring>
+#include <limits>
+
+#include <wt/math/defs.hpp>
+
+#include <wt/math/quantity/concepts.hpp>
+#include <wt/math/quantity/math.hpp>
+#include <wt/math/eft/eft.hpp>
+
+#include <wt/util/concepts.hpp>
+
+
+namespace wt {
+
+template <typename T>
+using limits = std::numeric_limits<T>;
+
+
+namespace m {
+
+template <typename T>
+constexpr inline auto sqr(T t) noexcept { return t*t; }
+
+
+inline auto sqrt(const c_t c) noexcept {
+    return glm::sqrt(c);
+}
+constexpr inline auto sqrt(const Numeric auto q) noexcept {
+    return glm::sqrt(q);
+}
+template <Numeric T, std::size_t N>
+constexpr inline auto sqrt(const glm::vec<N,T>& v) noexcept {
+    return glm::sqrt(v);
+}
+template <Numeric T, std::size_t N, std::size_t M>
+constexpr inline auto sqrt(const glm::mat<N,M,T>& m) noexcept {
+    return glm::sqrt(m);
+}
+
+inline auto exp(const c_t c) noexcept {
+    return glm::exp(c);
+}
+constexpr inline auto exp(const Numeric auto q) noexcept {
+    return glm::exp(q);
+}
+template <typename T, std::size_t N>
+constexpr inline auto exp(const glm::vec<N,T>& v) noexcept {
+    return glm::exp(v);
+}
+template <typename T, std::size_t N, std::size_t M>
+constexpr inline auto exp(const glm::mat<N,M,T>& m) noexcept {
+    return glm::exp(m);
+}
+
+constexpr inline auto abs(const Numeric auto q) noexcept {
+    return glm::abs(q);
+}
+template <typename T, std::size_t N>
+constexpr inline auto abs(const glm::vec<N,T>& v) noexcept {
+    return glm::abs(v);
+}
+template <typename T, std::size_t N, std::size_t M>
+constexpr inline auto abs(const glm::mat<N,M,T>& m) noexcept {
+    return glm::abs(m);
+}
+
+constexpr inline auto floor(const Numeric auto q) noexcept {
+    return glm::floor(q);
+}
+template <typename T, std::size_t N>
+constexpr inline auto floor(const glm::vec<N,T>& v) noexcept {
+    return glm::floor(v);
+}
+template <typename T, std::size_t N, std::size_t M>
+constexpr inline auto floor(const glm::mat<N,M,T>& m) noexcept {
+    return glm::floor(m);
+}
+
+constexpr inline auto ceil(const Numeric auto q) noexcept {
+    return glm::ceil(q);
+}
+template <typename T, std::size_t N>
+constexpr inline auto ceil(const glm::vec<N,T>& v) noexcept {
+    return glm::ceil(v);
+}
+template <typename T, std::size_t N, std::size_t M>
+constexpr inline auto ceil(const glm::mat<N,M,T>& m) noexcept {
+    return glm::ceil(m);
+}
+
+constexpr inline auto round(const Numeric auto q) noexcept {
+    return glm::round(q);
+}
+template <typename T, std::size_t N>
+constexpr inline auto round(const glm::vec<N,T>& v) noexcept {
+    return glm::round(v);
+}
+template <typename T, std::size_t N, std::size_t M>
+constexpr inline auto round(const glm::mat<N,M,T>& m) noexcept {
+    return glm::round(m);
+}
+
+template <FloatingPoint T>
+constexpr inline auto signbit(const T& t) noexcept {
+    return std::signbit(t);
+}
+template <FloatingPoint T, std::size_t N>
+constexpr inline auto signbit(const vec<N,T>& v) noexcept {
+    bvec<N> ret;
+    for (auto i=0ul;i<N;++i)
+        ret[i] = m::signbit(v[i]);
+    return ret;
+}
+
+template <FloatingPoint T>
+constexpr inline auto sign(const T& t) noexcept {
+    return glm::sign(t);
+}
+template <FloatingPoint T, std::size_t N>
+constexpr inline auto sign(const vec<N,T>& v) noexcept {
+    using R = decltype(signbit(std::declval<T>()));
+    vec<N,R> ret;
+    for (auto i=0ul;i<N;++i)
+        ret[i] = m::sign(v[i]);
+    return ret;
+}
+
+template <Numeric T>
+constexpr inline auto min(const T& q1, const T& q2) noexcept {
+    return glm::min(q1,q2);
+}
+template <Numeric T, std::size_t N>
+constexpr inline auto min(const glm::vec<N,T>& v1, const glm::vec<N,T>& v2) noexcept {
+    return glm::min(v1,v2);
+}
+template <Numeric T, std::size_t N, std::size_t M>
+constexpr inline auto min(const glm::mat<N,M,T>& m1, const glm::mat<N,M,T>& m2) noexcept {
+    return glm::min(m1,m2);
+}
+
+template <Numeric T>
+constexpr inline auto max(const T& q1, const T& q2) noexcept {
+    return glm::max(q1,q2);
+}
+template <Numeric T, std::size_t N>
+constexpr inline auto max(const glm::vec<N,T>& v1, const glm::vec<N,T>& v2) noexcept {
+    return glm::max(v1,v2);
+}
+template <Numeric T, std::size_t N, std::size_t M>
+constexpr inline auto max(const glm::mat<N,M,T>& m1, const glm::mat<N,M,T>& m2) noexcept {
+    return glm::max(m1,m2);
+}
+
+template <Numeric T>
+constexpr inline auto min(const T& q1, const T& q2, const T& q3) noexcept {
+    return glm::min(glm::min(q1,q2),q3);
+}
+template <Numeric T, std::size_t N>
+constexpr inline auto min(const glm::vec<N,T>& v1, const glm::vec<N,T>& v2, const glm::vec<N,T>& v3) noexcept {
+    return glm::min(glm::min(v1,v2),v3);
+}
+template <Numeric T, std::size_t N, std::size_t M>
+constexpr inline auto min(const glm::mat<N,M,T>& m1, const glm::mat<N,M,T>& m2, const glm::mat<N,M,T>& m3) noexcept {
+    return glm::min(glm::min(m1,m2),m3);
+}
+
+template <Numeric T>
+constexpr inline auto max(const T& q1, const T& q2, const T& q3) noexcept {
+    return glm::max(glm::max(q1,q2),q3);
+}
+template <Numeric T, std::size_t N>
+constexpr inline auto max(const glm::vec<N,T>& v1, const glm::vec<N,T>& v2, const glm::vec<N,T>& v3) noexcept {
+    return glm::max(glm::max(v1,v2),v3);
+}
+template <Numeric T, std::size_t N, std::size_t M>
+constexpr inline auto max(const glm::mat<N,M,T>& m1, const glm::mat<N,M,T>& m2, const glm::mat<N,M,T>& m3) noexcept {
+    return glm::max(glm::max(m1,m2),m3);
+}
+
+template <Numeric T>
+constexpr inline auto min(const T& q1, const T& q2, const T& q3, const T& q4) noexcept {
+    return glm::min(glm::min(q1,q2),glm::min(q3,q4));
+}
+template <Numeric T, std::size_t N>
+constexpr inline auto min(const glm::vec<N,T>& v1, const glm::vec<N,T>& v2, const glm::vec<N,T>& v3, const glm::vec<N,T>& v4) noexcept {
+    return glm::min(glm::min(v1,v2),glm::min(v3,v4));
+}
+template <Numeric T, std::size_t N, std::size_t M>
+constexpr inline auto min(const glm::mat<N,M,T>& m1, const glm::mat<N,M,T>& m2, const glm::mat<N,M,T>& m3, const glm::mat<N,M,T>& m4) noexcept {
+    return glm::min(glm::min(m1,m2),glm::min(m3,m4));
+}
+
+template <Numeric T>
+constexpr inline auto max(const T& q1, const T& q2, const T& q3, const T& q4) noexcept {
+    return glm::max(glm::max(q1,q2),glm::max(q3,q4));
+}
+template <Numeric T, std::size_t N>
+constexpr inline auto max(const glm::vec<N,T>& v1, const glm::vec<N,T>& v2, const glm::vec<N,T>& v3, const glm::vec<N,T>& v4) noexcept {
+    return glm::max(glm::max(v1,v2),glm::max(v3,v4));
+}
+template <Numeric T, std::size_t N, std::size_t M>
+constexpr inline auto max(const glm::mat<N,M,T>& m1, const glm::mat<N,M,T>& m2, const glm::mat<N,M,T>& m3, const glm::mat<N,M,T>& m4) noexcept {
+    return glm::max(glm::max(m1,m2),glm::max(m3,m4));
+}
+
+
+using glm::pow;
+using glm::log;
+using glm::log2;
+using glm::exp2;
+
+using glm::any;
+using glm::all;
+
+using glm::fract;
+
+using glm::transpose;
+
+using glm::mod;
+
+using glm::zero;
+using glm::one;
+
+
+template <Numeric S>
+constexpr inline auto clamp(const S& v, 
+                            const S& min, 
+                            const S& max) noexcept {
+    return glm::clamp(v,min,max);
+}
+template <Numeric S, std::size_t N>
+constexpr inline auto clamp(const vec<N,S>& v, 
+                            const S& min, 
+                            const S& max) noexcept {
+    return glm::clamp(v,min,max);
+}
+template <Numeric S, std::size_t N>
+constexpr inline auto clamp(const vec<N,S>& v, 
+                            const vec<N,S>& min, 
+                            const vec<N,S>& max) noexcept {
+    return glm::clamp(v,min,max);
+}
+
+template <Numeric S, NumericOrBool T>
+constexpr inline auto mix(const S& a, 
+                          const S& b, 
+                          const T& x) noexcept {
+    if (x==T(0)) return a;
+    if (x==T(1)) return b;
+    return glm::mix(a,b,x);
+}
+template <Numeric S, NumericOrBool T, std::size_t N>
+constexpr inline auto mix(const vec<N,S>& a, 
+                          const vec<N,S>& b, 
+                          const T& x) noexcept {
+    if (x==T(0)) return a;
+    if (x==T(1)) return b;
+    return glm::mix(a,b,x);
+}
+template <Numeric S, Numeric T, std::size_t N>
+constexpr inline auto mix(const vec<N,S>& a, 
+                          const vec<N,S>& b, 
+                          const vec<N,T>& x) noexcept {
+    vec<N,S> ret;
+    for (auto i=0ul;i<N;++i)
+        ret[i] = mix(a[i],b[i],x[i]);
+    return ret;
+}
+template <Numeric S, std::size_t N>
+constexpr inline auto mix(const vec<N,S>& a, 
+                          const vec<N,S>& b, 
+                          const bvec<N>& x) noexcept {
+    vec<N,S> ret;
+    for (auto i=0ul;i<N;++i)
+        ret[i] = mix(a[i],b[i],x[i]);
+    return ret;
+}
+
+
+template <FloatingPoint T>
+constexpr inline auto iszero(const T& v) noexcept {
+    return v==0;
+}
+template <FloatingPoint T, std::size_t N>
+constexpr inline auto iszero(const glm::vec<N,T>& v) noexcept {
+    bvec<N> ret;
+    for (auto i=0ul;i<N;++i)
+        ret[i] = iszero(v[i]);
+    return ret;
+}
+template <FloatingPoint T, std::size_t N, std::size_t M>
+constexpr inline auto iszero(const glm::mat<N,M,T>& m) noexcept {
+    glm::mat<N,M,bool> ret;
+    for (auto i=0ul;i<N;++i)
+    for (auto j=0ul;j<M;++j)
+        ret[i][j] = iszero(m[i][j]);
+    return ret;
+}
+
+
+template <FloatingPoint T>
+constexpr inline auto isfinite(const T& v) noexcept {
+    return std::isfinite(v);
+}
+constexpr inline auto isfinite(const c_t& v) noexcept {
+    return m::isfinite(v.real()) && m::isfinite(v.imag());
+}
+template <Numeric T, std::size_t N>
+constexpr inline auto isfinite(const glm::vec<N,T>& v) noexcept {
+    for (auto i=0ul;i<N;++i)
+        if (!isfinite(v[i]))
+            return false;
+    return true;
+}
+template <Numeric T, std::size_t N, std::size_t M>
+constexpr inline auto isfinite(const glm::mat<N,M,T>& m) noexcept {
+    for (auto i=0ul;i<N;++i)
+    for (auto j=0ul;j<M;++j)
+        if (!isfinite(m[i][j]))
+            return false;
+    return true;
+}
+
+template <FloatingPoint T>
+constexpr inline auto isnan(const T& v) noexcept {
+    return std::isnan(v);
+}
+template <Numeric T, std::size_t N>
+constexpr inline auto isnan(const glm::vec<N,T>& v) noexcept {
+    for (auto i=0ul;i<N;++i)
+        if (!isnan(v[i]))
+            return false;
+    return true;
+}
+template <Numeric T, std::size_t N, std::size_t M>
+constexpr inline auto isnan(const glm::mat<N,M,T>& m) noexcept {
+    for (auto i=0ul;i<N;++i)
+    for (auto j=0ul;j<M;++j)
+        if (!isnan(m[i][j]))
+            return false;
+    return true;
+}
+
+
+template <typename T, std::size_t N>
+constexpr inline auto diagonal_mat(const glm::vec<N,T>& v) noexcept {
+    glm::mat<N,N,T> m{};
+    for (auto i=0ul;i<N;++i)
+        m[i][i]=v[i];
+    return m;
+}
+
+template <FloatingPoint T>
+constexpr inline auto determinant(const mat2<T>& m) noexcept {
+    return eft::diff_prod(m[0][0], m[1][1], m[0][1], m[1][0]);
+}
+template <FloatingPoint T>
+constexpr inline auto determinant(const mat3<T>& m) noexcept {
+    return eft::dot(
+        vec3<T>{ m[0][0], -m[1][0], m[2][0] },
+        vec3<T>{
+            eft::diff_prod(m[1][1],m[2][2], m[2][1],m[1][2]),
+            eft::diff_prod(m[0][1],m[2][2], m[2][1],m[0][2]),
+            eft::diff_prod(m[0][1],m[1][2], m[1][1],m[0][2])
+        }
+    );
+}
+template <FloatingPoint T>
+constexpr inline auto determinant(const mat4<T>& m) noexcept {
+    const auto factor00 = eft::diff_prod(m[2][2],m[3][3], m[3][2],m[2][3]);
+    const auto factor01 = eft::diff_prod(m[2][1],m[3][3], m[3][1],m[2][3]);
+    const auto factor02 = eft::diff_prod(m[2][1],m[3][2], m[3][1],m[2][2]);
+    const auto factor03 = eft::diff_prod(m[2][0],m[3][3], m[3][0],m[2][3]);
+    const auto factor04 = eft::diff_prod(m[2][0],m[3][2], m[3][0],m[2][2]);
+    const auto factor05 = eft::diff_prod(m[2][0],m[3][1], m[3][0],m[2][1]);
+
+    const auto det_cof = vec4<T>{
+        +(m::eft::diff_prod(m[1][1],factor00, m[1][2],factor01) + m[1][3]*factor02),
+        -(m::eft::diff_prod(m[1][0],factor00, m[1][2],factor03) + m[1][3]*factor04),
+        +(m::eft::diff_prod(m[1][0],factor01, m[1][1],factor03) + m[1][3]*factor05),
+        -(m::eft::diff_prod(m[1][0],factor02, m[1][1],factor04) + m[1][2]*factor05)
+    };
+    return
+        eft::dot(vec4<T>{ m[0][0],m[0][1],m[0][2],m[0][3] }, det_cof);
+}
+
+
+// from Mitsuba
+template <std::signed_integral T>
+constexpr inline T modulo(T a, T b) {
+    const T r = a%b;
+    return r<0 ? r+b : r;
+}
+template <std::signed_integral T, std::size_t N>
+constexpr inline vec<N,T> modulo(const vec<N,T>& a, const vec<N,T>& b) {
+    const auto r = a%b;
+    return m::mix(r,r+b,glm::lessThan(r,vec<N,T>{ 0 }));
+}
+
+
+// From boost
+template<typename T>
+inline T sinc(const T x) {
+    static constexpr T taylor_0_bound = limits<T>::epsilon();
+    static constexpr T taylor_2_bound = static_cast<T>(0.00034526698300124390839884978618400831996329879769945L);
+    static constexpr T taylor_n_bound = static_cast<T>(0.018581361171917516667460937040007436176452688944747L);
+
+    if (glm::abs(x) >= taylor_n_bound)
+        return glm::sin(x)/x;
+    // approximation by taylor series in x at 0 up to order 0
+    T    result = static_cast<T>(1);
+    if (glm::abs(x) >= taylor_0_bound) {
+        const auto x2 = x*x;
+        // approximation by taylor series in x at 0 up to order 2
+        result -= x2/static_cast<T>(6);
+        if (glm::abs(x) >= taylor_2_bound)
+            result += (x2*x2)/static_cast<T>(120);
+    }
+
+    return result;
+}
+
+
+template <Numeric T>
+constexpr inline auto max_element(const vec1<T>& v) noexcept {
+    return v.x;
+}
+template <Numeric T>
+constexpr inline auto max_element(const vec2<T>& v) noexcept {
+    return max(v.x,v.y);
+}
+template <Numeric T>
+constexpr inline auto max_element(const vec3<T>& v) noexcept {
+    return max(v.x,v.y,v.z);
+}
+template <Numeric T>
+constexpr inline auto max_element(const vec4<T>& v) noexcept {
+    return max(v.x,v.y,v.z,v.z);
+}
+template <Numeric T>
+constexpr inline auto min_element(const vec1<T>& v) noexcept {
+    return v.x;
+}
+template <Numeric T>
+constexpr inline auto min_element(const vec2<T>& v) noexcept {
+    return min(v.x,v.y);
+}
+template <Numeric T>
+constexpr inline auto min_element(const vec3<T>& v) noexcept {
+    return min(v.x,v.y,v.z);
+}
+template <Numeric T>
+constexpr inline auto min_element(const vec4<T>& v) noexcept {
+    return min(v.x,v.y,v.z,v.z);
+}
+
+template <Numeric T>
+constexpr inline auto max_dimension(const vec1<T>& v) noexcept {
+    return 0;
+}
+template <Numeric T>
+constexpr inline auto max_dimension(const vec2<T>& v) noexcept {
+    return v.x>v.y ? 0 : 1;
+}
+template <Numeric T>
+constexpr inline auto max_dimension(const vec3<T>& v) noexcept {
+    const auto e = max_element(v);
+    return e==v.x ? 0 : e==v.y ? 1 : 2;
+}
+template <Numeric T>
+constexpr inline auto max_dimension(const vec4<T>& v) noexcept {
+    const auto e = max_element(v);
+    return e==v.x ? 0 : e==v.y ? 1 : e==v.z ? 2 : 3;
+}
+template <Numeric T>
+constexpr inline auto min_dimension(const vec1<T>& v) noexcept {
+    return 0;
+}
+template <Numeric T>
+constexpr inline auto min_dimension(const vec2<T>& v) noexcept {
+    return v.x<v.y ? 0 : 1;
+}
+template <Numeric T>
+constexpr inline auto min_dimension(const vec3<T>& v) noexcept {
+    const auto e = min_element(v);
+    return e==v.x ? 0 : e==v.y ? 1 : 2;
+}
+template <Numeric T>
+constexpr inline auto min_dimension(const vec4<T>& v) noexcept {
+    const auto e = min_element(v);
+    return e==v.x ? 0 : e==v.y ? 1 : e==v.z ? 2 : 3;
+}
+
+
+template <FloatingPoint T>
+constexpr inline auto clamp01(const T& v) noexcept {
+    return m::clamp<T>(v, 0, 1);
+}
+template <FloatingPoint T, std::size_t N>
+constexpr inline auto clamp01(const glm::vec<N, T>& v) noexcept {
+    return m::clamp(v, T(0), T(1));
+}
+template <FloatingPoint T, std::size_t N, std::size_t M>
+constexpr inline auto clamp01(const glm::mat<N, M, T>& v) noexcept {
+    return m::clamp(v, T(0), T(1));
+}
+
+
+template <typename T>
+constexpr inline auto prod(const vec1<T>& v) noexcept {
+    return v.x;
+}
+template <typename T>
+constexpr inline auto prod(const vec2<T>& v) noexcept {
+    return v.x*v.y;
+}
+template <typename T>
+constexpr inline auto prod(const vec3<T>& v) noexcept {
+    return v.x*v.y*v.z;
+}
+template <typename T>
+constexpr inline auto prod(const vec4<T>& v) noexcept {
+    return v.x*v.y*v.z*v.w;
+}
+constexpr inline auto prod(const Scalar auto& ...vs) noexcept {
+    return (vs * ...);
+}
+template <Scalar T, std::size_t N>
+constexpr inline auto prod(const std::array<T,N>& vs) noexcept {
+    T ret = 1;
+    for (auto i=0ul;i<N;++i)
+        ret *= vs[i];
+    return ret;
+}
+
+
+/**
+ * @brief Casts the representation of `Src` as `Dst` without conversion.
+ */
+template <Numeric Dst, Numeric Src>
+    requires (sizeof(Src) == sizeof(Dst))
+constexpr inline auto reinterpret_bits(Src src) noexcept {
+    return std::bit_cast<Dst>(src);
+}
+
+
+template <typename T>
+struct case_t {
+    T value;
+    bool cond;
+};
+template <typename T>
+constexpr inline auto piecewise(std::initializer_list<case_t<T>> cases, T def) noexcept {
+    for (const auto& c : cases)
+        if (c.cond)
+            return c.value;
+    return def;
+}
+
+
+}
+
+}
+
+
+namespace glm {
+
+template <wt::Numeric T, std::size_t N>
+constexpr inline auto operator<(const glm::vec<N, T>& o1, const glm::vec<N, T>& o2) noexcept {
+    return glm::lessThan(o1,o2);
+}
+template <wt::Numeric T, std::size_t N>
+constexpr inline auto operator<=(const glm::vec<N, T>& o1, const glm::vec<N, T>& o2) noexcept {
+    return glm::lessThanEqual(o1,o2);
+}
+template <wt::Numeric T, std::size_t N>
+constexpr inline auto operator>(const glm::vec<N, T>& o1, const glm::vec<N, T>& o2) noexcept {
+    return glm::greaterThan(o1,o2);
+}
+template <wt::Numeric T, std::size_t N>
+constexpr inline auto operator>=(const glm::vec<N, T>& o1, const glm::vec<N, T>& o2) noexcept {
+    return glm::greaterThanEqual(o1,o2);
+}
+
+}
+
+
+#include <wt/math/matinverse.hpp>
+
+#include <wt/math/quantity/zero.hpp>
+#include <wt/math/quantity/quantity_vector.hpp>
+#include <wt/math/quantity/quantity_limits.hpp>
+
+#include <wt/math/unit_vector/unit_vector.hpp>
+#include <wt/math/unit_vector/math.hpp>
+
+#include <wt/math/vecmath.hpp>

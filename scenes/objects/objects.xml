@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+    <default name="spp" value="1024"/>
+	<default name="res" value="1440"/>
+
+	<integrator type="plt_bdpt">
+        <integer name="max_depth" value="16" />
+    </integrator>
+
+    <sensor type="perspective" id="camera">
+		<quantity name="fov" value="35.5°" />
+		<string name="fov_axis" value="y" />
+
+        <transform name="to_world">
+            <lookat target="2.66272m, -2.85176m, 2.561m"
+                    origin="3.29558m, -3.46243m, 3.05463m"
+                    up="0, 0, 1" />
+        </transform>
+
+		<integer name="samples" value="$spp" />
+
+		<film type="array" >
+            <integer name="width" value="($res*1.36)" />
+            <integer name="height" value="$res" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D65" />
+			</response>
+		</film>
+    </sensor>
+
+    <bsdf type="diffuse" id="bsdf-diffuse">
+        <spectrum name="reflectance" constant="0.18" />
+    </bsdf>
+
+    <texture type="function" id="texture-floor">
+        <function value=".2*t2 + .8*t1" />
+        <texture name="t1" type="transform">
+            <translate value="+.24, -.19" />
+            <matrix value="-2,0, 0,2" />
+            <texture type="bitmap">
+                <path value="textures/ruler.png" />
+            </texture>
+        </texture>
+        <texture name="t2" type="transform">
+            <translate value="0, .055" />
+            <matrix value="13,0, 0,13" />
+            <texture type="checkerboard">
+                <spectrum name="colour1" constant="1" />
+                <spectrum name="colour2" constant="0" />
+            </texture>
+        </texture>
+    </texture>
+
+    <bsdf type="diffuse" id="bsdf-plane">
+        <ref name="reflectance" id="texture-floor" />
+    </bsdf>
+
+    <shape type="ply" id="shape-plane">
+        <path value="models/plane.ply" />
+        <transform name="to_world">
+            <rotate z="1" angle="-4.3°" />
+            <matrix value=" 3.38818, -4.06354, 0, -1.74958m, 
+                            4.06354, 3.38818, 0, 1.31m,
+                            0, 0, 5.29076, -0.0120714m,
+                            0, 0, 0, 1" />
+        </transform>
+        <ref name="bsdf" id="bsdf-plane" />
+    </shape>
+
+
+    <bsdf type="surface_spm" id="bsdf-maneki-bell">
+        <spectrum name="IOR" material="SF11" />
+        <surface_profile type="fractal">
+            <float name="gamma" value="2.75" />
+            <spectrum name="roughness" constant=".01" />
+        </surface_profile>
+    </bsdf>
+
+    <bsdf type="normalmap" id="bsdf-maneki-coin">
+        <boolean name="flip_tangent" value="false" />
+        <texture type="bitmap">
+            <path value="textures/maneki/Coin_Normal_2k.png" />
+            <string name="colour_encoding" value="linear" />
+        </texture>
+        <bsdf type="scale">
+            <texture name="scale" bitmap="textures/maneki/Coin_Color.png" />
+            <bsdf type="surface_spm">
+                <spectrum name="IOR" material="Au" />
+                <surface_profile type="fractal">
+                    <spectrum name="roughness" constant=".125" />
+                    <float name="gamma" value="3.2" />
+                </surface_profile>
+            </bsdf>
+        </bsdf>
+    </bsdf>
+
+    <bsdf type="diffuse" id="bsdf-maneki-scarf">
+        <spectrum name="reflectance" rgb="0.769293, 0.008899, 0.013825" />
+    </bsdf>
+
+    <bsdf type="scale" id="maneki-bsdf">
+        <spectrum name="scale" rgb="1, .99, .95" />
+        <bsdf type="surface_spm">
+            <spectrum name="IOR" material="Ag" />
+            <surface_profile type="fractal">
+                <spectrum name="roughness" constant=".225" />
+                <float name="gamma" value="2.5" />
+            </surface_profile>
+        </bsdf>
+    </bsdf>
+
+    <bsdf type="normalmap" id="bsdf-maneki-head">
+        <texture type="bitmap">
+            <path value="textures/maneki/Head_normal_2K.png" />
+            <string name="colour_encoding" value="linear" />
+        </texture>
+        <bsdf type="scale">
+            <texture name="scale" bitmap="textures/maneki/Head.png" />
+            <ref id="maneki-bsdf" />
+        </bsdf>
+    </bsdf>
+
+    <bsdf type="scale" id="bsdf-maneki-body">
+        <texture name="scale" bitmap="textures/maneki/Body.png" />
+        <ref id="maneki-bsdf" />
+    </bsdf>
+
+    <bsdf type="normalmap" id="bsdf-maneki-leftarm">
+        <texture type="bitmap">
+            <path value="textures/maneki/LeftArm_Normal.png" />
+            <string name="colour_encoding" value="linear" />
+        </texture>
+        <bsdf type="scale">
+            <texture name="scale" bitmap="textures/maneki/LeftArm_Color.png" />
+            <ref id="maneki-bsdf" />
+        </bsdf>
+    </bsdf>
+
+    <bsdf type="normalmap" id="bsdf-maneki-rightarm">
+        <texture type="bitmap">
+            <path value="textures/maneki/RightArm_Normal.png" />
+            <string name="colour_encoding" value="linear" />
+        </texture>
+        <bsdf type="scale">
+            <texture name="scale" bitmap="textures/maneki/RightArm_Color.png" />
+            <ref id="maneki-bsdf" />
+        </bsdf>
+    </bsdf>
+
+    <transform id="maneki_toworld">
+        <translate x="-2.0m" z="-1.1m" />
+        <rotate x="1" angle="(pi/2) rad" />
+        <scale value=".55" />
+        <rotate z="1" angle="1.35 rad" />
+    </transform>
+
+    <shape type="obj">
+        <path value="models/maneki.obj" />
+		<string name="mtl" value="Coin" />
+        <ref name="to_world" id="maneki_toworld" />
+        <ref name="bsdf" id="bsdf-maneki-coin" />
+    </shape>
+    <shape type="obj">
+        <path value="models/maneki.obj" />
+		<string name="mtl" value="Bell" />
+        <ref name="to_world" id="maneki_toworld" />
+        <ref name="bsdf" id="bsdf-maneki-bell" />
+    </shape>
+    <shape type="obj">
+        <path value="models/maneki.obj" />
+		<string name="mtl" value="Scarf" />
+        <ref name="to_world" id="maneki_toworld" />
+        <ref name="bsdf" id="bsdf-maneki-scarf" />
+    </shape>
+    <shape type="obj" id="maneki-head">
+        <path value="models/maneki.obj" />
+		<string name="mtl" value="Head" />
+        <ref name="to_world" id="maneki_toworld" />
+        <ref name="bsdf" id="bsdf-maneki-head" />
+    </shape>
+    <shape type="obj">
+        <path value="models/maneki.obj" />
+		<string name="mtl" value="Body" />
+        <ref name="to_world" id="maneki_toworld" />
+        <ref name="bsdf" id="bsdf-maneki-body" />
+    </shape>
+    <shape type="obj">
+        <path value="models/maneki.obj" />
+		<string name="mtl" value="LeftArm" />
+        <ref name="to_world" id="maneki_toworld" />
+        <ref name="bsdf" id="bsdf-maneki-leftarm" />
+    </shape>
+    <shape type="obj">
+        <path value="models/maneki.obj" />
+		<string name="mtl" value="RightArm" />
+        <ref name="to_world" id="maneki_toworld" />
+        <ref name="bsdf" id="bsdf-maneki-rightarm" />
+    </shape>
+
+
+    <bsdf type="scale" id="bsdf-bunny-head">
+        <texture name="scale" bitmap="textures/bunny_face_body.png" />
+        <bsdf type="diffuse">
+            <spectrum name="reflectance" rgb=".55,.85,1" />
+        </bsdf>
+    </bsdf>
+    <bsdf type="scale" id="bsdf-bunny-body">
+        <texture name="scale" bitmap="textures/bunny_face_body.png" />
+        <bsdf type="surface_spm">
+            <spectrum name="IOR" material="SF5" />
+            <surface_profile type="fractal">
+                <float name="gamma" value="2.75" />
+                <texture name="roughness" function="0+.12*r">
+                    <texture name="r" type="transform">
+                        <translate value=".5, .5" />
+                        <matrix value="25,0, 0,25" />
+                        <texture type="checkerboard">
+                            <spectrum name="colour1" constant="1" />
+                            <spectrum name="colour2" constant="0" />
+                        </texture>
+                    </texture>
+                </texture>
+            </surface_profile>
+        </bsdf>
+    </bsdf>
+    <bsdf type="scale" id="bsdf-bunny-scarf">
+        <texture name="scale" bitmap="textures/bunny_scarf.png" />
+        <bsdf type="diffuse">
+            <spectrum name="reflectance" rgb=".92,.92,.92" />
+        </bsdf>
+    </bsdf>
+    <bsdf type="twosided" id="bsdf-bunny-ears">
+        <bsdf type="surface_spm">
+            <spectrum name="IOR" material="Co" />
+            <surface_profile type="fractal">
+                <spectrum name="roughness" constant=".2" />
+            </surface_profile>
+        </bsdf>
+    </bsdf>
+    <bsdf type="surface_spm" id="bsdf-bunny-tailnose">
+        <spectrum name="IOR" material="SF11" />
+        <surface_profile type="fractal">
+            <float name="gamma" value="2.75" />
+            <spectrum name="roughness" constant=".01" />
+        </surface_profile>
+    </bsdf>
+    <bsdf type="surface_spm" id="bsdf-bunny-eyes">
+        <spectrum name="IOR" material="SF11" />
+        <surface_profile type="fractal">
+            <float name="gamma" value="2.75" />
+            <spectrum name="roughness" constant=".001" />
+        </surface_profile>
+    </bsdf>
+
+    <transform id="bunny_toworld">
+        <scale value=".275" />
+        <rotate y="1" angle="57.5°" />
+        <rotate x="1" angle="(pi/2) rad" />
+        <translate x=".9m" y="0m" />
+    </transform>
+
+    <shape type="obj">
+        <path value="models/bunny_arms.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-body" />
+    </shape>
+    <shape type="obj">
+        <path value="models/bunny_body.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-body" />
+    </shape>
+    <shape type="obj">
+        <path value="models/bunny_head.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-head" />
+    </shape>
+    <shape type="obj">
+        <path value="models/bunny_legs.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-body" />
+    </shape>
+    <shape type="obj">
+        <path value="models/bunny_tail.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-ears" />
+    </shape>
+    <shape type="obj">
+        <path value="models/bunny_ears.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-ears" />
+    </shape>
+    <shape type="obj">
+        <path value="models/bunny_eyebrows.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-tailnose" />
+    </shape>
+    <shape type="obj">
+        <path value="models/bunny_eyes.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-eyes" />
+    </shape>
+    <shape type="obj">
+        <path value="models/bunny_nose.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-tailnose" />
+    </shape>
+    <shape type="obj">
+        <path value="models/bunny_scarf.obj" />
+        <ref name="to_world" id="bunny_toworld" />
+        <ref name="bsdf" id="bsdf-bunny-scarf" />
+    </shape>
+
+
+    <bsdf type="surface_spm" id="bsdf-monkey">
+        <spectrum name="IOR" material="Au" />
+        <surface_profile type="fractal">
+            <spectrum name="roughness" constant=".065" />
+            <float name="gamma" value="3" />
+        </surface_profile>
+    </bsdf>
+
+    <shape type="obj" id="shape-suzanne">
+        <path value="models/Suzanne.obj" />
+        <transform name="to_world">
+            <translate z="-.29m" />
+            <rotate z="1" angle="-.565 rad" />
+            <rotate x="1" angle="-.52 rad" />
+            <translate x="2.25m" z="-.2m" y=".47m" />
+            <rotate x="1" angle="(pi/2) rad" />
+            <scale value=".55" />
+            <rotate z="1" angle=".8 rad" />
+            <rotate y="1" angle="-.25 rad" />
+        </transform>
+        <ref name="bsdf" id="bsdf-monkey" />
+    </shape>
+
+
+    <!-- fake "environment" sphere -->
+    <!-- <shape type="sphere">
+		<point name="center" value="2.64072m, -2.85176m, 2.50939m" />
+		<quantity name="radius" value="150m" />
+
+        <boolean name="flip_normals" value="true" />
+
+        <bsdf type="diffuse">
+            <spectrum name="reflectance" rgb=".5,.7,.8" />
+        </bsdf>
+    </shape> -->
+
+
+	<shape type="rectangle">
+		<quantity name="length" value="3m" />
+		<transform name="to_world" >
+            <lookat target="0m,0m,1m"
+                    origin="-10m,-1m,5m"
+                    up="0,0,1" />
+		</transform>
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0"/>
+		</bsdf>
+		<emitter type="area">
+			<spectrum name="radiance" blackbody="4000K">
+				<float name="scale" value="1.35e-3" />
+			</spectrum>
+		</emitter>
+	</shape>
+
+	<shape type="rectangle">
+		<quantity name="length" value="30m" />
+		<transform name="to_world" >
+            <lookat target="0m,0m,1m"
+                    origin="25m,35m,45m"
+                    up="1,0,0" />
+		</transform>
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0"/>
+		</bsdf>
+		<emitter type="area">
+			<spectrum name="radiance" blackbody="6500K">
+				<float name="scale" value="9e-4" />
+			</spectrum>
+		</emitter>
+	</shape>
+
+	<shape type="rectangle">
+		<quantity name="length" value="50m" />
+		<transform name="to_world" >
+            <lookat target="0m,0m,1m"
+                    origin="-75m,-60m,70m" />
+		</transform>
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0"/>
+		</bsdf>
+		<emitter type="area">
+			<spectrum name="radiance" blackbody="5000K">
+				<float name="scale" value="1.2e-3" />
+			</spectrum>
+		</emitter>
+	</shape>
+
+</scene>

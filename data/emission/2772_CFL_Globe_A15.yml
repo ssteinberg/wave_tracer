@@ -1,0 +1,16 @@
+Category: CFL
+Brand: Globe
+Model: A15
+Usage: null
+CCT (calculated): 4469
+MSI: 0.88
+SLI: 0.79
+IPI: 1.01
+PercentBlue: 35.55
+Rotational Angle: null
+Vertical Angle: null
+URL: https://lspdd.com/database/2772
+Normalization: Constant lumen
+DATA:
+  - type: tabulated intensity
+    data: |

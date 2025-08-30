@@ -1,0 +1,67 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <wt/math/common.hpp>
+#include <wt/math/type_traits.hpp>
+
+#include <format>
+
+
+template <wt::FloatingPoint F>
+struct std::formatter<std::complex<F>> : std::formatter<F> {
+    auto format(const std::complex<F>& c, std::format_context& ctx) const {
+        return std::format_to(ctx.out(), "({}+{}i)", c.real(), c.imag());
+    }
+};
+
+
+template <wt::Vector V>
+struct std::formatter<V> : std::formatter<wt::vector_element_type_t<V>> {
+    static constexpr auto N = wt::element_count_v<V>;
+
+    auto format(const V& v, std::format_context& ctx) const {
+        const auto open_bracket  = "[";
+        const auto close_bracket = "]";
+        const auto sep = ", ";
+
+        std::string temp;
+        for (auto i=0ul;i<N-1;++i) 
+            std::format_to(std::back_inserter(temp), "{}{}", v[i], sep);
+        std::format_to(std::back_inserter(temp), "{}", v[N-1]);
+
+        return std::format_to(ctx.out(), "{}{}{}",
+                    open_bracket, temp, close_bracket);
+    }
+};
+
+
+template <std::size_t N, std::size_t M, wt::Numeric T>
+struct std::formatter<wt::mat<N,M,T>> : std::formatter<T> {
+    auto format(const wt::mat<N,M,T>& m, std::format_context& ctx) const {
+        const auto open_bracket  = "[";
+        const auto close_bracket = "]";
+        const auto sep = ", ";
+
+        std::string temp;
+        for (auto y=0ul;y<M;++y) {
+            temp += open_bracket;
+            for (auto x=0ul;x<N-1;++x)
+                std::format_to(std::back_inserter(temp), "{}{}", m[y][x], sep);
+            std::format_to(std::back_inserter(temp), "{}", m[y][N-1]);
+            temp += close_bracket;
+            if (y<M-1)
+                temp += sep;
+        }
+
+        return std::format_to(ctx.out(), "{}{}{}",
+                    open_bracket, temp, close_bracket);
+    }
+};

@@ -1,0 +1,567 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <utility>
+#include <variant>
+
+#include <wt/util/unreachable.hpp>
+
+#include <wt/scene/scene.hpp>
+#include <wt/scene/shape.hpp>
+#include <wt/bsdf/bsdf.hpp>
+#include <wt/sensor/sensor.hpp>
+#include <wt/emitter/emitter.hpp>
+#include <wt/emitter/infinite_emitter.hpp>
+#include <wt/ads/ads.hpp>
+
+#include <wt/scene/emitter_sample.hpp>
+#include <wt/sensor/sensor_sample.hpp>
+
+#include <wt/beam/beam.hpp>
+
+#include <wt/sampler/measure.hpp>
+
+#include <wt/interaction/fsd/fraunhofer/free_space_diffraction.hpp>
+
+#include <wt/integrator/common.hpp>
+#include <wt/integrator/traversal.hpp>
+
+namespace wt::integrator::plt_bdpt {
+
+using bsdf::transport_e;
+
+enum class vertex_type_e : std::uint8_t {
+    sensor,
+    emitter,
+    surface,
+    medium,
+    fsd,
+};
+
+struct vertex_t {
+    vertex_type_e type;
+
+    transport_e transport_mode;
+
+    bool delta = false;
+
+    bool fraunhofer_fsd = false;
+
+    area_density_t pdf_fwd = -1/square(u::m);
+    area_density_t pdf_bwd = -1/square(u::m);
+
+    f_t rr_weight = 1;
+    f_t sampling_weight = 1;
+
+    // beam arriving at this vertex
+    std::variant<
+        std::monostate, 
+        spectral_radiant_flux_beam_t,
+        importance_flux_beam_t
+    > beam;
+
+    union {
+        const emitter::emitter_t* emitter;
+        const sensor::sensor_t* sensor;
+        const bsdf::bsdf_t* bsdf;
+    };
+    const fraunhofer::free_space_diffraction_t* fraunhofer_fsd_bsdf;
+
+    // position info: variant holding either position or surface or none (for infinite vertices)
+    using geo_variant_t = vertex_geo_variant_t;
+    geo_variant_t geo;
+
+
+    static inline geo_variant_t vertex_geo(const std::optional<intersection_surface_t>& surface, 
+                                           const pqvec3_t& p) noexcept {
+        if (surface)
+            return *surface;
+        return p;
+    }
+
+    inline static vertex_t create_sensor(const sensor_sample_t& sensor_sample) noexcept {
+        const auto& p = sensor_sample.beam.origin();
+
+        return vertex_t{
+            .type = vertex_type_e::sensor,
+            .transport_mode = transport_e::backward,
+            .pdf_bwd = sensor_sample.ppd.density_or_zero(),
+            .beam = sensor_sample.beam,
+            .sensor = sensor_sample.sensor,
+            .geo = vertex_geo(sensor_sample.surface, p),
+        };
+    }
+    inline static vertex_t create_sensor(const sensor::sensor_t* sensor, const sensor_direct_connection_t& dc) noexcept {
+        const auto& p = dc.beam.origin();
+
+        return vertex_t{
+            .type = vertex_type_e::sensor,
+            .transport_mode = transport_e::backward,
+            .pdf_bwd = {},
+            .beam = {},
+            .sensor = sensor,
+            .geo = vertex_geo(dc.surface, p),
+        };
+    }
+    inline static vertex_t create_sensor(const sensor_direct_sample_t& sensor_sample) noexcept {
+        const auto& p = sensor_sample.beam.origin();
+
+        return vertex_t{
+            .type = vertex_type_e::sensor,
+            .transport_mode = transport_e::backward,
+            // .beam = sensor_sample.beam,
+            .sensor = sensor_sample.sensor,
+            .geo = vertex_geo(sensor_sample.surface, p),
+        };
+    }
+
+    inline static vertex_t create_emitter(const emitter_beam_wavenumber_sample_t& e) noexcept {
+        const auto& p = e.emitter_sample.beam.origin();
+
+        return vertex_t{
+            .type = vertex_type_e::emitter,
+            .transport_mode = transport_e::forward,
+            .pdf_fwd = e.emitter_sample.ppd.density_or_zero() * e.emitter_pdf,
+            .beam = e.emitter_sample.beam,
+            .emitter = e.emitter,
+            .geo = vertex_geo(e.emitter_sample.surface, p),
+        };
+    }
+    inline static vertex_t create_emitter(const emitter_direct_sample_t& emitter_sample) noexcept {
+        const auto& p = emitter_sample.beam.origin();
+
+        return vertex_t{
+            .type = vertex_type_e::emitter,
+            .transport_mode = transport_e::forward,
+            // .beam = emitter_sample.beam,
+            .emitter = emitter_sample.emitter,
+            .geo = vertex_geo(emitter_sample.surface, p),
+        };
+    }
+    
+    inline static vertex_t create_surface(const intersection_surface_t& surface,
+                                          const bsdf::bsdf_t* bsdf,
+                                          transport_e transport_mode,
+                                          const bool is_delta) noexcept {
+        return vertex_t{
+            .type = vertex_type_e::surface,
+            .transport_mode = transport_mode,
+            .delta = is_delta,
+            .bsdf = bsdf,
+            .geo = surface,
+        };
+    }
+
+    inline static vertex_t create_fsd(const fraunhofer::free_space_diffraction_t* fsd_bsdf,
+                                      const pqvec3_t& p,
+                                      transport_e transport_mode) noexcept {
+        return vertex_t{
+            .type = vertex_type_e::fsd,
+            .transport_mode = transport_mode,
+            .delta = fsd_bsdf->empty(),
+            .fraunhofer_fsd = true,
+            .fraunhofer_fsd_bsdf = fsd_bsdf,
+            .geo = p,
+        };
+    }
+
+
+    [[nodiscard]] inline bool is_emitter() const noexcept  { return type==vertex_type_e::emitter; }
+    [[nodiscard]] inline bool is_sensor() const noexcept   { return type==vertex_type_e::sensor; }
+    [[nodiscard]] inline bool is_fsd() const noexcept      { return type==vertex_type_e::fsd; }
+    [[nodiscard]] inline bool is_surface_interaction() const noexcept { return type==vertex_type_e::surface; }
+    [[nodiscard]] inline bool is_medium_interaction() const noexcept  { return type==vertex_type_e::medium; }
+
+    [[nodiscard]] inline bool is_interaction() const noexcept  {
+        return type==vertex_type_e::fsd || type==vertex_type_e::surface || type==vertex_type_e::medium;
+    }
+    [[nodiscard]] inline bool is_nondelta_interaction() const noexcept  {
+        return is_interaction() && !delta;
+    }
+
+    /**
+     * @brief Is infinite (directional) vertex? For example, when a beam exits the scene.
+     */
+    [[nodiscard]] inline bool is_infinite() const noexcept {
+        return std::holds_alternative<std::monostate>(geo); 
+    }
+
+    /**
+     * @brief Does vertex reside on a surface? 
+     *        (Surface interaction, or emitter with associated geometry)
+     */
+    [[nodiscard]] inline bool is_on_surface() const noexcept {
+        return type == vertex_type_e::surface ||
+              (type == vertex_type_e::emitter && emitter->is_area_emitter()) ||
+              (type == vertex_type_e::sensor && std::holds_alternative<intersection_surface_t>(geo));
+    }
+
+    [[nodiscard]] inline auto pdf() const noexcept {
+        return transport_mode==transport_e::forward ?
+            pdf_fwd : pdf_bwd;
+    }
+    inline auto& pdf() noexcept {
+        return transport_mode==transport_e::forward ?
+            pdf_fwd : pdf_bwd;
+    }
+    [[nodiscard]] inline auto pdf_reversed() const noexcept {
+        return transport_mode==transport_e::backward ?
+            pdf_fwd : pdf_bwd;
+    }
+    inline auto& pdf_reversed() noexcept {
+        return transport_mode==transport_e::backward ?
+            pdf_fwd : pdf_bwd;
+    }
+
+    [[nodiscard]] static inline area_density_t convert_directional_density_to_area(
+            solid_angle_sampling_pd_t dpdf,
+            const pqvec3_t& p, 
+            const vertex_t& next) noexcept {
+        if (dpdf.density_or_zero()==zero)
+            return area_density_t::zero();
+
+        const auto d = next.wp() - p;
+        const auto d2 = m::length2(d);
+        if (d2==zero)
+            return limits<area_density_t>::infinity();
+
+        const auto recp_dist2 = 1 / d2;
+        assert(recp_dist2>zero && dpdf.isfinite());
+
+        auto ppdf = dpdf.density_or_zero() * recp_dist2 * u::ang::sr;
+        if (next.is_on_surface())
+            ppdf *= m::abs(m::dot(next.ng(), m::normalize(d)));
+        return (area_density_t)ppdf;
+    }
+
+
+    inline void set_beam(const spectral_radiant_flux_beam_t& beam) noexcept {
+        assert(transport_mode==transport_e::forward);
+        this->beam = beam;
+    }
+    inline void set_beam(const importance_flux_beam_t& beam) noexcept {
+        assert(transport_mode==transport_e::backward);
+        this->beam = beam;
+    }
+
+    [[nodiscard]] const auto& get_radiant_flux_beam() const noexcept {
+        assert(std::holds_alternative<spectral_radiant_flux_beam_t>(beam));
+        return std::get<spectral_radiant_flux_beam_t>(beam);
+    }
+    [[nodiscard]] const auto& get_QE_flux_beam() const noexcept {
+        assert(std::holds_alternative<importance_flux_beam_t>(beam));
+        return std::get<importance_flux_beam_t>(beam);
+    }
+
+    /**
+     * @brief Beam centre world position, for beam incident upon this vertex.
+     *        For non-infinite vertices only.
+     */
+    [[nodiscard]] inline const pqvec3_t& wp() const noexcept {
+        assert(!is_infinite());
+        return std::holds_alternative<pqvec3_t>(geo) ? 
+            std::get<pqvec3_t>(geo) :
+            std::get<intersection_surface_t>(geo).wp;
+    }
+
+    /**
+     * @brief Surface intersection record, if available
+     */
+    [[nodiscard]] inline const auto& surface() const noexcept {
+        assert(std::holds_alternative<intersection_surface_t>(geo));
+        return std::get<intersection_surface_t>(geo);
+    }
+    /**
+     * @brief Surface intersection record, if available
+     */
+    [[nodiscard]] inline const intersection_surface_t* surface_if_any() const noexcept {
+        if (type == vertex_type_e::surface ||
+            (type == vertex_type_e::emitter && emitter->is_area_emitter())) {
+            assert(std::holds_alternative<intersection_surface_t>(geo));
+            return &std::get<intersection_surface_t>(geo);
+        }
+        return nullptr;
+    }
+    /**
+     * @brief Surface geometric normal, if available.
+     */
+    [[nodiscard]] inline dir3_t ng() const noexcept {
+        if (type == vertex_type_e::surface ||
+            (type == vertex_type_e::emitter && emitter->is_area_emitter()))
+            return surface().geo.n;
+        return dir3_t{ 0,0,1 };
+    }
+    /**
+     * @brief Surface shading normal, if available.
+     */
+    [[nodiscard]] inline dir3_t ns() const noexcept {
+        if (type == vertex_type_e::surface ||
+            (type == vertex_type_e::emitter && emitter->is_area_emitter()))
+            return surface().shading.n;
+        return dir3_t{ 0,0,1 };
+    }
+
+    [[nodiscard]] inline const auto beam_origin() const {
+        if (transport_mode==transport_e::forward)  return std::get<spectral_radiant_flux_beam_t>(beam).origin();
+        if (transport_mode==transport_e::backward) return std::get<importance_flux_beam_t>(beam).origin();
+        unreachable();
+    }
+    [[nodiscard]] inline const auto beam_wi() const {
+        if (transport_mode==transport_e::forward)  return -std::get<spectral_radiant_flux_beam_t>(beam).dir();
+        if (transport_mode==transport_e::backward) return -std::get<importance_flux_beam_t>(beam).dir();
+        unreachable();
+    }
+    [[nodiscard]] inline auto beam_wavenumber() const {
+        if (transport_mode==transport_e::forward)
+            return std::get<spectral_radiant_flux_beam_t>(beam).k();
+        if (transport_mode==transport_e::backward)
+            return std::get<importance_flux_beam_t>(beam).k();
+        unreachable();
+    }
+
+    template <beam::Beam BeamT>
+    [[nodiscard]] std::optional<BeamT> interact(const ads::ads_t& ads,
+                                                const vertex_t& prev,
+                                                const vertex_t& next,
+                                                const bool ignore_fsd = false) const noexcept {
+        const auto& wiworld = beam_wi();
+        const auto k = beam_wavenumber();
+        const auto& bm = std::get<BeamT>(beam);
+
+        f_t f = 0;
+
+        if (fraunhofer_fsd && !ignore_fsd) {
+            const auto& p = this->wp();
+            const auto& dst = next.wp();
+
+            const auto woworld = m::normalize(dst - p);
+            const auto wolocal = fraunhofer_fsd_bsdf->get_frame().to_local(woworld);
+            f = fraunhofer_fsd_bsdf->f(wolocal);
+        }
+
+        switch (type) {
+        case vertex_type_e::surface: {
+            const auto& srf = surface();
+
+            const auto woworld = m::normalize(next.wp() - wp());
+
+            const auto wi = srf.shading.to_local(wiworld);
+            const auto wo = srf.shading.to_local(woworld);
+            const auto& ng = this->ng();
+            const auto& ns = this->ns();
+            const auto wig = m::dot(wiworld, ng);
+            const auto wog = m::dot(woworld, ng);
+            const auto wis = wi.z;
+            const auto wos = wo.z;
+
+            if (wig*wis<=0 || wog*wos<=0)
+                return std::nullopt;
+
+            // eval BSDF
+            bsdf::bsdf_result_t fb = bsdf->f(
+                    wi, wo, 
+                    bsdf::bsdf_query_t{
+                        .intersection = srf,
+                        .k = k,
+                        .transport = transport_mode,
+                    });
+            assert(fb.mean_intensity()>=0);
+            f_t scale = 1 / m::abs(wos);
+
+            // adjust BSDFs for shading normals
+            if (ns!=ng) {
+                scale *= shading_normals_correction_scale(transport_mode,
+                                                          wig, wog,
+                                                          wis, wos);
+            }
+
+            fb.M *= scale;
+            if (f>0)
+                fb.M += mueller_operator_t::identity() * f;
+            if (fb.mean_intensity()==0)
+                return std::nullopt;
+
+            auto ret = bm;
+            ret.transform_surface_interaction(srf, woworld, fb, 1);
+            return ret;
+        }
+        case vertex_type_e::fsd: {
+            const auto& p = this->wp();
+            const auto& dst = next.wp();
+            const auto beam_dist = m::dot(p-bm.origin(), bm.dir());
+
+            const auto woworld = m::normalize(dst - p);
+
+            auto ret = bm;
+            ret.transform_region_interaction(p, beam_dist, woworld, f);
+            return ret;
+        }
+        case vertex_type_e::medium:  
+            // TODO
+            assert(false);
+        default:
+            unreachable();
+        }
+    }
+
+    [[nodiscard]] inline bool is_connectible() const noexcept {
+        switch (type) {
+            case vertex_type_e::fsd:     return true;
+            case vertex_type_e::emitter: return !emitter->is_delta_direction();
+            case vertex_type_e::sensor:  return !sensor->is_delta_direction();
+            case vertex_type_e::surface: return !bsdf->is_delta_only(beam_wavenumber());
+            case vertex_type_e::medium:  assert(false); // TODO
+            default:
+                unreachable();
+        }
+    }
+    [[nodiscard]] inline bool on_emitter() const noexcept {
+        return type == vertex_type_e::emitter ||
+              (type == vertex_type_e::surface && !!surface().shape->get_emitter());
+    }
+    [[nodiscard]] inline bool is_delta_emitter() const noexcept {
+        return type == vertex_type_e::emitter && 
+              (emitter->is_delta_direction() || emitter->is_delta_position());
+    }
+
+    [[nodiscard]] inline bool on_sensor() const noexcept {
+        return type == vertex_type_e::sensor;// ||
+            //   (type == vertex_type_e::surface && !!surface().shape->get_emitter());
+    }
+    [[nodiscard]] inline bool is_delta_sensor() const noexcept {
+        return type == vertex_type_e::sensor && 
+              (sensor->is_delta_direction() || sensor->is_delta_position());
+    }
+
+    [[nodiscard]] area_density_t pdf(const vertex_t* prev, 
+                                     const vertex_t& next, 
+                                     transport_e mode) const noexcept {
+        if (type == vertex_type_e::emitter)
+            return pdf_next_from_emitter(next);
+        if (type == vertex_type_e::sensor)
+            return pdf_next_from_sensor(next);
+
+        assert(!!prev);
+        const auto p = this->wp();
+        const auto wiworld = m::normalize(prev->wp() - p);
+        const auto woworld = m::normalize(next.wp() - p);
+    
+        solid_angle_sampling_pd_t pdf = {};
+        if (type == vertex_type_e::surface) {
+            const auto& srf = surface();
+            const auto wi = srf.shading.to_local(wiworld);
+            const auto wo = srf.shading.to_local(woworld);
+
+            pdf = bsdf->pdf(
+                    wi, wo,
+                    bsdf::bsdf_query_t{
+                        .intersection = srf,
+                        .k = beam_wavenumber(),
+                        .transport = mode,
+                    });
+        }
+        else if (type == vertex_type_e::fsd) {
+            if (fraunhofer_fsd) {
+                const auto wo = fraunhofer_fsd_bsdf->get_frame().to_local(woworld);
+                pdf = fraunhofer_fsd_bsdf->pdf(wo);
+            } else {
+                // fsd pdf is angle density
+                return {};
+            }
+        }
+        else if (type == vertex_type_e::medium) {
+            assert(false); // TODO
+        }
+
+        assert(pdf.isfinite());
+
+        return convert_directional_density_to_area(pdf, p, next);
+    }
+
+    [[nodiscard]] area_density_t pdf_next_from_sensor(const vertex_t& next) const noexcept {
+        const auto dl = next.wp() - wp();
+        const auto recp_dist2 = 1 / m::length2(dl);
+        const auto d = dir3_t{ dl * m::sqrt(recp_dist2) };
+
+        const auto *sensor = type == vertex_type_e::sensor ? this->sensor : nullptr;
+        assert(!!sensor);
+        
+        // sensor pdf and convert to area density
+        const auto dpdf = sensor->pdf_direction(wp(),d).density_or_zero();
+        auto ppdf = dpdf * recp_dist2;
+        if (next.is_on_surface())
+            ppdf *= m::abs(m::dot(next.ng(), d));
+
+        assert(recp_dist2>zero && m::isfinite(ppdf) && ppdf>=zero);
+
+        return ppdf * u::ang::sr;
+    }
+
+    [[nodiscard]] inline area_density_t pdf_sensor() const noexcept {
+        const auto *sensor = type == vertex_type_e::sensor ? this->sensor : nullptr;
+        assert(!!sensor);
+
+        return sensor->pdf_position(wp()).density_or_zero();
+    }
+
+    [[nodiscard]] inline const emitter::emitter_t* get_emitter() const noexcept {
+        if (on_emitter())
+            return type == vertex_type_e::emitter ?
+                   this->emitter : surface().shape->get_emitter().get();
+        return nullptr;
+    }
+
+    [[nodiscard]] area_density_t pdf_next_from_emitter(const vertex_t& next) const noexcept {
+        const auto dl = next.wp() - wp();
+        const auto recp_dist2 = 1 / m::length2(dl);
+        const auto d = dir3_t{ dl * m::sqrt(recp_dist2) };
+        
+        const auto *emitter = type == vertex_type_e::emitter ?
+                              this->emitter : surface().shape->get_emitter().get();
+        assert(on_emitter());
+        assert(!!emitter);
+
+        if (emitter->is_infinite_emitter()) {
+            const auto* iem = dynamic_cast<const emitter::infinite_emitter_t*>(emitter);
+            assert(iem);
+            return iem->pdf_target_position(next.wp()).density_or_zero();
+        }
+        
+        // emitter pdf and convert to area density
+        const auto dpdf = emitter->pdf_direction(wp(), d, surface_if_any()).density_or_zero();
+        auto ppdf = dpdf * recp_dist2;
+        if (next.is_on_surface())
+            ppdf *= m::abs(m::dot(next.ng(), d));
+        
+        assert(recp_dist2>zero && m::isfinite(ppdf) && ppdf>=zero);
+
+        return ppdf * u::ang::sr;
+    }
+
+    [[nodiscard]] inline area_density_t pdf_emitter(
+            const scene_t& scene,
+            const sensor::sensor_t& sensor) const noexcept {
+        const auto *emitter = type == vertex_type_e::emitter ?
+                              this->emitter : surface().shape->get_emitter().get();
+        assert(on_emitter());
+        assert(!!emitter);
+
+        if (emitter->is_infinite_emitter())
+            return area_density_t::zero();
+
+        const auto pdfem = scene.pdf_emitter(&sensor, emitter);
+        return 
+            pdfem *
+            emitter->pdf_position(wp(), surface_if_any()).density_or_zero();
+    }
+};
+
+}

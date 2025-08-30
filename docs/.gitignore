@@ -1,0 +1,7 @@
+Doxyfile
+build/
+source/api/
+docs/*
+
+compiled/.doctrees
+compiled/_sources

@@ -1,0 +1,60 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <wt/math/util.hpp>
+#include <wt/math/frame.hpp>
+#include <wt/math/common.hpp>
+
+namespace wt::mesh {
+
+struct surface_differentials_t {
+    pqvec3_t dpdu, dpdv;
+
+};
+
+inline auto surface_differentials_for_triangle(const pqvec3_t& p0,
+                                               const pqvec3_t& p1,
+                                               const pqvec3_t& p2,
+                                               const vec2_t& uv0,
+                                               const vec2_t& uv1,
+                                               const vec2_t& uv2) noexcept {
+    const auto dp02 = p0 - p2;
+    const auto dp12 = p1 - p2;
+    const auto duv02 = uv0 - uv2;
+    const auto duv12 = uv1 - uv2;
+    const auto det = m::eft::diff_prod(duv02[0],duv12[1], duv02[1],duv12[0]);
+
+    auto ng = util::tri_face_normal(p0,p1,p2);
+    if (!ng)
+        ng = dir3_t{ 0,0,1 };
+
+    pqvec3_t dpdu, dpdv;
+    if (m::abs(det) < f_t(1e-10)) {
+        if (m::abs(ng->x)>m::abs(ng->y))
+            dpdu = vec3_t{ -ng->z, 0, ng->x }
+                        / m::sqrt(m::sqr(ng->x) + m::sqr(ng->z))
+                        * u::m;
+        else
+            dpdu = vec3_t{ 0, ng->z, -ng->y }
+                        / m::sqrt(m::sqr(ng->y) + m::sqr(ng->z))
+                        * u::m;
+        dpdv = m::cross(*ng, dpdu);
+    } else {
+        const auto recp_det = f_t(1)/det;
+        dpdu = m::eft::diff_prod(duv12[1],dp02, duv02[1],dp12) * recp_det;
+        dpdv = m::eft::diff_prod(duv02[0],dp12, duv12[0],dp02) * recp_det;
+    }
+
+    assert(m::isfinite(dpdu) && m::isfinite(dpdv));
+    return surface_differentials_t{ dpdu, dpdv };
+}
+
+}

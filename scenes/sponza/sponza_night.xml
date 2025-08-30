@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+	<default name="spp" value="1024"/>
+	<default name="res" value="1920"/>
+
+	<integrator type="plt_path" >
+		<string name="direction" value="backward"/>
+		<integer name="max_depth" value="64" />
+	</integrator>
+
+	<sensor type="perspective" id="camera">
+		<quantity name="fov" value="45°" />
+		<transform name="to_world" >
+			<lookat origin="-12m, 1m, 0m" target="0m, 2.5m, 0m" up="0, 1, 0"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="($res*3/4)" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D50" />
+			</response>
+		</film>
+	</sensor>
+
+
+	<shape type="sphere">
+		<point name="center" x="10m" y="7m" z="2m" />
+		<quantity name="radius" value="15cm" />
+
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".0"/>
+		</bsdf>
+
+		<emitter type="area">
+			<spectrum name="radiance" emitter="2603_LED_LightingScience_PAR20">
+				<float name="scale" value="2" />
+			</spectrum>
+		</emitter>
+	</shape>
+
+	<!-- <shape type="cylinder">
+		<quantity name="radius" value="90cm"/>
+		<point name="p0" x="2m" y="0m" z="0m" />
+		<point name="p1" x="2m" y="5m" z="0m" />
+
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".2"/>
+		</bsdf>
+
+		<emitter type="area">
+			<texture name="radiance" type="transform">
+				<translate value="-.2, .1" />
+				<matrix value="2,0, 0,1.5" />
+				<texture bitmap="textures/emitter_sparse.png" />
+			</texture>
+			<float name="scale" value="2" />
+		</emitter>
+	</shape> -->
+	<shape type="cylinder">
+		<quantity name="radius" value="90cm"/>
+		<point name="p0" x="2m" y="0m" z="0m" />
+		<point name="p1" x="2m" y="5m" z="0m" />
+
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".2"/>
+		</bsdf>
+
+		<emitter type="area">
+			<texture name="radiance" type="transform">
+				<matrix value="1,0, 0,1" />
+				<texture bitmap="textures/glass_emitter.png" />
+			</texture>
+			<float name="scale" value="1.35e-2" />
+		</emitter>
+	</shape>
+
+
+	<include path="bits/sponza.xml" />
+
+</scene>

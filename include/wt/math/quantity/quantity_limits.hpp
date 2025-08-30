@@ -1,0 +1,64 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <limits>
+#include <wt/math/quantity/framework.hpp>
+
+namespace std {
+
+template <mp_units::Quantity Q> 
+class numeric_limits<Q> {
+    using qlimits = std::numeric_limits<typename Q::rep>;
+    static constexpr auto unit = Q::unit;
+
+public:
+    static constexpr bool is_specialized = true;
+ 
+    static constexpr Q min() noexcept { return qlimits::min() * unit; }
+    static constexpr Q max() noexcept { return qlimits::max() * unit; }
+    static constexpr Q lowest() noexcept { return qlimits::lowest() * unit; }
+ 
+    static constexpr int digits = qlimits::digits;
+    static constexpr int digits10 = qlimits::digits10;
+    static constexpr int max_digits10 = qlimits::max_digits10;
+ 
+    static constexpr bool is_signed = qlimits::is_signed;
+    static constexpr bool is_integer = qlimits::is_integer;
+    static constexpr bool is_exact = qlimits::is_exact;
+    static constexpr int radix = qlimits::radix;
+    static constexpr Q epsilon() noexcept { return qlimits::epsilon() * unit; }
+    static constexpr Q round_error() noexcept { return qlimits::round_error() * unit; }
+ 
+    static constexpr int min_exponent = qlimits::min_exponent;
+    static constexpr int min_exponent10 = qlimits::min_exponent10;
+    static constexpr int max_exponent = qlimits::max_exponent;
+    static constexpr int max_exponent10 = qlimits::max_exponent10;
+ 
+    static constexpr bool has_infinity = qlimits::has_infinity;
+    static constexpr bool has_quiet_NaN = qlimits::has_quiet_NaN;
+    static constexpr bool has_signaling_NaN = qlimits::has_signaling_NaN;
+    static constexpr float_denorm_style has_denorm = qlimits::has_denorm;
+    static constexpr bool has_denorm_loss = qlimits::has_denorm_loss;
+    static constexpr Q infinity() noexcept { return qlimits::infinity() * unit; }
+    static constexpr Q quiet_NaN() noexcept { return qlimits::quiet_NaN() * unit; }
+    static constexpr Q signaling_NaN() noexcept { return qlimits::signaling_NaN() * unit; }
+    static constexpr Q denorm_min() noexcept { return qlimits::denorm_min() * unit; }
+ 
+    static constexpr bool is_iec559 = qlimits::is_iec559;
+    static constexpr bool is_bounded = qlimits::is_bounded;
+    static constexpr bool is_modulo = qlimits::is_modulo;
+ 
+    static constexpr bool traps = qlimits::trapsalse;
+    static constexpr bool tinyness_before = qlimits::tinyness_before;
+    static constexpr float_round_style round_style = qlimits::round_style;
+};
+
+}

@@ -1,0 +1,6 @@
+Originally, this is the Mitsuba version of 'Veach Bidir Room' by Benedikt Bitterli, downloaded from https://benedikt-bitterli.me/resources/
+
+It was adapted for a diffraction simulation in "A Generic Framework for Physical Light Transport" (https://ssteinberg.xyz/2021/04/26/generic_physical_light_transport_framework/)
+
+
+The original 'Veach Bidir Room' scene files may be obtained from: https://benedikt-bitterli.me/resources

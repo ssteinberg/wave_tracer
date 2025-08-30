@@ -1,0 +1,141 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <optional>
+
+#include <wt/mesh/triangle.hpp>
+
+#include <wt/math/common.hpp>
+#include <wt/math/shapes/ray.hpp>
+
+namespace wt {
+
+/**
+ * @brief Represents a barycentric coordinate in a triangle.
+ */
+struct barycentric_t {
+    /**
+     * @brief Convenience structure for interpolating triangle vertex data using the barycentric coordinate.
+     */
+    struct triangle_point_t {
+        pqvec3_t p;
+        dir3_t n;
+        vec2_t uv;
+        vec2_t bary;
+    };
+
+    vec2_t bary{ -1,-1 };
+
+    constexpr barycentric_t() noexcept = default;
+    explicit constexpr barycentric_t(vec2_t bary) noexcept : bary(bary) {}
+
+    constexpr barycentric_t(const barycentric_t&) noexcept = default;
+    constexpr barycentric_t& operator=(const barycentric_t&) noexcept = default;
+
+    constexpr inline operator bool() const noexcept { return bary.x>=0&&bary.y>=0&&bary.x+bary.y<=1; }
+    constexpr inline bool operator!() const noexcept { return !static_cast<bool>(*this); }
+
+    [[nodiscard]] constexpr inline vec3_t coords() const noexcept { return { bary.x,bary.y,1-bary.x-bary.y }; }
+
+    /**
+     * @brief Computes the interpolated triangle value
+     * @param a triangle's attribute 1
+     * @param b triangle's attribute 2
+     * @param c triangle's attribute 3
+     */
+    template <typename T>
+    [[nodiscard]] inline auto operator()(const T& a, const T& b, const T& c) const noexcept {
+        return bary.x*a + bary.y*b + (1-bary.x-bary.y)*c;
+    }
+
+    /**
+     * @brief Computes the interpolated position, (normalized) normal and uv of a triangle
+     * @param tri triangle
+     */
+    [[nodiscard]] inline triangle_point_t operator()(const mesh::triangle_t& tri) const noexcept {
+        const auto n = (*this)(dir3_t{ tri.n[0] }, dir3_t{ tri.n[1] }, dir3_t{ tri.n[2] });
+        return triangle_point_t{
+            .p = (*this)(tri.p[0], tri.p[1], tri.p[2]),
+            .n = m::normalize(n),
+            .uv = tri.uv ? 
+                (*this)((*tri.uv)[0], (*tri.uv)[1], (*tri.uv)[2]) :
+                vec2_t{},
+            .bary = bary
+        };
+    }
+};
+
+/**
+ * @brief Returns the barycentric-coordinates of a point w.r.t. a 2D triangle
+ * @param a triangle's vertex 1
+ * @param b triangle's vertex 2
+ * @param c triangle's vertex 3
+ * @param p point
+ */
+inline barycentric_t barycentric(const vec2_t& a, 
+                                 const vec2_t& b,
+                                 const vec2_t& c,
+                                 const vec2_t& p) noexcept {
+    const auto A = m::determinant(mat3_t(
+        a.x,a.y,1,
+        b.x,b.y,1,
+        c.x,c.y,1
+    ));
+    const auto R = m::transpose(mat3_t(
+        m::eft::diff_prod(b.x,c.y, c.x,b.y), b.y-c.y, c.x-b.x,
+        m::eft::diff_prod(c.x,a.y, a.x,c.y), c.y-a.y, a.x-c.x,
+        m::eft::diff_prod(a.x,b.y, b.x,a.y), a.y-b.y, b.x-a.x
+    ));
+    const auto bary = 1/A * R*vec3_t{1,p.x,p.y};
+
+    return barycentric_t(vec2_t{ bary.x,bary.y });
+}
+
+/**
+ * @brief Returns the barycentric-coordinates of a point w.r.t. a 2D triangle, if the point is inside the triangle
+ * @param a triangle's vertex 1
+ * @param b triangle's vertex 2
+ * @param c triangle's vertex 3
+ * @param p point
+ */
+inline std::optional<barycentric_t> barycentric_if_point_inside(
+        const vec2_t& a, 
+        const vec2_t& b,
+        const vec2_t& c,
+        const vec2_t& p) noexcept {
+    const auto A = m::determinant(mat3_t(
+        a.x,a.y,1,
+        b.x,b.y,1,
+        c.x,c.y,1
+    ));
+    const auto R = m::transpose(mat3_t(
+        m::eft::diff_prod(b.x,c.y, c.x,b.y), b.y-c.y, c.x-b.x,
+        m::eft::diff_prod(c.x,a.y, a.x,c.y), c.y-a.y, a.x-c.x,
+        m::eft::diff_prod(a.x,b.y, b.x,a.y), a.y-b.y, b.x-a.x
+    ));
+    const auto bary = m::sign(A) * R*vec3_t{1,p.x,p.y};
+    
+    if (bary.x>=0 && bary.y>=0 && bary.x+bary.y<=m::abs(A))
+        return barycentric_t(1/m::abs(A) * vec2_t{ bary.x,bary.y });
+    return std::nullopt;
+}
+
+/**
+ * @brief Returns the perspective-corrected barycentric coordinates 
+ * @param bary barycentric coordinates after projection
+ * @param w w coordinates
+ */
+inline barycentric_t barycentric(const barycentric_t& bary2, const vec3_t& w) noexcept {
+    const auto recp_w = f_t(1)/bary2(w.x,w.y,w.z);
+    return barycentric_t(bary2.bary * vec2_t{ w.x,w.y } * recp_w);
+}
+
+}

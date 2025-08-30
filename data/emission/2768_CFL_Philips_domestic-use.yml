@@ -1,0 +1,16 @@
+Category: CFL
+Brand: Philips
+Model: domestic-use
+Usage: domestic
+CCT (calculated): 3702
+MSI: 0.88
+SLI: 0.75
+IPI: 1.12
+PercentBlue: 29.21
+Rotational Angle: null
+Vertical Angle: null
+URL: https://lspdd.com/database/2768
+Normalization: Constant lumen
+DATA:
+  - type: tabulated intensity
+    data: |

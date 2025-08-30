@@ -1,0 +1,426 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <wt/math/common.hpp>
+#include <wt/math/rotation.hpp>
+#include <wt/math/frame.hpp>
+#include <wt/math/format.hpp>
+
+#include <wt/interaction/fresnel.hpp>
+#include <wt/interaction/polarimetric/stokes.hpp>
+
+namespace wt {
+
+/**
+ * @brief Mueller operator/matrix, that quantifies the action of an optical element acting upon a Stokes parameters vector. 
+ *        Mueller operators are defined with respect to an implicit frame. It is the user's responsibility to keep track of the correct frame.
+ */
+class mueller_operator_t {
+public:
+    using matrix_type = mat4_t;
+
+private:
+    matrix_type M = {};
+
+public:
+    inline mueller_operator_t() noexcept = default;
+    inline explicit mueller_operator_t(const matrix_type& M) noexcept : M(M) {}
+    inline mueller_operator_t(
+            f_t m00, f_t m01, f_t m02, f_t m03,
+            f_t m10, f_t m11, f_t m12, f_t m13,
+            f_t m20, f_t m21, f_t m22, f_t m23,
+            f_t m30, f_t m31, f_t m32, f_t m33) noexcept
+        : M(m00,m01,m02,m03,
+            m10,m11,m12,m13,
+            m20,m21,m22,m23,
+            m30,m31,m32,m33)
+    {}
+
+    mueller_operator_t(const mueller_operator_t&) noexcept = default;
+    mueller_operator_t& operator=(const mueller_operator_t&) noexcept = default;
+
+    [[nodiscard]] inline bool isfinite() const noexcept {
+        return m::isfinite(M);
+    }
+    [[nodiscard]] inline bool isnan() const noexcept {
+        return m::isnan(M);
+    }
+
+    /**
+     * @brief Returns the mean intensity (top-left element of the Mueller matrix).
+     */
+    [[nodiscard]] inline auto mean_intensity() const noexcept {
+        return M[0][0];
+    }
+
+    /**
+     * @brief Returns the underlying 4x4 Mueller matrix.
+     */
+    [[nodiscard]] const matrix_type& matrix() const noexcept { return M; }
+
+    [[nodiscard]] friend inline auto operator*(f_t scalar, const mueller_operator_t& M) noexcept {
+        return mueller_operator_t{ scalar * M.matrix() };
+    }
+    [[nodiscard]] friend inline auto operator*(const mueller_operator_t& M, f_t scalar) noexcept {
+        return mueller_operator_t{ M.matrix() * scalar };
+    }
+    [[nodiscard]] friend inline auto operator/(const mueller_operator_t& M, f_t scalar) noexcept {
+        return mueller_operator_t{ M.matrix() / scalar };
+    }
+
+    inline auto& operator*=(f_t scalar) noexcept {
+        *this = mueller_operator_t{ matrix() * scalar };
+        return *this;
+    }
+    inline auto& operator/=(f_t scalar) noexcept {
+        *this = mueller_operator_t{ matrix() / scalar };
+        return *this;
+    }
+
+
+    /**
+     * @brief Composes the action of 2 Mueller operators acting in sequence.
+     */
+    [[nodiscard]] friend inline auto operator*(
+            const mueller_operator_t& M1,
+            const mueller_operator_t& M2) noexcept {
+        return mueller_operator_t{ M1.matrix() * M2.matrix() };
+    }
+
+    /**
+     * @brief Composes the action of 2 Mueller operators acting in sequence.
+     */
+    inline auto& operator*=(const mueller_operator_t& M) noexcept {
+        *this = *this * M;
+        return *this;
+    }
+
+
+    /**
+     * @brief Sums Mueller operators.
+     */
+    [[nodiscard]] friend inline auto operator+(
+            const mueller_operator_t& M1,
+            const mueller_operator_t& M2) noexcept {
+        return mueller_operator_t{ M1.matrix() + M2.matrix() };
+    }
+
+    /**
+     * @brief Sums Mueller operators.
+     */
+    inline auto& operator+=(const mueller_operator_t& M) noexcept {
+        *this = *this + M;
+        return *this;
+    }
+
+
+    /**
+     * @brief Transformation of a Stokes parameters vector via Mueller matrix.
+     *        Frames are assumed to match.
+     */
+    template <Quantity Q>
+    [[nodiscard]] friend inline auto operator*(
+            const mueller_operator_t& M,
+            const stokes_parameters_t<Q>& S) noexcept {
+        const auto& Mt = m::transpose(M.matrix());
+        return stokes_parameters_t<Q>{
+            .S = {
+                m::dot(Mt[0],S.S),
+                m::dot(Mt[1],S.S),
+                m::dot(Mt[2],S.S),
+                m::dot(Mt[3],S.S)
+            },
+        };
+    }
+
+    /**
+     * @brief Transformation of a Stokes parameters vector via Mueller matrix.
+     *        The frame of the resulting Stokes parameters vector is the exitant frame of ``M``.
+     * @param Sin frame of ``S`` before transformation.
+     * @param Min incident frame of ``M``.
+     */
+    template <Quantity Q>
+    [[nodiscard]] inline stokes_parameters_t<Q> operator()(
+            const stokes_parameters_t<Q>& S,
+            const frame_t& Sin,
+            const frame_t& Min) const noexcept {
+        if (S.is_unpolarized())
+            return *this * S;
+
+        const auto retS = *this * S.reorient(Sin, Min);
+        return retS;
+    }
+
+    /**
+     * @brief Transformation of a Stokes parameters vector via Mueller matrix.
+     * @param Sin frame of ``S`` before transformation.
+     * @param Min incident frame of ``M``.
+     * @param Sout desired frame of ``S`` after transformation.
+     * @param Min exitant frame of ``M``.
+     */
+    template <Quantity Q>
+    [[nodiscard]] inline stokes_parameters_t<Q> operator()(
+            const stokes_parameters_t<Q>& S,
+            const frame_t& Sin,
+            const frame_t& Min,
+            const frame_t& Sout,
+            const frame_t& Mout) const noexcept {
+        const auto retS = *this * S.reorient(Sin, Min);
+        return retS.reorient(Mout, Sout);
+    }
+
+
+    /**
+     * @brief Reorients the Mueller operator such that it is defined with respect to a new incident frame.
+     */
+    [[nodiscard]] inline mueller_operator_t change_incident_frame(
+            const frame_t& old_frame, 
+            const frame_t& new_frame) const noexcept {
+        assert_iszero(1-m::dot(old_frame.n, new_frame.n));
+
+        const auto t = dir2_t{ vec2_t{ old_frame.to_local(new_frame.t) } };
+        auto R = mueller_operator_t::rotation(t, dir2_t{ 1,0 });
+        // flip handness if needed
+        if (old_frame.handness() != new_frame.handness())
+            R *= mueller_operator_t::handness_flip();
+        
+        return *this * R;
+    }
+
+    /**
+     * @brief Reorients the Mueller operator such that it is defined with respect to a new exitant frame.
+     */
+    [[nodiscard]] inline mueller_operator_t change_exitant_frame(
+            const frame_t& old_frame, 
+            const frame_t& new_frame) const noexcept {
+        assert_iszero(1-m::dot(old_frame.n, new_frame.n));
+
+        const auto t = dir2_t{ vec2_t{ old_frame.to_local(new_frame.t) } };
+        auto R = mueller_operator_t::rotation(t, dir2_t{ 1,0 });
+        // flip handness if needed
+        if (old_frame.handness() != new_frame.handness())
+            R *= mueller_operator_t::handness_flip();
+        
+        return R * *this;
+    }
+
+ 
+    /**
+     * @brief Constructs an identity (null interaction) Mueller operator.
+     */
+    static inline mueller_operator_t identity() noexcept {
+        return mueller_operator_t{
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0,
+            0, 0, 0, 1
+        };
+    }
+
+    /**
+     * @brief Constructs a Mueller operator that flips a Stokes vector's frame handness.
+     */
+    static inline mueller_operator_t handness_flip() noexcept {
+        return mueller_operator_t{
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, -1, 0,
+            0, 0, 0, -1
+        };
+    }
+
+    /**
+     * @brief Constructs a Mueller rotation operator.
+     *        Rotates from tangent ``t1`` to tangent ``t2``.
+     */
+    static inline mueller_operator_t rotation(
+            const dir2_t& t1,
+            const dir2_t& t2) noexcept {
+        auto R = util::rotation_matrix(t1,t2);
+        R = R*R;
+
+        auto T = matrix_type{ 0 };
+        T[0][0] = T[3][3] = 1;
+        T[1][1] = R[0][0];
+        T[2][1] = R[1][0];
+        T[1][2] = R[0][1];
+        T[2][2] = R[1][1];
+
+        return mueller_operator_t{ m::transpose(T) };
+    }
+
+    /**
+     * @brief Constructs a Mueller operator for a linear polarizer, with polarization angle ``theta``.
+     */
+    static inline mueller_operator_t linear_polarizer(const Angle auto& theta) noexcept {
+        const auto s = m::sin(2*theta);
+        const auto c = m::cos(2*theta);
+
+        auto P = matrix_type{ 0 };
+        P[0][0] = 1;
+        P[0][1] = P[1][0] = c;
+        P[0][2] = P[2][0] = s;
+        P[1][2] = P[2][1] = c*s;
+        P[1][1] = c*c;
+        P[2][2] = s*s;
+        P[3][3] = 0;
+
+        return mueller_operator_t{ f_t(.5) * P };
+    }
+
+    /**
+     * @brief Constructs a Mueller operator for an idealised depolarizer.
+     */
+    static inline mueller_operator_t perfect_depolarizer() noexcept {
+        auto P = matrix_type{ 0 };
+        P[0][0] = 1;
+        return mueller_operator_t{ P };
+    }
+
+    /**
+     * @brief Constructs a Mueller operator for a Fresnel interaction (reflection or refraction).
+     *
+     * @param fs s-polarization (complex-valued) Fresnel coefficient.
+     * @param fp p-polarization (complex-valued) Fresnel coefficient.
+     */
+    static inline mueller_operator_t fresnel(const c_t fs, const c_t fp) noexcept {
+        const f_t Rs = std::norm(fs);
+        const f_t Rp = std::norm(fp);
+        const f_t m00 = (Rs+Rp) / f_t(2);
+        const f_t m01 = (Rs-Rp) / f_t(2);
+        const f_t m22 = std::real(fp*std::conj(fs));
+        const f_t m23 = std::imag(fp*std::conj(fs));
+
+        return mueller_operator_t{
+            m::transpose(matrix_type(
+            m00,m01, 0,  0,
+            m01,m00, 0,  0,
+            0,  0,   m22,m23,
+            0,  0,  -m23,m22
+        ))};
+    }
+
+    /**
+     * @brief Constructs a Mueller operator for a Fresnel reflection.
+     *
+     * @param eta_12 Refractive-index ratio (top interface to bottom interface).
+     * @param w Incidence direction (pointing away from the surface).
+     * @param n Surface normal direction.
+     */
+    static inline mueller_operator_t fresnel_reflection(c_t eta_12, const dir3_t& w, const dir3_t& n = { 0,0,1 }) noexcept {
+        const auto f = ::wt::fresnel_reflection(eta_12, w, n);
+        return fresnel(f.rs, f.rp);
+    }
+
+    /**
+     * @brief Constructs a Mueller operator for a Fresnel refraction.
+     *
+     * @param eta_12 Refractive-index ratio (top interface to bottom interface).
+     * @param w Incidence direction (pointing away from the surface).
+     * @param n Surface normal direction.
+     */
+    static inline mueller_operator_t fresnel_transmission(c_t eta_12, const dir3_t& w, const dir3_t& n = { 0,0,1 }) noexcept {
+        const auto f = ::wt::fresnel(eta_12, w, n);
+        return f.Z * fresnel(f.ts, f.tp);
+    }
+
+    /**
+     * @brief Constructs a Mueller operator for a Fresnel.
+     *
+     * @param eta_12 Refractive-index ratio (top interface to bottom interface).
+     * @param reflection Selects reflection or refraction.
+     * @param w Incidence direction (pointing away from the surface).
+     * @param n Surface normal direction.
+     */
+    static inline mueller_operator_t fresnel(c_t eta_12, bool reflection, const dir3_t& w, const dir3_t& n = { 0,0,1 }) noexcept {
+        return reflection ?
+            fresnel_reflection(eta_12, w, n) :
+            fresnel_transmission(eta_12, w, n);
+    }
+
+    /**
+     * @brief Computes I/(I-M), where I is identity and M is the Mueller operator for a Fresnel interaction.
+     *        This is a closed-form expression for an infinite sequence of Fresnel reflections.
+     *
+     * @param fs s-polarization (complex-valued) Fresnel coefficient.
+     * @param fp p-polarization (complex-valued) Fresnel coefficient.
+     */
+    static inline mueller_operator_t inv_one_minus_fresnel(const c_t fs, const c_t fp) noexcept {
+        const f_t Rs = std::norm(fs);
+        const f_t Rp = std::norm(fp);
+        const f_t m00 = (Rs+Rp)/2;
+        const f_t m01 = (Rs-Rp)/2;
+        const f_t m22 = std::real(fs*std::conj(fp));
+        const f_t m23 = std::imag(fs*std::conj(fp));
+
+        const mat2_t minor1 = mat2_t{ 1,0,0,1 } - mat2_t{ m00, m01,m01,m00 };
+        const mat2_t minor2 = mat2_t{ 1,0,0,1 } - mat2_t{ m22,-m23,m23,m22 };
+        const auto im1 = m::inverse(minor1), im2 = m::inverse(minor2);
+
+        const auto det1 = m::determinant(im1), det2 = m::determinant(im2);
+        if (!m::isfinite(det1) || !m::isfinite(det2)) {
+            return mueller_operator_t{ 
+                matrix_type{ 0 }
+            };
+        }
+
+        return mueller_operator_t{
+            im1[0][0], im1[0][1], 0,         0,
+            im1[0][1], im1[0][0], 0,         0,
+            0,         0,         im2[0][0], im2[0][1],
+            0,         0,         im2[1][0], im2[0][0]
+        };
+    }
+
+    /**
+     * @brief Computes I/(I-M), where I is identity and M is the Mueller operator for a Fresnel reflection.
+     *        This is a closed-form expression for an infinite sequence of Fresnel reflections.
+     *
+     * @param eta_12 Refractive-index ratio (top interface to bottom interface).
+     * @param w Incidence direction (pointing away from the surface).
+     * @param n Surface normal direction.
+     */
+    static inline mueller_operator_t inv_one_minus_fresnel_reflection(c_t eta_12, const dir3_t& w, const dir3_t& n = { 0,0,1 }) noexcept {
+        const auto f = ::wt::fresnel(eta_12, w, n);
+        return inv_one_minus_fresnel(f.rs, f.rp);
+    }
+};
+
+
+/**
+ * @brief Composes the action of 2 Mueller operators acting in sequence.
+ *        Applies the appropriate rotation to align the frames.
+ */
+[[nodiscard]] inline mueller_operator_t compose(
+        const mueller_operator_t& M1,
+        const mueller_operator_t& M2,
+        const frame_t& M1in,
+        const frame_t& M2out) noexcept {
+    assert_iszero(1-m::dot(M1in.n, M2out.n));
+    const auto to = dir2_t{ vec2_t{ M1in.to_local(M2out.t) } };
+    auto R = mueller_operator_t::rotation(to, dir2_t{ 1,0 });
+
+    if (M1in.handness() != M2out.handness())
+        R = mueller_operator_t::handness_flip() * R;
+
+    return M1 * R * M2;
+}
+
+
+}
+
+
+template<>
+struct std::formatter<wt::mueller_operator_t> : std::formatter<wt::mueller_operator_t::matrix_type> {
+    auto format(const wt::mueller_operator_t& m, std::format_context& ctx) const {
+        return std::format_to(ctx.out(), "{}", m.matrix());
+    }
+};

@@ -1,0 +1,378 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <string>
+
+#include <wt/math/common.hpp>
+#include <wt/math/quantity/defs.hpp>
+#include <wt/math/quantity/quantity_vector.hpp>
+#include <wt/math/range.hpp>
+
+#include <wt/util/format/utils.hpp>
+#include <wt/util/math_expression.hpp>
+
+namespace wt {
+
+namespace detail {
+inline bool parse_expression(std::istream &ss, f_t& val) {
+    while (!!ss && std::isspace(ss.peek())) { ss.ignore(); }
+    if (ss.peek()=='(') {
+        // parse math expression
+        std::string expression;
+        int p=0;
+        do {
+            const auto c = ss.peek();
+            expression += c;
+            if (c=='(') ++p;
+            else if (c==')') --p;
+            ss.ignore();
+        } while(p>0 && !!ss);
+
+        val = wt::parse_expression<f_t>(expression);
+        assert(p==0);
+    }
+    else {
+        if (!(ss >> val))
+            return false;
+    }
+
+    // trim white spaces
+    while (!!ss && std::isspace(ss.peek())) { ss.ignore(); }
+    return true;
+}
+}
+
+inline std::istream& operator>>(std::istream &ss, QuantityOf<isq::length> auto& q) {
+    f_t val;
+    if (!detail::parse_expression(ss, val))
+        throw std::format_error("(istream>> QuantityOf<length>) malformed stream");
+
+    std::string units;
+    for (auto i=0ul;i<2;++i) {
+        char c = ss.peek();
+        if (!((c>='A' && c<='Z') || (c>='a' && c<='z'))) break;
+
+        units += c;
+        ss.ignore();
+    }
+
+    if      (units == "nm") q = val * u::nm;
+    else if (units == "µm") q = val * u::µm;
+    else if (units == "um") q = val * u::um;
+    else if (units == "mm") q = val * u::mm;
+    else if (units == "cm") q = val * u::cm;
+    else if (units == "dm") q = val * u::dm;
+    else if (units == "m")  q = val * u::m;
+    else if (units == "km") q = val * u::km;
+    else
+        throw std::format_error("(istream>> QuantityOf<length>) unexpected units");
+    
+    return ss;
+}
+
+inline std::istream& operator>>(std::istream &ss, QuantityOf<isq::area> auto& q) {
+    f_t val;
+    if (!detail::parse_expression(ss, val))
+        throw std::format_error("(istream>> QuantityOf<area>) malformed stream");
+
+    std::string units;
+    for (auto i=0ul;i<2;++i) {
+        char c = ss.peek();
+        if (!((c>='A' && c<='Z') || (c>='a' && c<='z'))) break;
+
+        units += c;
+        ss.ignore();
+    }
+
+    // suffix must be "^2"
+    std::stringstream::char_type suffix[2];
+    if (!(ss.read(suffix,2)) || std::string{ suffix,2 } != "^2")
+        throw std::format_error("(istream>> QuantityOf<area>) unexpected units");
+
+    if      (units == "nm") q = val * square(u::nm);
+    else if (units == "µm") q = val * square(u::µm);
+    else if (units == "um") q = val * square(u::um);
+    else if (units == "mm") q = val * square(u::mm);
+    else if (units == "cm") q = val * square(u::cm);
+    else if (units == "dm") q = val * square(u::dm);
+    else if (units == "m")  q = val * square(u::m);
+    else if (units == "km") q = val * square(u::km);
+    else
+        throw std::format_error("(istream>> QuantityOf<area>) unexpected units");
+    
+    return ss;
+}
+
+inline std::istream& operator>>(std::istream &ss, QuantityOf<inverse(isq::length)> auto& q) {
+    f_t val;
+    if (!detail::parse_expression(ss, val))
+        throw std::format_error("(istream>> QuantityOf<inverse(length)>) malformed stream");
+
+    std::string units;
+    for (auto i=0ul;i<2;++i) {
+        char c = ss.peek();
+        if (!((c>='A' && c<='Z') || (c>='a' && c<='z'))) break;
+
+        units += c;
+        ss.ignore();
+    }
+    
+    // suffix must be "^(-1)"
+    std::stringstream::char_type suffix[5];
+    if (!(ss.read(suffix,5)) || std::string{ suffix,5 } != "^(-1)")
+        throw std::format_error("(istream>> QuantityOf<inverse(length)>) unexpected units");
+
+    if      (units == "nm") q = val / u::nm;
+    else if (units == "µm") q = val / u::µm;
+    else if (units == "um") q = val / u::um;
+    else if (units == "mm") q = val / u::mm;
+    else if (units == "cm") q = val / u::cm;
+    else if (units == "dm") q = val / u::dm;
+    else if (units == "m")  q = val / u::m;
+    else if (units == "km") q = val / u::km;
+    else
+        throw std::format_error("(istream>> QuantityOf<inverse(length)>) unexpected units");
+    
+    return ss;
+}
+
+inline std::istream& operator>>(std::istream &ss, QuantityOf<inverse(isq::area)> auto& q) {
+    f_t val;
+    if (!detail::parse_expression(ss, val))
+        throw std::format_error("(istream>> QuantityOf<inverse(area)>) malformed stream");
+
+    std::string units;
+    for (auto i=0ul;i<2;++i) {
+        char c = ss.peek();
+        if (!((c>='A' && c<='Z') || (c>='a' && c<='z'))) break;
+
+        units += c;
+        ss.ignore();
+    }
+    
+    // suffix must be "^(-2)"
+    std::stringstream::char_type suffix[5];
+    if (!(ss.read(suffix,5)) || std::string{ suffix,5 } != "^(-2)")
+        throw std::format_error("(istream>> QuantityOf<inverse(area)>) unexpected units");
+
+    if      (units == "nm2") q = val / square(u::nm);
+    else if (units == "µm2") q = val / square(u::µm);
+    else if (units == "um2") q = val / square(u::um);
+    else if (units == "mm2") q = val / square(u::mm);
+    else if (units == "cm2") q = val / square(u::cm);
+    else if (units == "dm2") q = val / square(u::dm);
+    else if (units == "m2")  q = val / square(u::m);
+    else if (units == "km2") q = val / square(u::km);
+    else
+        throw std::format_error("(istream>> QuantityOf<inverse(area)>) unexpected units");
+    
+    return ss;
+}
+
+inline std::istream& operator>>(std::istream &ss, Temperature auto& q) {
+    f_t val;
+    if (!detail::parse_expression(ss, val))
+        throw std::format_error("(istream>> QuantityOf<thermodynamic_temperature>) malformed stream");
+
+    static constexpr char degC[] = "°C";
+
+    std::string units;
+    for (auto i=0ul;i<2;++i) {
+        char c = ss.peek();
+        if (!((c>='A' && c<='Z') || (c>='a' && c<='z') || std::string{ degC }.find(c)!=std::string::npos)) break;
+
+        units += c;
+        ss.ignore();
+    }
+    
+    if      (units == "K")    q = point<u::K>(val);
+    else if (units == degC)   q = point<u::deg_C>(val);
+    else if (units == "degC") q = point<u::deg_C>(val);
+    else
+        throw std::format_error("(istream>> QuantityOf<thermodynamic_temperature>) unexpected units");
+    
+    return ss;
+}
+
+inline std::istream& operator>>(std::istream &ss, SolidAngle auto& q) {
+    f_t val;
+    if (!detail::parse_expression(ss, val))
+        throw std::format_error("(istream>> QuantityOf<solid_angle>) malformed stream");
+
+    static constexpr char sr[] = "sr";
+
+    std::string units;
+    for (auto i=0ul;i<2;++i) {
+        char c = ss.peek();
+        if (!((c>='A' && c<='Z') || (c>='a' && c<='z'))) break;
+
+        units += c;
+        ss.ignore();
+    }
+    
+    if      (units == sr)    q = val * u::ang::sr;
+    else
+        throw std::format_error("(istream>> QuantityOf<solid_angle>) unexpected units");
+    
+    return ss;
+}
+
+inline std::istream& operator>>(std::istream &ss, Angle auto& q) {
+    f_t val;
+    if (!detail::parse_expression(ss, val))
+        throw std::format_error("(istream>> QuantityOf<angle>) malformed stream");
+
+    static constexpr char deg[] = "°";
+
+    std::string units;
+    for (auto i=0ul;i<3;++i) {
+        char c = ss.peek();
+        if (!((c>='A' && c<='Z') || (c>='a' && c<='z') || std::string{ deg }.find(c)!=std::string::npos)) break;
+
+        units += c;
+        ss.ignore();
+    }
+    
+    if      (units == "deg") q = val * u::ang::deg;
+    else if (units == deg)   q = val * u::ang::deg;
+    else if (units == "rad") q = val * u::ang::rad;
+    else
+        throw std::format_error("(istream>> QuantityOf<angle>) unexpected units");
+    
+    return ss;
+}
+
+inline std::istream& operator>>(std::istream &ss, Frequency auto& q) {
+    f_t val;
+    if (!detail::parse_expression(ss, val))
+        throw std::format_error("(istream>> QuantityOf<frequency>) malformed stream");
+
+    std::string units;
+    for (auto i=0ul;i<3;++i) {
+        char c = ss.peek();
+        if (!((c>='A' && c<='Z') || (c>='a' && c<='z'))) break;
+
+        units += c;
+        ss.ignore();
+    }
+
+    if      (units == "Hz"  || units == "hz" )  q = val * u::Hz;
+    else if (units == "kHz" || units == "khz") q = val * u::kHz;
+    else if (units == "MHz" || units == "Mhz") q = val * u::MHz;
+    else if (units == "GHz" || units == "Ghz") q = val * u::GHz;
+    else if (units == "THz" || units == "Thz") q = val * u::THz;
+    else
+        throw std::format_error("(istream>> QuantityOf<frequency>) unexpected units");
+    
+    return ss;
+}
+
+template <Quantity Q>
+inline Q stoq_strict(const std::string& str) {
+    std::istringstream ss{ str };
+    Q q;
+    ss >> q;
+    if (ss.tellg()==str.length() || ss.eof())
+        return q;
+
+    throw std::format_error("(stoq) malformed quantity");
+}
+template <Quantity Q>
+inline Q stoq_strict(const std::string& str, const Q& default_when_empty) {
+    return str.length() ? stoq_strict<Q>(str) : default_when_empty;
+}
+
+template <QuantityPoint Q>
+inline Q stoq_strict(const std::string& str) {
+    std::istringstream ss{ str };
+    Q q;
+    ss >> q;
+    if (ss.tellg()==str.length() || ss.eof())
+        return q;
+
+    throw std::format_error("(stoq) malformed quantity");
+}
+template <QuantityPoint Q>
+inline Q stoq_strict(const std::string& str, const Q& default_when_empty) {
+    return str.length() ? stoq_strict<Q>(str) : default_when_empty;
+}
+
+template <Wavelength WL = wavelength_t>
+inline WL parse_wavelength(const std::string& str) {
+    if (str.find("Hz")!=std::string::npos) {
+        return freq_to_wavelen(stoq_strict<frequency_t>(str));
+    } else {
+        return stoq_strict<WL>(str);
+    }
+}
+
+/**
+ * @brief String to vector.
+ */
+template <FloatingPoint Fp=f_t>
+inline auto parse_pqvec4(const std::string& str) {
+    qvec4<quantity<isq::length[u::m],Fp>> v{};
+    std::stringstream ss(str);
+    for (std::size_t i=0;i<4;++i) {
+        ss >> v[i];
+        if (ss.peek() == ',')
+            ss.ignore();
+    }
+    return v;
+}
+/**
+ * @brief String to vector.
+ */
+template <FloatingPoint Fp=f_t>
+inline auto parse_pqvec3(const std::string& str) {
+    qvec3<quantity<isq::length[u::m],Fp>> v{};
+    std::stringstream ss(str);
+    for (std::size_t i=0;i<3;++i) {
+        ss >> v[i];
+        if (ss.peek() == ',')
+            ss.ignore();
+    }
+    return v;
+}
+/**
+ * @brief String to vector.
+ */
+template <FloatingPoint Fp=f_t>
+inline auto parse_pqvec2(const std::string& str) {
+    qvec2<quantity<isq::length[u::m],Fp>> v{};
+    std::stringstream ss(str);
+    for (std::size_t i=0;i<2;++i) {
+        ss >> v[i];
+        if (ss.peek() == ',')
+            ss.ignore();
+    }
+    return v;
+}
+
+/**
+ * @brief String to range.
+ */
+template <Quantity Q, range_inclusiveness_e inc>
+inline void parse_range(const std::string& str, range_t<Q,inc>& out) {
+    const auto sep = str.find("..");
+    if (sep == std::string::npos)
+        throw std::format_error("(parse_range) malformed range expression, expected '<min>..<max>'");
+
+    const auto rmin = str.substr(0,sep);
+    const auto rmax = str.substr(sep+2);
+
+    range_t<Q,inc> r;
+    r.min = stoq_strict<Q>(format::trim(rmin));
+    r.max = stoq_strict<Q>(format::trim(rmax));
+    out = r;
+}
+
+}

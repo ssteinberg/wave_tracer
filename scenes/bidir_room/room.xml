@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+	<default name="spp" value="512"/>
+	<default name="res" value="1440"/>
+	
+	<default name="screen" value="0"/>
+	<default name="spot_cutoff" value="13" />
+	<default name="bunny" value="false"/>
+	<default name="mirror" value="false"/>
+	<default name="ball" value="false"/>
+
+	<integrator type="plt_bdpt" >
+		<integer name="max_depth" value="10" />
+	</integrator>
+
+	<sensor type="perspective" id="camera">
+		<string name="fov_axis" value="x" />
+		<quantity name="fov" value="42°" />
+		<transform name="to_world" >
+			<matrix value="-0.00500708, -0.00467005, -0.999977, 12cm,
+						    0, 0.999989, -0.00467011, 2.66cm,
+							0.999987, -2.34659e-005, -0.00502464, -0.5cm,
+							0, 0, 0, 1"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+		<float name="phase_space_extent_scale" value=".25" />
+
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="(round($res*17/30))" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D55" />
+			</response>
+		</film>
+	</sensor>
+
+	<bsdf type="twosided" id="Diffuse" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".5"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Room" >
+		<bsdf type="scale" >
+			<spectrum name="scale" constant="0.33"/>
+			<bsdf type="diffuse" >
+				<spectrum name="reflectance" rgb="0.39, 0.425, 0.375"/>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Wood" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.32963, 0.257976, 0.150292"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Plastic" >
+		<!-- make this plastic -->
+		<bsdf type="diffuse">
+			<spectrum name="reflectance" rgb="0.2, 0.2, 0.2"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="PlasticDark" >
+		<!-- make this plastic -->
+		<bsdf type="diffuse">
+			<spectrum name="reflectance" rgb=".025, .0225, .02"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="PlasticBlack" >
+		<!-- make this plastic -->
+		<bsdf type="diffuse">
+			<spectrum name="reflectance" constant="0.005"/>
+		</bsdf>
+	</bsdf>
+
+
+	<shape type="ply" >
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Room.ply" />
+
+		<quantity name="scale" value="1cm" />
+		<boolean name="face_normals" value="true" />
+
+		<ref id="Room" />
+	</shape>
+
+
+	<bsdf type="twosided" id="ScreenBSDF" >
+	<bsdf scale=".33">
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".025" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	</bsdf>
+
+	<shape type="ply" id="screen_star">
+		<boolean name="enabled" value="($screen==0)" />
+
+		<path name="filename" value="screens/star_of_david.ply" />
+		<quantity name="scale" value="1mm" />
+
+		<boolean name="face_normals" value="true" />
+		<ref id="ScreenBSDF" />
+		<transform name="to_world">
+			<rotate x="1" angle="90°"/>
+			<scale x=".7" y=".7" z=".2"/>
+			<translate x="-2.2807cm" y="2.6177cm" z=".25cm" />
+		</transform>
+	</shape>
+	<shape type="ply" id="screen_slits">
+		<boolean name="enabled" value="($screen==1)" />
+
+		<path name="filename" value="screens/double_slit.ply" />
+		<quantity name="scale" value="1mm" />
+
+		<boolean name="face_normals" value="true" />
+		<ref id="ScreenBSDF" />
+		<transform name="to_world">
+			<rotate x="1" angle="90°"/>
+			<scale x=".8" y=".8" z=".15"/>
+			<translate x="-2.2807cm" y="2.6177cm" z=".25cm" />
+		</transform>
+	</shape>
+
+
+	<!-- <shape type="cube" id="top_source">
+		<quantity name="length" value="1cm" />
+		<transform name="to_world" >
+			<scale x="2" y=".04" z="2" />
+			<translate x="-2.5 cm" y="6.6177 cm" z="2.5 cm" />
+		</transform>
+
+		<emitter type="area" >
+			<spectrum name="radiance" blackbody="4000K">
+				<float name="scale" value="7e-4" />
+			</spectrum>
+			<float name="phase_space_extent_scale" value=".05" />
+		</emitter>
+		
+		<ref id="Diffuse" />
+	</shape> -->
+
+	<emitter type="spot" >
+		<transform name="to_world">
+			<lookat origin="-2.2807cm, 2.6177cm, 3.4cm" target="-2.2807cm, 2.6177cm, 0cm" />
+		</transform>
+
+		<quantity name="beam_width" value=".2°" />
+		<quantity name="cutoff_angle" value=".4°" />
+
+		<spectrum name="radiant_intensity" emitter="2534_CFL_Tensor_Twister">
+			<float name="scale" value="3e2" />
+		</spectrum>
+
+		<float name="phase_space_extent_scale" value=".25" />
+	</emitter>
+	<emitter type="spot" >
+		<transform name="to_world">
+			<lookat origin="-2.2807cm, 2.6177cm, 3.4cm" target="-2.2807cm, 2.6177cm, 0cm" />
+		</transform>
+
+		<quantity name="cutoff_angle" value="$spot_cutoff °" />
+
+		<spectrum name="radiant_intensity" emitter="2534_CFL_Tensor_Twister">
+			<float name="scale" value="8.5e-2" />
+		</spectrum>
+
+		<float name="phase_space_extent_scale" value=".15" />
+	</emitter>
+
+
+	<bsdf type="twosided" id="Display" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".95"/>
+		</bsdf>
+	</bsdf>
+	<shape type="rectangle" id="display">
+		<quantity name="length" value="2.5cm" />
+		<transform name="to_world" >
+			<lookat origin="-2.2807cm, 2.6177cm, -4.8cm" target="-2.2807cm, 2.6177cm, 0cm" />
+		</transform>
+		
+		<ref id="Display" />
+	</shape>
+
+
+	<!-- <shape type="prism" id="prism">
+		<quantity name="length" value=".6cm" />
+		<quantity name="height" value=".75cm" />
+		<quantity name="angle" value="140°" />
+
+		<transform name="to_world">
+			<rotate x="1" angle="90°" />
+			<rotate y="1" angle="20°" />
+			<translate x="-2.10cm" y="2.21cm" z="-2.15cm" />
+		</transform>
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" type="piecewise_linear">
+				<bin wavelength="300nm" value="1.45" />
+				<bin wavelength="800nm" value="1.6" />
+			</spectrum>
+		</bsdf>
+	</shape> -->
+
+	<shape type="rectangle" id="mirror">
+		<boolean name="enabled" value="($mirror==true)" />
+
+		<quantity name="length" value="1.25cm" />
+		<transform name="to_world" >
+			<rotate x="1" angle="26°" />
+			<translate value="-2.2807cm, 3.085cm, -4cm" />
+		</transform>
+		
+		<bsdf type="twosided">
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Cu" />
+			<surface_profile type="dirac" />
+		</bsdf>
+		</bsdf>
+	</shape>
+
+	<shape type="icosahedron" id="ball">
+		<boolean name="enabled" value="($ball==true)" />
+
+		<quantity name="radius" value=".26cm" />
+
+		<transform name="to_world" >
+			<rotate x="1" y="1" z="1" angle="5°" />
+			<translate value="-2.45cm, 1.6cm, -3.55cm" />
+		</transform>
+
+		<bsdf type="dielectric">
+			<spectrum name="IOR" material="K8"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bunny_large">
+		<boolean name="enabled" value="($bunny==true)" />
+
+		<path name="filename" value="bunny/bun_zipper.ply" />
+		<quantity name="scale" value="7cm" />
+
+		<transform name="to_world">
+			<rotate x="0" y="1" z="0" angle="-82°" />
+			<translate value="-2.42cm, 1.54cm, -1.9cm" />
+		</transform>
+
+		<bsdf type="dielectric">
+			<spectrum name="IOR" material="SF11"/>
+		</bsdf>
+	</shape>
+
+	<shape type="prism" id="smallprism">
+		<quantity name="length" value="1cm" />
+		<quantity name="height" value="5.5mm" />
+		<quantity name="angle" value="67°" />
+
+		<transform name="to_world">
+			<rotate y="1" angle="90°" />
+			<translate x="-2.2807cm" y="1.9cm" z="1.94cm" />
+		</transform>
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" material="TF8"/>
+		</bsdf>
+	</shape>
+
+
+	<bsdf type="diffuse" id="StoolWood">
+		<texture type="bitmap" name="reflectance">
+			<path value="textures/StoolWood.png"/>
+		</texture>
+	</bsdf>
+	<bsdf type="twosided" id="stool_metal_bsdf" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="gaussian">
+				<spectrum name="roughness" constant=".05" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Top_stool.ply"/>
+		<ref id="StoolWood" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Support_stool.ply"/>
+		<ref id="StoolWood" name="bsdf"/>
+	</shape>
+	<!-- <shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Screws.ply"/>
+		<ref id="stool_metal_bsdf" name="bsdf"/>
+	</shape> -->
+		
+
+	<bsdf type="twosided" id="DeskLampPlastic" >
+		<bsdf type="diffuse">
+			<spectrum name="reflectance" rgb="0.225, 0.25, 0.25"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="DeskLampArmMetal" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".05" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="surface_spm" id="DeskLampMetal" >
+		<spectrum name="IOR" material="Al" />
+		<surface_profile type="fractal">
+			<spectrum name="roughness" constant=".015" />
+		</surface_profile>
+	</bsdf>
+	<bsdf type="twosided" id="DeskLampSprings" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Fe" />
+			<surface_profile type="gaussian">
+				<spectrum name="roughness" constant=".125" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<shape type="ply">
+		<boolean name="enabled" value="($mirror==false)" />
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/desk_lamp_head.ply"/>
+		<ref id="DeskLampMetal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<boolean name="enabled" value="($mirror==false)" />
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/desk_lamp_head_top.ply"/>
+		<ref id="DeskLampArmMetal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<boolean name="enabled" value="($mirror==false)" />
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/desk_lamp_arm.ply"/>
+		<ref id="DeskLampArmMetal" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<boolean name="enabled" value="($mirror==false)" />
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/desk_lamp_springs.ply"/>
+		<ref id="DeskLampSprings" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<boolean name="enabled" value="($mirror==false)" />
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/desk_lamp_plastic-02 - Default.001.ply"/>
+		<ref id="DeskLampPlastic" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<boolean name="enabled" value="($mirror==false)" />
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/desk_lamp_plastic-c12.001.ply"/>
+		<ref id="DeskLampPlastic" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<boolean name="enabled" value="($mirror==false)" />
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/desk_lamp_plastic-c121c12.001.ply"/>
+		<ref id="DeskLampPlastic" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<boolean name="enabled" value="($mirror==false)" />
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/desk_lamp_plastic-cv2d.001.ply"/>
+		<ref id="DeskLampPlastic" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<boolean name="enabled" value="($mirror==false)" />
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/desk_lamp_plastic-v3ve.001.ply"/>
+		<ref id="DeskLampPlastic" name="bsdf"/>
+	</shape>
+
+
+	<bsdf type="twosided" id="LampAl" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="gaussian">
+				<spectrum name="roughness" constant=".175" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Lamp" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".2" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/twin wall lamp-Lamp.ply"/>
+		<ref id="PlasticDark" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/twin wall lamp-Luminance_side.ply"/>
+		<ref id="LampAl" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/twin wall lamp-Ring_Luminance.ply"/>
+		<ref id="Diffuse" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/twin wall lamp-default_Mat.ply"/>
+		<ref id="PlasticBlack" />
+	</shape>
+
+
+	<bsdf type="twosided" id="Shelf">
+		<bsdf type="diffuse">
+			<texture type="bitmap" name="reflectance">
+				<path value="textures/shelf.png"/>
+			</texture>
+		</bsdf>
+	</bsdf>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/shelf-Bright_Wood_Contraveta.ply"/>
+		<ref id="Shelf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/shelf-PlyWood.ply"/>
+		<ref id="Wood" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/shelf-beige_shinny.ply"/>
+		<ref id="Plastic" />
+	</shape>
+
+	<shape type="ply" >
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/leg1.ply" />
+		<ref id="Diffuse" />
+	</shape>
+	<shape type="ply" >
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/leg2.ply" />
+		<ref id="Diffuse" />
+	</shape>
+	<shape type="ply" >
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/leg3.ply" />
+		<ref id="Diffuse" />
+	</shape>
+	<shape type="ply" >
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/leg4.ply" />
+		<ref id="Diffuse" />
+	</shape>
+	<shape type="ply" >
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/table.ply" />
+		<boolean name="face_normals" value="true" />
+		<ref id="Wood" />
+	</shape>
+
+
+	<bsdf type="twosided" id="chair_bsdf" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.346, 0.26, 0.185"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="chair_base_bsdf" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" rgb="0.5, 0.5, 0.5"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="chair_metal_bsdf" >
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Ni" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".1" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/chair_base.ply"/>
+		<ref id="chair_base_bsdf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Plane.ply"/>
+		<ref id="chair_bsdf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Circle.ply"/>
+		<ref id="chair_metal_bsdf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Circle.001.ply"/>
+		<ref id="chair_metal_bsdf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Circle.002.ply"/>
+		<ref id="chair_metal_bsdf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Circle.003-Material.002.ply"/>
+		<ref id="chair_metal_bsdf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Circle.003-Material.003.ply"/>
+		<ref id="chair_metal_bsdf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Cube.001.ply"/>
+		<ref id="chair_bsdf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Cube.002.ply"/>
+		<ref id="chair_bsdf" />
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Plane.001.ply"/>
+		<ref id="chair_bsdf" />
+	</shape>
+
+
+	<!-- <bsdf type="diffuse" id="mat-Default OBJ.022">
+		<spectrum rgb="0.875, 0.616, 0.424" name="reflectance"/>
+	</bsdf>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/notebook.ply"/>
+		<ref id="mat-Default OBJ.022" name="bsdf"/>
+	</shape> -->
+
+	<bsdf type="diffuse" id="mat-Black flower pot">
+		<spectrum rgb="0.1, 0.1, 0.1" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Soil 1">
+		<spectrum rgb="0.31, 0.2275, 0.1882" name="reflectance"/>
+	</bsdf>
+	<bsdf type="twosided" id="mat-Orchid">
+		<bsdf type="diffuse">
+			<texture type="bitmap" name="reflectance">
+				<path value="textures/Orchid.png"/>
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="mat-Orchid.001">
+		<bsdf type="diffuse">
+			<spectrum rgb="1.000000, 1.000000, 1.000000" name="reflectance"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="mat-Orchid.002">
+		<bsdf type="diffuse">
+			<spectrum rgb="0.041591, 0.024515, 0.018017" name="reflectance"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Leaves">
+		<spectrum rgb="0.0431, 0.38, 0.263" name="reflectance"/>
+	</bsdf>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Orchid-Black flower pot.ply"/>
+		<ref id="mat-Black flower pot" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Orchid-Soil 1.ply"/>
+		<ref id="mat-Soil 1" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Orchid-Orchid.ply"/>
+		<ref id="mat-Orchid" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Orchid-Orchid.001.ply"/>
+		<ref id="mat-Orchid.001" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Orchid-Orchid.002.ply"/>
+		<ref id="mat-Orchid.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/Orchid-Leaves.ply"/>
+		<ref id="mat-Leaves" name="bsdf"/>
+	</shape>
+
+
+	<bsdf type="twosided" id="Painting1" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="transform">
+				<matrix value="1,0, 0,-1" />
+				<texture type="bitmap" >
+					<path value="textures/picture1.png" />
+				</texture>
+			</texture>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="WoodFrame" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="bitmap" >
+				<path value="textures/wood2.png" />
+			</texture>
+		</bsdf>
+	</bsdf>
+	<shape type="ply" >
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/painting.ply" />
+		<ref id="Painting1" name="bsdf" />
+
+		<transform name="to_world">
+			<translate z="5.2cm" />
+		</transform>
+	</shape>
+	<shape type="ply" >
+		<quantity name="scale" value="1cm" />
+
+		<path value="models/painting_frame.ply" />
+		<boolean name="face_normals" value="true" />
+		<ref id="WoodFrame" name="bsdf" />
+
+		<transform name="to_world">
+			<translate z="5.2cm" />
+		</transform>
+	</shape>
+</scene>

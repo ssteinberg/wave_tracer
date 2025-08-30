@@ -1,0 +1,56 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <string>
+#include <memory>
+#include <optional>
+
+#include <wt/bitmap/bitmap.hpp>
+
+#include <wt/math/common.hpp>
+#include <wt/wt_context.hpp>
+
+namespace wt {
+
+class font_renderer_t {
+public:
+    enum class anchor_t : std::uint8_t {
+        top_left,
+        top,
+        top_right,
+        right,
+        bottom_right,
+        bottom,
+        bottom_left,
+        left,
+    };
+
+private:
+    std::shared_ptr<void> ptr;
+
+public:
+    font_renderer_t(const wt_context_t& ctx, const std::string& font);
+
+    vec2_t render(const std::string& text, 
+                  bitmap::bitmap2d_t<float>& target,
+                  vec2u32_t position,
+                  const f_t text_size_px,
+                  const anchor_t anchor = anchor_t::bottom_left,
+                  const std::optional<vec4_t>& colour = std::nullopt) const;
+    vec2_t render(const std::string& text, 
+                  bitmap::bitmap2d_t<double>& target,
+                  vec2u32_t position,
+                  const f_t text_size_px,
+                  const anchor_t anchor = anchor_t::bottom_left,
+                  const std::optional<vec4_t>& colour = std::nullopt) const;
+};
+
+}

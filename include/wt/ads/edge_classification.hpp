@@ -1,0 +1,240 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <vector>
+#include <optional>
+#include <mutex>
+#include <future>
+
+#include <wt/math/common.hpp>
+#include <wt/math/shapes/ball.hpp>
+#include <wt/math/shapes/elliptic_cone.hpp>
+#include <wt/math/intersect/intersect_defs.hpp>
+
+#include <wt/util/thread_pool/tpool.hpp>
+#include <wt/util/logger/logger.hpp>
+
+#include "ads.hpp"
+#include "common.hpp"
+#include "util.hpp"
+
+namespace wt::ads::construction {
+
+inline std::optional<edge_t> edge_for(
+        const tri_t* tri1, const tri_t* tri2,
+        const tuid_t tuid1, const tuid_t tuid2,
+        const pqvec3_t& a, const pqvec3_t& b, const pqvec3_t& c1, const pqvec3_t* c2,
+        std::atomic<bool>& inconsistent_normals) noexcept {
+    auto n1 = tri1->n;
+    auto n2 = tri2 ? (tri2->n) : -n1;
+
+    const auto e = m::normalize(b-a);
+    const auto m = (a+b)/2;
+    dir3_t t1 = { 0,0,1 }, t2 = { 0,0,1 };
+
+    if (tri2) {
+        // check normals
+        const bool concave1 = m::dot(n1, *c2-m)>zero;
+        const bool concave2 = m::dot(n2, c1-m)>zero;
+        if (concave1!=concave2) {
+            inconsistent_normals = true;
+            return {};
+        }
+
+        // wedge normals always point outwards
+        if (concave1 && concave2) {
+            n1=-n1;
+            n2=-n2;
+        }
+
+        t2 = dir3_t{ m::cross(n2,e) };
+        if (m::dot(t2, *c2-m)<zero)
+            t2 = -t2;
+    }
+
+    t1 = dir3_t{ m::cross(n1,e) };
+    if (m::dot(t1, c1-m)<zero)
+        t1 = -t1;
+    if (!tri2) t2 = t1;
+
+    const auto alpha = m::max<angle_t>(
+        0*u::ang::rad,
+        m::pi*u::ang::rad - m::acos(m::clamp<f_t>(m::dot(n1,n2), -1,+1))
+    );
+    // discard overlay planar (𝛂>160°) geometries
+    // TODO: configurable parameter?
+    if (alpha > 160/f_t(180)*m::pi * u::ang::rad)
+        return {};
+
+    return edge_t{
+        .a = a, .b = b,
+        .e = e,
+        .n1 = n1, .t1 = t1,
+        .n2 = n2, .t2 = t2,
+        .alpha = alpha,
+        .tri1 = tri1,
+        .tri2 = tri2,
+    };
+}
+
+template <std::derived_from<ads_t> Ads>
+void find_edges(const Ads* tree, tri_t* tri, const tuid_t tuid,
+                std::vector<tri_t>& tris,
+                std::vector<edge_t>& edges,
+                std::mutex& edges_mutex,
+                std::atomic<bool>& found_multiple_adjacent_tris,
+                std::atomic<bool>& found_duplicate_tris,
+                std::atomic<bool>& inconsistent_normals) noexcept {
+    // find adjacent triangles
+    const auto grow_len = m::max(m::length(tri->c-tri->a),m::length(tri->b-tri->a))/128;
+    const auto ball = ball_t::from_points(tri->a,tri->b,tri->c).grow(grow_len);
+    assert(ball.contains(tri->a) && ball.contains(tri->b) && ball.contains(tri->c));
+
+    bool found_ab_neighbour = false, found_bc_neighbour = false, found_ca_neighbour = false;
+
+    const auto insert_edge = [&](const std::optional<edge_t>& e, tuid_t* eidx1, tuid_t* eidx2) {
+        if (!e) return;
+
+        std::unique_lock l(edges_mutex);
+
+        const auto eid = (std::uint32_t)edges.size();
+        *eidx1 = tuid_t{ .uid=eid };
+        if (eidx2) *eidx2 = tuid_t{ .uid=eid };
+
+        edges.emplace_back(*e);
+    };
+
+    const auto record = tree->intersect(ball, { .detect_edges = false });
+    for (const auto& t : record.triangles()) {
+        if (t==tuid) continue;
+        auto& other = tris[t];
+
+        // find neighbours
+        const bool found_a = tri->a==other.a || tri->a==other.b || tri->a==other.c;
+        const bool found_b = tri->b==other.a || tri->b==other.b || tri->b==other.c;
+        const bool found_c = tri->c==other.a || tri->c==other.b || tri->c==other.c;
+        if (found_a && found_b && found_c)
+            found_duplicate_tris = true;
+
+        const bool shared_a = other.a==tri->a || other.a==tri->b || other.a==tri->c;
+        const bool shared_b = other.b==tri->a || other.b==tri->b || other.b==tri->c;
+        const bool shared_c = other.c==tri->a || other.c==tri->b || other.c==tri->c;
+        assert(int(found_a) + int(found_b) + int(found_c) == int(shared_a) + int(shared_b) + int(shared_c));
+
+        auto* tedge_idx2 = shared_a&&shared_b ? &other.edge_ab :
+                           shared_b&&shared_c ? &other.edge_bc : &other.edge_ca;
+        const auto& c2 = shared_a&&shared_b ? other.c :
+                         shared_b&&shared_c ? other.a : other.b;
+
+        if (found_a && found_b) {
+            if (found_ab_neighbour) { found_multiple_adjacent_tris = true; continue; }
+            found_ab_neighbour = true;
+ 
+            if (t<=tuid) continue;     // the least tuid updates mutual edges
+            insert_edge(edge_for(tri, &other, tuid, t,
+                                 tri->a, tri->b, tri->c, &c2, inconsistent_normals),
+                        &tri->edge_ab, tedge_idx2);
+        }
+        if (found_b && found_c) { 
+            if (found_bc_neighbour) { found_multiple_adjacent_tris = true; continue; }
+            found_bc_neighbour = true;
+
+            if (t<=tuid) continue;     // the least tuid updates mutual edges
+            insert_edge(edge_for(tri, &other, tuid, t,
+                                 tri->b, tri->c, tri->a, &c2, inconsistent_normals),
+                        &tri->edge_bc, tedge_idx2);
+        }
+        if (found_c && found_a) {
+            if (found_ca_neighbour) { found_multiple_adjacent_tris = true; continue; }
+            found_ca_neighbour = true;
+
+            if (t<=tuid) continue;     // the least tuid updates mutual edges
+            insert_edge(edge_for(tri, &other, tuid, t,
+                                 tri->c, tri->a, tri->b, &c2, inconsistent_normals),
+                        &tri->edge_ca, tedge_idx2);
+        }
+    }
+
+    // neighbourless edges
+    if (!found_ab_neighbour) {
+        insert_edge(edge_for(tri, nullptr, tuid, {},
+                             tri->a, tri->b, tri->c, nullptr, inconsistent_normals),
+                    &tri->edge_ab, nullptr);
+    }
+    if (!found_bc_neighbour) {
+        insert_edge(edge_for(tri, nullptr, tuid, {},
+                             tri->b, tri->c, tri->a, nullptr, inconsistent_normals),
+                    &tri->edge_bc, nullptr);
+    }
+    if (!found_ca_neighbour) {
+        insert_edge(edge_for(tri, nullptr, tuid, {},
+                             tri->c, tri->a, tri->b, nullptr, inconsistent_normals),
+                    &tri->edge_ca, nullptr);
+    }
+}
+
+/**
+ * @brief Finds edges for the triangles.
+ * @param tris list of triangles to update and search
+ */
+template <std::derived_from<ads_t> Ads>
+auto find_edges(
+        const Ads* tree, 
+        std::vector<tri_t>& tris,
+        const wt::wt_context_t& ctx,
+        progress_track_t& pt)
+{
+    std::mutex edges_mutex;
+    std::vector<edge_t> edges;
+    edges.reserve(tris.size());
+
+    constexpr std::size_t chunk = 64;
+
+    std::vector<std::future<void>> workers;
+    std::atomic<bool> found_multiple_adjacent_tris = false;
+    std::atomic<bool> found_duplicate_tris = false;
+    std::atomic<bool> inconsistent_normals = false;
+    for (auto idx=0ul; idx<tris.size(); idx+=chunk) {
+        workers.emplace_back(ctx.threadpool->enqueue([&, tree, idx]() {
+            for (auto i=0ul; i<chunk && i+idx<tris.size(); ++i) {
+                const auto tuid = tuid_t{idx_t(i + idx)};
+                auto* t = &tris[tuid.uid];
+                find_edges(tree, t, tuid, tris,
+                           edges, edges_mutex,
+                           found_multiple_adjacent_tris, found_duplicate_tris, inconsistent_normals);
+            }
+        }));
+    }
+
+    const auto total = (std::uint32_t)workers.size();
+    std::uint32_t completed=0;
+    while (!workers.empty()) {
+        for (auto it=workers.begin(); it!=workers.end();) {
+            using namespace std::chrono_literals;
+            if (it->wait_for(10us) == std::future_status::ready) {
+                it = workers.erase(it);
+                pt.set_progress((++completed)/f_t(total));
+            } else {
+                ++it;
+            }
+        }
+    }
+
+    if (found_duplicate_tris)
+        wt::logger::cwarn(verbosity_e::info) << "(ads) found duplicate triangles." << '\n';
+    if (inconsistent_normals)
+        wt::logger::cerr(verbosity_e::info) << "(ads) found normal inconsistency (mix of adjacent front and back faces)." << '\n';
+
+    edges.shrink_to_fit();
+    return edges;
+}
+
+}

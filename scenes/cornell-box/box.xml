@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+	<default name="spp" value="1024"/>
+	<default name="res" value="1280"/>
+
+	<integrator type="plt_bdpt" >
+		<integer name="max_depth" value="16" />
+		<boolean name="russian_roulette" value="true" />
+		<boolean name="MIS" value="true" />
+		<boolean name="FSD" value="true" />
+	</integrator>
+
+	<sensor type="perspective" id="camera">
+		<quantity name="fov" value="19.75°" />
+		<transform name="to_world" >
+			<lookat origin="0cm, 1cm, 6.8cm" target="0cm, 1cm, 0cm" up="0, 1, 0"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="$res" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D55" />
+			</response>
+		</film>
+	</sensor>
+
+	<bsdf id="tiles" type="diffuse" >
+		<texture name="reflectance" type="scale">
+			<spectrum name="scale" constant="0.35"/>
+			<texture type="bitmap">
+				<path value="textures/tiles2.png" />
+			</texture>
+		</texture>
+	</bsdf>
+
+	<bsdf type="twosided" id="LeftWallBSDF" >
+		<ref id="tiles" />
+	</bsdf>
+	<bsdf type="twosided" id="RightWallBSDF" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0.6"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="FloorBSDF" >
+		<ref id="tiles" />
+	</bsdf>
+	<bsdf type="twosided" id="CeilingBSDF" >
+		<ref id="tiles" />
+	</bsdf>
+	<bsdf type="twosided" id="BackWallBSDF" >
+		<ref id="tiles" />
+	</bsdf>
+
+	<bsdf type="twosided" id="ScreenBSDF" >
+	<bsdf scale=".1">
+		<bsdf type="surface_spm">
+			<spectrum name="IOR" material="Al" />
+			<surface_profile type="fractal">
+				<spectrum name="roughness" constant=".01" />
+			</surface_profile>
+		</bsdf>
+	</bsdf>
+	</bsdf>
+
+	<shape type="rectangle" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="0, 1, 0, 0cm,  0, 0, 2, 0cm,  1, 0, 0, 0cm,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="FloorBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="-1, 0, 0, 0cm,  0, 0, -2, 2cm,  0, -1, 0, 0cm,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="CeilingBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="0, 1, 0, 0cm,  -1, 0, 0, 1cm,  0, 0, 2, -1cm,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="BackWallBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="0, 0, -2, 1cm,  -1, 0, 0, 1cm,  0, 1, 0, 0cm,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="RightWallBSDF" />
+	</shape>
+	<shape type="rectangle" >
+		<quantity name="length" value="2cm" />
+		<transform name="to_world" >
+			<matrix value="0, 0, 2, -1cm,  -1, 0, 0, 1cm,  0, -1, 0, 0cm,  0, 0, 0, 1"/>
+		</transform>
+		<ref id="LeftWallBSDF" />
+	</shape>
+
+	<shape type="ply" id="dragon">
+		<!-- <path value="dragon_recon/dragon_vrip_res4.ply" /> -->
+		<path value="dragon_recon/dragon_vrip_res2.ply" />
+		<!-- <boolean name="face_normals" value="true" /> -->
+
+		<quantity name="scale" value="1cm" />
+
+		<transform name="to_world">
+			<rotate x="0" y="1" z="0" angle="150°" />
+			<scale x="4.8" y="4.8" z="4.8"/>
+			<translate x=".05cm" y="-.2cm" z=".0cm" />
+		</transform>
+
+		<bsdf type="surface_spm" >
+			<spectrum name="IOR" material="Au"/>
+		</bsdf>
+	</shape>
+
+	<shape type="prism" id="prism">
+		<quantity name="length" value="6mm" />
+		<quantity name="height" value="1.2mm" />
+		<quantity name="angle" value="90°" />
+
+		<transform name="to_world">
+			<rotate z="1" angle="0°" />
+			<translate x="-.705cm" y=".15cm" z=".0cm" />
+		</transform>
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" material="SF5"/>
+		</bsdf>
+	</shape>
+
+	<shape type="sphere" id="ball">
+		<point name="center" x="-.65cm" y=".3cm" z="0cm" />
+		<quantity name="radius" value="1.4mm" />
+
+		<transform name="to_world">
+			<scale y="0.25" />
+		</transform>
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" material="SF11"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bunny_large">
+		<path value="bunny/bun_zipper.ply" />
+
+		<quantity name="scale" value="1cm" />
+
+		<transform name="to_world">
+			<scale value="3.9" />
+			<rotate x="0" y="1" z="0" angle="-35°" />
+			<translate value=".50cm, .89cm, -.09cm" />
+		</transform>
+
+		<bsdf type="dielectric">
+			<spectrum name="IOR" material="SF5"/>
+		</bsdf>
+	</shape>
+	<!-- <shape type="prism" id="prism">
+		<quantity name="length" value="4mm" />
+		<quantity name="height" value="3mm" />
+		<quantity name="angle" value="40°" />
+
+		<transform name="to_world">
+			<rotate z="1" angle="180°" />
+			<translate value=".50cm, 1.33cm, -.2cm" />
+		</transform>
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" material="SF5"/>
+		</bsdf>
+	</shape> -->
+
+	<!-- <shape type="prism" id="prism_top">
+		<quantity name="length" value="4mm" />
+		<quantity name="height" value="1.5mm" />
+		<quantity name="angle" value="90°" />
+
+		<transform name="to_world">
+			<rotate z="1" angle="-90°" />
+			<translate x="-.41cm" y="1.715cm" z=".0cm" />
+		</transform>
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" material="BK7"/>
+		</bsdf>
+	</shape> -->
+
+	<shape type="ply" id="screen">
+		<!-- star of david -->
+		<path value="star_big.ply" />
+
+		<quantity name="scale" value="1cm" />
+
+		<boolean name="face_normals" value="true" />
+		<ref id="ScreenBSDF" />
+		<transform name="to_world">
+			<rotate z="1" angle="90°"/>
+			<scale x=".01" y=".08" z=".0735"/>
+			<translate x="-.425cm" y="1cm" />
+		</transform>
+	</shape>
+
+	<!-- <shape type="lens" id="lens">
+		<quantity name="radius" value=".85mm" />
+		<point name="center" x="-.875cm" y="1cm" z="0cm" />
+
+		<float name="R1" value=".1" />
+		<float name="R2" value=".0" />
+		<quantity name="thickness" value=".1mm" />
+		<integer name="tessellation" value="45" />
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" constant="1.3"/>
+		</bsdf>
+	</shape>
+
+	<shape type="lens" id="mag_lens">
+		<quantity name="radius" value="1mm" />
+		<point name="center" x="-.3cm" y="1cm" z="0cm" />
+
+		<float name="R1" value="-.07" />
+		<float name="R2" value="0" />
+		<quantity name="thickness" value="0.2mm" />
+		<integer name="tessellation" value="128" />
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" constant="1.3"/>
+		</bsdf>
+	</shape>
+	<shape type="cylinder">
+		<quantity name="radius" value="1.001mm"/>
+		<point name="p0" x="-.3cm" y="1cm" z="0cm" />
+		<point name="p1" x="-.28cm" y="1cm" z="0cm" />
+		<integer name="tessellation" value="45" />
+		<bsdf type="twosided" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".01"/>
+		</bsdf>
+		</bsdf>
+	</shape> -->
+
+	<shape type="lens" id="dragon_lens">
+		<quantity name="radius" value="1.5mm" />
+		<point name="center" x=".045cm" y=".65cm" z="3.5cm" />
+
+		<float name="R1" value="-.01" />
+		<float name="R2" value="-.06" />
+		<quantity name="thickness" value=".04mm" />
+		<integer name="tessellation" value="50" />
+
+		<transform name="to_world">
+			<rotate x="-.2" y="1" z="-.0" angle="72°"/>
+		</transform>
+
+		<bsdf type="dielectric" >
+			<spectrum name="IOR" material="SF11"/>
+		</bsdf>
+	</shape>
+
+	<emitter type="spot">
+		<transform name="to_world">
+			<lookat origin="-.99cm, 1cm, 0cm" target="1cm, 1cm, 0cm"/>
+		</transform>
+		<quantity name="beam_width" value="1°" />
+		<quantity name="cutoff_angle" value="3°" />
+		<spectrum name="radiant_intensity" emitter="2534_CFL_Tensor_Twister">
+			<float name="scale" value="1.5" />
+		</spectrum>
+		<!-- <spectrum name="radiant_intensity" type="piecewise_linear" >
+			<bin wavelength="1e-5" value="1" />
+			<bin wavelength="1e-1" value="1" />
+			<float name="scale" value="325" />
+		</spectrum> -->
+
+		<float name="phase_space_extent_scale" value=".45" />
+	</emitter>
+	<emitter type="spot">
+		<transform name="to_world">
+			<lookat origin="-.99cm, 1cm, 0cm" target="1cm, 1cm, 0cm"/>
+		</transform>
+		<quantity name="beam_width" value="1°" />
+		<quantity name="cutoff_angle" value="55°" />
+		<spectrum name="radiant_intensity" emitter="2534_CFL_Tensor_Twister">
+			<float name="scale" value="2e-2" />
+		</spectrum>
+		<!-- <spectrum name="radiant_intensity" type="piecewise_linear" >
+			<bin wavelength="400nm" value=".8" />
+			<bin wavelength="500nm" value=".9" />
+			<bin wavelength="600nm" value=".7" />
+		</spectrum> -->
+
+		<float name="phase_space_extent_scale" value=".25" />
+	</emitter>
+	<shape type="cylinder" id="pipe">
+		<quantity name="radius" value=".033cm"/>
+		<point name="p0" x="-1.1cm" y="1cm" z="0cm"/>
+		<point name="p1" x="-.97cm" y="1cm" z="0cm"/>
+		<bsdf type="twosided" >
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".0215"/>
+		</bsdf>
+		</bsdf>
+	</shape>
+	
+	<shape type="cube" id="cube_source">
+		<quantity name="length" value=".20cm" />
+		<transform name="to_world" >
+			<scale x="3.1" y=".04" z="3.1" />
+			<translate x=".05cm" y=".02cm" z="-.05cm" />
+		</transform>
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".01"/>
+		</bsdf>
+		<emitter type="area">
+			<spectrum name="radiance" blackbody="7000K">
+				<float name="scale" value="4e-5" />
+			</spectrum>
+			<!-- <spectrum name="radiance" type="gaussian" wavelength="1e-4" stddev="1e-5" value="25"/> -->
+		</emitter>
+	</shape>
+</scene>

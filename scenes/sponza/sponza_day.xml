@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.1.0" >
+	
+	<default name="spp" value="1024"/>
+	<default name="res" value="1920"/>
+
+	<integrator type="plt_path" >
+		<string name="direction" value="backward"/>
+		<integer name="max_depth" value="64" />
+	</integrator>
+
+	<sensor type="perspective" id="camera">
+		<quantity name="fov" value="45°" />
+		<transform name="to_world" >
+			<lookat origin="-10m, 1m, 0m" target="0m, 2.5m, 0m" up="0, 1, 0"/>
+		</transform>
+
+		<integer name="samples" value="$spp" />
+
+		<film type="array" >
+			<integer name="width" value="$res" />
+			<integer name="height" value="($res*3/4)" />
+
+			<response type="RGB">
+				<string name="colourspace" value="CIE" />
+				<string name="white_point" value="D50" />
+			</response>
+		</film>
+	</sensor>
+
+
+	<emitter type="directional">
+		<transform name="to_world">
+			<lookat origin="0m, 0m, 0m" target="0m, -3m, -1m" up="0, 1, 0"/>
+		</transform>
+		<spectrum name="irradiance" blackbody="6000K">
+			<float name="scale" value="2e-3" />
+		</spectrum>
+	</emitter>
+
+	<shape type="sphere">
+		<point name="center" x="5.75m" y="1.25m" z="5m" />
+		<quantity name="radius" value="15cm" />
+
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant=".5"/>
+		</bsdf>
+
+		<emitter type="area">
+			<spectrum name="radiance" emitter="2723_LED_Greatwall-Ledlight_A19">
+				<float name="scale" value="2" />
+			</spectrum>
+		</emitter>
+	</shape>
+
+	<shape type="rectangle">
+		<quantity name="length" value="15m" />
+		<transform name="to_world" >
+            <lookat target="0m,0m,0m"
+                    origin="0m,60m,0m" />
+		</transform>
+		<bsdf type="diffuse" >
+			<spectrum name="reflectance" constant="0"/>
+		</bsdf>
+		<emitter type="area">
+			<spectrum name="radiance" blackbody="7200K">
+				<float name="scale" value="8e-4" />
+			</spectrum>
+		</emitter>
+	</shape>
+
+
+	<include path="bits/sponza.xml" />
+
+</scene>

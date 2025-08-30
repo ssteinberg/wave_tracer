@@ -1,0 +1,148 @@
+/*
+ *
+ * wave tracer
+ * Copyright  Shlomi Steinberg
+ * Authors:  Umut Emre, Shlomi Steinberg
+ *
+ * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+ *
+ */
+
+#pragma once
+
+#include <wt/util/concepts.hpp>
+
+#include "stat_collector.hpp"
+#include <wt/math/common.hpp>
+#include <wt/util/logger/logger.hpp>
+
+namespace wt::stats {
+
+/**
+* @brief Simple mean, min, max, stddev statistics.
+*        NOT thread-safe.
+*/
+template <Scalar T>
+class stat_stats_t final : public stat_collector_t {
+    std::size_t samples_count{};
+    double t_sum{};
+    double t2_sum{};
+    double t_max = 0, t_min = limits<double>::infinity();
+
+    struct stats_t {
+        T mean, min, max, stddev;
+    };
+    [[nodiscard]] auto extract_statistics() const noexcept {
+        T unit;
+        if constexpr (is_quantity_v<T>)
+            unit = f_t(1) * T::unit;
+        else
+            unit = T(1);
+
+        return stats_t{
+            .mean = f_t(t_sum) / samples_count * unit,
+            .min  = f_t(t_min) * unit,
+            .max  = f_t(t_max) * unit,
+            .stddev = m::sqrt(
+                    f_t(t2_sum*samples_count - m::sqr(t_sum)) / 
+                    f_t(samples_count * (samples_count-1))
+                ) * unit,
+        };
+    }
+
+    std::ostream& output(std::ostream& os) const override {
+        if (this->flags.ignore_when_empty && is_empty())
+            return os;
+
+        const auto& stats = extract_statistics();
+
+        constexpr std::size_t maxlabelw = name_label_maxw-print_indent-1;
+        auto label = name.length()<=maxlabelw ? name : name.substr(0, maxlabelw);
+        if (label.length()<maxlabelw)
+            label += std::string(maxlabelw-label.length(), ' ');
+
+        using namespace logger::termcolour;
+
+        os << std::string(print_indent, ' ') 
+           << reset << bright_white
+           << label << '\t';
+           
+        os << bright_yellow << bold;
+        // print mean
+        os << std::format("{:>10}", stats.mean);
+        os << reset << cyan << " ± "
+           // stddev
+           << std::setprecision(2) << std::setw(5) << std::right
+           << std::format("{}", stats.stddev)
+           << reset << '\t' << grey << "("
+           // min
+           << reset << green << bold
+           << std::setprecision(2) << std::setw(5) << std::right
+           << std::format("{}", stats.min)
+           << reset << cyan << " - "
+           // max
+           << reset << red << bold
+           << std::setprecision(2) << std::setw(5) << std::right
+           << std::format("{}", stats.max)
+           << reset << grey << ")"
+           << reset
+           << '\n';
+
+        return os;
+    }
+    std::ostream& output(std::ofstream& fs) const override {
+        if (this->flags.ignore_when_empty && samples_count==0)
+            return fs;
+
+        const auto& stats = extract_statistics();
+
+        fs << "name, mean, min, max, stddev" << '\n';
+        fs << name << ", "
+           << std::format("{}", stats.mean) << ", "
+           << std::format("{}", stats.min) << ", "
+           << std::format("{}", stats.max) << ", "
+           << std::format("{}", stats.stddev)
+           << std::endl;
+        return fs;
+    }
+
+    stat_collector_t& operator+=(const stat_collector_t& sc) override {
+        const auto& rhs = dynamic_cast<const stat_stats_t<T>&>(sc);
+        samples_count += rhs.samples_count;
+        t_sum += rhs.t_sum;
+        t2_sum += rhs.t2_sum;
+        t_min = m::min(t_min,rhs.t_min);
+        t_max = m::max(t_max,rhs.t_max);
+        return *this;
+    }
+
+    [[nodiscard]] std::unique_ptr<stat_collector_t> zero() const override {
+        return std::make_unique<stat_stats_t<T>>(name, flags);  
+    }
+
+public:
+    explicit stat_stats_t(std::string name, 
+                            stat_collector_flags_t flags = {}) noexcept
+        : stat_collector_t(std::move(name), flags)
+    {}
+
+    [[nodiscard]] bool is_empty() const noexcept override {
+        return samples_count==0;
+    }
+
+    void record(const T& t) noexcept {
+        double dbl;
+        if constexpr (is_quantity_v<T>)
+            dbl = double(u::to_num(t / T::unit));
+        else
+            dbl = double(t);
+
+        ++samples_count;
+        t_sum += dbl;
+        t2_sum += m::sqr(dbl);
+        t_min = m::min(t_min, dbl);
+        t_max = m::max(t_max, dbl);
+    }
+};
+
+}  // namespace wt

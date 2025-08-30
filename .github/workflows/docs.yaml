@@ -1,0 +1,49 @@
+name: Documentation
+on:
+   push:
+     tags:
+       - "*"
+     paths:
+       - docs/**
+       - src/**
+       - include/**
+     branches: [main]
+permissions:
+   contents: read
+
+jobs:
+   build:
+     name: Build and publish documentation
+     permissions:
+       contents: write
+       pages: write
+
+     timeout-minutes: 200
+     runs-on: ubuntu-latest
+
+     steps:
+       - uses: actions/checkout@v4
+
+       - uses: actions/setup-python@v5
+         with:
+            python-version: '3.13'
+       - name: Install docs deps
+         run: |
+           sudo apt-get install doxygen
+           pip install -r docs/requirements.txt
+
+       - name: Configure
+         run: |
+           cmake -Hdocs -Bdocsbuild
+       - name: Build
+         run: |
+           cmake --build docsbuild --target docs Sphinx -j4
+
+       - name: Deploy GH pages
+         uses: Cecilapp/GitHub-Pages-deploy@v3
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         with:
+           email: p@shlomisteinberg.com
+           build_dir: docsbuild/sphinx
+           cname: wavetracer.dev

@@ -1,0 +1,3 @@
+Originally, this is the Mitsuba version of 'Veach Bidir Room' by Benedikt Bitterli, downloaded from https://benedikt-bitterli.me/resources/
+
+The original files may be obtained from: https://benedikt-bitterli.me/resources

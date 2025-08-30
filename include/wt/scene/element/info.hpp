@@ -1,0 +1,87 @@
+/*
+*
+* wave tracer
+* Copyright  Shlomi Steinberg
+*
+* LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+*
+*/
+
+#pragma once
+
+#include <string>
+#include <ostream>
+#include <memory>
+#include <map>
+
+#include <wt/util/logger/termcolor.hpp>
+
+namespace wt::scene {
+class scene_element_t;
+}
+
+namespace wt::scene::element {
+
+class attribute_t {
+public:
+    virtual ~attribute_t() noexcept = default;
+    [[nodiscard]] virtual const std::string to_string() const noexcept = 0;
+};
+
+using attribute_ptr = std::shared_ptr<attribute_t> ;
+
+class info_t {
+public:
+    std::string id, cls, type;
+    std::map<std::string, attribute_ptr> attribs;
+
+    friend std::ostream& operator<<(std::ostream& os, const info_t& info) {
+        using namespace wt::logger::termcolour;
+        if (!info.cls.empty())
+            os << bold << "(" << info.cls << ") " << reset;
+        if (!info.type.empty())
+            os << info.type;
+        if (!info.id.empty())
+            os << " <" << italic << info.id << reset << ">";
+
+        return os;
+    }
+};
+
+template <std::derived_from<scene_element_t> E>
+inline info_t info_for_scene_element(
+        const E& element,
+        std::string type,
+        std::map<std::string, attribute_ptr> attribs = {}) noexcept {
+    return {
+        .id = element.get_id(),
+        .cls = E::scene_element_class(),
+        .type = std::move(type),
+        .attribs = std::move(attribs),
+    };
+}
+
+}
+
+
+template<>
+struct std::formatter<wt::scene::element::attribute_t> : std::formatter<std::string> {
+    auto format(const wt::scene::element::attribute_t& attrib, std::format_context& ctx) const {
+        return std::format_to(ctx.out(), "{}", attrib.to_string());
+    }
+};
+
+template<>
+struct std::formatter<wt::scene::element::info_t> : std::formatter<std::string> {
+    auto format(const wt::scene::element::info_t& info, std::format_context& ctx) const {
+        std::string temp;
+        if (!info.cls.empty())
+            temp += "(" + info.cls + ") ";
+        if (!info.type.empty())
+            temp += info.type;
+        if (!info.id.empty())
+            temp += " <" + info.id + ">";
+
+        return std::format_to(ctx.out(), "{}", temp);
+    }
+};

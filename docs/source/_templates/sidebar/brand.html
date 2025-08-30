@@ -1,0 +1,26 @@
+<a class="sidebar-brand{% if logo_url %} centered{% endif %}" href="{{ pathto(master_doc) }}">
+  {%- block brand_content %}
+  {#- Remember to update the prefetch logic in `block logo_prefetch_links` in base.html #}
+  {%- if logo_url %}
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" style="width: 7rem;" src="{{ logo_url }}" alt="Logo"/>
+  </div>
+  {%- endif %}
+  {%- if theme_light_logo and theme_dark_logo %}
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="{{ pathto('_static/' + theme_light_logo, 1) }}" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="{{ pathto('_static/' + theme_dark_logo, 1) }}" alt="Dark Logo"/>
+  </div>
+  {%- endif %}
+  {% if not theme_sidebar_hide_name %}
+  <span class="sidebar-brand-text" style="font-weight: 600;">{{ docstitle if docstitle else project }}</span>
+  {%- endif %}
+  {% endblock brand_content %}
+</a>
+
+<div class="centered" role="note" aria-label="github" style="margin: var(--sidebar-item-spacing-vertical) 0;">
+	<a href="https://github.com/ssteinberg/wave_tracer" target="_blank">
+    <img alt="GitHub Tag" class="github-badge only-light" style="margin: auto;" src="https://img.shields.io/github/v/tag/ssteinberg/wave_tracer?include_prereleases&sort=date&style=for-the-badge&logo=github&labelColor=24648f&logoColor=FFFFFF&label=github&color=FFFFFF">
+    <img alt="GitHub Tag" class="github-badge only-dark" style="margin: auto;"  src="https://img.shields.io/github/v/tag/ssteinberg/wave_tracer?include_prereleases&sort=date&style=for-the-badge&logo=github&labelColor=003180&logoColor=rgb(217,217,217)&label=github&color=rgb(217,217,217)">
+	</a>
+</div>
