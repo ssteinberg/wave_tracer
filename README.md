@@ -21,6 +21,10 @@ It operates by path tracing *elliptical cones*, which serve as the geometric pro
 wave_tracer is able to simulate the wave-interference phenomena that are observed when these light wave are diffracted by geometry and materials.
 
 Currently, simulations are done on the CPU only.
+Wave tracing can be computationally costly.
+Depending on the scene&mdash;the complexity of its geometric details and light transport&mdash;one can expect a roughly *~5-20x* slower performance compared with pure classical ray tracing.
+However, a major advantage over traditional wave simulation tools is that this cost ratio remains rather stable as scene complexity increases: wave_tracer scales well to complicated settings and environments.
+Nevertheless, powerful hardware is expected in order to render some of the sample scenes.
 
 **This is a work-in-progress and an early alpha release. Expect issues and an incomplete feature set.**
 
