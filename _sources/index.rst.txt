@@ -10,6 +10,10 @@ It targets different applications: for example, long-wavelength simulations with
 It operates by path tracing elliptical cones, which act as the geometric proxies for light waves, and simulating the interaction of the underlying waves with the virtual environment.
 **wave_tracer** simulates the wave-interference phenomena that arise when these light wave are diffracted by geometry and materials.
 
+Wave tracing can be computationally costly.
+Depending on the scene---the complexity of its geometric details and light transport---one can expect a roughly *~5-20x* slower performance compared with pure classical ray tracing.
+However, a major advantage over traditional wave simulation tools is that this cost ratio remains rather stable as scene complexity increases: **wave_tracer** scales well to complicated settings and environments.
+
 The system is designed to operate across different ranges of the electromagnetic spectrum.
 **wave_tracer** provides extensive facilities for representing and working with different types of spectra; for quantifying the emission spectra of emitters, sensitivity spectra of sensors, and the wavelength-dependent properties of materials.
 

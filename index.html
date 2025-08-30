@@ -2276,6 +2276,9 @@
 It targets different applications: for example, long-wavelength simulations with cellular, WiFi or radar radiation; or optical rendering with light in the visible spectrum.
 It operates by path tracing elliptical cones, which act as the geometric proxies for light waves, and simulating the interaction of the underlying waves with the virtual environment.
 <strong>wave_tracer</strong> simulates the wave-interference phenomena that arise when these light wave are diffracted by geometry and materials.</p>
+<p>Wave tracing can be computationally costly.
+Depending on the scene—the complexity of its geometric details and light transport—one can expect a roughly <em>~5-20x</em> slower performance compared with pure classical ray tracing.
+However, a major advantage over traditional wave simulation tools is that this cost ratio remains rather stable as scene complexity increases: <strong>wave_tracer</strong> scales well to complicated settings and environments.</p>
 <p>The system is designed to operate across different ranges of the electromagnetic spectrum.
 <strong>wave_tracer</strong> provides extensive facilities for representing and working with different types of spectra; for quantifying the emission spectra of emitters, sensitivity spectra of sensors, and the wavelength-dependent properties of materials.</p>
 <p>The system modular design and used scene representation are heavily inspired by <a class="reference external" href="https://mitsuba-renderer.org/">mitsuba</a>.

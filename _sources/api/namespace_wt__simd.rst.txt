@@ -277,9 +277,9 @@ Functions
 
 - :ref:`exhale_function_simd__avx_8hpp_1a1ff1f13c0570d2ed16396a82ceda7ff9`
 
-- :ref:`exhale_function_simd__avx_8hpp_1a2b26e3a94f4a11bc6873d8d2944b24a9`
-
 - :ref:`exhale_function_simd__emulation_8hpp_1a9cf584585ac0e6c06e04703daf9ae9b6`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a2b26e3a94f4a11bc6873d8d2944b24a9`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a2c2696cc0b7258951ee11e6de8fe01f9`
 
