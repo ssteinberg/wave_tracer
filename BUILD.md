@@ -21,6 +21,12 @@ cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release -DSIMD_AVX:BOOL=OFF
 
 GUI support requires a working OpenGL environment.
 
+To build this project and its external dependencies, several common system dependencies are required.
+On Ubuntu 24.04 the necessary packages can be pulled via:
+```
+sudo apt install git-lfs build-essential pkg-config libxmu-dev libxi-dev libgl-dev libltdl-dev libx11-dev libxft-dev libxext-dev libwayland-dev libxkbcommon-dev libegl1-mesa-dev libibus-1.0-dev
+```
+
 
 
 ## CMake options
@@ -84,6 +90,10 @@ cd build
 cmake --build . --config Release
 ```
 `vcpkg` will pull and install the external dependencies.
+Compilation of the external dependencies might require several system packages, see [above](#how-to-build).
+
+This repository uses [Git LFS](https://git-lfs.github.com/) to manage large files such as scene assets and datasets. On an Ubuntu-based system, git LFS can be installed via `apt install git-lfs`.
+If Git LFS was installed after cloning the repository, the LFS-tracked files can be manually pulled via `git pull`.
 
 
 ### git submodules
@@ -98,9 +108,6 @@ Submodules can be updated, after cloning the base repository, using
 ```
 git submodule update --init --recursive
 ```
-
-This repository uses [Git LFS](https://git-lfs.github.com/) to manage large files such as scene assets and datasets. On an Ubuntu-based system, git LFS can be installed via `apt install git-lfs`.
-If Git LFS was installed after cloning the repository, the LFS-tracked files can be manually pulled via `git pull`.
 
 This project uses the following submodules:
 
