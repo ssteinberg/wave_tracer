@@ -354,13 +354,13 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a08f44b909ad5790238e36d53932b2b62`
 
+- :ref:`exhale_function_quantity__vector_8hpp_1ad72d204441761c0dcc8a6b4bb153f960`
+
 - :ref:`exhale_function_math_2common_8hpp_1a0f8dcee12dd323c8da035c44a5eab1d4`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a72f3bac8cf4c2f9a5c48c0a932e5d7ea`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a8046abec5719302ab215695ad5d85efe`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1ad72d204441761c0dcc8a6b4bb153f960`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a1521d1eb8a8cc2e3a5976a2c885c82ec`
 
