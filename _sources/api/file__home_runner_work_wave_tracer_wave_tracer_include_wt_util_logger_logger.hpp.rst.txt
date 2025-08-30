@@ -1,0 +1,121 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp:
+
+File logger.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/logger``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/logger/logger.hpp``)
+--------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``atomic``
+
+- ``map`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``memory``
+
+- ``mutex``
+
+- ``optional``
+
+- ``progressbar.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_progressbar.hpp`)
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``syncstream``
+
+- ``termcolor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_xml_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_quantity.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter_event.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_stats.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_timings.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__logger`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1bar__t`
+
+- :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1logger__guard__t`
+
+- :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1logger__progress__bar__t`
+
+- :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1osyncstreams__t`
+
+- :ref:`exhale_class_classwt_1_1logger_1_1logger__t`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_logger_8hpp_1a1600228f4845e48992c8f7edf4161782`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_logger_8hpp_1a20caf3254c96b6b8e1734c7cc085cef9`
+
+- :ref:`exhale_variable_logger_8hpp_1a6e6e0f34eb1e55568c864eccce55625c`
+
+- :ref:`exhale_variable_logger_8hpp_1aef117d70fcca9e169a8c0854f09c63d5`
+

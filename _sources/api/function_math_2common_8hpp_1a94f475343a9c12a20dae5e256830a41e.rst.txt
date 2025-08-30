@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a94f475343a9c12a20dae5e256830a41e:
+
+Template Function wt::m::max_dimension(const vec4<T>&)
+======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::max_dimension(const vec4<T>&)
+   :project: wave_tracer

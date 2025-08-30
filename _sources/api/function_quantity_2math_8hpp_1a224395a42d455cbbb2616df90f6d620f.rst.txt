@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a224395a42d455cbbb2616df90f6d620f:
+
+Template Function wt::m::exp(const quantity<R, Rep>&)
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::exp(const quantity<R, Rep>&)
+   :project: wave_tracer

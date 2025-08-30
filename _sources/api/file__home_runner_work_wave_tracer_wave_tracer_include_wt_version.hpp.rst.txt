@@ -1,0 +1,55 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_version.hpp:
+
+File version.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/version.hpp``)
+---------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_version.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstdint``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1wt__version__t`
+

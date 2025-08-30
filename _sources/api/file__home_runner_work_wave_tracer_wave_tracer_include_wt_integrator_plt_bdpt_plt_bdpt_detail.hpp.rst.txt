@@ -1,0 +1,143 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp:
+
+File plt_bdpt_detail.hpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/integrator/plt_bdpt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/integrator/plt_bdpt/plt_bdpt_detail.hpp``)
+-------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``memory``
+
+- ``optional``
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/ads/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_common.hpp`)
+
+- ``wt/beam/beam.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`)
+
+- ``wt/bsdf/bsdf.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_bsdf.hpp`)
+
+- ``wt/bsdf/diffuse.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_diffuse.hpp`)
+
+- ``wt/bsdf/two_sided.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_two_sided.hpp`)
+
+- ``wt/integrator/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_common.hpp`)
+
+- ``wt/integrator/integrator_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_integrator_context.hpp`)
+
+- ``wt/integrator/plt_bdpt/plt_bdpt.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt.hpp`)
+
+- ``wt/integrator/plt_bdpt/vertex.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp`)
+
+- ``wt/integrator/stats.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_stats.hpp`)
+
+- ``wt/integrator/traversal.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`)
+
+- ``wt/interaction/fsd/fraunhofer/free_space_diffraction.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp`)
+
+- ``wt/interaction/intersection.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`)
+
+- ``wt/math/barycentric.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_barycentric.hpp`)
+
+- ``wt/math/intersect/clip.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp`)
+
+- ``wt/math/intersect/cone_intersection_tolerance.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone_intersection_tolerance.hpp`)
+
+- ``wt/math/intersect/ray.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`)
+
+- ``wt/sampler/measure.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_measure.hpp`)
+
+- ``wt/sampler/sampler.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`)
+
+- ``wt/scene/emitter_sample.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp`)
+
+- ``wt/sensor/sensor/virtual_sensor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_sensor.hpp`)
+
+- ``wt/sensor/sensor_sample.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp`)
+
+- ``wt/util/assert.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__integrator`
+
+- :ref:`namespace_wt__integrator__plt_bdpt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1arena__t`
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1bdpt__connect__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1bdpt__walk__data__t`
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1vertex__pdfs__t`
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1wavefront__intersection__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a7cd5680bf3a06dfdf787da5fffcb34b8`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a4fb9d2b3f82fad0085a57d173db0b044`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a3bc2148bf961c23e5d4b05912d522966`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a5fa1ef30906a2a5a903c7ed591003729`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a33db4d9aaf587601fdcacfa0d026b16b`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a5169a365e2c8e0ebc96a331f8a3e5ed9`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1aa60fe7f32cb04e74f30b6b22cb32a542`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1abbeaca3ed959f947ea4431b49599aa6b`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1ae6601651512282b3ab8c8cafca8053dd`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a2e7cd7f1544224ce6f01ed72f1606ecf`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a9519a5febaf1bd433a93227efea992bf`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_plt__bdpt__detail_8hpp_1a808e16504cecb83dc621a0d18eb767d3`
+

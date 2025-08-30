@@ -1,0 +1,47 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_perf_stat.hpp:
+
+Program Listing for File perf_stat.hpp
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_perf_stat.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/impl/perf_stat.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <utility>
+   #include <memory>
+   #include <vector>
+   
+   #include <wt/util/gui/utils.hpp>
+   
+   namespace wt::gui {
+   
+   struct impl_t;
+   
+   struct perf_stat_t {
+       std::string name;
+       std::vector<std::pair<std::string,std::string>> data;
+   
+       using plot_type = plot_t<std::uint32_t>;
+       std::unique_ptr<plot_type> plot;
+   
+       void draw_imgui_table_node(const impl_t* pimpl, int node_flags = 0) const noexcept;
+   };
+   
+   std::vector<perf_stat_t> build_perf_stats() noexcept;
+   
+   }

@@ -1,0 +1,14 @@
+.. _exhale_function_node__readers_8hpp_1acb4ef9b5f7039915963259c30cab02a7:
+
+Template Function wt::scene::loader::load_range_from_attribute
+==============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::loader::load_range_from_attribute(const node_t&, const std::string&, std::optional<range_t<T>>&)
+   :project: wave_tracer

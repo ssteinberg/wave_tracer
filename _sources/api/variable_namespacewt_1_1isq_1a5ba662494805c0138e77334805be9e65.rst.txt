@@ -1,0 +1,14 @@
+.. _exhale_variable_namespacewt_1_1isq_1a5ba662494805c0138e77334805be9e65:
+
+Variable wt::isq::power
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::isq::power
+   :project: wave_tracer

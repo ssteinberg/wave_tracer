@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1af9906aa44f7e235e1c544497e987b2af:
+
+Template Function wt::m::prod(const qvec3<T>&)
+==============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::prod(const qvec3<T>&)
+   :project: wave_tracer

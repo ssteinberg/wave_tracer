@@ -1,0 +1,63 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_write2d.hpp:
+
+File write2d.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap/write2d.hpp``)
+----------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_write2d.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``filesystem``
+
+- ``map`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``wt/bitmap/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__bitmap`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_write2d_8hpp_1aa3fbd1146b5d66d8481b628dc54e53c8`
+
+- :ref:`exhale_function_write2d_8hpp_1ae391fbfa4ca59877d31363e41701e83b`
+
+- :ref:`exhale_function_write2d_8hpp_1a188a71e440f721a9b97749c6b6cf7b3a`
+
+- :ref:`exhale_function_write2d_8hpp_1affb8eb5a9e79669a582018ec4aed7c61`
+

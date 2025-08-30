@@ -1,0 +1,26 @@
+.. _exhale_struct_structwt_1_1unit__vector:
+
+Template Struct unit_vector
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::unit_vector_storage< N, T >`` (:ref:`exhale_struct_structwt_1_1unit__vector__storage`)
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::unit_vector
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

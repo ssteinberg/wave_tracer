@@ -1,0 +1,14 @@
+.. _exhale_function_fma_8hpp_1ad2f5df90f33fb9e945c43d26d7a406f1:
+
+Template Function wt::m::fma(const Q1&, const Q2&, const decltype(std::declval<Q1>() \*std::declval<Q2>())&)
+============================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::fma(const Q1&, const Q2&, const decltype(std::declval<Q1>() *std::declval<Q2>())&)
+   :project: wave_tracer

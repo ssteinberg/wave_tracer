@@ -1,0 +1,14 @@
+.. _exhale_typedef_wide__vector_8hpp_1a24d5ec0cd96e32522bef37e8aa8a26b3:
+
+Typedef wt::simd::unitless
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::simd::unitless
+   :project: wave_tracer

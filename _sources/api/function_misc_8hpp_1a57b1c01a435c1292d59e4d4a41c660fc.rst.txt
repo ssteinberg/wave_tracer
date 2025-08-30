@@ -1,0 +1,14 @@
+.. _exhale_function_misc_8hpp_1a57b1c01a435c1292d59e4d4a41c660fc:
+
+Function wt::intersect::intersect_edge_plane
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::intersect_edge_plane(const pqvec3_t&, const pqvec3_t&, const pqvec3_t&, const dir3_t&)
+   :project: wave_tracer

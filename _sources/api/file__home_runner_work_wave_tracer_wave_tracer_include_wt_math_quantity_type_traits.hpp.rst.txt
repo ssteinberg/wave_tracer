@@ -1,0 +1,70 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp:
+
+File type_traits.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity/type_traits.hpp``)
+---------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/quantity/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1is__quantity`
+
+- :ref:`exhale_struct_structwt_1_1is__quantity_3_01Q_01_4`
+
+- :ref:`exhale_struct_structwt_1_1is__quantity__point`
+
+- :ref:`exhale_struct_structwt_1_1is__quantity__point_3_01Q_01_4`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_math_2quantity_2type__traits_8hpp_1ad428387f762a18276143729c1fa41164`
+
+- :ref:`exhale_variable_math_2quantity_2type__traits_8hpp_1ad4c0e76a4dbfb9be96d9f9ed15a1a5be`
+

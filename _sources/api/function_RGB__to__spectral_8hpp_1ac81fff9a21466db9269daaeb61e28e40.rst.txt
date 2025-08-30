@@ -1,0 +1,14 @@
+.. _exhale_function_RGB__to__spectral_8hpp_1ac81fff9a21466db9269daaeb61e28e40:
+
+Function wt::colourspace::RGB_to_spectral::uplift
+=================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB_to_spectral.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::colourspace::RGB_to_spectral::uplift(const vec3_t&, const Wavelength auto)
+   :project: wave_tracer

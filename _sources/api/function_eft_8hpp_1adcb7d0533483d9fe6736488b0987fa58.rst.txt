@@ -1,0 +1,14 @@
+.. _exhale_function_eft_8hpp_1adcb7d0533483d9fe6736488b0987fa58:
+
+Template Function wt::m::eft::mean(const std::array<T, N>&)
+===========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::eft::mean(const std::array<T, N>&)
+   :project: wave_tracer

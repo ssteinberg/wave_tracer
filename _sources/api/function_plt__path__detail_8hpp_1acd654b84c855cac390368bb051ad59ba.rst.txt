@@ -1,0 +1,14 @@
+.. _exhale_function_plt__path__detail_8hpp_1acd654b84c855cac390368bb051ad59ba:
+
+Function wt::integrator::plt_path::MIS
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_path::MIS(const Quantity auto&, const Quantity auto&)
+   :project: wave_tracer

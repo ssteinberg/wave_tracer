@@ -1,0 +1,127 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp:
+
+Program Listing for File mesh.hpp
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/mesh/mesh.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <vector>
+   #include <string>
+   
+   #include <wt/mesh/surface_differentials.hpp>
+   #include <wt/mesh/triangle.hpp>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/transform/transform.hpp>
+   #include <wt/math/shapes/aabb.hpp>
+   #include <wt/math/util.hpp>
+   
+   #include <wt/wt_context.hpp>
+   #include <wt/scene/element/info.hpp>
+   
+   namespace wt::mesh {
+   
+   class mesh_t {
+   private:
+       std::vector<triangle_t> tris;
+       aabb_t aabb;
+   
+   public:
+       using tidx_t = std::uint32_t;
+   
+       struct tri_indices_t {
+           std::array<tidx_t,3> idx;
+       };
+   
+   private:
+       mesh_t(std::vector<triangle_t> tris);
+   
+       void compute_aabb() noexcept;
+       void compute_tangent_frames() noexcept;
+   
+   public:
+       mesh_t(const std::string& shape_id,
+              const transform_d_t& to_world,
+              std::vector<pqvec3_t> vertices,
+              std::vector<dir3_t> normals,
+              std::vector<vec2_t> texcoords,
+              const std::vector<tri_indices_t>& indices,
+              const wt_context_t& ctx);
+   
+       mesh_t(mesh_t&&) = default;
+       mesh_t(const mesh_t&) = default;
+       mesh_t& operator=(mesh_t&&) = default;
+   
+       [[nodiscard]] static inline dir3_t triangle_face_normal(const triangle_t& t) noexcept {
+           return t.geo_n;
+       }
+       [[nodiscard]] inline auto triangle_face_normal(tidx_t tidx) const noexcept {
+           return triangle_face_normal(tris[tidx]);
+       }
+   
+       [[nodiscard]] static inline auto triangle_surface_area(const triangle_t& t) noexcept {
+           const auto& a = t.p[0];
+           const auto& b = t.p[1];
+           const auto& c = t.p[2];
+   
+           return util::tri_surface_area(a,b,c);
+       }
+       [[nodiscard]] inline auto triangle_surface_area(tidx_t tidx) const noexcept {
+           return triangle_surface_area(tris[tidx]);
+       }
+   
+       [[nodiscard]] static inline const surface_differentials_t& tangent_frame(const triangle_t& t) noexcept {
+           return t.tangent_frame;
+       }
+       [[nodiscard]] inline const surface_differentials_t& tangent_frame(tidx_t tidx) const noexcept {
+           return tangent_frame(tris[tidx]);
+       }
+   
+       [[nodiscard]] inline const auto& triangle(tidx_t tidx) const noexcept {
+           return tris[tidx];
+       }
+   
+       inline void flip_normals() {
+           // flip normals and winding order
+           for (auto& t : tris) {
+               t.geo_n = -t.geo_n;
+               std::swap(t.p[0],t.p[1]);
+   
+               t.n[0] = encoded_normal_t{ -dir3_t{ t.n[0] } };
+               t.n[1] = encoded_normal_t{ -dir3_t{ t.n[1] } };
+               t.n[2] = encoded_normal_t{ -dir3_t{ t.n[2] } };
+               std::swap(t.n[0],t.n[1]);
+   
+               if (t.uv)
+                   std::swap((*t.uv)[0],(*t.uv)[1]);
+           }
+       }
+   
+       [[nodiscard]] inline const auto& get_aabb() const noexcept {
+           return aabb;
+       }
+   
+       [[nodiscard]] inline const auto& get_tris() const noexcept {
+           return tris;
+       }
+   
+       [[nodiscard]] scene::element::info_t description() const;
+   };
+   
+   }

@@ -1,0 +1,99 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_checkerboard.hpp:
+
+Program Listing for File checkerboard.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_checkerboard.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/texture/checkerboard.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <memory>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/wt_context.hpp>
+   
+   #include <wt/texture/texture.hpp>
+   
+   namespace wt::texture {
+   
+   class checkerboard_t final : public texture_t {
+   private:
+       std::shared_ptr<texture_t> col1, col2;
+   
+   public:
+       checkerboard_t(std::string id, 
+                      std::shared_ptr<texture_t> col1,
+                      std::shared_ptr<texture_t> col2)
+           : texture_t(std::move(id)),
+             col1(std::move(col1)),
+             col2(std::move(col2))
+       {}
+       checkerboard_t(checkerboard_t&&) = default;
+       virtual ~checkerboard_t() noexcept = default;
+       
+       [[nodiscard]] bool needs_interaction_footprint() const noexcept override {
+           return col1->needs_interaction_footprint() || col2->needs_interaction_footprint();
+       }
+       
+       [[nodiscard]] vec2_t resolution() const noexcept override {
+           return vec2_t{ m::inf };
+       }
+   
+       [[nodiscard]] std::shared_ptr<spectrum::spectrum_real_t> mean_spectrum() const noexcept override {
+           // not implemented
+           return nullptr;
+       }
+   
+       [[nodiscard]] std::optional<f_t> mean_value(wavenumber_t k) const noexcept override {
+           const auto mv1 = col1->mean_value(k);
+           const auto mv2 = col2->mean_value(k);
+           if (!mv1 || !mv2)
+               return std::nullopt;
+           return (*mv1 + *mv2) / f_t(2);
+       }
+   
+       [[nodiscard]] vec4_t get_RGBA(const texture_query_t& query) const noexcept override {
+           const auto uv = query.uv;
+           int x = 2*m::modulo(std::int32_t(uv.x), 2) - 1;
+           int y = 2*m::modulo(std::int32_t(uv.y), 2) - 1;
+   
+           return x*y==1 ?
+               col1->get_RGBA(query) :
+               col2->get_RGBA(query);
+       }
+   
+       [[nodiscard]] vec2_t f(const texture_query_t& query) const noexcept override {
+           const auto uv = query.uv;
+           int x = 2*m::modulo(std::int32_t(uv.x), 2) - 1;
+           int y = 2*m::modulo(std::int32_t(uv.y), 2) - 1;
+   
+           return x*y==1 ?
+               col1->f(query) :
+               col2->f(query);
+       }
+       
+   public:
+       static std::unique_ptr<texture_t> load(std::string id, 
+                                              scene::loader::loader_t* loader, 
+                                              const scene::loader::node_t& node, 
+                                              const wt::wt_context_t &context);
+   
+       [[nodiscard]] scene::element::info_t description() const override;
+   };
+   
+   }

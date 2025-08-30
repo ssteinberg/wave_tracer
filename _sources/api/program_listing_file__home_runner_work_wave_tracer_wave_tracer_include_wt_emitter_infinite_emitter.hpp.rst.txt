@@ -1,0 +1,69 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_infinite_emitter.hpp:
+
+Program Listing for File infinite_emitter.hpp
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_infinite_emitter.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/emitter/infinite_emitter.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/emitter/emitter.hpp>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/shapes/aabb.hpp>
+   #include <wt/wt_context.hpp>
+   
+   namespace wt::emitter {
+   
+   class infinite_emitter_t : public emitter_t {
+       friend class wt::scene_t;
+   
+   protected:
+       aabb_t world_aabb = aabb_t::null();
+       virtual void set_world_aabb(const aabb_t& waabb) noexcept {
+           world_aabb = waabb;
+       }
+   
+   public:
+       infinite_emitter_t(std::string id, 
+                          f_t emitter_phase_space_extent_scale = 1)
+           : emitter_t(std::move(id), emitter_phase_space_extent_scale)
+       {}
+       infinite_emitter_t(const infinite_emitter_t&) = default;
+       infinite_emitter_t(infinite_emitter_t&&) = default;
+       
+       [[nodiscard]] inline bool is_infinite_emitter() const noexcept final { return true; }
+   
+       [[nodiscard]] virtual area_sampling_pd_t pdf_target_position(const pqvec3_t& wp) const noexcept = 0;
+   
+       [[nodiscard]] position_sample_t sample_position(sampler::sampler_t& sampler) const noexcept final {
+           // infinite emitter: well designed integrators should not arrive here
+           assert(false);
+           return {};
+       }
+   
+       [[nodiscard]] area_sampling_pd_t pdf_position(
+               const pqvec3_t& p,
+               const intersection_surface_t* surface=nullptr) const noexcept final {
+           // infinite emitter: well designed integrators should not arrive here
+           assert(false);
+           return {};
+       }
+   };
+   
+   }
+   

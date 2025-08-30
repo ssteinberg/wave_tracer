@@ -1,0 +1,14 @@
+.. _exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a3e41794d4dc7f323316dbef8dd79c896:
+
+Function wt::colourspace::sRGB::to_linear(const vec3_t&)
+========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::colourspace::sRGB::to_linear(const vec3_t&)
+   :project: wave_tracer

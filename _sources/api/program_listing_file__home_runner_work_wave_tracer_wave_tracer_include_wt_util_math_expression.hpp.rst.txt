@@ -1,0 +1,86 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_math_expression.hpp:
+
+Program Listing for File math_expression.hpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_math_expression.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/math_expression.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <vector>
+   
+   #include <wt/util/concepts.hpp>
+   #include <wt/math/common.hpp>
+   
+   namespace wt {
+   
+   struct compiled_math_expression_t {
+       struct compiled_math_expression_data_t;
+   
+   private:
+       std::string expression;
+       compiled_math_expression_data_t* data = nullptr;
+   
+   public:
+       compiled_math_expression_t() = delete;
+       compiled_math_expression_t(std::string expr, const std::vector<std::string>& variables);
+       ~compiled_math_expression_t();
+   
+       compiled_math_expression_t(compiled_math_expression_t&&) noexcept;
+   
+       [[nodiscard]] const auto& description() const noexcept { return expression; }
+       [[nodiscard]] std::size_t get_variable_count() const noexcept;
+   
+       [[nodiscard]] f_t eval(const std::vector<f_t>& vars = {}) const;
+   };
+   
+   
+   namespace detail {
+   
+   extern f_t evaluate_math_expression(const std::string& expr);
+   
+   }
+   
+   template <NumericOrBool R>
+   inline R parse_expression(const std::string& expr) {
+       using lim = limits<R>;
+   
+       const auto result = detail::evaluate_math_expression(expr.c_str());
+   
+       // successful parse
+       if (std::is_same_v<R,bool>) {
+           if (result==0) return false;
+           if (result==1) return true;
+           throw std::format_error("math expression: expected boolean result (got '" + std::format("{}",result) + "')");
+       }
+       else if (std::is_integral_v<R>) {
+           // narrowing conversion
+   
+           // TODO: correct overflow/underflow detection
+           if ((decltype(result))lim::max() < result)
+               throw std::format_error("math expression: overflow");
+           if ((decltype(result))lim::min() > result)
+               throw std::format_error("math expression: underflow");
+   
+           return static_cast<R>(result);
+       }
+   
+       return static_cast<R>(result);
+   }
+   
+   }

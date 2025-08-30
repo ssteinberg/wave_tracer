@@ -1,0 +1,133 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp:
+
+File math.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/unit_vector``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/unit_vector/math.hpp``)
+-----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``unit_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`)
+
+- ``wt/math/eft/eft.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`)
+
+- ``wt/math/quantity/quantity_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`)
+
+- ``wt/math/type_traits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__m`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aea083618ebd28a50ca505f6094186177`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a1eebddb434bc46da7df224322430a141`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a2fe75c6919be49d267910e3e39ebb949`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ac64acfcf0248b8983bc4380578ba079d`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a76942c28464d02e432dfe44d461d0945`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a128199e050bc1766f915507b0b96e2c3`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1acbd58c10ab0c0508907f7ec49fe98272`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a4eb7610da7a4489a1e259377cbe1b52c`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1afd02d4794f736ace9d1b10a40422c3bd`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a441286cbb2c145a05f7ea39e69d467df`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a83c2bf484060a49b423ff794ee6e34ff`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aea07ff94fba446362a2029399604d170`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ad4d8a7a87180fd32925d3def57d155ef`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aa075d5ba48f0ad0fb00d49619fe325b5`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a135809543a020da86de628d73d47e071`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a395b0dd4dc80dfb42fcdfbbec425d394`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ada730629b5fc36881be0be21f7536a93`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a6a8697385bb25840d0e5c397b4e56fdc`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a4a8c47ca1ca8fb8fdd604085635c859c`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a41f3e8fbaa027a0c653167fe584cfe75`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1afc4f4e7e3c80d0a38c71f5c2284be71c`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aa9fbf2a0612efaed4d4b7da2d344528d`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1acbc5b4edcdbc5223c5b96c8c4cdc9584`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1afca7c5d44895736b54f51a2b14915a68`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aee44458fc45913ecf9082341e15874c0`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a286579a6e75b1402f6affc51059afd21`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a7bdf004621cbc46cae629bc13160026b`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a70cc5116d0f6dbf9e98f9241457a46a7`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ac98c85afe66f6ee18ca7819cc1e537a6`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aa5552472e5c086d20025903e4f8a531d`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a648995ca7df9f30cfd337a45ec49dd57`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a027f514924a1c0a21194fd954d24462b`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a393fb8cc0ca1890b31b26e5348ae7192`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a4f76af910eda568ce5b8b36533608fdd`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a62fb1618c85ad48a6ea9606dd07c7a11`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a49656bc3f37b220e9a2a80a7e5c7455e`
+

@@ -1,0 +1,53 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_file_log.hpp:
+
+File file_log.hpp
+=================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/logger``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/logger/file_log.hpp``)
+----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_file_log.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``chrono`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`)
+
+- ``filesystem``
+
+- ``fstream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__logger`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1logger_1_1file__logger__t`
+

@@ -1,0 +1,14 @@
+.. _exhale_define_glm_8hpp_1a7f588cba464c7124722331e8017a3493:
+
+Define GLM_FORCE_EXPLICIT_CTOR
+==============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: GLM_FORCE_EXPLICIT_CTOR
+   :project: wave_tracer

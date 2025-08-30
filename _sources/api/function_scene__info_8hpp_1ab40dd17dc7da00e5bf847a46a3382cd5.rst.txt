@@ -1,0 +1,14 @@
+.. _exhale_function_scene__info_8hpp_1ab40dd17dc7da00e5bf847a46a3382cd5:
+
+Function wt::gui::build_scene_info
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_scene_info.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::gui::build_scene_info(const std::string_view, std::optional<std::string>, const scene::element::info_t&, const sensor::sensor_t&)
+   :project: wave_tracer

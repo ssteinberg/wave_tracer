@@ -1,0 +1,73 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_free_space_diffraction.hpp:
+
+File free_space_diffraction.hpp
+===============================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/fsd``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/fsd/free_space_diffraction.hpp``)
+----------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_free_space_diffraction.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``optional``
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/ads/ads.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`)
+
+- ``wt/ads/intersection_record.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_intersection_record.hpp`)
+
+- ``wt/interaction/fsd/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_common.hpp`)
+
+- ``wt/interaction/intersection.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/sampler/density.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp`)
+
+- ``wt/sampler/sampler.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1free__space__diffraction__t_1_1diffracting__edge__t`
+
+- :ref:`exhale_struct_structwt_1_1free__space__diffraction__t_1_1sample__ret__t`
+
+- :ref:`exhale_class_classwt_1_1free__space__diffraction__t`
+

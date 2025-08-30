@@ -1,0 +1,14 @@
+.. _exhale_function_fma_8hpp_1a55c30b1e81031296f1ca15c86f94a2ff:
+
+Function wt::m::fma(const Complex auto, const Complex auto, const Complex auto)
+===============================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::fma(const Complex auto, const Complex auto, const Complex auto)
+   :project: wave_tracer

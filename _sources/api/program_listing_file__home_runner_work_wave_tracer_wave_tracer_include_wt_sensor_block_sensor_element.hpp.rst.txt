@@ -1,0 +1,69 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_sensor_element.hpp:
+
+Program Listing for File sensor_element.hpp
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_sensor_element.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/block/sensor_element.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/math/common.hpp>
+   
+   namespace wt::sensor {
+   
+   template <typename PixelT, typename WeightT>
+   struct sensor_element_t {
+       PixelT value;
+       WeightT weight;
+   
+       inline auto pixel_value() const noexcept {
+           return weight>0 ? value/weight : PixelT{};
+       }
+   
+       inline auto& operator+=(const sensor_element_t& o) noexcept {
+           value += o.value;
+           weight += o.weight;
+           return *this;
+       }
+       inline auto operator+(const sensor_element_t& o) const noexcept {
+           return sensor_element_t{ 
+               value+o.value,
+               weight+o.weight
+           };
+       }
+       inline auto& operator*=(const WeightT scale) noexcept {
+           value *= scale;
+           weight *= scale;
+           return *this;
+       }
+       inline auto operator*(const WeightT scale) const noexcept {
+           return sensor_element_t{ 
+               value*scale,
+               weight*scale
+           };
+       }
+   
+       template <std::constructible_from<PixelT> NewT, std::constructible_from<WeightT> NewW>
+       inline explicit operator sensor_element_t<NewT, NewW>() const noexcept {
+           sensor_element_t<NewT,NewW> ret;
+           ret.value  = NewT{ value };
+           ret.weight = NewW{ weight };
+           return ret;
+       }
+   };
+   
+   }

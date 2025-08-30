@@ -1,0 +1,30 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf:
+
+
+Directory bsdf
+==============
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/bsdf``
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_bsdf.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_composite.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_dielectric.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_diffuse.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_mask.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_normalmap.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_scale.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_surface_spm.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_two_sided.hpp`
+
+

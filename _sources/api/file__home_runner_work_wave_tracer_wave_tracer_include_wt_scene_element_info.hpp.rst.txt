@@ -1,0 +1,89 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_info.hpp:
+
+File info.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/element``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/element/info.hpp``)
+--------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_info.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``map`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``memory``
+
+- ``ostream`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/util/logger/termcolor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_scene_element.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_scene_info.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__scene`
+
+- :ref:`namespace_wt__scene__element`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attribute__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1info__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_info_8hpp_1aa743e412656140015011931c583fe5c6`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_info_8hpp_1ad6c07b2bb6d4c64dd5eebf791c9c0959`
+

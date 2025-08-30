@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1a7d8d30a085382ab9106b2973722a189e:
+
+Template Function wt::m::any(const wide_vector<4, N, simd::bool_mask>&)
+=======================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::any(const wide_vector<4, N, simd::bool_mask>&)
+   :project: wave_tracer

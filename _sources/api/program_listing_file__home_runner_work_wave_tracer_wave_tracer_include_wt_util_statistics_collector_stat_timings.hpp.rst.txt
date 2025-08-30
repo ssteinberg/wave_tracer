@@ -1,0 +1,169 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_timings.hpp:
+
+Program Listing for File stat_timings.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_timings.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/statistics_collector/stat_timings.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    *
+    * wave tracer
+    * Copyright  Shlomi Steinberg
+    * Authors:  Umut Emre, Shlomi Steinberg
+    *
+    * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+    *
+    */
+   
+   #pragma once
+   
+   #include <chrono>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/util/concepts.hpp>
+   #include <wt/util/logger/logger.hpp>
+   
+   #include "stat_collector.hpp"
+   
+   namespace wt::stats {
+   
+   class stat_timings_t final : public stat_collector_t {
+       std::size_t samples_count{};
+       double us_sum{};
+       double us2_sum{};
+       double max_us = 0, min_us = limits<double>::infinity();
+   
+       struct stats_t {
+           std::chrono::duration<double> mean, min, max, stddev;
+       };
+       [[nodiscard]] auto extract_statistics() const noexcept {
+           using namespace std::chrono_literals;
+           return stats_t{
+               .mean = us_sum / samples_count * (1us),
+               .min  = min_us * (1us),
+               .max  = max_us * (1us),
+               .stddev = m::sqrt(
+                       (us2_sum*samples_count - m::sqr(us_sum)) / 
+                       (samples_count * (samples_count-1))
+                   ) * (1us),
+           };
+       }
+   
+       std::ostream& output(std::ostream& os) const override {
+           using namespace std::chrono_literals;
+           using namespace logger::termcolour;
+   
+           if (this->flags.ignore_when_empty && is_empty())
+               return os;
+   
+           const auto& stats = extract_statistics();
+   
+           constexpr std::size_t maxlabelw = name_label_maxw-print_indent-1;
+           auto label = name.length()<=maxlabelw ? name : name.substr(0, maxlabelw);
+           if (label.length()<maxlabelw)
+               label += std::string(maxlabelw-label.length(), ' ');
+   
+           os << std::string(print_indent, ' ') 
+              << reset << bright_white
+              << label << '\t';
+              
+           os << bright_yellow << bold;
+           if (this->flags.print_throughput) {
+               // either print theoretical throughput
+               const auto str = format_stat_throughput(stats.mean);
+               os << std::format("{:>10}", str);
+           } else {
+               // or print number of events
+               const auto counter_and_suffix = stat_value_with_suffix(samples_count);
+               os << (counter_and_suffix ?
+                   std::format("{:>9.4f}{}", counter_and_suffix->first, counter_and_suffix->second) :
+                   std::format("{:>10}", samples_count));
+           }
+           os << reset << "   \t";
+   
+           os
+              // mean
+              << dark << white << "mean "
+              << reset << blue << bold
+              << std::setprecision(2) << std::setw(5) << std::right
+              << std::chrono::duration_cast<std::chrono::nanoseconds>(stats.mean)
+              << reset << cyan << " ± "
+              // stddev
+              << std::setprecision(2) << std::setw(5) << std::right
+              << std::chrono::duration_cast<std::chrono::nanoseconds>(stats.stddev)
+              << reset << '\t' << grey << "("
+              // min
+              << reset << green << bold
+              << std::setprecision(2) << std::setw(5) << std::right
+              << std::chrono::duration_cast<std::chrono::nanoseconds>(stats.min)
+              << reset << cyan << " - "
+              // max
+              << reset << red << bold
+              << std::setprecision(2) << std::setw(5) << std::right
+              << std::chrono::duration_cast<std::chrono::nanoseconds>(stats.max)
+              << reset << grey << ")"
+              << reset
+              << '\n';
+   
+           return os;
+       }
+       std::ostream& output(std::ofstream& fs) const override {
+           if (this->flags.ignore_when_empty && samples_count==0)
+               return fs;
+   
+           const auto& stats = extract_statistics();
+   
+           fs << "name, mean, min, max, stddev" << '\n';
+           fs << name << ", "
+              << std::format("{:d}",std::chrono::duration_cast<std::chrono::microseconds, double>(stats.mean).count())   + "μs"
+              << ", "
+              << std::format("{:d}",std::chrono::duration_cast<std::chrono::microseconds, double>(stats.min).count())   + "μs"
+              << ", "
+              << std::format("{:d}",std::chrono::duration_cast<std::chrono::microseconds, double>(stats.max).count())   + "μs"
+              << ", "
+              << std::format("{:d}",std::chrono::duration_cast<std::chrono::microseconds, double>(stats.stddev).count())   + "μs"
+              << '\n';
+           return fs;
+   
+       }
+   
+       stat_collector_t& operator+=(const stat_collector_t& sc) override {
+           const auto& rhs = dynamic_cast<const stat_timings_t&>(sc);
+           samples_count += rhs.samples_count;
+           us_sum += rhs.us_sum;
+           us2_sum += rhs.us2_sum;
+           min_us = m::min(min_us,rhs.min_us);
+           max_us = m::max(max_us,rhs.max_us);
+           return *this;
+       }
+   
+       [[nodiscard]] std::unique_ptr<stat_collector_t> zero() const override {
+           return std::make_unique<stat_timings_t>(name, flags);  
+       }
+   
+   public:
+       explicit stat_timings_t(std::string name, 
+                               stat_collector_flags_t flags = {}) noexcept
+           : stat_collector_t(std::move(name), flags)
+       {}
+   
+       [[nodiscard]] bool is_empty() const noexcept override {
+           return samples_count==0;
+       }
+   
+       void record(std::chrono::high_resolution_clock::duration duration) noexcept {
+           const auto us_dbl = std::chrono::duration_cast<std::chrono::nanoseconds>(duration).count() / 1000.0;
+           ++samples_count;
+           us_sum += us_dbl;
+           us2_sum += m::sqr(us_dbl);
+           min_us = m::min(min_us, us_dbl);
+           max_us = m::max(max_us, us_dbl);
+       }
+   };
+   
+   }  // namespace wt

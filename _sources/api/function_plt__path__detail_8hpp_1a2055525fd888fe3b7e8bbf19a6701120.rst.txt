@@ -1,0 +1,14 @@
+.. _exhale_function_plt__path__detail_8hpp_1a2055525fd888fe3b7e8bbf19a6701120:
+
+Template Function wt::integrator::plt_path::sensing
+===================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_path::sensing(path_walk_data_t<BeamType>&, const pqvec3_t&, const Length auto&, const QuantityOf<inverse(isq::length)> auto&, const int)
+   :project: wave_tracer

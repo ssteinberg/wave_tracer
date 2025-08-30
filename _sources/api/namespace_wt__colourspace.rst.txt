@@ -1,0 +1,49 @@
+
+.. _namespace_wt__colourspace:
+
+Namespace wt::colourspace
+=========================
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt__colourspace__RGB_to_spectral`
+
+- :ref:`namespace_wt__colourspace__sRGB`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_spectrum_2colourspace_2RGB_2RGB_8hpp_1a07aca99cf7d9cdf8f9f94e59ae3b1b8f`
+
+- :ref:`exhale_enum_whitepoint_8hpp_1a1774ffc9bba10735fecd0e0278d56bdc`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_whitepoint_8hpp_1a1bd7db8d5bac6b28862fd59b750e3cf5`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a0889b7b2b0597fc2e3fe27f9bb2bf5cd`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a82ccbd372becf6bbac5c16eb36a29bea`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a69cd1c1692b2970125187cff00c0115a`
+
+- :ref:`exhale_function_colourspace_2blackbody_8hpp_1a730d066343530ac65da0548392e516b1`
+
+- :ref:`exhale_function_colourspace_2blackbody_8hpp_1a7943408203ff05ae973f0be65886a919`
+
+- :ref:`exhale_function_whitepoint_8hpp_1a0b121cf133d510d97fd76af24431f8d7`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a91d5efbcce5757f6e45be3f9111670cd`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1acf4b324bb18e287393a3898bf574966c`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1ab6042e2ef2ed30acfd1ae72f90c222c2`

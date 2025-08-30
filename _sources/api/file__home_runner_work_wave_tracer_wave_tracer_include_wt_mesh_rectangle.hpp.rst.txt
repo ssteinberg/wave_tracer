@@ -1,0 +1,55 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_rectangle.hpp:
+
+File rectangle.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/mesh``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/mesh/rectangle.hpp``)
+----------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_rectangle.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``mesh.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp`)
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/transform/transform.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__mesh`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1mesh_1_1rectangle__t`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_fma_8hpp_1a96d1358bf59886322a63342be00b7697:
+
+Template Function wt::m::fma(const Q&, const T2&, const Q&)
+===========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::fma(const Q&, const T2&, const Q&)
+   :project: wave_tracer

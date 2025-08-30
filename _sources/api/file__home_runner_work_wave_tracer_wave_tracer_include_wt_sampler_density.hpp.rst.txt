@@ -1,0 +1,86 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp:
+
+File density.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sampler``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sampler/density.hpp``)
+-----------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``type_traits`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/quantity/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`)
+
+- ``wt/sampler/measure.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_measure.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_free_space_diffraction.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_position_sample.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1sampling__pd__t`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_density_8hpp_1a002d2e44fba245cc6d980c6ae498f9f1`
+
+- :ref:`exhale_typedef_density_8hpp_1ac785e89dfb0660b14763c8f2d7b3f2c8`
+
+- :ref:`exhale_typedef_density_8hpp_1a3e73e235cac0225d081df48f9fcb9cf0`
+
+- :ref:`exhale_typedef_density_8hpp_1aaf6380429187ebd9287eeb57f11b1c21`
+
+- :ref:`exhale_typedef_density_8hpp_1a450b50b695f77dad06338b7d0bcb746f`
+

@@ -1,0 +1,69 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_utd.hpp:
+
+File utd.hpp
+============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/fsd``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/fsd/utd.hpp``)
+---------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_utd.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cerf.h``
+
+- ``common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__utd`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_utd_8hpp_1a46fe591269664846841657ce483b26a4`
+
+- :ref:`exhale_function_utd_8hpp_1a59429d5937c63276744b5ab1284cfdfb`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_utd_8hpp_1a3a1e697ac9d5e84adced74ae4864cbcb`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_utd_8hpp_1a15b24c307055e9d01041a8051545adcc`
+

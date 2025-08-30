@@ -1,0 +1,97 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp:
+
+File cone.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect/cone.hpp``)
+---------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``concepts`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``intersect_defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`)
+
+- ``misc.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp`)
+
+- ``optional``
+
+- ``ray.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_array.hpp`)
+
+- ``utility``
+
+- ``wt/math/barycentric.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_barycentric.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/eft/eft.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`)
+
+- ``wt/math/range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`)
+
+- ``wt/math/shapes/aabb.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp`)
+
+- ``wt/math/shapes/elliptic_cone.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`)
+
+- ``wt/math/simd/wide_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_stats.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__intersect`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_cone_8hpp_1ac18d0c62eba91e2dce87a3092815ebc5`
+
+- :ref:`exhale_function_cone_8hpp_1a7d2e24815f742a6ca5cfa970ed73a170`
+
+- :ref:`exhale_function_cone_8hpp_1a525a3f9b366807908f621577b0df937e`
+
+- :ref:`exhale_function_cone_8hpp_1a18efead7b3692f45302b544564829c8e`
+
+- :ref:`exhale_function_cone_8hpp_1a3a4ab6d0509e8f2c6c4139df436bbda4`
+
+- :ref:`exhale_function_cone_8hpp_1a66616ea4dc7077825ba7f901643dbc7f`
+
+- :ref:`exhale_function_cone_8hpp_1a7b598ece54f9704cec96169b737eb8d4`
+
+- :ref:`exhale_function_cone_8hpp_1ab7262d68990409bff6ba0024be44a1af`
+
+- :ref:`exhale_function_cone_8hpp_1a48f47e93a6aa325a26254a41efb0fceb`
+
+- :ref:`exhale_function_cone_8hpp_1a4cf4fb2425e82f02ddff245aa69e69ab`
+

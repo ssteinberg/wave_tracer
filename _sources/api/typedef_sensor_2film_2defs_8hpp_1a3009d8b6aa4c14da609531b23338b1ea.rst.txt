@@ -1,0 +1,14 @@
+.. _exhale_typedef_sensor_2film_2defs_8hpp_1a3009d8b6aa4c14da609531b23338b1ea:
+
+Typedef wt::sensor::PixelT
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::sensor::PixelT
+   :project: wave_tracer

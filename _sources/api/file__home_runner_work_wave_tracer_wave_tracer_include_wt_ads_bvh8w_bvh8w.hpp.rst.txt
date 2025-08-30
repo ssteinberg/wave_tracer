@@ -1,0 +1,69 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp:
+
+File bvh8w.hpp
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh8w``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh8w/bvh8w.hpp``)
+-----------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``bvh8w_node.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_node.hpp`)
+
+- ``wt/ads/ads.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/shapes/aabb.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp`)
+
+- ``wt/math/shapes/elliptic_cone.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_constructor.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__ads`
+
+- :ref:`namespace_wt__ads__construction`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1bvh8w__t_1_1tris__vectorized__data__t`
+
+- :ref:`exhale_class_classwt_1_1ads_1_1bvh8w__t`
+

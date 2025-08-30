@@ -1,0 +1,32 @@
+
+.. _namespace_wt__sensor__response:
+
+Namespace wt::sensor::response
+==============================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1response_1_1monochromatic__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1response_1_1multichannel__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1response_1_1response__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1response_1_1RGB__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1response_1_1tonemap__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1response_1_1XYZ__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_tonemap_8hpp_1a7ce2c2b1512a5ee1a18660895e225c58`
+
+- :ref:`exhale_enum_tonemap_8hpp_1a5a3e6e62a572f515cb83544418538307`

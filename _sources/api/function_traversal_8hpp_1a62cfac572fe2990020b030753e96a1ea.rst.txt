@@ -1,0 +1,14 @@
+.. _exhale_function_traversal_8hpp_1a62cfac572fe2990020b030753e96a1ea:
+
+Function wt::integrator::shadow
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::shadow(const ads::ads_t&, const auto&, const auto&)
+   :project: wave_tracer

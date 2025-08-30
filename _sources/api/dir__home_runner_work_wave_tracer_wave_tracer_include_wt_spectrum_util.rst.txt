@@ -1,0 +1,22 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util:
+
+
+Directory util
+==============
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/util``
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_db.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_ITU.hpp`
+
+

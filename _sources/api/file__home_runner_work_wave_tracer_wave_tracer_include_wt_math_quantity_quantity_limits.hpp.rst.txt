@@ -1,0 +1,45 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_limits.hpp:
+
+File quantity_limits.hpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity/quantity_limits.hpp``)
+-------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_limits.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``limits`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_limits.hpp`)
+
+- ``wt/math/quantity/framework.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_framework.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+

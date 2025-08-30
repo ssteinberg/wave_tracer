@@ -1,0 +1,14 @@
+.. _exhale_function_beam_8hpp_1a8dd51ea4dd261eecb4557d914ce8acc1:
+
+Function wt::beam::integrate_beams
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::beam::integrate_beams(const importance_flux_beam_t&, const spectral_radiance_beam_t&)
+   :project: wave_tracer

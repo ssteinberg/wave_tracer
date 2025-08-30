@@ -1,0 +1,89 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp:
+
+File ads.hpp
+============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/ads.hpp``)
+---------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`)
+
+- ``intersection_record.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_intersection_record.hpp`)
+
+- ``wt/math/range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`)
+
+- ``wt/math/shapes/ball.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ball.hpp`)
+
+- ``wt/math/shapes/elliptic_cone.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`)
+
+- ``wt/scene/element/info.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_info.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_constructor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_traversal_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_integrator.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_free_space_diffraction.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_mask_mask.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__ads`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1ads__t_1_1intersect__opts__t`
+
+- :ref:`exhale_class_classwt_1_1ads_1_1ads__t`
+

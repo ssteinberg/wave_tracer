@@ -1,0 +1,54 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_stats.hpp:
+
+File ads_stats.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/ads_stats.hpp``)
+---------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_stats.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``utility``
+
+- ``wt/math/intersect/cone.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp`)
+
+- ``wt/math/intersect/ray.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`)
+
+- ``wt/util/statistics_collector/stat_collector_registry.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector_registry.hpp`)
+
+- ``wt/util/statistics_collector/stat_counter.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter.hpp`)
+
+- ``wt/util/statistics_collector/stat_counter_event.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter_event.hpp`)
+
+- ``wt/util/statistics_collector/stat_histogram.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_histogram.hpp`)
+
+- ``wt/util/statistics_collector/stat_timings.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_timings.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+

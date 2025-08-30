@@ -1,0 +1,81 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_intersection_record.hpp:
+
+File intersection_record.hpp
+============================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/intersection_record.hpp``)
+-------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_intersection_record.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cmath`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`)
+
+- ``common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`)
+
+- ``set``
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/intersect/intersect_defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`)
+
+- ``wt/math/range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_traversal_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_free_space_diffraction.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__ads`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__t_1_1containers__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__t_1_1rt__record__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__t_1_1triangles__accessor__t`
+

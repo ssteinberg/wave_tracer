@@ -1,0 +1,81 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp:
+
+File texel_convert.hpp
+======================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap/texel_convert.hpp``)
+----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``concepts`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``type_traits`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/norm_integers.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_norm_integers.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__bitmap`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1is__texel`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1is__texel_3_01T_01_4`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_texel__convert_8hpp_1ae32d1fa153953314c12cfe894c4fcce9`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_texel__convert_8hpp_1a45f409bdcced479a11fa6a9ad2edac9a`
+

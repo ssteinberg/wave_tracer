@@ -1,0 +1,216 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp:
+
+Program Listing for File eft.hpp
+================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/eft/eft.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <array>
+   #include <vector>
+   
+   #include <wt/math/defs.hpp>
+   #include <wt/math/fma.hpp>
+   #include <wt/math/quantity/concepts.hpp>
+   #include <wt/math/unit_vector/unit_vector.hpp>
+   #include <wt/math/quantity/quantity_vector.hpp>
+   #include <wt/math/eft/compensated_sum.hpp>
+   
+   #include <wt/util/concepts.hpp>
+   #include "wt/util/type_traits.hpp"
+   
+   namespace wt::m::eft {
+   
+   /*
+    * Based on 
+    *  Accurate summation, dot product and polynomial evaluation in complex floating point arithmetic
+    *  Stef Graillat, Valérie Ménissier-Morain, 2012
+    */
+   
+   template <typename T1, typename T2>
+   constexpr inline auto two_prod(decltype(std::declval<T1>()*std::declval<T2>()) &err,
+                                  const T1 a,
+                                  const T2 b) noexcept {
+       const auto prod = a*b;
+       err = m::fma(a, b, -prod);
+       return prod;
+   }
+   
+   template <typename T1, typename T2>
+   constexpr inline auto two_sum(decltype(std::declval<T1>()+std::declval<T2>()) &err,
+                                 const T1 a,
+                                 const T2 b) noexcept {
+       const auto sum = a+b;
+       const auto e1 = sum-a;
+       const auto e2 = sum-e1;
+       err = (b-e1) + (a-e2);
+       return sum;
+   }
+   
+   
+   /*
+    * General-purpose error-free transformations
+    */
+   
+   template <Numeric T>
+   constexpr inline auto sum(const vec1<T>& v) noexcept {
+       return v.x;
+   }
+   template <Numeric T>
+   constexpr inline auto sum(const vec2<T>& v) noexcept {
+       return v.x+v.y;
+   }
+   template <Numeric T>
+   constexpr inline auto sum(const vec3<T>& v) noexcept {
+       return (T)(compensated_fp_t{ v.x }+v.y+v.z);
+   }
+   template <Numeric T>
+   constexpr inline auto sum(const vec4<T>& v) noexcept {
+       return (T)(compensated_fp_t{ v.x }+v.y+v.z+v.w);
+   }
+   constexpr inline auto sum(const Scalar auto& v0) noexcept {
+       return v0;
+   }
+   constexpr inline auto sum(const Scalar auto& v0, const Scalar auto& ...vs) noexcept {
+       return (compensated_fp_t{ v0 } + ... + vs).val;
+   }
+   template <Scalar T, std::size_t N>
+   constexpr inline auto sum(const std::array<T,N>& vs) noexcept {
+       if constexpr (N==0) return T(0);
+   
+       auto cs = compensated_fp_t{ vs[0] };
+       for (auto i=1ul;i<N;++i)
+           cs += vs[i];
+       return cs.val;
+   }
+   template <Scalar T>
+   constexpr inline auto sum(const std::vector<T>& vs) noexcept {
+       auto cs = compensated_fp_t{ vs[0] };
+       for (auto i=1ul;i<vs.size();++i)
+           cs += vs[i];
+       return cs.val;
+   }
+   
+   template <Numeric T, std::size_t N>
+   constexpr inline auto mean(const vec<N,T>& v) noexcept {
+       return sum(v) / N;
+   }
+   constexpr inline auto mean(const Scalar auto& ...vs) noexcept {
+       return sum(vs...) / sizeof...(vs);
+   }
+   template <Scalar T, std::size_t N>
+   constexpr inline auto mean(const std::array<T,N>& vs) noexcept {
+       return sum(vs) / N;
+   }
+   template <Scalar T>
+   constexpr inline auto mean(const std::vector<T>& vs) noexcept {
+       return sum(vs) / vs.size();
+   }
+   
+   
+   template <Scalar T1, Scalar T2>
+   constexpr inline auto diff_prod(const T1& a, 
+                                   const T2& b, 
+                                   const T1& c, 
+                                   const T2& d) noexcept {
+       const auto cd = c*d;
+       const auto ret = m::fma(a,b,-cd);
+       return ret + m::fma(-c,d,cd);
+   }
+   template <Vector V1, Vector V2>
+   constexpr inline auto diff_prod(const V1& a, 
+                                   const V2& b, 
+                                   const V1& c, 
+                                   const V2& d) noexcept {
+       const auto cd = c*d;
+       const auto ret = m::fma(a,b,-cd);
+       return ret + m::fma(-c,d,cd);
+   }
+   template <Scalar T, Vector V>
+   constexpr inline auto diff_prod(T a, const V& b, 
+                                   T c, const V& d) noexcept {
+       constexpr auto N = element_count_v<V>;
+       const auto cd = c*d;
+       const auto ret = m::fma(vector_t<N,T>{ a },b,-cd);
+       return ret + m::fma(vector_t<N,T>{ -c },d,cd);
+   }
+   
+   template <Scalar T1, Scalar T2>
+   constexpr inline auto sum_prod(const T1& a,
+                                  const T2& b,
+                                  const T1& c,
+                                  const T2& d) noexcept {
+       return diff_prod(a, b, -c, d);
+   }
+   template <Vector V1, Vector V2>
+   constexpr inline auto sum_prod(const V1& a,
+                                  const V2& b,
+                                  const V1& c,
+                                  const V2& d) noexcept {
+       return diff_prod(a, b, -c, d);
+   }
+   template <Scalar T, Vector V>
+   constexpr inline auto sum_prod(T a, const V& b,
+                                  T c, const V& d) noexcept {
+       return diff_prod(a, b, -c, d);
+   }
+   
+   
+   /*
+    * Vector math with some error-free transformation
+    */
+   
+   template <Vector V1, Vector V2>
+   constexpr inline auto dot(const V1& v1, const V2& v2) noexcept 
+       requires (element_count_v<V1> == element_count_v<V2>)
+   {
+       using R = decltype(v1[0]*v2[0]);
+   
+       R dot={}, err={}, err1,err2;
+       for (auto i=0ul;i<element_count_v<V1>;++i) {
+           const auto temp = eft::two_prod(err1, v1[i], v2[i]);
+           dot = eft::two_sum(err2, dot, temp);
+           err = err + err1 + err2;
+       }
+       return dot + err;
+   }
+   
+   template <Vector V>
+   constexpr inline auto length2(const V& v) noexcept {
+       using T = vector_element_rep_t<V>;
+       if constexpr (is_unit_vector_v<V>)
+           return T{ 1 };
+       return dot(v,v);
+   }
+   template <Vector V>
+   constexpr inline auto length(const V& v) noexcept {
+       using T = vector_element_rep_t<V>;
+       if constexpr (is_unit_vector_v<V>)
+           return T{ 1 };
+       return m::sqrt(length2(v));
+   }
+   
+   template <Vector V>
+   constexpr inline auto normalize(const V& v) noexcept {
+       using T = vector_element_rep_t<V>;
+       constexpr auto N = element_count_v<V>;
+       return unit_vector<N, T>{ v/length(v) };
+   }
+   
+   
+   }

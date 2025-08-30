@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1ad198e4f1897231d37c9d5c2c6a2a57b4:
+
+Template Function wt::m::sign(const vec<N, T>&)
+===============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::sign(const vec<N, T>&)
+   :project: wave_tracer

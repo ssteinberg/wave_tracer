@@ -1,0 +1,14 @@
+.. _exhale_define_glm_8hpp_1a92fa3326bb210b17bbf8f4d8c8302856:
+
+Define GLM_FORCE_XYZW_ONLY
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: GLM_FORCE_XYZW_ONLY
+   :project: wave_tracer

@@ -1,0 +1,46 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_utils.hpp:
+
+Program Listing for File utils.hpp
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_utils.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/thread_pool/utils.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <cstdint>
+   
+   namespace wt::thread_pool {
+   
+   class tpool_tids_t {
+       friend class tpool_t;
+   
+   private:
+       static thread_local std::uint32_t tid;
+   
+   public:
+       static constexpr std::uint32_t default_tid = -1;
+       static auto get_tid() noexcept { return tid; }
+   };
+   
+   [[nodiscard]] inline bool is_this_thread_tpool_worker() noexcept {
+       return tpool_tids_t::get_tid() != tpool_tids_t::default_tid;
+   }
+   [[nodiscard]] inline auto tpool_worker_tid() noexcept {
+       return tpool_tids_t::get_tid();
+   }
+   
+   }

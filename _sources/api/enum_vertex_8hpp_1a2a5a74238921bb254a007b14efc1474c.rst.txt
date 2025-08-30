@@ -1,0 +1,14 @@
+.. _exhale_enum_vertex_8hpp_1a2a5a74238921bb254a007b14efc1474c:
+
+Enum vertex_type_e
+==================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::integrator::plt_bdpt::vertex_type_e
+   :project: wave_tracer

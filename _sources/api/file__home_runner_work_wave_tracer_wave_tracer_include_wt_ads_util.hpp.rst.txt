@@ -1,0 +1,75 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_util.hpp:
+
+File util.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/util.hpp``)
+----------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_util.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``chrono`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`)
+
+- ``functional``
+
+- ``optional``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/util/unique_function.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unique_function.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_constructor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_constructor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_bootstrap.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__ads`
+
+- :ref:`namespace_wt__ads__construction`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1construction_1_1progress__callback__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1construction_1_1progress__track__t`
+

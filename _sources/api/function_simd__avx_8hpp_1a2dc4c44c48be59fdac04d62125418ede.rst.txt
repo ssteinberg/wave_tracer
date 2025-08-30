@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1a2dc4c44c48be59fdac04d62125418ede:
+
+Function wt::simd::min(simd_avx_t<double, 4>, simd_avx_t<double, 4>)
+====================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::min(simd_avx_t<double, 4>, simd_avx_t<double, 4>)
+   :project: wave_tracer

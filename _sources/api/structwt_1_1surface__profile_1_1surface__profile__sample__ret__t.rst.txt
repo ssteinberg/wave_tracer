@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1surface__profile_1_1surface__profile__sample__ret__t:
+
+Struct surface_profile_sample_ret_t
+===================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::surface_profile::surface_profile_sample_ret_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

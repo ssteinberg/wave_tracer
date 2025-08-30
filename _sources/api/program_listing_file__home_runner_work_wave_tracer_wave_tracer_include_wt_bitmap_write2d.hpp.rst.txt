@@ -1,0 +1,58 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_write2d.hpp:
+
+Program Listing for File write2d.hpp
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_write2d.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap/write2d.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * Wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <map>
+   #include <string>
+   #include <filesystem>
+   
+   #include <wt/bitmap/bitmap.hpp>
+   #include <wt/bitmap/common.hpp>
+   
+   namespace wt::bitmap {
+   
+   // TODO: colour spaces and colour encoding in OpenEXR and libpng.
+   
+   void write_bitmap2d_exr(const std::filesystem::path &path,
+                           const bitmap2d_t<float> &bitmap,
+                           const std::vector<std::string>& channel_names = {},
+                           const std::map<std::string,std::string>& attributes = {});
+   
+   template <texel T>
+   inline void write_bitmap2d_exr(const std::filesystem::path &path,
+                                  const bitmap2d_t<T> &bitmap,
+                                  const std::vector<std::string>& channel_names = {},
+                                  const std::map<std::string,std::string>& attributes = {}) {
+       write_bitmap2d_exr(
+           path, 
+           bitmap.template convert_texels<float>(),
+           channel_names,
+           attributes
+       );
+   }
+   
+   void write_bitmap2d_png(const std::filesystem::path &path,
+                           const bitmap2d_t<std::uint8_t> &bitmap);
+   void write_bitmap2d_png(const std::filesystem::path &path,
+                           const bitmap2d_t<std::uint16_t> &bitmap);
+   
+   }

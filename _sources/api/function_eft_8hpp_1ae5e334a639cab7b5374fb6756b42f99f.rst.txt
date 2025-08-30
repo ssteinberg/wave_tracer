@@ -1,0 +1,14 @@
+.. _exhale_function_eft_8hpp_1ae5e334a639cab7b5374fb6756b42f99f:
+
+Template Function wt::m::eft::normalize
+=======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::eft::normalize(const V&)
+   :project: wave_tracer

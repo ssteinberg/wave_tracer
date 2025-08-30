@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1a1e9380ba06ceac6d16e3ff8c271295b6:
+
+Template Function wt::operator-(wide_vector<W, N, Q>)
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::operator-(wide_vector<W, N, Q>)
+   :project: wave_tracer

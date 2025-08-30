@@ -1,0 +1,19 @@
+
+.. _namespace_wt__colourspace__sRGB:
+
+Namespace wt::colourspace::sRGB
+===============================
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1ad0948b4295ead96d500dc8b283caad01`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a8982202584055b696efecc3a7ed3b635`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a3e41794d4dc7f323316dbef8dd79c896`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a4cacf5ae23a47ba6a5f054d09174f255`

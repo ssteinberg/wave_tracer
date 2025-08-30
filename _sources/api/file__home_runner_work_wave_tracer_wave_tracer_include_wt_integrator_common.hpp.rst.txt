@@ -1,0 +1,67 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_common.hpp:
+
+File common.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/integrator``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/integrator/common.hpp``)
+-------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_common.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/bsdf/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`)
+
+- ``wt/emitter/emitter.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/frame.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`)
+
+- ``wt/sampler/sampler.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`)
+
+- ``wt/scene/scene.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__integrator`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_integrator_2common_8hpp_1a42d66d2af5ef0a67adb148070a437915`
+

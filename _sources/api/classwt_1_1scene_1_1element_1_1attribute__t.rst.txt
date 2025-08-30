@@ -1,0 +1,28 @@
+.. _exhale_class_classwt_1_1scene_1_1element_1_1attribute__t:
+
+Class attribute_t
+=================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_info.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public wt::scene::element::attributes::container_attribute_t`` (:ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1container__attribute__t`)
+- ``public wt::scene::element::attributes::data_attribute_t`` (:ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1data__attribute__t`)
+- ``public wt::scene::element::attributes::element_attribute_t`` (:ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1element__attribute__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::scene::element::attribute_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

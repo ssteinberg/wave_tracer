@@ -1,0 +1,966 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp:
+
+Program Listing for File quantity_vector.hpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity/quantity_vector.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <cstddef>
+   #include <cassert>
+   
+   #include <wt/math/quantity/framework.hpp>
+   
+   #include <wt/util/concepts.hpp>
+   
+   #include <wt/math/defs.hpp>
+   #include <wt/math/quantity/defs.hpp>
+   #include <wt/math/quantity/math.hpp>
+   #include <wt/math/quantity/type_traits.hpp>
+   #include <wt/math/quantity/quantity_limits.hpp>
+   
+   namespace wt {
+   
+   template <std::size_t N, Quantity Q>
+   struct quantity_vector_storage;
+   
+   template <Quantity Q>
+   struct quantity_vector_storage<1,Q> { Q x{}; };
+   template <Quantity Q>
+   struct quantity_vector_storage<2,Q> { Q x{},y{}; };
+   template <Quantity Q>
+   struct quantity_vector_storage<3,Q> { Q x{},y{},z{}; };
+   template <Quantity Q>
+   struct quantity_vector_storage<4,Q> { Q x{},y{},z{},w{}; };
+   
+   template <std::size_t N, Quantity Q>
+       requires (N>=1 && N<=4)
+   struct quantity_vector final : public quantity_vector_storage<N, Q> {
+   public:
+       using quantity_t = Q;
+       using R = typename Q::rep;
+   
+       static constexpr auto element_count = N;
+   
+   public:
+       constexpr quantity_vector() noexcept = default;
+   
+       template <Quantity S>
+           requires std::is_convertible_v<S, Q>
+       constexpr explicit inline quantity_vector(S s) noexcept {
+           this->x = static_cast<Q>(s);
+           if constexpr (N>1) this->y = static_cast<Q>(s);
+           if constexpr (N>2) this->z = static_cast<Q>(s);
+           if constexpr (N>3) this->w = static_cast<Q>(s);
+       }
+   
+       constexpr inline quantity_vector(Q x, Q y) noexcept requires (N==2)
+       {
+           this->x=x;
+           this->y=y;
+       }
+   
+       constexpr inline quantity_vector(Q x, Q y, Q z) noexcept requires (N==3)
+       {
+           this->x=x;
+           this->y=y;
+           this->z=z;
+       }
+       constexpr inline quantity_vector(const quantity_vector<2, Q>& xy, Q z) noexcept requires (N==3)
+       {
+           this->x=xy[0];
+           this->y=xy[1];
+           this->z=z;
+       }
+       constexpr inline quantity_vector(Q x, const quantity_vector<2, Q>& yz) noexcept requires (N==3)
+       {
+           this->x=x;
+           this->y=yz[0];
+           this->z=yz[1];
+       }
+   
+       constexpr inline quantity_vector(Q x, Q y, Q z, Q w) noexcept requires (N==4)
+       {
+           this->x=x;
+           this->y=y;
+           this->z=z;
+           this->w=w;
+       }
+       constexpr inline quantity_vector(const quantity_vector<2, Q>& xy, Q z, Q w) noexcept requires (N==4)
+       {
+           this->x=xy[0];
+           this->y=xy[1];
+           this->z=z;
+           this->w=w;
+       }
+       constexpr inline quantity_vector(Q x, Q y, const quantity_vector<2, Q>& zw) noexcept requires (N==4)
+       {
+           this->x=x;
+           this->y=y;
+           this->z=zw[0];
+           this->w=zw[1];
+       }
+       constexpr inline quantity_vector(const quantity_vector<2, Q>& xy, const quantity_vector<2, Q>& zw) noexcept requires (N==4)
+       {
+           this->x=xy[0];
+           this->y=xy[1];
+           this->z=zw[0];
+           this->w=zw[1];
+       }
+       constexpr inline quantity_vector(const quantity_vector<3, Q>& xyz, Q w) noexcept requires (N==4)
+       {
+           this->x=xyz[0];
+           this->y=xyz[1];
+           this->z=xyz[2];
+           this->w=w;
+       }
+       constexpr inline quantity_vector(Q x, const quantity_vector<3, Q>& yzw) noexcept requires (N==4)
+       {
+           this->x=x;
+           this->y=yzw[0];
+           this->z=yzw[1];
+           this->w=yzw[2];
+       }
+   
+       template <std::size_t M, Quantity S>
+           requires (M>=N) && std::constructible_from<Q, S>
+       explicit constexpr inline quantity_vector(const quantity_vector<M, S>& qv) noexcept {
+           for (auto i=0ul;i<N;++i)
+               (*this)[i] = Q{ qv[i] };
+       }
+   
+       template <std::size_t M, Quantity S>
+           requires (M>=N) && std::constructible_from<Q, S>
+       explicit constexpr inline quantity_vector(const vec<M, S>& qv) noexcept {
+           for (auto i=0ul;i<N;++i)
+               (*this)[i] = Q{ qv[i] };
+       }
+   
+       constexpr quantity_vector(quantity_vector&&) noexcept = default;
+       constexpr quantity_vector(const quantity_vector&) noexcept = default;
+       constexpr quantity_vector& operator=(quantity_vector&&) noexcept = default;
+       constexpr quantity_vector& operator=(const quantity_vector&) noexcept = default;
+   
+       constexpr inline auto& operator[](std::size_t i) noexcept {
+           assert(i<N);
+           return *(&this->x+i);
+       }
+       constexpr inline const auto& operator[](std::size_t i) const noexcept {
+           assert(i<N);
+           return *(&this->x+i);
+       }
+   
+       constexpr inline const auto& operator+=(const quantity_vector& o) noexcept {
+           for (auto i=0ul;i<N;++i)  (*this)[i] += o[i];
+           return *this;
+       }
+       constexpr inline const auto& operator-=(const quantity_vector& o) noexcept {
+           for (auto i=0ul;i<N;++i)  (*this)[i] -= o[i];
+           return *this;
+       }
+       constexpr inline const auto& operator*=(const R& o) noexcept {
+           for (auto i=0ul;i<N;++i)  (*this)[i] *= o;
+           return *this;
+       }
+       constexpr inline const auto& operator/=(const R& o) noexcept {
+           for (auto i=0ul;i<N;++i)  (*this)[i] /= o;
+           return *this;
+       }
+   
+       constexpr inline const auto& operator*=(const vec<N,R>& o) noexcept {
+           for (auto i=0ul;i<N;++i)  (*this)[i] *= o[i];
+           return *this;
+       }
+       constexpr inline const auto& operator/=(const vec<N,R>& o) noexcept {
+           for (auto i=0ul;i<N;++i)  (*this)[i] /= o[i];
+           return *this;
+       }
+   
+       constexpr inline const auto& operator-(int) noexcept {
+           for (auto i=0ul;i<N;++i)  (*this)[i] = -(*this)[i];
+           return *this;
+       }
+   
+       template <Unit U>
+       [[nodiscard]] constexpr inline auto numerical_value_in(U) const noexcept {
+           vec<N,R> ret;
+           for (auto i=0ul;i<N;++i)
+               ret[i] = (*this)[i].numerical_value_in(U{});
+           return ret;
+       }
+   
+       explicit constexpr inline operator vec<N,R>() const noexcept 
+           requires QuantityOf<Q,dimensionless>
+       {
+           vec<N,R> ret;
+           for (auto i=0ul;i<N;++i)
+               ret[i] = (*this)[i].numerical_value_in(u::one);
+           return ret;
+       }
+   
+       template <Quantity S>
+           requires (std::is_convertible_v<S, Q>)
+       constexpr inline operator quantity_vector<N, S>() const noexcept {
+           quantity_vector<N, S> ret{};
+           for (auto i=0ul;i<N;++i)
+               ret[i] = static_cast<S>((*this)[i]);
+           return ret;
+       }
+   
+       template <std::size_t M, Quantity S>
+           requires (M<=N) && std::convertible_to<Q, S>
+       explicit constexpr inline operator quantity_vector<M, S>() const noexcept {
+           quantity_vector<M, S> ret{};
+           for (auto i=0ul;i<M;++i)
+               ret[i] = static_cast<S>((*this)[i]);
+           return ret;
+       }
+   
+       constexpr static inline auto zero() noexcept {
+           return quantity_vector{ Q{}.zero() };
+       }
+       constexpr static inline auto infinity() noexcept {
+           return quantity_vector{ std::numeric_limits<Q>::infinity() };
+       }
+   };
+   
+   
+   namespace detail {
+   
+   template <std::size_t N, typename T>
+   void to_base_specialization_of_quantity_vector(const quantity_vector<N, T>*);
+   template<typename T>
+   constexpr bool is_derived_from_specialization_of_quantity_vector =
+       requires(T* type) { to_base_specialization_of_quantity_vector(type); };
+   
+   }
+   
+   template <typename T>
+   concept QuantityVector = detail::is_derived_from_specialization_of_quantity_vector<T>;
+   
+   template <typename T, typename Rep>
+   concept QuantityVectorWithRep = 
+           detail::is_derived_from_specialization_of_quantity_vector<T> &&
+           std::is_same_v<typename T::quantity_t::rep,Rep>;
+   
+   template <typename T, auto QS>
+   concept QuantityVectorOf = 
+           detail::is_derived_from_specialization_of_quantity_vector<T> &&
+           mp_units::QuantitySpecOf<std::remove_const_t<decltype(T::quantity_t::quantity_spec)>, QS>;
+   
+   
+   template <std::size_t N, Quantity Q>
+   using qvec = quantity_vector<N,Q>;
+   
+   template <Quantity Q>
+   using qvec1 = qvec<1,Q>;
+   template <Quantity Q>
+   using qvec2 = qvec<2,Q>;
+   template <Quantity Q>
+   using qvec3 = qvec<3,Q>;
+   template <Quantity Q>
+   using qvec4 = qvec<4,Q>;
+   
+   using pqvec1_t = qvec1<length_t>;
+   using pqvec2_t = qvec2<length_t>;
+   using pqvec3_t = qvec3<length_t>;
+   using pqvec4_t = qvec4<length_t>;
+   
+   using pqvec1d_t = qvec1<quantity<isq::length[u::m], double>>;
+   using pqvec2d_t = qvec2<quantity<isq::length[u::m], double>>;
+   using pqvec3d_t = qvec3<quantity<isq::length[u::m], double>>;
+   using pqvec4d_t = qvec4<quantity<isq::length[u::m], double>>;
+   
+   
+   template <std::size_t N, typename S>
+   struct vector_type {
+   };
+   template <std::size_t N, Numeric T>
+   struct vector_type<N,T> {
+       using type = vec<N,T>;
+   };
+   template <std::size_t N, Quantity Q>
+   struct vector_type<N,Q> {
+       using type = qvec<N,Q>;
+   };
+   template <std::size_t N, Scalar S>
+   using vector_t = vector_type<N,S>::type;
+   template <Scalar S>
+   using vector1 = vector_t<1,S>;
+   template <Scalar S>
+   using vector2 = vector_t<2,S>;
+   template <Scalar S>
+   using vector3 = vector_t<3,S>;
+   template <Scalar S>
+   using vector4 = vector_t<4,S>;
+   
+   template <std::size_t N, Scalar S>
+   constexpr inline auto vec_from_scalar(S s) noexcept {
+       return vector_t<N,S>{ s };
+   }
+   
+   
+   namespace u {
+   
+   // shorthands for quantity to value conversions
+   
+   template <QuantityOf<dimensionless> Q, std::size_t N>
+   constexpr inline auto to_num(const quantity_vector<N,Q>& v) noexcept {
+       vec<N,f_t> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(u::one);
+       return ret;
+   }
+   
+   template <QuantityOf<isq::length> Q, std::size_t N>
+   constexpr inline auto to_nm(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(u::nm));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(u::nm);
+       return ret;
+   }
+   
+   template <QuantityOf<isq::length> Q, std::size_t N>
+   constexpr inline auto to_mm(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(u::mm));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(u::mm);
+       return ret;
+   }
+   
+   template <QuantityOf<isq::length> Q, std::size_t N>
+   constexpr inline auto to_µm(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(u::µm));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(u::µm);
+       return ret;
+   }
+   
+   template <QuantityOf<isq::length> Q, std::size_t N>
+   constexpr inline auto to_m(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(u::m));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(u::m);
+       return ret;
+   }
+   
+   template <QuantityOf<isq::area> Q, std::size_t N>
+   constexpr inline auto to_mm2(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(square(u::mm)));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(square(u::mm));
+       return ret;
+   }
+   
+   template <QuantityOf<isq::area> Q, std::size_t N>
+   constexpr inline auto to_m2(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(square(u::m)));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(square(u::m));
+       return ret;
+   }
+   
+   template <QuantityOf<inverse(isq::length)> Q, std::size_t N>
+   constexpr inline auto to_inv_m(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(u::one/u::m));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(u::one/u::m);
+       return ret;
+   }
+   
+   template <QuantityOf<inverse(isq::length)> Q, std::size_t N>
+   constexpr inline auto to_inv_mm(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(u::one/u::mm));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(u::one/u::mm);
+       return ret;
+   }
+   
+   template <QuantityOf<inverse(isq::area)> Q, std::size_t N>
+   constexpr inline auto to_inv_m2(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(inverse(square(u::m))));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(inverse(square(u::m)));
+       return ret;
+   }
+   
+   template <QuantityOf<inverse(isq::area)> Q, std::size_t N>
+   constexpr inline auto to_inv_mm2(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(inverse(square(u::mm))));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(inverse(square(u::mm)));
+       return ret;
+   }
+   
+   template <QuantityOf<isq::power> Q, std::size_t N>
+   constexpr inline auto to_W(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<Q>().numerical_value_in(u::W));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(u::W);
+       return ret;
+   }
+   
+   template <Unit U, Quantity Q, std::size_t N>
+   constexpr inline auto numerical_value_in(const quantity_vector<N,Q>& v, const U u) noexcept {
+       vec<N,f_t> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v[i].numerical_value_in(u);
+       return ret;
+   }
+   
+   }
+   
+   
+   namespace m {
+   
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto sqrt(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(sqrt(std::declval<Q>()));
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = sqrt(v[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto abs(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(abs(std::declval<Q>()));
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = abs(v[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto exp(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(exp(std::declval<Q>()));
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = exp(v[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto floor(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(floor(std::declval<Q>()));
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = floor(v[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto ceil(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(ceil(std::declval<Q>()));
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = ceil(v[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto round(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(round(std::declval<Q>()));
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = round(v[i]);
+       return ret;
+   }
+   
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto signbit(const quantity_vector<N,Q>& v) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = signbit(v[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto sign(const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(sign(std::declval<Q>()));
+       vec<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = sign(v[i]);
+       return ret;
+   }
+   
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto iszero(const quantity_vector<N,Q>& v) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = iszero(v[i]);
+       return ret;
+   }
+   template <Quantity T, std::size_t N>
+   constexpr inline auto isfinite(const quantity_vector<N,T>& v) noexcept {
+       for (auto i=0ul;i<N;++i)
+           if (!isfinite(v[i]))
+               return false;
+       return true;
+   }
+   template <Quantity T, std::size_t N>
+   constexpr inline auto isnan(const quantity_vector<N,T>& v) noexcept {
+       for (auto i=0ul;i<N;++i)
+           if (!isnan(v[i]))
+               return false;
+       return true;
+   }
+   
+   template <Quantity T, std::size_t N>
+   constexpr inline auto isltzero(const quantity_vector<N,T>& q) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = isltzero(q[i]);
+       return ret;
+   }
+   template <Quantity T, std::size_t N>
+   constexpr inline auto islteqzero(const quantity_vector<N,T>& q) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = islteqzero(q[i]);
+       return ret;
+   }
+   template <Quantity T, std::size_t N>
+   constexpr inline auto isgtzero(const quantity_vector<N,T>& q) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = isgtzero(q[i]);
+       return ret;
+   }
+   template <Quantity T, std::size_t N>
+   constexpr inline auto isgteqzero(const quantity_vector<N,T>& q) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = isgteqzero(q[i]);
+       return ret;
+   }
+   
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto clamp(const quantity_vector<N,Q>& v, 
+                               const Q& minv, 
+                               const Q& maxv) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = clamp(v[i],minv,maxv);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto clamp(const quantity_vector<N,Q>& v, 
+                               const quantity_vector<N,Q>& minv, 
+                               const quantity_vector<N,Q>& maxv) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = clamp(v[i],minv[i],maxv[i]);
+       return ret;
+   }
+   
+   template <Quantity Q, NumericOrBool T, std::size_t N>
+   constexpr inline auto mix(const quantity_vector<N,Q>& a, 
+                             const quantity_vector<N,Q>& b, 
+                             const T& x) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = mix(a[i],b[i],x);
+       return ret;
+   }
+   template <Quantity Q, Numeric T, std::size_t N>
+   constexpr inline auto mix(const quantity_vector<N,Q>& a, 
+                             const quantity_vector<N,Q>& b, 
+                             const vec<N,T>& x) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = mix(a[i],b[i],x[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto mix(const quantity_vector<N,Q>& a, 
+                             const quantity_vector<N,Q>& b, 
+                             const bvec<N>& x) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = mix(a[i],b[i],x[i]);
+       return ret;
+   }
+   
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto min(const quantity_vector<N,Q>& v1, const quantity_vector<N,Q>& v2) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = min(v1[i], v2[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto min(const quantity_vector<N,Q>& v1, const quantity_vector<N,Q>& v2, const quantity_vector<N,Q>& v3) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = min(v1[i], v2[i], v3[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto min(const quantity_vector<N,Q>& v1, const quantity_vector<N,Q>& v2, const quantity_vector<N,Q>& v3, const quantity_vector<N,Q>& v4) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = min(v1[i], v2[i], v3[i], v4[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto max(const quantity_vector<N,Q>& v1, const quantity_vector<N,Q>& v2) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = max(v1[i], v2[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto max(const quantity_vector<N,Q>& v1, const quantity_vector<N,Q>& v2, const quantity_vector<N,Q>& v3) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = max(v1[i], v2[i], v3[i]);
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto max(const quantity_vector<N,Q>& v1, const quantity_vector<N,Q>& v2, const quantity_vector<N,Q>& v3, const quantity_vector<N,Q>& v4) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = max(v1[i], v2[i], v3[i], v4[i]);
+       return ret;
+   }
+   
+   template <Quantity T>
+   constexpr inline auto max_element(const qvec1<T>& v) noexcept {
+       return v.x;
+   }
+   template <Quantity T>
+   constexpr inline auto max_element(const qvec2<T>& v) noexcept {
+       return max(v.x,v.y);
+   }
+   template <Quantity T>
+   constexpr inline auto max_element(const qvec3<T>& v) noexcept {
+       return max(v.x,v.y,v.z);
+   }
+   template <Quantity T>
+   constexpr inline auto max_element(const qvec4<T>& v) noexcept {
+       return max(v.x,v.y,v.z,v.z);
+   }
+   template <Quantity T>
+   constexpr inline auto min_element(const qvec1<T>& v) noexcept {
+       return v.x;
+   }
+   template <Quantity T>
+   constexpr inline auto min_element(const qvec2<T>& v) noexcept {
+       return min(v.x,v.y);
+   }
+   template <Quantity T>
+   constexpr inline auto min_element(const qvec3<T>& v) noexcept {
+       return min(v.x,v.y,v.z);
+   }
+   template <Quantity T>
+   constexpr inline auto min_element(const qvec4<T>& v) noexcept {
+       return min(v.x,v.y,v.z,v.z);
+   }
+   
+   template <Quantity T>
+   constexpr inline auto max_dimension(const qvec1<T>& v) noexcept {
+       return 0;
+   }
+   template <Quantity T>
+   constexpr inline auto max_dimension(const qvec2<T>& v) noexcept {
+       return v.x>v.y ? 0 : 1;
+   }
+   template <Quantity T>
+   constexpr inline auto max_dimension(const qvec3<T>& v) noexcept {
+       const auto e = max_element(v);
+       return e==v.x ? 0 : e==v.y ? 1 : 2;
+   }
+   template <Quantity T>
+   constexpr inline auto max_dimension(const qvec4<T>& v) noexcept {
+       const auto e = max_element(v);
+       return e==v.x ? 0 : e==v.y ? 1 : e==v.z ? 2 : 3;
+   }
+   template <Quantity T>
+   constexpr inline auto min_dimension(const qvec1<T>& v) noexcept {
+       return 0;
+   }
+   template <Quantity T>
+   constexpr inline auto min_dimension(const qvec2<T>& v) noexcept {
+       return v.x<v.y ? 0 : 1;
+   }
+   template <Quantity T>
+   constexpr inline auto min_dimension(const qvec3<T>& v) noexcept {
+       const auto e = min_element(v);
+       return e==v.x ? 0 : e==v.y ? 1 : 2;
+   }
+   template <Quantity T>
+   constexpr inline auto min_dimension(const qvec4<T>& v) noexcept {
+       const auto e = min_element(v);
+       return e==v.x ? 0 : e==v.y ? 1 : e==v.z ? 2 : 3;
+   }
+   
+   template <Quantity T>
+   constexpr inline auto prod(const qvec1<T>& v) noexcept {
+       return v.x;
+   }
+   template <Quantity T>
+   constexpr inline auto prod(const qvec2<T>& v) noexcept {
+       return v.x*v.y;
+   }
+   template <Quantity T>
+   constexpr inline auto prod(const qvec3<T>& v) noexcept {
+       return v.x*v.y*v.z;
+   }
+   template <Quantity T>
+   constexpr inline auto prod(const qvec4<T>& v) noexcept {
+       return v.x*v.y*v.z*v.w;
+   }
+   
+   template <Quantity T>
+   constexpr inline auto sum(const qvec1<T>& v) noexcept {
+       return v.x;
+   }
+   template <Quantity T>
+   constexpr inline auto sum(const qvec2<T>& v) noexcept {
+       return v.x+v.y;
+   }
+   template <Quantity T>
+   constexpr inline auto sum(const qvec3<T>& v) noexcept {
+       return v.x+v.y+v.z;
+   }
+   template <Quantity T>
+   constexpr inline auto sum(const qvec4<T>& v) noexcept {
+       return v.x+v.y+v.z+v.w;
+   }
+   template <Quantity T, std::size_t N>
+   constexpr inline auto mean(const quantity_vector<N,T>& v) noexcept {
+       return sum(v) / N;
+   }
+   
+   }
+   
+   
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto operator+(const quantity_vector<N,Q>& v) noexcept {
+       return v;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto operator-(const quantity_vector<N,Q>& v) noexcept {
+       quantity_vector<N,Q> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = -v[i];
+       return ret;
+   }
+   
+   
+   template <Quantity Q1, Quantity Q2, std::size_t N>
+   constexpr inline auto operator+(const quantity_vector<N,Q1>& v1, const quantity_vector<N,Q2>& v2) noexcept {
+       using R = decltype(std::declval<Q1>()+std::declval<Q2>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]+v2[i];
+       return ret;
+   }
+   template <Quantity Q1, Quantity Q2, std::size_t N>
+   constexpr inline auto operator-(const quantity_vector<N,Q1>& v1, const quantity_vector<N,Q2>& v2) noexcept {
+       using R = decltype(std::declval<Q1>()-std::declval<Q2>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]-v2[i];
+       return ret;
+   }
+   template <Quantity Q1, Quantity Q2, std::size_t N>
+   constexpr inline auto operator*(const quantity_vector<N,Q1>& v1, const quantity_vector<N,Q2>& v2) noexcept {
+       using R = decltype(std::declval<Q1>()*std::declval<Q2>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]*v2[i];
+       return ret;
+   }
+   template <Quantity Q1, Quantity Q2, std::size_t N>
+   constexpr inline auto operator/(const quantity_vector<N,Q1>& v1, const quantity_vector<N,Q2>& v2) noexcept {
+       using R = decltype(std::declval<Q1>()/std::declval<Q2>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]/v2[i];
+       return ret;
+   }
+   
+   
+   template <Quantity Q, Numeric S, std::size_t N>
+   constexpr inline auto operator*(const quantity_vector<N,Q>& v1, const vec<N,S>& v2) noexcept {
+       using R = decltype(std::declval<Q>()*std::declval<S>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]*v2[i];
+       return ret;
+   }
+   template <Quantity Q, Numeric S, std::size_t N>
+   constexpr inline auto operator*(const vec<N,S>& v1, const quantity_vector<N,Q>& v2) noexcept {
+       using R = decltype(std::declval<S>()*std::declval<Q>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]*v2[i];
+       return ret;
+   }
+   template <Quantity Q, Numeric S, std::size_t N>
+   constexpr inline auto operator/(const quantity_vector<N,Q>& v1, const vec<N,S>& v2) noexcept {
+       using R = decltype(std::declval<Q>()/std::declval<S>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]/v2[i];
+       return ret;
+   }
+   template <Quantity Q, Numeric S, std::size_t N>
+   constexpr inline auto operator/(const vec<N,S>& v1, const quantity_vector<N,Q>& v2) noexcept {
+       using R = decltype(std::declval<S>()/std::declval<Q>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]/v2[i];
+       return ret;
+   }
+   
+   template <Quantity Q, ScalarOrUnit S, std::size_t N>
+   constexpr inline auto operator*(const quantity_vector<N,Q>& v1, const S& s) noexcept {
+       using R = decltype(std::declval<Q>()*s);
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]*s;
+       return ret;
+   }
+   template <Quantity Q, ScalarOrUnit S, std::size_t N>
+   constexpr inline auto operator*(const S& s, const quantity_vector<N,Q>& v1) noexcept {
+       using R = decltype(s*std::declval<Q>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = s*v1[i];
+       return ret;
+   }
+   template <Quantity Q, ScalarOrUnit S, std::size_t N>
+   constexpr inline auto operator/(const quantity_vector<N,Q>& v1, const S& s) noexcept {
+       using R = decltype(std::declval<Q>()/s);
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]/s;
+       return ret;
+   }
+   template <Quantity Q, ScalarOrUnit S, std::size_t N>
+   constexpr inline auto operator/(const S& s, const quantity_vector<N,Q>& v1) noexcept {
+       using R = decltype(s/std::declval<Q>());
+       quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = s/v1[i];
+       return ret;
+   }
+   
+   
+   template <Numeric T, Quantity Q, std::size_t N, std::size_t M>
+   constexpr inline auto operator*(const mat<M,N,T>& m, const quantity_vector<N,Q>& v) noexcept {
+       using R = decltype(std::declval<T>()*std::declval<Q>());
+       quantity_vector<M,R> ret;
+       for (auto j=0ul;j<M;++j)
+       for (auto i=0ul;i<N;++i)
+           ret[j] += m[i][j]*v[i];
+       return ret;
+   }
+   
+   
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto operator<(const quantity_vector<N,Q>& o1, const quantity_vector<N,Q>& o2) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = o1[i]<o2[i];
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto operator<=(const quantity_vector<N,Q>& o1, const quantity_vector<N,Q>& o2) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = o1[i]<=o2[i];
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto operator>(const quantity_vector<N,Q>& o1, const quantity_vector<N,Q>& o2) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = o1[i]>o2[i];
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto operator>=(const quantity_vector<N,Q>& o1, const quantity_vector<N,Q>& o2) noexcept {
+       bvec<N> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = o1[i]>=o2[i];
+       return ret;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto operator==(const quantity_vector<N,Q>& o1, const quantity_vector<N,Q>& o2) noexcept {
+       for (auto i=0ul;i<N;++i)
+           if (o1[i]!=o2[i])
+               return false;
+       return true;
+   }
+   template <Quantity Q, std::size_t N>
+   constexpr inline auto operator!=(const quantity_vector<N,Q>& o1, const quantity_vector<N,Q>& o2) noexcept {
+       for (auto i=0ul;i<N;++i)
+           if (o1[i]!=o2[i])
+               return true;
+       return false;
+   }
+   
+   
+   }
+   
+   
+   namespace glm {
+   
+   template <wt::Numeric S, std::size_t N>
+   constexpr inline auto operator*(const wt::vec<N,S>& v1, const wt::QuantityOrUnit auto u) noexcept {
+       using R = decltype(std::declval<S>()*u);
+       wt::quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]*u;
+       return ret;
+   }
+   template <wt::Numeric S, std::size_t N>
+   constexpr inline auto operator*(const wt::QuantityOrUnit auto u, const wt::vec<N,S>& v1) noexcept {
+       using R = decltype(u*std::declval<S>());
+       wt::quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = u*v1[i];
+       return ret;
+   }
+   template <wt::Numeric S, std::size_t N>
+   constexpr inline auto operator/(const wt::vec<N,S>& v1, const wt::QuantityOrUnit auto u) noexcept {
+       using R = decltype(std::declval<S>()/u);
+       wt::quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = v1[i]/u;
+       return ret;
+   }
+   template <wt::Numeric S, std::size_t N>
+   constexpr inline auto operator/(const wt::QuantityOrUnit auto u, const wt::vec<N,S>& v1) noexcept {
+       using R = decltype(u/std::declval<S>());
+       wt::quantity_vector<N,R> ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = u/v1[i];
+       return ret;
+   }
+   
+   }

@@ -1,0 +1,14 @@
+.. _exhale_typedef_fractal_8hpp_1a8d1e551c162d25e5a1ddec1472b6412e:
+
+Typedef wt::surface_profile::fractalT_t
+=======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_fractal.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::surface_profile::fractalT_t
+   :project: wave_tracer

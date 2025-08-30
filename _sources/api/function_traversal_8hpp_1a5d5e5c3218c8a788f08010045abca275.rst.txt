@@ -1,0 +1,14 @@
+.. _exhale_function_traversal_8hpp_1a5d5e5c3218c8a788f08010045abca275:
+
+Function wt::integrator::intersection_position(const vertex_geo_variant_t&)
+===========================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::intersection_position(const vertex_geo_variant_t&)
+   :project: wave_tracer

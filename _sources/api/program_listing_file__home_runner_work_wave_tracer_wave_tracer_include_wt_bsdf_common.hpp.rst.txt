@@ -1,0 +1,83 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp:
+
+Program Listing for File common.hpp
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bsdf/common.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <bitset>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/frame.hpp>
+   #include <wt/sampler/density.hpp>
+   
+   #include <wt/interaction/intersection.hpp>
+   #include <wt/interaction/polarimetric/stokes.hpp>
+   #include <wt/interaction/polarimetric/mueller.hpp>
+   
+   namespace wt::bsdf {
+   
+   enum class transport_e : std::uint8_t {
+       forward  = 0,
+       backward = 1,
+   };
+   
+   [[nodiscard]] inline constexpr auto flip_transport(transport_e t) noexcept {
+       return t==transport_e::forward ? 
+           transport_e::backward : transport_e::forward;
+   }
+   
+   
+   using lobe_mask_t = std::bitset<32>;
+   
+   struct bsdf_query_t {
+       const intersection_surface_t& intersection;
+   
+       // wavenumber
+       wavenumber_t k;
+   
+       transport_e transport;
+       lobe_mask_t lobe = lobe_mask_t{}.set();
+   };
+   
+   
+   struct bsdf_result_t {
+       mueller_operator_t M;
+   
+       static constexpr bool polarimetric = true;
+   
+       [[nodiscard]] inline auto mean_intensity() const noexcept {
+           return M.mean_intensity();
+       }
+   };
+   
+   
+   struct bsdf_sample_t {
+       dir3_t wo;
+   
+       solid_angle_sampling_pd_t dpd;
+   
+       c_t eta = 1;
+       
+       lobe_mask_t lobe = lobe_mask_t{};
+   
+       bsdf_result_t weighted_bsdf;
+   };
+   
+   }

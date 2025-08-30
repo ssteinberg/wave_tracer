@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1spectrum_1_1composite__t_1_1comparator__rangew__t:
+
+Struct composite_t::comparator_rangew_t
+=======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_composite.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1spectrum_1_1composite__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::spectrum::composite_t::comparator_rangew_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

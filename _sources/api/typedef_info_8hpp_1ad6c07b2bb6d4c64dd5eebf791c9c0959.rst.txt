@@ -1,0 +1,14 @@
+.. _exhale_typedef_info_8hpp_1ad6c07b2bb6d4c64dd5eebf791c9c0959:
+
+Typedef wt::scene::element::attribute_ptr
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_info.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::scene::element::attribute_ptr
+   :project: wave_tracer

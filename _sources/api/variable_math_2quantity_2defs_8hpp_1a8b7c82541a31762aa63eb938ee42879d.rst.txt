@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2quantity_2defs_8hpp_1a8b7c82541a31762aa63eb938ee42879d:
+
+Variable wt::electrodynamics::wavelength
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::electrodynamics::wavelength
+   :project: wave_tracer

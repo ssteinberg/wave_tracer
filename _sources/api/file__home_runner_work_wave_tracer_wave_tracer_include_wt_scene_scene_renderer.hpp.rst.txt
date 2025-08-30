@@ -1,0 +1,109 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp:
+
+File scene_renderer.hpp
+=======================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/scene_renderer.hpp``)
+----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``atomic``
+
+- ``chrono`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`)
+
+- ``future``
+
+- ``interrupts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_interrupts.hpp`)
+
+- ``queue``
+
+- ``render_results.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp`)
+
+- ``scene.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/ads/ads.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`)
+
+- ``wt/integrator/integrator.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_integrator.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/util/preview/preview_interface.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_interface.hpp`)
+
+- ``wt/util/unique_function.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unique_function.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_previewer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__scene`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1render__opts__t`
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1render__opts__t_1_1progress__callback__t`
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1rendering__status__t`
+
+- :ref:`exhale_struct_structwt_1_1scene__renderer__t_1_1renderer__state__t`
+
+- :ref:`exhale_class_classwt_1_1scene__renderer__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_scene__renderer_8hpp_1a3c39475bfe27b107d457d5f7904eacfa`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_scene__renderer_8hpp_1a767a35f023903873c3c1fc9e383df091`
+
+- :ref:`exhale_typedef_scene__renderer_8hpp_1ae52ea21c63843c5ec5408deece158827`
+

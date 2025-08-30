@@ -1,0 +1,14 @@
+.. _exhale_function_load2d_8hpp_1a94f389578a27b1ff4a98169b493932a4:
+
+Function wt::bitmap::load_bitmap2d_png_query_bitdepth
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_load2d.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::load_bitmap2d_png_query_bitdepth(const std::filesystem::path&)
+   :project: wave_tracer

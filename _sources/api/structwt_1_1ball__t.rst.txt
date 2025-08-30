@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1ball__t:
+
+Struct ball_t
+=============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ball.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::ball_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

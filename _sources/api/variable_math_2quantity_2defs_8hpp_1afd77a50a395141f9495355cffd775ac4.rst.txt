@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2quantity_2defs_8hpp_1afd77a50a395141f9495355cffd775ac4:
+
+Variable wt::electrodynamics::QE_area
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::electrodynamics::QE_area
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2defs_8hpp_1a2aabde84277ca356e53e54fd2365d5ad:
+
+Variable wt::m::golden_ratio
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::m::golden_ratio
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_product__distribution_8hpp_1a6f241f63b4ef56469e9cf45448702918:
+
+Function wt::product_distribution(const binned_piecewise_linear_distribution_t&, const truncated_gaussian1d_t&)
+===============================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_product_distribution.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::product_distribution(const binned_piecewise_linear_distribution_t&, const truncated_gaussian1d_t&)
+   :project: wave_tracer

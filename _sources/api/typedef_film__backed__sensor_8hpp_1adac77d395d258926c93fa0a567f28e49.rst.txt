@@ -1,0 +1,14 @@
+.. _exhale_typedef_film__backed__sensor_8hpp_1adac77d395d258926c93fa0a567f28e49:
+
+Typedef wt::sensor::film_backed_sensor_polarimetric_t
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_film_backed_sensor.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::sensor::film_backed_sensor_polarimetric_t
+   :project: wave_tracer

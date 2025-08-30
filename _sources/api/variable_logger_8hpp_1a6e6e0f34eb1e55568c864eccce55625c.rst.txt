@@ -1,0 +1,14 @@
+.. _exhale_variable_logger_8hpp_1a6e6e0f34eb1e55568c864eccce55625c:
+
+Variable wt::logger::cout
+=========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::logger::cout
+   :project: wave_tracer

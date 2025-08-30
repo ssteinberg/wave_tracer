@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a5226305380be73c0a7a7dcafeae4b65c:
+
+Template Function wt::m::clamp(const vec<N, S>&, const vec<N, S>&, const vec<N, S>&)
+====================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::clamp(const vec<N, S>&, const vec<N, S>&, const vec<N, S>&)
+   :project: wave_tracer

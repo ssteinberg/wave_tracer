@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2transform_2transform_8hpp_1a54c3bc701808fa36a1d98d6a4fc4628a:
+
+Variable wt::transform_point
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::transform_point
+   :project: wave_tracer

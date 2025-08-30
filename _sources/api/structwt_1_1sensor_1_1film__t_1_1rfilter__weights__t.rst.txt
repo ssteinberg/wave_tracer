@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1sensor_1_1film__t_1_1rfilter__weights__t:
+
+Struct film_t::rfilter_weights_t
+================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1sensor_1_1film__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::sensor::film_t::rfilter_weights_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,125 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_sensor.hpp:
+
+Program Listing for File scene_sensor.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_sensor.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/scene_sensor.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <memory>
+   
+   #include <wt/sensor/sensor.hpp>
+   #include <wt/emitter/emitter.hpp>
+   #include <wt/scene/emitter_sample.hpp>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/distribution/distribution1d.hpp>
+   #include <wt/math/distribution/discrete_distribution.hpp>
+   
+   namespace wt::scene {
+   
+   class scene_sensor_t {
+       friend class wt::scene_t;
+   
+   private:
+       struct emitter_sampling_data_t {
+           using integrated_spectrum_distribution_t = distribution1d_t;
+   
+           std::vector<std::unique_ptr<integrated_spectrum_distribution_t>> emitter_sensor_spectra;
+   
+           discrete_distribution_t<radiant_flux_t> emitters_power_distribution;
+   
+           [[nodiscard]] const emitter::emitter_t* sample(const scene_t& parent, sampler::sampler_t& sampler) const noexcept;
+           [[nodiscard]] inline f_t pdf(const emitter::emitter_t* emitter) const noexcept {
+               return emitters_power_distribution.pdf(emitter->scene_emitter_idx);
+           }
+   
+           [[nodiscard]] inline integrated_spectrum_distribution_t::sample_ret_t sample_wavenumber(
+                   sampler::sampler_t& sampler,
+                   const emitter::emitter_t* emitter) const noexcept {
+               const auto* spectrum = emitter_sensor_spectra[emitter->scene_emitter_idx].get();
+               assert(spectrum);
+               if (!spectrum)
+                       return {};
+               return spectrum->sample(sampler);
+           }
+           [[nodiscard]] inline wavenumber_density_t pdf_wavenumber(
+                   const emitter::emitter_t* emitter, wavenumber_t k) const noexcept {
+               const auto* spectrum = emitter_sensor_spectra[emitter->scene_emitter_idx].get();
+               assert(spectrum);
+               if (!spectrum)
+                       return {};
+               return spectrum->pdf(u::to_inv_mm(k)) * u::mm;
+           }
+   
+           [[nodiscard]] static emitter_sampling_data_t build_sampling_data(
+                   const wt_context_t& ctx,
+                   const sensor::sensor_t* sensor,
+                   const scene_t* scene);
+       };
+   
+   private:
+       std::shared_ptr<sensor::sensor_t> sensor;
+       emitter_sampling_data_t emitter_sampler;
+   
+   public:
+       scene_sensor_t(const wt_context_t& ctx,
+                      std::shared_ptr<sensor::sensor_t> sensor,
+                      const scene_t* scene);
+   
+   private:
+       [[nodiscard]] inline const emitter::emitter_t* sample_emitter(
+               const scene_t& parent,
+               sampler::sampler_t& sampler) const noexcept {
+           return emitter_sampler.sample(parent, sampler);
+       }
+   
+       [[nodiscard]] emitter_wavenumber_sample_t sample_emitter_and_spectrum(
+               const scene_t& parent,
+               sampler::sampler_t& sampler) const noexcept;
+   
+       [[nodiscard]] inline wavenumber_density_t sum_spectral_pdf_for_all_emitters(
+               const scene_t& parent,
+               const std::vector<std::shared_ptr<emitter::emitter_t>>& scene_emitters,
+               const wavenumber_t k) const noexcept {
+           auto sum_wpds = wavenumber_density_t::zero();
+           for (const auto& em : scene_emitters)
+               sum_wpds += pdf_emitter(parent, em.get()) * pdf_spectral_sample(parent, em.get(), k);
+           return sum_wpds;
+       }
+   
+       [[nodiscard]] inline f_t pdf_emitter(
+               const scene_t& parent, 
+               const emitter::emitter_t* emitter) const noexcept {
+           return emitter_sampler.pdf(emitter);
+       }
+   
+       [[nodiscard]] inline wavenumber_density_t pdf_spectral_sample(
+               const scene_t& parent,
+               const emitter::emitter_t* emitter,
+               const wavenumber_t k) const noexcept {
+           return emitter_sampler.pdf_wavenumber(emitter, k);
+       }
+   
+   public:
+       [[nodiscard]] const auto* get_sensor() const noexcept { return sensor.get(); }
+   
+       [[nodiscard]] bool operator<(const scene_sensor_t& o) const noexcept { return sensor.get()<o.sensor.get(); }
+   };
+   
+   }

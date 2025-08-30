@@ -1,0 +1,14 @@
+.. _exhale_function_attributes_8hpp_1a8110166d616805f04aff2a83a0c2163c:
+
+Template Function wt::scene::element::attributes::make_element(const std::shared_ptr<E>&)
+=========================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::element::attributes::make_element(const std::shared_ptr<E>&)
+   :project: wave_tracer

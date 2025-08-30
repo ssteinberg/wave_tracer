@@ -1,0 +1,14 @@
+.. _exhale_function_load2d_8hpp_1a105928cfc8010d25f9734808acbbffee:
+
+Function wt::bitmap::load_bitmap2d_png16
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_load2d.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::load_bitmap2d_png16(const std::filesystem::path&)
+   :project: wave_tracer

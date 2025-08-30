@@ -1,0 +1,65 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_constructor.hpp:
+
+File bvh8w_constructor.hpp
+==========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh8w``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh8w/bvh8w_constructor.hpp``)
+-----------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_constructor.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``bvh8w.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp`)
+
+- ``memory``
+
+- ``optional``
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/ads/ads_constructor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_constructor.hpp`)
+
+- ``wt/ads/util.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_util.hpp`)
+
+- ``wt/scene/shape.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__ads`
+
+- :ref:`namespace_wt__ads__construction`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1ads_1_1construction_1_1bvh8w__constructor__t`
+

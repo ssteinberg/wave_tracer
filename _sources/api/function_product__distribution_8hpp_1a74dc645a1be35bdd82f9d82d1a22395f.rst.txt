@@ -1,0 +1,14 @@
+.. _exhale_function_product__distribution_8hpp_1a74dc645a1be35bdd82f9d82d1a22395f:
+
+Function wt::product_distribution(const discrete_distribution_t<vec2_t>&, const uniform_distribution_t&)
+========================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_product_distribution.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::product_distribution(const discrete_distribution_t<vec2_t>&, const uniform_distribution_t&)
+   :project: wave_tracer

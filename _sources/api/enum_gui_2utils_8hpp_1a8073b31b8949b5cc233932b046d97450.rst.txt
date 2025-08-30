@@ -1,0 +1,14 @@
+.. _exhale_enum_gui_2utils_8hpp_1a8073b31b8949b5cc233932b046d97450:
+
+Enum preview_mode_e
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::gui::preview_mode_e
+   :project: wave_tracer

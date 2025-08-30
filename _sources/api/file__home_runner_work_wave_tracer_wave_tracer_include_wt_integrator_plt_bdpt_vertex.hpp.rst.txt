@@ -1,0 +1,96 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp:
+
+File vertex.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/integrator/plt_bdpt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/integrator/plt_bdpt/vertex.hpp``)
+----------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``utility``
+
+- ``variant``
+
+- ``wt/ads/ads.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`)
+
+- ``wt/beam/beam.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`)
+
+- ``wt/bsdf/bsdf.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_bsdf.hpp`)
+
+- ``wt/emitter/emitter.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp`)
+
+- ``wt/emitter/infinite_emitter.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_infinite_emitter.hpp`)
+
+- ``wt/integrator/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_common.hpp`)
+
+- ``wt/integrator/traversal.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`)
+
+- ``wt/interaction/fsd/fraunhofer/free_space_diffraction.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp`)
+
+- ``wt/sampler/measure.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_measure.hpp`)
+
+- ``wt/scene/emitter_sample.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp`)
+
+- ``wt/scene/scene.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene.hpp`)
+
+- ``wt/scene/shape.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`)
+
+- ``wt/sensor/sensor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.hpp`)
+
+- ``wt/sensor/sensor_sample.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__integrator`
+
+- :ref:`namespace_wt__integrator__plt_bdpt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1vertex__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_vertex_8hpp_1a2a5a74238921bb254a007b14efc1474c`
+

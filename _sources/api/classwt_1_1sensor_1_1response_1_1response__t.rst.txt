@@ -1,0 +1,35 @@
+.. _exhale_class_classwt_1_1sensor_1_1response_1_1response__t:
+
+Class response_t
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_response.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::scene::scene_element_t`` (:ref:`exhale_class_classwt_1_1scene_1_1scene__element__t`)
+
+
+Derived Types
+*************
+
+- ``public wt::sensor::response::RGB_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1response_1_1RGB__t`)
+- ``public wt::sensor::response::XYZ_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1response_1_1XYZ__t`)
+- ``public wt::sensor::response::monochromatic_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1response_1_1monochromatic__t`)
+- ``public wt::sensor::response::multichannel_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1response_1_1multichannel__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::sensor::response::response_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

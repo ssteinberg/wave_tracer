@@ -1,0 +1,14 @@
+.. _exhale_function_simd__emulation_8hpp_1acc29a2dd80b6d3a79d6748c3e6a8187b:
+
+Function wt::simd::set1(simd_emulated_t<float, 4>&, float)
+==========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::set1(simd_emulated_t<float, 4>&, float)
+   :project: wave_tracer

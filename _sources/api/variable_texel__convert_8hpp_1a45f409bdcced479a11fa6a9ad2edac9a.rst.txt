@@ -1,0 +1,14 @@
+.. _exhale_variable_texel__convert_8hpp_1a45f409bdcced479a11fa6a9ad2edac9a:
+
+Variable wt::bitmap::is_texel_v
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::bitmap::is_texel_v
+   :project: wave_tracer

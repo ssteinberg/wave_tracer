@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a63d55701b1c2a64a17dda53ffef2e77e:
+
+Template Function wt::m::max(const glm::mat<N, M, T>&, const glm::mat<N, M, T>&, const glm::mat<N, M, T>&)
+==========================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::max(const glm::mat<N, M, T>&, const glm::mat<N, M, T>&, const glm::mat<N, M, T>&)
+   :project: wave_tracer

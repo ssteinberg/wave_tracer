@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1fraunhofer_1_1fsd__sampler_1_1fsd__sampler__t:
+
+Class fsd_sampler_t
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd_sampler.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::scene::scene_element_t`` (:ref:`exhale_class_classwt_1_1scene_1_1scene__element__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::fraunhofer::fsd_sampler::fsd_sampler_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

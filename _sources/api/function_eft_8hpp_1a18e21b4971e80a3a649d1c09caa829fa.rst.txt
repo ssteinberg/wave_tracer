@@ -1,0 +1,14 @@
+.. _exhale_function_eft_8hpp_1a18e21b4971e80a3a649d1c09caa829fa:
+
+Template Function wt::m::eft::length2
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::eft::length2(const V&)
+   :project: wave_tracer

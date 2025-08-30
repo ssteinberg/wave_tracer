@@ -1,0 +1,14 @@
+.. _exhale_function_fsd_8hpp_1a3ad2d15dbb3ffb7e28ae22c91989d6e4:
+
+Function wt::fraunhofer::fsd::Pa2
+=================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::fraunhofer::fsd::Pa2(const edge_t&)
+   :project: wave_tracer

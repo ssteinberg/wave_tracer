@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1aa03232b57cbded96ebd1b82da89c856a:
+
+Template Function wt::m::mod
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::mod(const Q, const typename Q::rep&)
+   :project: wave_tracer

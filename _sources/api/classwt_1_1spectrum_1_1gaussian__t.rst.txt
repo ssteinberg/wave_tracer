@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1spectrum_1_1gaussian__t:
+
+Class gaussian_t
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_gaussian.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::spectrum::spectrum_real_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1spectrum__real__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::spectrum::gaussian_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

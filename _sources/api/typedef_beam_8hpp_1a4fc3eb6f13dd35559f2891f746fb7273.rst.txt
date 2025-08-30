@@ -1,0 +1,14 @@
+.. _exhale_typedef_beam_8hpp_1a4fc3eb6f13dd35559f2891f746fb7273:
+
+Typedef wt::beam::transport_e
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::beam::transport_e
+   :project: wave_tracer

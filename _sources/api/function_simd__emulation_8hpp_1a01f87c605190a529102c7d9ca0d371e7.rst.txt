@@ -1,0 +1,14 @@
+.. _exhale_function_simd__emulation_8hpp_1a01f87c605190a529102c7d9ca0d371e7:
+
+Function wt::simd::extract_lower_half(simd_emulated_t<double, 8>)
+=================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::extract_lower_half(simd_emulated_t<double, 8>)
+   :project: wave_tracer

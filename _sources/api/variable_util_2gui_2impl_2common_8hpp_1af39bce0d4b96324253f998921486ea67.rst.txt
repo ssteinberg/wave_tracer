@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2gui_2impl_2common_8hpp_1af39bce0d4b96324253f998921486ea67:
+
+Variable wt::gui::plot_col_twin2
+================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::gui::plot_col_twin2
+   :project: wave_tracer

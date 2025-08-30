@@ -1,0 +1,107 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_mix.hpp:
+
+Program Listing for File mix.hpp
+================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_mix.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/texture/mix.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <memory>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/wt_context.hpp>
+   
+   #include <wt/texture/texture.hpp>
+   
+   namespace wt::texture {
+   
+   class mix_t final : public texture_t {
+   private:
+       std::shared_ptr<texture_t> texture1, texture2, mix;
+   
+   public:
+       mix_t(std::string id, 
+               std::shared_ptr<texture_t> tex1, 
+               std::shared_ptr<texture_t> tex2,
+               std::shared_ptr<texture_t> mix)
+           : texture_t(std::move(id)),
+             texture1(std::move(tex1)),
+             texture2(std::move(tex2)),
+             mix(std::move(mix))
+       {}
+       mix_t(mix_t&&) = default;
+       virtual ~mix_t() noexcept = default;
+       
+       [[nodiscard]] bool needs_interaction_footprint() const noexcept override {
+           return texture1->needs_interaction_footprint() || texture2->needs_interaction_footprint() ||
+                  mix->needs_interaction_footprint();
+       }
+       
+       [[nodiscard]] vec2_t resolution() const noexcept override {
+           return m::max(texture1->resolution(), texture2->resolution(), mix->resolution());
+       }
+   
+       [[nodiscard]] std::shared_ptr<spectrum::spectrum_real_t> mean_spectrum() const noexcept override {
+           // not implemented
+           return nullptr;
+       }
+   
+       [[nodiscard]] std::optional<f_t> mean_value(wavenumber_t k) const noexcept override {
+           const auto mv1 = texture1->mean_value(k);
+           const auto mv2 = texture2->mean_value(k);
+           const auto mix = this->mix->mean_value(k);
+           if (!mv1 || !mv2 || !mix)
+               return std::nullopt;
+           return m::mix(*mv1,*mv2, *mix);
+       }
+   
+       [[nodiscard]] vec4_t get_RGBA(const texture_query_t& query) const noexcept override {
+           const auto m = mix->get_RGBA(query).x;
+   
+           const auto t1 = m!=1 ? texture1->get_RGBA(query) : vec4_t{};
+           if (m==0) return t1;
+           
+           const auto t2=texture2->get_RGBA(query);
+           if (m==1) return t2;
+   
+           return m::mix(t1,t2, m);
+       }
+   
+       [[nodiscard]] vec2_t f(const texture_query_t& query) const noexcept override {
+           const auto m = mix->f(query).x;
+   
+           const auto t1 = m!=1 ? texture1->f(query) : vec2_t{};
+           if (m==0) return t1;
+           
+           const auto t2=texture2->f(query);
+           if (m==1) return t2;
+   
+           return m::mix(t1,t2, m);
+       }
+       
+   public:
+       static std::unique_ptr<texture_t> load(std::string id, 
+                                              scene::loader::loader_t* loader, 
+                                              const scene::loader::node_t& node, 
+                                              const wt::wt_context_t &context);
+   
+       [[nodiscard]] scene::element::info_t description() const override;
+   };
+   
+   }

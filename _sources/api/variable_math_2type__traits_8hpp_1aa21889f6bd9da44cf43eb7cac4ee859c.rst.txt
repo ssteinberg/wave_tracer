@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2type__traits_8hpp_1aa21889f6bd9da44cf43eb7cac4ee859c:
+
+Variable wt::element_count_v
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::element_count_v
+   :project: wave_tracer

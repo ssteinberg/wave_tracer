@@ -1,0 +1,14 @@
+.. _exhale_function_intersect_2ray_8hpp_1a7cab734656a2705b334fad1893b71633:
+
+Function wt::intersect::test_ray_rectangle
+==========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::test_ray_rectangle(const ray_t&, const pqvec3_t&, const pqvec3_t&, const pqvec3_t&, const pqvec3_t&, const pqrange_t<>&)
+   :project: wave_tracer

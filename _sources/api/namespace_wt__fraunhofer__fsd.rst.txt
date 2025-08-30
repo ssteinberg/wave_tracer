@@ -1,0 +1,61 @@
+
+.. _namespace_wt__fraunhofer__fsd:
+
+Namespace wt::fraunhofer::fsd
+=============================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1fraunhofer_1_1fsd_1_1edge__t`
+
+- :ref:`exhale_struct_structwt_1_1fraunhofer_1_1fsd_1_1fsd__aperture__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_fsd_8hpp_1a0ccc2b936f43d8b573e4cdbe1deb39e6`
+
+- :ref:`exhale_function_fsd_8hpp_1a6f7f5a62b19b785110d4b5a67ede2ad2`
+
+- :ref:`exhale_function_fsd_8hpp_1af4b59ad5dbd88fab76bc761230268891`
+
+- :ref:`exhale_function_fsd_8hpp_1a952827a92444920ea57f2cbfe43f6da5`
+
+- :ref:`exhale_function_fsd_8hpp_1a17f5199a7c974d2dcd76202bb13d4b74`
+
+- :ref:`exhale_function_fsd_8hpp_1a9acb97de4a49238caad4f52fd3ec5ec0`
+
+- :ref:`exhale_function_fsd_8hpp_1a8b71b69f3ba8bc63c7936f042c033625`
+
+- :ref:`exhale_function_fsd_8hpp_1a3cb3dfdd0117f9d20674c3b5432b27fa`
+
+- :ref:`exhale_function_fsd_8hpp_1a6fd6e7d08334b0347c301f354516137f`
+
+- :ref:`exhale_function_fsd_8hpp_1ad8daeba59edb8099f1587a207a085297`
+
+- :ref:`exhale_function_fsd_8hpp_1a3ad2d15dbb3ffb7e28ae22c91989d6e4`
+
+- :ref:`exhale_function_fsd_8hpp_1a21e90c17b81173fd12c1835a40b5ba3d`
+
+- :ref:`exhale_function_fsd_8hpp_1a9a229bfba861b1f64797a8be24f690e6`
+
+- :ref:`exhale_function_fsd_8hpp_1aee9cda79dd2651205000d85498551d51`
+
+- :ref:`exhale_function_fsd_8hpp_1a60f7d3b4fa5059b147c75c781c33e80a`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_fsd_8hpp_1a193c991e970e9b02cf93e9c06c893c42`
+
+- :ref:`exhale_variable_fsd_8hpp_1a281f8b1fba37ad217b509307f34a1aee`
+
+- :ref:`exhale_variable_fsd_8hpp_1afcfc20d5a48f82f620f8e405c786d08d`

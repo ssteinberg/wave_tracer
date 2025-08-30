@@ -1,0 +1,70 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_whitepoint.hpp:
+
+File whitepoint.hpp
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/colourspace``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/colourspace/whitepoint.hpp``)
+---------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_whitepoint.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``utility``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_RGB.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__colourspace`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_whitepoint_8hpp_1a1774ffc9bba10735fecd0e0278d56bdc`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_whitepoint_8hpp_1a1bd7db8d5bac6b28862fd59b750e3cf5`
+
+- :ref:`exhale_function_whitepoint_8hpp_1a0b121cf133d510d97fd76af24431f8d7`
+

@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1shape__t_1_1triangle__sampling__data__t:
+
+Struct shape_t::triangle_sampling_data_t
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1shape__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::shape_t::triangle_sampling_data_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

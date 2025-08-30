@@ -1,0 +1,14 @@
+.. _exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a82ccbd372becf6bbac5c16eb36a29bea:
+
+Function wt::colourspace::conversion_matrix_XYZ_to_RGB
+======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::colourspace::conversion_matrix_XYZ_to_RGB(RGB_colourspace_e, white_point_e)
+   :project: wave_tracer

@@ -1,0 +1,67 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_progressbar.hpp:
+
+File progressbar.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/logger``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/logger/progressbar.hpp``)
+-------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_progressbar.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``chrono`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`)
+
+- ``optional``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/util/logger/termcolor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__logger`
+
+- :ref:`namespace_wt__logger__indicators`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1logger_1_1indicators_1_1block__progress__bar__t`
+
+- :ref:`exhale_class_classwt_1_1logger_1_1indicators_1_1dynamic__progress`
+

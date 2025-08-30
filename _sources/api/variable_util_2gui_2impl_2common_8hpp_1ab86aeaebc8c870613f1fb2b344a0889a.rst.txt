@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2gui_2impl_2common_8hpp_1ab86aeaebc8c870613f1fb2b344a0889a:
+
+Variable wt::gui::minimum_window_size
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::gui::minimum_window_size
+   :project: wave_tracer

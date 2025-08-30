@@ -1,0 +1,14 @@
+.. _exhale_function_format_2utils_8hpp_1a0aad8beec2a53531d5d1b91d20c0af66:
+
+Function wt::format::tolower
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::format::tolower(std::string)
+   :project: wave_tracer

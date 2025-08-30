@@ -1,0 +1,14 @@
+.. _exhale_function_eft_8hpp_1aa7d69e576e0126e05a2e5322c14dd918:
+
+Template Function wt::m::eft::two_sum(decltype(std::declval<T1>()+std::declval<T2>())&, const T1, const T2)
+===========================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::eft::two_sum(decltype(std::declval<T1>()+std::declval<T2>())&, const T1, const T2)
+   :project: wave_tracer

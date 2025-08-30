@@ -1,0 +1,81 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_bootstrap.hpp:
+
+File bootstrap.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/loader``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/loader/bootstrap.hpp``)
+------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_bootstrap.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``fstream``
+
+- ``future``
+
+- ``istream``
+
+- ``memory``
+
+- ``optional``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/ads/ads_constructor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_constructor.hpp`)
+
+- ``wt/ads/util.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_util.hpp`)
+
+- ``wt/scene/loader/loader.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp`)
+
+- ``wt/util/unique_function.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unique_function.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_gui.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__scene`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1bootstrap__progress__callback__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1scene__bootstrap__generic__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1scene__bootstrap__t`
+

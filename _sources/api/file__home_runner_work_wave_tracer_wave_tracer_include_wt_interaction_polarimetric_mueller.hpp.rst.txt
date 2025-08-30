@@ -1,0 +1,72 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp:
+
+File mueller.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/polarimetric``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/polarimetric/mueller.hpp``)
+----------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/interaction/fresnel.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fresnel.hpp`)
+
+- ``wt/interaction/polarimetric/stokes.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/format.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_format.hpp`)
+
+- ``wt/math/frame.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`)
+
+- ``wt/math/rotation.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_rotation.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1mueller__operator__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_mueller_8hpp_1a72e12fb6644ff8071a98cd84cf8772f7`
+

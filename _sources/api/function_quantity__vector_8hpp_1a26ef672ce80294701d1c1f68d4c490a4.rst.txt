@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1a26ef672ce80294701d1c1f68d4c490a4:
+
+Template Function wt::m::sum(const qvec2<T>&)
+=============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::sum(const qvec2<T>&)
+   :project: wave_tracer

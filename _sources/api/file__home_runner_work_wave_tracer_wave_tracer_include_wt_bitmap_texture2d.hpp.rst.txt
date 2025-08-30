@@ -1,0 +1,79 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp:
+
+File texture2d.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap/texture2d.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``bitmap_stats.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap_stats.hpp`)
+
+- ``cassert``
+
+- ``utility``
+
+- ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``wt/bitmap/load2d.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_load2d.hpp`)
+
+- ``wt/bitmap/texel_convert.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp`)
+
+- ``wt/bitmap/texture2d_storage.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/norm_integers.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_norm_integers.hpp`)
+
+- ``wt/scene/element/attributes.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_bitmap.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__bitmap`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1bitmap_1_1texture2d__t`
+
+- :ref:`exhale_class_classwt_1_1bitmap_1_1texture2d__tmpl__t`
+

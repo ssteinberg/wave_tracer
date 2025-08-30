@@ -1,0 +1,44 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_triangle.hpp:
+
+Program Listing for File triangle.hpp
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_triangle.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/mesh/triangle.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <array>
+   #include <optional>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/encoded_normal.hpp>
+   #include <wt/mesh/surface_differentials.hpp>
+   
+   namespace wt::mesh {
+   
+   struct alignas(64) triangle_t {
+       std::array<pqvec3_t,3> p;
+   
+       dir3_t geo_n;
+       std::array<encoded_normal_t,3> n;
+   
+       std::optional<std::array<vec2_t,3>> uv;
+   
+       surface_differentials_t tangent_frame;
+   };
+   
+   }

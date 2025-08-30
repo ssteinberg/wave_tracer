@@ -1,0 +1,289 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp:
+
+Program Listing for File attributes.hpp
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/element/attributes.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <vector>
+   #include <map>
+   
+   #include <wt/util/concepts.hpp>
+   #include <wt/math/common.hpp>
+   #include <wt/math/range.hpp>
+   #include <wt/math/format.hpp>
+   #include <wt/util/format/enum.hpp>
+   
+   #include <wt/scene/element/info.hpp>
+   #include <wt/scene/element/concepts.hpp>
+   
+   
+   namespace wt::scene::element::attributes {
+   
+   class element_attribute_t : public attribute_t {
+   public:
+       virtual ~element_attribute_t() noexcept = default;
+       [[nodiscard]] virtual const scene_element_t* get_element() const noexcept = 0;
+   };
+   
+   template <SceneElement E>
+   class element_t final : public element_attribute_t {
+   public:
+       const E* element;
+   
+       element_t(const E* e) noexcept : element(e) {}
+       
+       element_t(const element_t&) noexcept = default;
+       element_t &operator=(const element_t&) noexcept = default;
+   
+       [[nodiscard]] const scene_element_t* get_element() const noexcept override { return element; }
+       [[nodiscard]] inline const std::string to_string() const noexcept override {
+           return std::format("{}", element->description());
+       }
+   };
+   template <SceneElement E>
+   [[nodiscard]] inline attribute_ptr make_element(const E* e) noexcept { return std::make_shared<element_t<E>>(e); }
+   template <SceneElement E>
+   [[nodiscard]] inline attribute_ptr make_element(const std::unique_ptr<E>& e) noexcept { return make_element(e.get()); }
+   template <SceneElement E>
+   [[nodiscard]] inline attribute_ptr make_element(const std::shared_ptr<E>& e) noexcept { return make_element(e.get()); }
+   
+   
+   class data_attribute_t : public attribute_t {
+   public:
+       enum class type_e : std::uint8_t {
+           string, scalar, vector, matrix, range,
+       };
+   
+   public:
+       virtual ~data_attribute_t() noexcept = default;
+       [[nodiscard]] virtual type_e get_data_type() const noexcept = 0;
+   };
+   
+   class string_t final : public data_attribute_t {
+   public:
+       std::string string;
+   
+       string_t(std::string str) noexcept : string(std::move(str)) {}
+       
+       string_t(const string_t&) noexcept = default;
+       string_t &operator=(const string_t&) noexcept = default;
+   
+       [[nodiscard]] type_e get_data_type() const noexcept override { return type_e::string; }
+       [[nodiscard]] inline const std::string to_string() const noexcept override {
+           return string;
+       }
+   };
+   [[nodiscard]] inline attribute_ptr make_string(std::string s) noexcept { return std::make_shared<string_t>(std::move(s)); }
+   
+   template <CScalarOrBool S>
+   class scalar_t final : public data_attribute_t {
+   public:
+       S value;
+   
+       scalar_t(const S& s) noexcept : value(s) {}
+       
+       scalar_t(const scalar_t&) noexcept = default;
+       scalar_t &operator=(const scalar_t&) noexcept = default;
+   
+       [[nodiscard]] type_e get_data_type() const noexcept override { return type_e::scalar; }
+       [[nodiscard]] inline const std::string to_string() const noexcept override {
+           if constexpr (is_quantity_point_v<S>)
+               return std::format("{}", value.quantity_from_zero());
+           if constexpr (std::is_integral_v<S> || std::is_floating_point_v<S>)
+               return std::format("{:L}", value);      // locale-respecting format
+           if constexpr (!is_quantity_point_v<S>)
+               return std::format("{}", value);
+       }
+   };
+   template <CScalarOrBool S>
+   [[nodiscard]] inline attribute_ptr make_scalar(const S& s) noexcept { return std::make_shared<scalar_t<S>>(s); }
+   
+   template <Vector V>
+   class vector_t final : public data_attribute_t {
+   public:
+       using T = vector_element_type_t<V>;
+       V value;
+   
+       vector_t(const V& v) noexcept : value(v) {}
+       
+       vector_t(const vector_t&) noexcept = default;
+       vector_t &operator=(const vector_t&) noexcept = default;
+   
+       [[nodiscard]] type_e get_data_type() const noexcept override { return type_e::vector; }
+       [[nodiscard]] inline const std::string to_string() const noexcept override {
+           return std::format("{}", value);
+       }
+   };
+   template <Vector V>
+   [[nodiscard]] inline attribute_ptr make_vector(const V& v) noexcept { return std::make_shared<vector_t<V>>(v); }
+   
+   template <std::size_t N, std::size_t M, FloatingPoint T>
+   class matrix_t final : public data_attribute_t {
+   public:
+       using matrix_type = mat<N,M,T>;
+       matrix_type value;
+   
+       matrix_t(const matrix_type& v) noexcept : value(v) {}
+       
+       matrix_t(const matrix_t&) noexcept = default;
+       matrix_t &operator=(const matrix_t&) noexcept = default;
+   
+       [[nodiscard]] type_e get_data_type() const noexcept override { return type_e::matrix; }
+       [[nodiscard]] inline const std::string to_string() const noexcept override {
+           return std::format("{}", value);
+       }
+   };
+   template <std::size_t N, std::size_t M, FloatingPoint T>
+   [[nodiscard]] inline attribute_ptr make_matrix(const mat<N,M,T>& v) noexcept { return std::make_shared<matrix_t<N,M,T>>(v); }
+   
+   template <ScopedEnum E>
+   class enum_t final : public data_attribute_t {
+   public:
+       E value;
+   
+       enum_t(const E& v) noexcept : value(v) {}
+       
+       enum_t(const enum_t&) noexcept = default;
+       enum_t &operator=(const enum_t&) noexcept = default;
+   
+       [[nodiscard]] type_e get_data_type() const noexcept override { return type_e::scalar; }
+       [[nodiscard]] inline const std::string to_string() const noexcept override {
+           return std::format("{}", value);
+       }
+   };
+   template <ScopedEnum E>
+   [[nodiscard]] inline attribute_ptr make_enum(const E& v) noexcept { return std::make_shared<enum_t<E>>(v); }
+   
+   template <Scalar T, range_inclusiveness_e inclusiveness>
+   class range_t final : public data_attribute_t {
+   public:
+       using range_type = ::wt::range_t<T, inclusiveness>;
+       range_type range;
+   
+       range_t(range_type v) noexcept : range(std::move(v)) {}
+       
+       range_t(const range_t&) noexcept = default;
+       range_t &operator=(const range_t&) noexcept = default;
+   
+       [[nodiscard]] type_e get_data_type() const noexcept override { return type_e::range; }
+       [[nodiscard]] inline const std::string to_string() const noexcept override {
+           return std::format("{}", range);
+       }
+   };
+   template <Scalar T, range_inclusiveness_e inclusiveness>
+   [[nodiscard]] inline attribute_ptr make_range(::wt::range_t<T, inclusiveness> v) noexcept { return std::make_shared<range_t<T,inclusiveness>>(v); }
+   
+   
+   class container_attribute_t : public attribute_t {
+   public:
+       virtual ~container_attribute_t() noexcept = default;
+       [[nodiscard]] virtual std::size_t size() const noexcept = 0;
+   };
+   
+   class array_t final : public container_attribute_t {
+   public:
+       using container_t = std::vector<attribute_ptr>;
+       container_t array;
+   
+       array_t(container_t v) noexcept : array(std::move(v)) {}
+       
+       array_t(const array_t&) noexcept = default;
+       array_t &operator=(const array_t&) noexcept = default;
+   
+       [[nodiscard]] std::size_t size() const noexcept override { return array.size(); }
+       [[nodiscard]] const auto begin() const noexcept { return array.begin(); }
+       [[nodiscard]] const auto end() const noexcept { return array.end(); }
+       [[nodiscard]] const auto cbegin() const noexcept { return array.cbegin(); }
+       [[nodiscard]] const auto cend() const noexcept { return array.cend(); }
+       [[nodiscard]] const auto rbegin() const noexcept { return array.rbegin(); }
+       [[nodiscard]] const auto rend() const noexcept { return array.rend(); }
+       [[nodiscard]] const auto crbegin() const noexcept { return array.crbegin(); }
+       [[nodiscard]] const auto crend() const noexcept { return array.crend(); }
+   
+       [[nodiscard]] inline const std::string to_string() const noexcept override {
+           std::string ret = "[\n";
+           for (const auto& v : array)
+               ret += "\t" + v->to_string() + "\n";
+           return ret + "]";
+       }
+   };
+   [[nodiscard]] inline attribute_ptr make_array(std::vector<attribute_ptr> v) noexcept { return std::make_shared<array_t>(std::move(v)); }
+   
+   class map_t : public container_attribute_t {
+   public:
+       virtual ~map_t() noexcept = default;
+       [[nodiscard]] virtual std::map<std::string,attribute_ptr> to_string_map() const noexcept = 0;
+   };
+   
+   template <typename Key>
+   class map_container_t : public map_t {
+   public:
+       using container_t = std::map<Key,attribute_ptr>;
+       container_t map;
+   
+       map_container_t(container_t v) noexcept : map(std::move(v)) {}
+       virtual ~map_container_t() noexcept = default;
+       
+       map_container_t(const map_container_t&) noexcept = default;
+       map_container_t &operator=(const map_container_t&) noexcept = default;
+   
+       [[nodiscard]] std::size_t size() const noexcept override { return map.size(); }
+       [[nodiscard]] const auto begin() const noexcept { return map.begin(); }
+       [[nodiscard]] const auto end() const noexcept { return map.end(); }
+       [[nodiscard]] const auto cbegin() const noexcept { return map.cbegin(); }
+       [[nodiscard]] const auto cend() const noexcept { return map.cend(); }
+       [[nodiscard]] const auto rbegin() const noexcept { return map.rbegin(); }
+       [[nodiscard]] const auto rend() const noexcept { return map.rend(); }
+       [[nodiscard]] const auto crbegin() const noexcept { return map.crbegin(); }
+       [[nodiscard]] const auto crend() const noexcept { return map.crend(); }
+   
+       [[nodiscard]] inline const std::string to_string() const noexcept override {
+           std::string ret = "{\n";
+           for (const auto& v : map)
+               ret += "\t" + std::format("{}: ",v.first) + v.second->to_string() + "\n";
+           return ret + "}";
+       }
+       [[nodiscard]] std::map<std::string,attribute_ptr> to_string_map() const noexcept override {
+           std::map<std::string,attribute_ptr> m;
+           for (const auto& p : map)
+               m.emplace(std::format("{}",p.first),p.second);
+           return m;
+       }
+   };
+   
+   using string_map_t = map_container_t<std::string>;
+   [[nodiscard]] inline attribute_ptr make_map(std::map<std::string,attribute_ptr> v) noexcept {
+       return std::make_shared<string_map_t>(std::move(v));
+   }
+   
+   using wavelength_map_t = map_container_t<wavelength_t>;
+   [[nodiscard]] inline attribute_ptr make_wavelength_map(std::map<wavelength_t,attribute_ptr> v) noexcept {
+       return std::make_shared<wavelength_map_t>(std::move(v));
+   }
+   
+   using wavelength_range_bin_t = ::wt::range_t<wavelength_t,range_inclusiveness_e::left_inclusive>;
+   using wavelength_range_map_t = map_container_t<wavelength_range_bin_t>;
+   [[nodiscard]] inline attribute_ptr make_wavelength_range_map(std::map<wavelength_range_bin_t,attribute_ptr> v) noexcept {
+       return std::make_shared<wavelength_range_map_t>(std::move(v));
+   }
+   
+   
+   }

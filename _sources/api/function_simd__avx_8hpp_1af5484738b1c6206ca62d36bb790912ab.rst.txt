@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1af5484738b1c6206ca62d36bb790912ab:
+
+Function wt::simd::floor(simd_avx_t<double, 8>)
+===============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::floor(simd_avx_t<double, 8>)
+   :project: wave_tracer

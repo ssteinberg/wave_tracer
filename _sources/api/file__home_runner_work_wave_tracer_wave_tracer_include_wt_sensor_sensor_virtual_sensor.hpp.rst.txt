@@ -1,0 +1,65 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_sensor.hpp:
+
+File virtual_sensor.hpp
+=======================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/sensor``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/sensor/virtual_sensor.hpp``)
+------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_sensor.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``optional``
+
+- ``wt/beam/beam.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`)
+
+- ``wt/math/range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`)
+
+- ``wt/sensor/sensor_sample.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__sensor`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1virtual__coverage__sensor__t`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_fresnel_8hpp_1ae404f3dd3d14c9ade9a3e13a1b7ffa48:
+
+Function wt::refract
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fresnel.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::refract(f_t, const dir3_t&, const dir3_t&)
+   :project: wave_tracer

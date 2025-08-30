@@ -1,0 +1,167 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp:
+
+Program Listing for File texture2d_storage.hpp
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap/texture2d_storage.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <memory>
+   
+   #include <cassert>
+   
+   #include <utility>
+   #include <concepts>
+   
+   #include <wt/util/unreachable.hpp>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/bitmap/bitmap.hpp>
+   #include <wt/bitmap/texel_convert.hpp>
+   #include <wt/bitmap/common.hpp>
+   
+   #include <wt/spectrum/colourspace/RGB/RGB.hpp>
+   
+   namespace wt::bitmap {
+   
+   enum class texture_filter_type_e : std::uint8_t {
+       nearest,
+       bilinear,
+       bicubic,
+   };
+   
+   enum class texture_wrap_mode_e : std::uint8_t {
+       black,
+       white,
+       clamp,
+       repeat,
+       mirror,
+   };
+   
+   enum class texel_clamp_mode_e : std::uint8_t {
+       none,
+       clamp_non_negative,
+       clamp_non_positive,
+   };
+   
+   
+   struct texture2d_config_t {
+       texture_filter_type_e filter = texture_filter_type_e::bicubic;
+       texel_clamp_mode_e texel_clamp_mode = texel_clamp_mode_e::clamp_non_negative;
+   
+       texture_wrap_mode_e uwrap = texture_wrap_mode_e::repeat;
+       texture_wrap_mode_e vwrap = texture_wrap_mode_e::repeat;
+   };
+   
+   [[nodiscard]] constexpr inline int wrap_coord(texture_wrap_mode_e wrap, int coord, std::size_t dim) noexcept {
+       if (coord>=0 && coord<dim)
+           return coord;
+   
+       switch (wrap) {
+       case texture_wrap_mode_e::black:
+       case texture_wrap_mode_e::white:
+           return coord>=dim || coord<0 ? -1 : coord;
+       case texture_wrap_mode_e::clamp:
+           return m::clamp(coord, 0, m::max<int>(1,dim)-1);
+       case texture_wrap_mode_e::repeat:
+           return m::modulo<int>(coord, dim);
+       case texture_wrap_mode_e::mirror:
+           coord = m::modulo<int>(coord, 2*dim);
+           return coord>=dim ? 2*dim-1-coord : coord;
+       }
+       unreachable();
+   }
+   
+   template <FloatingPoint T>
+   [[nodiscard]] constexpr inline auto clamp_texel(texel_clamp_mode_e mode, T texel) noexcept {
+       switch (mode) {
+       case texel_clamp_mode_e::none: return texel;
+       case texel_clamp_mode_e::clamp_non_negative: return m::max(T(0),texel);
+       case texel_clamp_mode_e::clamp_non_positive: return m::min(T(0),texel);
+       }
+       unreachable();
+   }
+   
+   template <std::integral T>
+   [[nodiscard]] constexpr inline T black_value_for_bitmap_type() noexcept {
+       return limits<T>::min();
+   }
+   template <std::integral T>
+   [[nodiscard]] constexpr inline T white_value_for_bitmap_type() noexcept {
+       return limits<T>::max();
+   }
+   template <FloatingPoint T>
+   [[nodiscard]] constexpr inline T black_value_for_bitmap_type() noexcept {
+       return T(0);
+   }
+   template <FloatingPoint T>
+   [[nodiscard]] constexpr inline T white_value_for_bitmap_type() noexcept {
+       return T(1);
+   }
+   
+   
+   struct texture2d_storage_t {
+       struct alignas(64) aligned_block_t {};
+       struct tex_info_t {
+           vec2u32_t dim;
+           vec2u32_t tiles;
+       };
+   
+       static constexpr vec2u32_t tile_size = { 8,4 };
+       static constexpr std::uint32_t tile_texels = tile_size.x*tile_size.y;
+   
+       std::unique_ptr<aligned_block_t[]> data;
+       tex_info_t info;
+   
+       std::uint8_t comp_size;
+       pixel_layout_t layout;
+   
+       [[nodiscard]] inline std::size_t bytes() const noexcept {
+           const auto b = info.tiles.x*info.tiles.y*tile_texels * layout.components*comp_size;
+           constexpr auto alignment = sizeof(aligned_block_t);
+           return (b + alignment-1)/alignment * alignment;
+       }
+   
+       [[nodiscard]] inline auto texel_offset(vec2u32_t coords) const noexcept {
+           const auto tile = coords / tile_size;
+           const auto p    = coords % tile_size;
+   
+           return (tile.y * info.tiles.x + tile.x) * tile_texels + p.y * tile_size.x + p.x;
+       }
+   
+       template <texel T>
+       [[nodiscard]] inline auto create_bitmap() const noexcept {
+           auto bm = bitmap2d_t<T>::create(info.dim.x, info.dim.y, layout);
+           if (comp_size != sizeof(T)) {
+               assert(false);
+               return bm;
+           }
+   
+           const auto* lbuf = (const T*)data.get();
+           auto* dst = bm.data();
+           const auto comps = layout.components;
+           for (auto y=0u;y<bm.height();++y)
+           for (auto x=0u;x<bm.width();++x,dst+=comps)
+               std::copy_n(lbuf + texel_offset({ x,y })*comps, comps, dst);
+   
+           return bm;
+       }
+   };
+   
+   
+   }

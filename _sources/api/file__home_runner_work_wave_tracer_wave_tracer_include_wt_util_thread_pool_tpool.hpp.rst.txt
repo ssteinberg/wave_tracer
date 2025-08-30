@@ -1,0 +1,90 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool.hpp:
+
+File tpool.hpp
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/thread_pool``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/thread_pool/tpool.hpp``)
+------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``concepts`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``condition_variable``
+
+- ``coroutine``
+
+- ``future``
+
+- ``mutex``
+
+- ``tbb/concurrent_queue.h``
+
+- ``thread`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool.hpp`)
+
+- ``variant``
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/util/thread_pool/tpool_worker_arena.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool_worker_arena.hpp`)
+
+- ``wt/util/unique_function.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unique_function.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__thread_pool`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1thread__pool_1_1tpool__t_1_1mutable__data__t`
+
+- :ref:`exhale_struct_structwt_1_1thread__pool_1_1tpool__t_1_1task__t`
+
+- :ref:`exhale_class_classwt_1_1thread__pool_1_1tpool__t`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_tpool_8hpp_1ae98b6a16f4b059f6d8b84e0d998868f4`
+

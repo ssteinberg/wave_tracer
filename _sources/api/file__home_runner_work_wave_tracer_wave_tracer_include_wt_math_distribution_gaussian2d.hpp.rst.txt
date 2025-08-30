@@ -1,0 +1,63 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian2d.hpp:
+
+File gaussian2d.hpp
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/distribution``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/distribution/gaussian2d.hpp``)
+------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian2d.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/sampler/measure.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_measure.hpp`)
+
+- ``wt/sampler/sampler.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`)
+
+- ``wt/util/assert.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_gaussian_wavefront.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1gaussian2d__t_1_1sample__ret__t`
+
+- :ref:`exhale_class_classwt_1_1gaussian2d__t`
+

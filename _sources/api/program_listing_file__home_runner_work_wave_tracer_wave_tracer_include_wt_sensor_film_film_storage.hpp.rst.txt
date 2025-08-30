@@ -1,0 +1,385 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp:
+
+Program Listing for File film_storage.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/film/film_storage.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <optional>
+   #include <memory>
+   #include <stdexcept>
+   
+   #include <wt/sensor/block/sensor_element.hpp>
+   #include <wt/sensor/block/padded_block.hpp>
+   #include <wt/sensor/block/block.hpp>
+   #include <wt/sensor/sensor_flags.hpp>
+   #include <wt/sensor/response/tonemap/tonemap.hpp>
+   
+   #include <wt/bitmap/bitmap.hpp>
+   #include <wt/bitmap/pixel_layout.hpp>
+   #include <wt/bitmap/common.hpp>
+   
+   #include <wt/wt_context.hpp>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/range.hpp>
+   #include <wt/util/for_range.hpp>
+   
+   #include <wt/util/thread_pool/tpool.hpp>
+   #include <wt/util/thread_pool/tpool_worker_arena.hpp>
+   
+   #include "defs.hpp"
+   
+   namespace wt::sensor {
+   
+   class film_storage_handle_t {
+   public:
+       virtual ~film_storage_handle_t() noexcept = default;
+   
+       [[nodiscard]] virtual vec3u32_t film_size() const noexcept = 0;
+       [[nodiscard]] virtual int dimensions_count() const noexcept = 0;
+   
+       [[nodiscard]] virtual bitmap::pixel_layout_t pixel_layout() const noexcept = 0;
+       [[nodiscard]] virtual bool is_polarimetric() const noexcept = 0;
+   
+       [[nodiscard]] virtual const response::tonemap_t* get_tonemap() const noexcept = 0;
+   
+       [[nodiscard]] virtual sensor_write_flags_e get_write_flags() const noexcept = 0;
+   
+       virtual void write_block(const block_handle_t& block_handle,
+                                const f_t scale=1) noexcept = 0;
+   
+       [[nodiscard]] virtual bitmap::colour_encoding_t get_colour_encoding_of_developed_tonemapped_film() const noexcept = 0;
+   
+       [[nodiscard]] virtual developed_scalar_film_t<2> develop_lin_d2(
+               const std::size_t samples_per_element) const = 0;
+   
+       [[nodiscard]] virtual developed_polarimetric_film_t<2> develop_lin_stokes_d2(
+               const std::size_t samples_per_element) const = 0;
+   
+       [[nodiscard]] virtual developed_scalar_film_t<2> develop_d2(
+               const std::size_t samples_per_element) const = 0;
+   
+       [[nodiscard]] virtual developed_polarimetric_film_t<2> develop_stokes_d2(
+               const std::size_t samples_per_element) const = 0;
+   };
+   
+   template <bool polarimetric, std::size_t Dims>
+   class film_storage_t final : public film_storage_handle_t {
+       // template <std::size_t FilmDims>
+       // friend class film_t;
+   
+       static_assert(Dims>=1 && Dims<=3);
+   
+   public:
+       using T = std::conditional_t<polarimetric, vec4_t, f_t>;
+       using WeightT = f_t;
+       using StorageT = std::conditional_t<polarimetric, vec4<FilmStoragePixelT>, FilmStoragePixelT>;
+       using StorageWeightT = FilmStoragePixelT;
+   
+       using element_t = sensor_element_t<T,WeightT>;
+       using storage_element_t = sensor_element_t<StorageT,StorageWeightT>;
+   
+       using image_block_t = padded_block_t<element_t, Dims>;
+       using image_t = bitmap::bitmap_t<storage_element_t, Dims>;
+       using light_image_t = bitmap::bitmap_t<StorageT, Dims>;
+   
+       using index_t = vec<Dims, std::int32_t>;
+       using size_t  = image_t::size_t;
+       using bvec_t  = bvec<Dims>;
+   
+   private:
+       std::shared_ptr<response::tonemap_t> sensor_tonemap;
+   
+       size_t dims;
+       bitmap::pixel_layout_t film_pixel_layout;
+       const bvec_t flip = {};
+   
+       sensor_write_flags_e flags;
+   
+       [[nodiscard]] inline auto position(const size_t& pos) const noexcept {
+           const auto flipped = index_t{ dimensions() - pos } - index_t{ 1 };
+           return m::mix(pos,(size_t)flipped, flip);
+       }
+   
+   public:
+       film_storage_t(const wt_context_t& ctx, 
+                      size_t size,
+                      bvec_t flip,
+                      bitmap::pixel_layout_t pixel_layout,
+                      const element_t& fill, 
+                      sensor_write_flags_e flags,
+                      std::shared_ptr<response::tonemap_t> sensor_tonemap)
+           : sensor_tonemap(std::move(sensor_tonemap)),
+             dims(size),
+             film_pixel_layout(pixel_layout),
+             flip(flip),
+             flags(flags)
+       {
+           if ((flags & sensor_write_flags_e::writes_block_splats) != 0)
+               image = image_t::create(size, pixel_layout, (storage_element_t)fill);
+   
+           if ((flags & sensor_write_flags_e::writes_direct_splats) != 0)
+               light_surfaces.emplace(ctx.threadpool->create_worker_arena(
+                   light_image_t::create(size, pixel_layout, (StorageT)fill.value)));
+       }
+       film_storage_t(film_storage_t&& o) noexcept {
+           image = std::move(o.image);
+           light_surfaces = std::move(o.light_surfaces);
+       }
+   
+       [[nodiscard]] inline size_t dimensions() const noexcept { return dims; }
+   
+       [[nodiscard]] inline vec3u32_t film_size() const noexcept override {
+           auto sz = vec3u32_t{ 1 };
+           for (auto d=0ul;d<Dims;++d)
+               sz[d] = dimensions()[d];
+           return sz;
+       }
+       [[nodiscard]] inline int dimensions_count() const noexcept override {
+           return Dims;
+       }
+       [[nodiscard]] inline bitmap::pixel_layout_t pixel_layout() const noexcept override {
+           return film_pixel_layout;
+       }
+   
+       [[nodiscard]] inline const response::tonemap_t* get_tonemap() const noexcept override {
+           return sensor_tonemap.get();
+       }
+   
+       [[nodiscard]] inline sensor_write_flags_e get_write_flags() const noexcept override { return flags; }
+   
+       [[nodiscard]] bool is_polarimetric() const noexcept override { return polarimetric; }
+   
+       [[nodiscard]] inline bool has_light_images() const noexcept { return !!light_surfaces; }
+   
+       void write_block(const block_handle_t& block_handle,
+                        const f_t scale=1) noexcept override {
+           if (!image)
+               return;
+   
+           auto& block = *reinterpret_cast<image_block_t*>(block_handle.block);
+           const auto block_size = block.size;
+   
+           const auto pos = index_t{ block_handle.position };
+           const auto comps = pixel_layout().components;
+           [[assume(comps>=1 && comps<=4)]];
+   
+           for_range(index_t{ -block.padding }, 
+                     index_t{ block_size } + index_t{ block.padding },
+                     [&](auto idx) {
+               const auto p = pos + idx;
+               if (m::all(p >= index_t{ 0 } && p < index_t{ image->dimensions() })) {
+                   for (std::uint8_t c=0;c<comps;++c)
+                       (*image)(size_t{ p },c) += 
+                                   (storage_element_t)(block(size_t{ idx+index_t{ block.padding } },c) * scale);
+               }
+           });
+       }
+   
+       void write_light_splat(const vec3u32_t& pos3,
+                              const std::uint8_t comp,
+                              const T& value,
+                              const int radius,
+                              const f_t* weights,
+                              const f_t scale=1) noexcept {
+           assert(light_surfaces);
+           if (!light_surfaces)
+               return;
+   
+           auto& storage = light_surfaces->get();
+           const auto pos = index_t{ pos3 };
+   
+           std::size_t i=0;
+           for_range(index_t{ -radius }, index_t{ radius+1 }, [&](auto ridx) {
+               const auto w = weights[i++] * scale;
+   
+               const auto p = pos + ridx;
+               if (m::all(p >= index_t{ 0 } && p < index_t{ storage.dimensions() }))
+                   storage(size_t{ p },comp) += (StorageT)(w * value);
+           });
+       }
+   
+       [[nodiscard]] inline bitmap::colour_encoding_t get_colour_encoding_of_developed_tonemapped_film() const noexcept override {
+           if (sensor_tonemap)
+               return sensor_tonemap->get_colour_encoding();
+           return bitmap::colour_encoding_type_e::linear;
+       }
+   
+       [[nodiscard]] auto develop(const f_t scale_light=1) const noexcept
+           requires (!polarimetric)
+       {
+           const auto comps = pixel_layout().components;
+           const auto size  = dimensions();
+           [[assume(comps>=1 && comps<=4)]];
+   
+           auto developed_image = developed_scalar_film_t<Dims>::create(size,pixel_layout());
+   
+           // develop primary image
+           if (image) {
+               for_range(size_t{ 0 }, size, [&](auto p) {
+                   const auto pos = position(p);
+                   for (std::uint8_t c=0;c<comps;++c)
+                       developed_image(p,c) = PixelT((*image)(pos,c).pixel_value());
+               });
+           } else {
+               developed_image.fill(0);
+           }
+   
+           // develop light images
+           if (light_surfaces) {
+               for (const auto& limage : *light_surfaces) {
+                   assert(size==limage.dimensions() && comps==limage.components());
+   
+                   for_range(size_t{ 0 }, size, [&](auto p) {
+                       const auto pos = position(p);
+                       for (std::uint8_t c=0;c<comps;++c)
+                           developed_image(p,c) += PixelT(limage(pos,c)) * scale_light;
+                   });
+               }
+           }
+   
+           return developed_image;
+       }
+   
+       template <bool develop_I_only = false>
+       [[nodiscard]] auto develop(const f_t scale_light=1) const noexcept
+           requires (polarimetric)
+       {
+           const auto comps = pixel_layout().components;
+           const auto size  = dimensions();
+           [[assume(comps>=1 && comps<=4)]];
+   
+           developed_polarimetric_film_t<Dims> developed_stokes;
+           if constexpr (develop_I_only) {
+               developed_stokes[0] = developed_scalar_film_t<Dims>::create(size,pixel_layout());
+           } else {
+               for (auto& simage : developed_stokes)
+                   simage = developed_scalar_film_t<Dims>::create(size,pixel_layout());
+           }
+   
+           // develop primary image
+           if (image) {
+               for_range(size_t{ 0 }, size, [&](auto p) {
+                   const auto pos = position(p);
+                   for (std::uint8_t c=0;c<comps;++c) {
+                       const auto& S = (*image)(pos,c).pixel_value();
+                       developed_stokes[0](p,c) = PixelT(S.x);
+                       if constexpr (!develop_I_only) {
+                           developed_stokes[1](p,c) = PixelT(S.y);
+                           developed_stokes[2](p,c) = PixelT(S.z);
+                           developed_stokes[3](p,c) = PixelT(S.w);
+                       }
+                   }
+               });
+           } else {
+               if constexpr (develop_I_only) {
+                   developed_stokes[0].fill(0);
+               } else {
+                   for (auto& simage : developed_stokes)
+                       simage.fill(0);
+               }
+           }
+   
+           // develop light images
+           if (light_surfaces) {
+               for (const auto& limage : *light_surfaces) {
+                   assert(size==limage.dimensions() && comps==limage.components());
+   
+                   for_range(size_t{ 0 }, size, [&](auto p) {
+                       const auto pos = position(p);
+                       for (std::uint8_t c=0;c<comps;++c) {
+                           const auto& S = limage(pos,c);
+                           developed_stokes[0](p,c) += PixelT(S.x) * scale_light;
+                           if constexpr (!develop_I_only) {
+                               developed_stokes[1](p,c) += PixelT(S.y) * scale_light;
+                               developed_stokes[2](p,c) += PixelT(S.z) * scale_light;
+                               developed_stokes[3](p,c) += PixelT(S.w) * scale_light;
+                           }
+                       }
+                   });
+               }
+           }
+   
+           return developed_stokes;
+       }
+   
+       [[nodiscard]] developed_scalar_film_t<2> develop_lin_d2(
+               const std::size_t samples_per_element) const override {
+           if constexpr (Dims==2 && !polarimetric)
+               return develop(samples_per_element > 0 ? f_t(1)/samples_per_element : 0);
+           if constexpr (Dims==2 && polarimetric)
+               return develop<true>(samples_per_element > 0 ? f_t(1)/samples_per_element : 0)[0];
+   
+           throw std::runtime_error("(film storage) develop_lin_d2() called with incompatible film");
+       }
+   
+       [[nodiscard]] developed_polarimetric_film_t<2> develop_lin_stokes_d2(
+               const std::size_t samples_per_element) const override {
+           if constexpr (Dims==2 && polarimetric)
+               return develop(samples_per_element > 0 ? f_t(1)/samples_per_element : 0);
+   
+           throw std::runtime_error("(film storage) develop_lin_stokes_d2() called with incompatible film");
+       }
+   
+       [[nodiscard]] developed_scalar_film_t<2> develop_d2(
+               const std::size_t samples_per_element) const override {
+           developed_scalar_film_t<2> ret;
+           if constexpr (Dims==2 && !polarimetric)
+               ret = develop(samples_per_element > 0 ? f_t(1)/samples_per_element : 0);
+           else if constexpr (Dims==2 && polarimetric) {
+               auto temp = develop<true>(samples_per_element > 0 ? f_t(1)/samples_per_element : 0);
+               ret = std::move(temp[0]);
+           }
+           else
+               throw std::runtime_error("(film storage) develop_d2() called with incompatible film");
+   
+           // apply tonemapping operator        
+           if (sensor_tonemap) {
+               return (*sensor_tonemap)(ret);
+           }
+           return ret;
+       }
+   
+       [[nodiscard]] developed_polarimetric_film_t<2> develop_stokes_d2(
+               const std::size_t samples_per_element) const override {
+           developed_polarimetric_film_t<2> ret;
+           if constexpr (Dims==2 && polarimetric)
+               ret = develop(samples_per_element > 0 ? f_t(1)/samples_per_element : 0);
+           else
+               throw std::runtime_error("(film storage) develop_stokes_d2() called with incompatible film");
+   
+           // apply tonemapping operator        
+           if (sensor_tonemap) {
+               for (auto& image : ret)
+                   image = (*sensor_tonemap)(image);
+           }
+           return ret;
+       }
+   
+   private:
+       using light_images_t = thread_pool::tpool_worker_arena_t<light_image_t>;
+   
+       // written by blocks
+       std::optional<image_t> image;
+       // used for sensor direct sampling strategies, a copy for each thread pool worker
+       std::optional<light_images_t> light_surfaces;
+   };
+   
+   }

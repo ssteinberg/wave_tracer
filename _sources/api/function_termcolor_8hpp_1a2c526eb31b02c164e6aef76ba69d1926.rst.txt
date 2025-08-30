@@ -1,0 +1,14 @@
+.. _exhale_function_termcolor_8hpp_1a2c526eb31b02c164e6aef76ba69d1926:
+
+Function wt::logger::termcolour::on_blue
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::logger::termcolour::on_blue(std::ostream&)
+   :project: wave_tracer

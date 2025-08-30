@@ -1,0 +1,14 @@
+.. _exhale_function_vecmath_8hpp_1aac9b4b7040b351c0ff5fc2ec9392d5c4:
+
+Template Function wt::m::length2
+================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::length2(const V&)
+   :project: wave_tracer

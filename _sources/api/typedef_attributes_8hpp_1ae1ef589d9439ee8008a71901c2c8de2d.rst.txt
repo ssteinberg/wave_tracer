@@ -1,0 +1,14 @@
+.. _exhale_typedef_attributes_8hpp_1ae1ef589d9439ee8008a71901c2c8de2d:
+
+Typedef wt::scene::element::attributes::string_map_t
+====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::scene::element::attributes::string_map_t
+   :project: wave_tracer

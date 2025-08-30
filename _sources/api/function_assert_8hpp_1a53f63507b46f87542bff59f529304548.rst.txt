@@ -1,0 +1,14 @@
+.. _exhale_function_assert_8hpp_1a53f63507b46f87542bff59f529304548:
+
+Template Function wt::assert_orthogonal_unit_vectors
+====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::assert_orthogonal_unit_vectors(const vec<Dim, Fp>&, const vec<Dim, Fp>&, Fp)
+   :project: wave_tracer

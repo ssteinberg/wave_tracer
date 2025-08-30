@@ -1,0 +1,63 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_matinverse.hpp:
+
+File matinverse.hpp
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/matinverse.hpp``)
+-----------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_matinverse.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/math/eft/eft.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__m`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_matinverse_8hpp_1a492c8b1196f35d0a946b61f713de60d0`
+
+- :ref:`exhale_function_matinverse_8hpp_1ac7d463be641647201ed9dc392a5dd0eb`
+
+- :ref:`exhale_function_matinverse_8hpp_1a0f0493142eb47e84b41e194c4f6df804`
+

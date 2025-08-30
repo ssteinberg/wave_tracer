@@ -1,0 +1,63 @@
+
+.. _namespace_wt__spectrum:
+
+Namespace wt::spectrum
+======================
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt__spectrum__detail_spectrum_from_db`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1spectrum_1_1composite__t_1_1comparator__rangew__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1analytic__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1binned__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1blackbody__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1complex__analytic__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1complex__container__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1complex__uniform__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1composite__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1discrete__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1function__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1gaussian__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1piecewise__linear__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1rgb__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1spectrum__real__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1spectrum__t`
+
+- :ref:`exhale_class_classwt_1_1spectrum_1_1uniform__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_spectrum__from__db_8hpp_1a84456f1d2de06ab11ded95e26dfde86d`
+
+- :ref:`exhale_function_spectrum__from__db_8hpp_1a23c74f13dec05549d2fda10030b84894`
+
+- :ref:`exhale_function_spectrum__from__ITU_8hpp_1aec6228d963650ef6f30e77153522fd31`
+
+- :ref:`exhale_function_spectrum__from__db_8hpp_1adf0bae01487f9e10f3dc5419a4ef6a2d`

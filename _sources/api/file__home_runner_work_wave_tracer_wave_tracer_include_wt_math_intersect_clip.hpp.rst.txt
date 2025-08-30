@@ -1,0 +1,68 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp:
+
+File clip.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect/clip.hpp``)
+---------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``array`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_array.hpp`)
+
+- ``wt/math/intersect/misc.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp`)
+
+- ``wt/math/range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__intersect`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1clip__triangle__ret__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_clip_8hpp_1a029da057b93141713df638c6e1b79f3d`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1ac84f769d2be904a7944b861361249261:
+
+Function wt::simd::gt(simd_avx_t<double, 8>, simd_avx_t<double, 8>)
+===================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::gt(simd_avx_t<double, 8>, simd_avx_t<double, 8>)
+   :project: wave_tracer

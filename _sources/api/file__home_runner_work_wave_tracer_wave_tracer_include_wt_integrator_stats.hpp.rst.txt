@@ -1,0 +1,60 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_stats.hpp:
+
+File stats.hpp
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/integrator``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/integrator/stats.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_stats.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``chrono`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`)
+
+- ``wt/util/statistics_collector/stat_collector_registry.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector_registry.hpp`)
+
+- ``wt/util/statistics_collector/stat_counter_event.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter_event.hpp`)
+
+- ``wt/util/statistics_collector/stat_histogram.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_histogram.hpp`)
+
+- ``wt/util/statistics_collector/stat_stats.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_stats.hpp`)
+
+- ``wt/util/statistics_collector/stat_timings.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_timings.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__integrator`
+

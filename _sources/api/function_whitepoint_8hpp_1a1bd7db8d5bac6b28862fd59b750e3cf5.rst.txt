@@ -1,0 +1,14 @@
+.. _exhale_function_whitepoint_8hpp_1a1bd7db8d5bac6b28862fd59b750e3cf5:
+
+Function wt::colourspace::chromatic_adaptation_transform
+========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_whitepoint.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::colourspace::chromatic_adaptation_transform(const vec3_t&, const vec3_t&)
+   :project: wave_tracer

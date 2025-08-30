@@ -1,0 +1,14 @@
+.. _exhale_variable_RGB__to__spectral_8hpp_1a0f1108e76b125e108cf9176aaf6bfb1c:
+
+Variable wt::colourspace::RGB_to_spectral::min_lambda
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB_to_spectral.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::colourspace::RGB_to_spectral::min_lambda
+   :project: wave_tracer

@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1bitmap_1_1texture2d__t:
+
+Class texture2d_t
+=================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public wt::bitmap::texture2d_tmpl_t< TexelT, texfilter, layout, colour_encoding_type >`` (:ref:`exhale_class_classwt_1_1bitmap_1_1texture2d__tmpl__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::bitmap::texture2d_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

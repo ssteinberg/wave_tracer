@@ -1,0 +1,85 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp:
+
+File elliptic_cone.hpp
+======================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/shapes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/shapes/elliptic_cone.hpp``)
+---------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``wt/interaction/intersection.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/frame.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`)
+
+- ``wt/math/range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`)
+
+- ``wt/math/shapes/ray.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ray.hpp`)
+
+- ``wt/math/simd/wide_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`)
+
+- ``wt/util/assert.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_traversal_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone_intersection_tolerance.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1elliptic__cone__t`
+

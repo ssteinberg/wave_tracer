@@ -1,0 +1,14 @@
+.. _exhale_function_unit__vector_2math_8hpp_1ac64acfcf0248b8983bc4380578ba079d:
+
+Template Function wt::m::max_dimension(const dirvec3<T>&)
+=========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::max_dimension(const dirvec3<T>&)
+   :project: wave_tracer

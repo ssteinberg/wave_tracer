@@ -1,0 +1,91 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp:
+
+File util.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/util.hpp``)
+-----------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``optional``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/eft/eft.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`)
+
+- ``wt/math/simd/wide_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`)
+
+- ``wt/math/type_traits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ball.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_surface_differentials.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__util`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_math_2util_8hpp_1a1a4bcb0303e77eea4deb9740b7feb944`
+
+- :ref:`exhale_function_math_2util_8hpp_1ae4d4f54b9260cc1425ba63bd8fe13cf5`
+
+- :ref:`exhale_function_math_2util_8hpp_1a6b23c2e8acf0c344663108be8ae83574`
+
+- :ref:`exhale_function_math_2util_8hpp_1a79fd43cc7b2dc5bf945a8b5d399bbd92`
+
+- :ref:`exhale_function_math_2util_8hpp_1aed3d17c5a69dc951f135cfcbf8717a01`
+
+- :ref:`exhale_function_math_2util_8hpp_1a111f920766c9d267bc04c07309689121`
+
+- :ref:`exhale_function_math_2util_8hpp_1a0b55133c4d98d42c194bbfc760c0be5a`
+
+- :ref:`exhale_function_math_2util_8hpp_1adc54c5a8b1cb6bc092d9c443e9248d4d`
+
+- :ref:`exhale_function_math_2util_8hpp_1abdcae0d0b5d4f8411c36f6be74ae0199`
+
+- :ref:`exhale_function_math_2util_8hpp_1a4e4062f6dac0526fd3bc959eec5557d8`
+
+- :ref:`exhale_function_math_2util_8hpp_1a6a36d260373b8e08516892a6f032dd85`
+
+- :ref:`exhale_function_math_2util_8hpp_1aae21197832a50f89dff031eea0b8fe15`
+

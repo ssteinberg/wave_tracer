@@ -1,0 +1,46 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui_log.hpp:
+
+File imgui_log.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/imgui``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/imgui/imgui_log.hpp``)
+--------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui_log.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``imgui_internal.h``
+
+- ``sstream``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+
+
+
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_imgui__log_8hpp_1adf4d73301961430d50d7edd96f92ce38`
+

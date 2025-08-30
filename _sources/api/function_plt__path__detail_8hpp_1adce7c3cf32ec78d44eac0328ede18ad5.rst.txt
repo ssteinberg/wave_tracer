@@ -1,0 +1,14 @@
+.. _exhale_function_plt__path__detail_8hpp_1adce7c3cf32ec78d44eac0328ede18ad5:
+
+Template Function wt::integrator::plt_path::random_walk
+=======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_path::random_walk(path_walk_data_t<BeamType>&, const QuantityOf<inverse(isq::length)> auto&, const int)
+   :project: wave_tracer

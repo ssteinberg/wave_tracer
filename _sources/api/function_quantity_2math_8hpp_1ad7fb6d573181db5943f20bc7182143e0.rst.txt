@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1ad7fb6d573181db5943f20bc7182143e0:
+
+Template Function wt::m::atan2
+==============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::atan2(const T, const T)
+   :project: wave_tracer

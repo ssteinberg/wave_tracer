@@ -1,0 +1,42 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp:
+
+Program Listing for File defs.hpp
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/film/defs.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <type_traits>
+   #include <wt/bitmap/bitmap.hpp>
+   
+   namespace wt::sensor {
+   
+   static constexpr bool use_double_precision_for_internal_storage = true;
+   
+   using PixelT = float;
+   using FilmStoragePixelT = std::conditional_t<use_double_precision_for_internal_storage,
+                                                double, PixelT>;
+   
+   template <std::size_t Dims>
+   using developed_scalar_film_t = bitmap::bitmap_t<PixelT,Dims>;
+   template <std::size_t Dims>
+   using developed_polarimetric_film_t = std::array<developed_scalar_film_t<Dims>,4>;
+   
+   class film_storage_handle_t;
+   
+   }

@@ -1,0 +1,27 @@
+.. _exhale_class_classwt_1_1scene_1_1scene__sensor__t:
+
+Class scene_sensor_t
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_sensor.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1scene__sensor__t_1_1emitter__sampling__data__t`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::scene::scene_sensor_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1bitmap_1_1is__texel_3_01T_01_4:
+
+Template Struct is_texel< T >
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::bitmap::is_texel< T >
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

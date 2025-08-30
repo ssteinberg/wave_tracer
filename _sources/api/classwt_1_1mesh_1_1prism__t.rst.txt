@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1mesh_1_1prism__t:
+
+Class prism_t
+=============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_prism.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::mesh::prism_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

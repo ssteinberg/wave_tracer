@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a9c66174e0be44a9ed0cda98ae6f693e0:
+
+Function wt::m::prod(const Scalar auto&...)
+===========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::prod(const Scalar auto&...)
+   :project: wave_tracer

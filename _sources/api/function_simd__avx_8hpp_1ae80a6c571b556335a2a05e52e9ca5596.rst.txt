@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1ae80a6c571b556335a2a05e52e9ca5596:
+
+Template Function wt::simd::permute2f(simd_avx_t<double, 8>, simd_avx_t<double, 8>)
+===================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::permute2f(simd_avx_t<double, 8>, simd_avx_t<double, 8>)
+   :project: wave_tracer

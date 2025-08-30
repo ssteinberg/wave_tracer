@@ -1,0 +1,14 @@
+.. _exhale_typedef_bsdf_2common_8hpp_1a9ef0d5d10bce867e6505b16d6a1dee6a:
+
+Typedef wt::bsdf::lobe_mask_t
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::bsdf::lobe_mask_t
+   :project: wave_tracer

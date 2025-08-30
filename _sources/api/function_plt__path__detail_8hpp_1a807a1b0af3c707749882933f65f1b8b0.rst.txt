@@ -1,0 +1,14 @@
+.. _exhale_function_plt__path__detail_8hpp_1a807a1b0af3c707749882933f65f1b8b0:
+
+Function wt::integrator::plt_path::integrate_forward
+====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_path::integrate_forward(const integrator_context_t&, const vec3u32_t&, const plt_path_t::options_t&)
+   :project: wave_tracer

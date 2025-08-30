@@ -1,0 +1,41 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_icosahedron.hpp:
+
+Program Listing for File icosahedron.hpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_icosahedron.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/mesh/icosahedron.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/transform/transform.hpp>
+   
+   #include "mesh.hpp"
+   
+   namespace wt::mesh {
+   
+   class icosahedron_t {
+   public:
+       static mesh_t create(const std::string& shape_id, 
+                            const wt_context_t& ctx,
+                            const pqvec3_t& centre, length_t radius,
+                            const transform_d_t& transform);
+   };
+   
+   }

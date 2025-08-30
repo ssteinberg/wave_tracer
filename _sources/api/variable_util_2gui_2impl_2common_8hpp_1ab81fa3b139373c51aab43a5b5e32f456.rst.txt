@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2gui_2impl_2common_8hpp_1ab81fa3b139373c51aab43a5b5e32f456:
+
+Variable wt::gui::colourmap_names
+=================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::gui::colourmap_names
+   :project: wave_tracer

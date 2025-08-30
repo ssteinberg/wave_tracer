@@ -1,0 +1,33 @@
+.. _exhale_class_classwt_1_1sampler_1_1sampler__t:
+
+Class sampler_t
+===============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::scene::scene_element_t`` (:ref:`exhale_class_classwt_1_1scene_1_1scene__element__t`)
+
+
+Derived Types
+*************
+
+- ``public wt::sampler::sobolld_t`` (:ref:`exhale_class_classwt_1_1sampler_1_1sobolld__t`)
+- ``public wt::sampler::uniform_t`` (:ref:`exhale_class_classwt_1_1sampler_1_1uniform__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::sampler::sampler_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2quantity_2type__traits_8hpp_1ad4c0e76a4dbfb9be96d9f9ed15a1a5be:
+
+Variable wt::is_quantity_v
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::is_quantity_v
+   :project: wave_tracer

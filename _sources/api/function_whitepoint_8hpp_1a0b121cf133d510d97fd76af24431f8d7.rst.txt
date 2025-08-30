@@ -1,0 +1,14 @@
+.. _exhale_function_whitepoint_8hpp_1a0b121cf133d510d97fd76af24431f8d7:
+
+Function wt::colourspace::reference_XYZ_for_white_point
+=======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_whitepoint.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::colourspace::reference_XYZ_for_white_point(white_point_e)
+   :project: wave_tracer

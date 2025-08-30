@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2gui_2impl_2common_8hpp_1ac99934bbfb497ff858577e1bc479f385:
+
+Variable wt::gui::scene_info_imgui_lbl
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::gui::scene_info_imgui_lbl
+   :project: wave_tracer

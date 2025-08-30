@@ -1,0 +1,118 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp:
+
+File concepts.hpp
+=================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/concepts.hpp``)
+---------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``complex`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex.hpp`)
+
+- ``type_traits`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp`)
+
+- ``wt/math/glm.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp`)
+
+- ``wt/math/quantity/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``wt/util/type_traits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_type_traits.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_compensated_sum.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_format.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_integer3.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_quantity.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_enum.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_math_expression.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter_event.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_histogram.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_stats.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_timings.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+

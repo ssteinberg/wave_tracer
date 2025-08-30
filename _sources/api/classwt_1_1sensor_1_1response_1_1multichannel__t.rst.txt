@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1sensor_1_1response_1_1multichannel__t:
+
+Class multichannel_t
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_multichannel.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::sensor::response::response_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1response_1_1response__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::sensor::response::multichannel_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

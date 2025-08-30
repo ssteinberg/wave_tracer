@@ -1,0 +1,61 @@
+
+.. _namespace_wt__logger:
+
+Namespace wt::logger
+====================
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt__logger__indicators`
+
+- :ref:`namespace_wt__logger__termcolour`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1bar__t`
+
+- :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1logger__guard__t`
+
+- :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1logger__progress__bar__t`
+
+- :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1osyncstreams__t`
+
+- :ref:`exhale_class_classwt_1_1logger_1_1file__logger__t`
+
+- :ref:`exhale_class_classwt_1_1logger_1_1logger__t`
+
+- :ref:`exhale_class_classwt_1_1logger_1_1string__ostream`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_termcolor_8hpp_1a061da0e87d4e81bd3f7e07436314dc9f`
+
+- :ref:`exhale_enum_termcolor_8hpp_1a511f90354bec25fd78fbd22a3c20e637`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_logger_8hpp_1a1600228f4845e48992c8f7edf4161782`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_logger_8hpp_1a20caf3254c96b6b8e1734c7cc085cef9`
+
+- :ref:`exhale_variable_logger_8hpp_1a6e6e0f34eb1e55568c864eccce55625c`
+
+- :ref:`exhale_variable_logger_8hpp_1aef117d70fcca9e169a8c0854f09c63d5`

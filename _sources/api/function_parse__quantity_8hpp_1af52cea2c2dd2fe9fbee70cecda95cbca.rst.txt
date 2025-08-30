@@ -1,0 +1,14 @@
+.. _exhale_function_parse__quantity_8hpp_1af52cea2c2dd2fe9fbee70cecda95cbca:
+
+Template Function wt::parse_pqvec3
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::parse_pqvec3(const std::string&)
+   :project: wave_tracer

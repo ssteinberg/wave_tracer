@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1ads_1_1construction_1_1ads__constructor__t:
+
+Class ads_constructor_t
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_constructor.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public wt::ads::construction::bvh8w_constructor_t`` (:ref:`exhale_class_classwt_1_1ads_1_1construction_1_1bvh8w__constructor__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::ads::construction::ads_constructor_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

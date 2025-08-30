@@ -1,0 +1,14 @@
+.. _exhale_typedef_plt__path__detail_8hpp_1a4a11344eee03d180e34888a2538c32fb:
+
+Typedef wt::integrator::plt_path::transport_e
+=============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::integrator::plt_path::transport_e
+   :project: wave_tracer

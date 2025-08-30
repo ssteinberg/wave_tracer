@@ -1,0 +1,14 @@
+.. _exhale_enum_sensor__flags_8hpp_1ad47474be1a9a96c84aaff1ff75d3fa8a:
+
+Enum sensor_write_flags_e
+=========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_flags.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::sensor::sensor_write_flags_e
+   :project: wave_tracer

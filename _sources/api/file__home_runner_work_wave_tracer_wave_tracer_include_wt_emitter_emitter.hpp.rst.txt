@@ -1,0 +1,95 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp:
+
+File emitter.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/emitter``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/emitter/emitter.hpp``)
+-----------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``memory``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/beam/beam.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`)
+
+- ``wt/interaction/polarimetric/stokes.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/shapes/ray.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ray.hpp`)
+
+- ``wt/sampler/measure.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_measure.hpp`)
+
+- ``wt/sampler/sampler.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`)
+
+- ``wt/scene/element/scene_element.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_scene_element.hpp`)
+
+- ``wt/scene/emitter_sample.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp`)
+
+- ``wt/scene/position_sample.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_position_sample.hpp`)
+
+- ``wt/spectrum/spectrum.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_area.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_infinite_emitter.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_point.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_spot.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_sensor.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__emitter`
+
+- :ref:`namespace_wt__scene`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1emitter_1_1emitter__t`
+

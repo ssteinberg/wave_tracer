@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1stokes__parameters__t:
+
+Template Struct stokes_parameters_t
+===================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::stokes_parameters_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

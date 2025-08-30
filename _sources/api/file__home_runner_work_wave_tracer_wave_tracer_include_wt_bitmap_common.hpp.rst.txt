@@ -1,0 +1,84 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp:
+
+File common.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap/common.hpp``)
+---------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``concepts`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``type_traits`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/math/norm_integers.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_norm_integers.hpp`)
+
+- ``wt/spectrum/colourspace/RGB/RGB.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_load2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_write2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__bitmap`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1colour__encoding__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1colour__encoding__t_1_1srgb__lut__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_bitmap_2common_8hpp_1ac0c1275b2e08d53135d8ac63e24b27ed`
+

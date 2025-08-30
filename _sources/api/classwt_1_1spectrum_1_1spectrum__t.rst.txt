@@ -1,0 +1,35 @@
+.. _exhale_class_classwt_1_1spectrum_1_1spectrum__t:
+
+Class spectrum_t
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::scene::scene_element_t`` (:ref:`exhale_class_classwt_1_1scene_1_1scene__element__t`)
+
+
+Derived Types
+*************
+
+- ``public wt::spectrum::complex_analytic_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1complex__analytic__t`)
+- ``public wt::spectrum::complex_container_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1complex__container__t`)
+- ``public wt::spectrum::complex_uniform_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1complex__uniform__t`)
+- ``public wt::spectrum::spectrum_real_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1spectrum__real__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::spectrum::spectrum_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

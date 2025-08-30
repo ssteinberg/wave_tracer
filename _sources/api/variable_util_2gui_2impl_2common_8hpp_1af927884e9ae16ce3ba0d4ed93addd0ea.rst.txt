@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2gui_2impl_2common_8hpp_1af927884e9ae16ce3ba0d4ed93addd0ea:
+
+Variable wt::gui::open_sidebar_by_default
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::gui::open_sidebar_by_default
+   :project: wave_tracer

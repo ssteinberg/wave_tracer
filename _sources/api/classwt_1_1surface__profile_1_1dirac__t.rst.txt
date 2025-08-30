@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1surface__profile_1_1dirac__t:
+
+Class dirac_t
+=============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_dirac.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::surface_profile::surface_profile_t`` (:ref:`exhale_class_classwt_1_1surface__profile_1_1surface__profile__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::surface_profile::dirac_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

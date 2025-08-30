@@ -1,0 +1,14 @@
+.. _exhale_variable_ads_2common_8hpp_1ab5f1e0d1abd49c9463881d422b95c986:
+
+Variable wt::ads::invalid_idx
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::ads::invalid_idx
+   :project: wave_tracer

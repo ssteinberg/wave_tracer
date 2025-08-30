@@ -1,0 +1,14 @@
+.. _exhale_function_unit__vector_2math_8hpp_1a6a8697385bb25840d0e5c397b4e56fdc:
+
+Template Function wt::m::sum(const dirvec2<T>&)
+===============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::sum(const dirvec2<T>&)
+   :project: wave_tracer

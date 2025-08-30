@@ -1,0 +1,624 @@
+
+.. _namespace_wt__m:
+
+Namespace wt::m
+===============
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt__m__eft`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1m_1_1case__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a3165c7aee47a5ead60012a7ca9e37a05`
+
+- :ref:`exhale_function_math_2common_8hpp_1ae81a79886c76751ba8f97f89786e1886`
+
+- :ref:`exhale_function_math_2common_8hpp_1a3a914c7f6df96e313a23127fc027111b`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa3eb607855966f77d71981952548c642`
+
+- :ref:`exhale_function_math_2common_8hpp_1aaf2a6633fc76e1f251b7c7c4c4fbc129`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aea083618ebd28a50ca505f6094186177`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a17abd4640091e75a6fa090476549b18e`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a92c57bced8b41df0033ec4e6843e3ee6`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1ab618e7945a4e5439f98d82f05bd91a0d`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a53fd175983b0cd7aae29c56efd61587e`
+
+- :ref:`exhale_function_simd_2math_8hpp_1af6bf2e58b6c3691efd7243a39a5c615e`
+
+- :ref:`exhale_function_simd_2math_8hpp_1ac0458c9840dab456883ca35daa1b315c`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a7d8d30a085382ab9106b2973722a189e`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a8d3dd45c37ec60444c8e98fb3527618f`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a338739b37e1a57fe6347d52cc7f23235`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a4dae42168413b3e1cce4a26b4f4975f4`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a328a2a2191a63433eb34722834cb7c95`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1ad7fb6d573181db5943f20bc7182143e0`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a57f270a9c95f786ddf2cfab9c2d7e4f4`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a28fc8dace1872d2222f753e1ffbbedc8`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a130455a8d64e83c3202db043be2fab66`
+
+- :ref:`exhale_function_math_2common_8hpp_1afed0e9e8c40a9470bbea5627686cd953`
+
+- :ref:`exhale_function_math_2common_8hpp_1a8066b7a4debcfe6c7ea5d2ad7b844cf8`
+
+- :ref:`exhale_function_math_2common_8hpp_1a308885ba02afe3751dc5f58029dec414`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a41574de770e3506a52d7257d148d20e6`
+
+- :ref:`exhale_function_math_2common_8hpp_1a122c4bb122c5a079aac0790418a012de`
+
+- :ref:`exhale_function_math_2common_8hpp_1a2a1d7110e04e958bb3c17f4d06c60c63`
+
+- :ref:`exhale_function_math_2common_8hpp_1a5226305380be73c0a7a7dcafeae4b65c`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a949ceb4a3c3f5261bcdd58332e8441e8`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a09763ff3bb2429b3591c0e141b64543f`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a2fe19413ec3197ae62cffaf169ad27ab`
+
+- :ref:`exhale_function_simd_2math_8hpp_1afc2e63c46db3e50d0be5fd29b3b7e10f`
+
+- :ref:`exhale_function_math_2common_8hpp_1ac6b8c932426dbe9250f38b4112562106`
+
+- :ref:`exhale_function_math_2common_8hpp_1a8f48dabb641171b44e51a4273ca4ef78`
+
+- :ref:`exhale_function_math_2common_8hpp_1ada2b72511d91256a5ecab225f3dc9f73`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a1172715fa931daf491f41672a5ef9655`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a3d2c137dbd435ec15678b2e36df8fa86`
+
+- :ref:`exhale_function_vecmath_8hpp_1a51ee7ed99c8bd7e753c5869ba9f29d04`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a4b9b7149f67abdd39fef5d9d6437bd8c`
+
+- :ref:`exhale_function_math_2common_8hpp_1afe656264191855712961c8fb73190128`
+
+- :ref:`exhale_function_math_2common_8hpp_1aaebdee7eec170f4f49dd7293e51c368f`
+
+- :ref:`exhale_function_math_2common_8hpp_1aa49524fac6ab67e73eea49a40afd91c1`
+
+- :ref:`exhale_function_math_2common_8hpp_1a02bea4adc0458df0d1553b1eefbd0c77`
+
+- :ref:`exhale_function_vecmath_8hpp_1ad206a42a4945c5e3c1deeb63d946edd0`
+
+- :ref:`exhale_function_simd_2math_8hpp_1aeddc1c9faad0a09ebcf7bc1eee0bebde`
+
+- :ref:`exhale_function_erf__lut_8hpp_1aff5d11500ca84341bb023442bc3688f7`
+
+- :ref:`exhale_function_math_2common_8hpp_1a89fd3e8c7a95474f3252e93fea839d06`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9717f720a3bc3e2c0e4e2f440ad435d7`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a224395a42d455cbbb2616df90f6d620f`
+
+- :ref:`exhale_function_math_2common_8hpp_1af53488cba0d9febac5821babae68e6bb`
+
+- :ref:`exhale_function_math_2common_8hpp_1a26ac61ad699a7fdaaaf95c3a40c4328d`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a520f1ad6ebd6456360b5216024dc0551`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1aba6fbd7a2b1b1f2844c6dd5e88047bb9`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9e036aa4daa3fcef8c6ad578dc9a42f2`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a6fffd8e046144dc88bb5c24e00709811`
+
+- :ref:`exhale_function_math_2common_8hpp_1a52dc46c9c50f8a7d8fd9776bcb11f284`
+
+- :ref:`exhale_function_math_2common_8hpp_1a46948a72cd1381421db73265f708008b`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a611adc16b33d588f6da8a830ad95b20f`
+
+- :ref:`exhale_function_fma_8hpp_1a641d0c055042ea64fd08a2816090adfb`
+
+- :ref:`exhale_function_fma_8hpp_1ac7c473779a0f605d559471be9d95fed5`
+
+- :ref:`exhale_function_fma_8hpp_1a9e7c715754e6802029ee5eb718131f61`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a791ceeaad75b3b6f6f4e0fccf0fd6e26`
+
+- :ref:`exhale_function_fma_8hpp_1a96d1358bf59886322a63342be00b7697`
+
+- :ref:`exhale_function_fma_8hpp_1a39930d2f02475f1e44a9238168413d63`
+
+- :ref:`exhale_function_fma_8hpp_1a09cc4f901bf15a791bb19b7310425493`
+
+- :ref:`exhale_function_fma_8hpp_1ad5585255523c890aa1208e62f3e08595`
+
+- :ref:`exhale_function_fma_8hpp_1a55c30b1e81031296f1ca15c86f94a2ff`
+
+- :ref:`exhale_function_fma_8hpp_1a1dd5a62b93abe9700aae1dc6e9f1fafe`
+
+- :ref:`exhale_function_fma_8hpp_1a823261d4e74c402fd75139387e08618a`
+
+- :ref:`exhale_function_fma_8hpp_1ad2f5df90f33fb9e945c43d26d7a406f1`
+
+- :ref:`exhale_function_fma_8hpp_1ae0dd6d07dd0685e0bc8ee6d95b13ac1f`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a273ee627e24e83d2e915ba6e6aea852d`
+
+- :ref:`exhale_function_norm__integers_8hpp_1af3df83ea0c85e9017f0b3830632fa863`
+
+- :ref:`exhale_function_norm__integers_8hpp_1ad3e2358d4302b162a836d3b4d427ad58`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a508ea52e1d7685c61eb4d423c3e61dfd`
+
+- :ref:`exhale_function_simd_2math_8hpp_1afbaea5afd17aa3b8020df03cf84ca132`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a8b1210c9d8d66e3dfe550454abbcecb0`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a98745fe5b99cfe72ccdc895fd9aace31`
+
+- :ref:`exhale_function_matinverse_8hpp_1a0f0493142eb47e84b41e194c4f6df804`
+
+- :ref:`exhale_function_matinverse_8hpp_1ac7d463be641647201ed9dc392a5dd0eb`
+
+- :ref:`exhale_function_matinverse_8hpp_1a492c8b1196f35d0a946b61f713de60d0`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1afffe13145b15f96a3289e19c89e562b6`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a2706d1d8c6274c1f4c31cf1809396956`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1ae7715dde6f19d5ccdca151d805c89064`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1ad262d593bfa0502d4d9969b33ba3bf05`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a6551376cfd21d4812045eea16a0881a2`
+
+- :ref:`exhale_function_math_2common_8hpp_1a79525b8ee98459a3fe7b87b0fb558947`
+
+- :ref:`exhale_function_math_2common_8hpp_1a813d3967f4ffbba07693a818b65e2805`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a11ae26e68634935e611159dea733cd9c`
+
+- :ref:`exhale_function_math_2common_8hpp_1a066cb03cf18f263833f09a387e54292b`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad750765e605412f1b51a33527e79cdf7`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a1ccc1f1942ae1d1ff90b419cde39c8f3`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a845b5de4a80327c975b68b12bca88361`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a48aa20527c53ed275b42dc07b36e3e28`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1ab066e66d30580b884754c6eaebf8e207`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1affff5087a32dd6fea6e52cb8890fc9ff`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a66760e791f5a239cb99f1192fcefb997`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ad0b5097e155ed128574691882373edc5`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a31534794325eeba6aeb56c2425a6f454`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aee661cad23027c0c7f82db94e2361666`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1ac34a0be2a65247286845f355e78aef78`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a056d5b644425c961b1ba3494b54f9078`
+
+- :ref:`exhale_function_math_2common_8hpp_1a4718cf4287df5d69f29403a8c60dd6aa`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad29eca57d8183d908a940ab154997c3b`
+
+- :ref:`exhale_function_math_2common_8hpp_1a6d6123f2bf409a55553e77dcb175ed48`
+
+- :ref:`exhale_function_math_2common_8hpp_1a5fe11243712e250697c4c5d747a76421`
+
+- :ref:`exhale_function_math_2common_8hpp_1a97146b0bf1c1569f83a6a7c17cc0d4e8`
+
+- :ref:`exhale_function_math_2common_8hpp_1a929cbc93b219b6d64db1284c6642f416`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a1016e3815bed34b870e178ac9a1b956b`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1aea1fed6b407781e777b20bf96f009c09`
+
+- :ref:`exhale_function_vecmath_8hpp_1a43f7f5b1daf7998a505a84771e0bfe44`
+
+- :ref:`exhale_function_vecmath_8hpp_1aac9b4b7040b351c0ff5fc2ec9392d5c4`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa97a989178ce779cfb1c2e7a0d63540c`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a95f53d7b66309c6dbb6b082d28151ead`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aba3d97738ccb9d1225661c6a8ae97c27`
+
+- :ref:`exhale_function_math_2common_8hpp_1a7c0dac528fb4b5acc841775bd2e33394`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1abfc1495f433911cc34cd65fc8be25161`
+
+- :ref:`exhale_function_simd_2math_8hpp_1ac95ea97488e5e0a7aeaa8f5c59d3e2aa`
+
+- :ref:`exhale_function_math_2common_8hpp_1a0828394a31a30bf8cda0417232ea0f84`
+
+- :ref:`exhale_function_math_2common_8hpp_1a63d55701b1c2a64a17dda53ffef2e77e`
+
+- :ref:`exhale_function_math_2common_8hpp_1add61f0b7212bda549103e831dc6e5f52`
+
+- :ref:`exhale_function_math_2common_8hpp_1aa28682308aeb6cff6f0ffeb3c0568932`
+
+- :ref:`exhale_function_math_2common_8hpp_1afdd0d321d839ff4963f09532bb8094d3`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a9f9b79de1fa7ac42f705b31931b3a116`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a9f3c5c3219bca85d5c2bc1fffe0f0898`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a58de311ec206b3cfa973c2bc998c50c2`
+
+- :ref:`exhale_function_math_2common_8hpp_1a4ba4c49af0f68d8355b494ad467380b9`
+
+- :ref:`exhale_function_math_2common_8hpp_1a396ec7df35ffe6dc1c268f0e27ec28d3`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a55afe82063584724802b3b3ded635d8d`
+
+- :ref:`exhale_function_math_2common_8hpp_1a5559482d46b414682ac348b2096023f6`
+
+- :ref:`exhale_function_math_2common_8hpp_1a8f390d21a5d751d9526842357ad9bd5a`
+
+- :ref:`exhale_function_math_2common_8hpp_1ac1e509b14df4d56741b88e8799fac330`
+
+- :ref:`exhale_function_math_2common_8hpp_1aec8f945ac81243ef6217db2788fd01f4`
+
+- :ref:`exhale_function_math_2common_8hpp_1a94f475343a9c12a20dae5e256830a41e`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa9bac93f9ef72aac3204f79b046956da`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a15f1dfdca6ccd4da5f55a5b587ac771b`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a474fad67f92e3b527782a644367e7f40`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aec2cee7b2b33743641a38d9cedf062e9`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a1eebddb434bc46da7df224322430a141`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a2fe75c6919be49d267910e3e39ebb949`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ac64acfcf0248b8983bc4380578ba079d`
+
+- :ref:`exhale_function_math_2common_8hpp_1a836165a584ecca8c414905df301a9833`
+
+- :ref:`exhale_function_math_2common_8hpp_1a00bb4770364fc06083d2673f6592b1fb`
+
+- :ref:`exhale_function_math_2common_8hpp_1aa335469d74790641ab982aa192284330`
+
+- :ref:`exhale_function_math_2common_8hpp_1a07bcb0a4730d5118721a062c0d79e5dd`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a9e3d30abe47a5514db0cee8011ce863b`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ae0cdcc4bbf7af33dd1f3ffb1576fc232`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa7d0f1a4738728479b28e25c295ea246`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a7f6bfb0cbff5f2285df1667680886435`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a128199e050bc1766f915507b0b96e2c3`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1acbd58c10ab0c0508907f7ec49fe98272`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a76942c28464d02e432dfe44d461d0945`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a94d2b56aa734e21dd047f28d20d582f7`
+
+- :ref:`exhale_function_simd_2math_8hpp_1aa98e9800f0ab554fa1469203c29e8015`
+
+- :ref:`exhale_function_math_2common_8hpp_1af45939b719d26e225e77fbd33820f562`
+
+- :ref:`exhale_function_math_2common_8hpp_1a6da6d2bb9f629fd781394572ea7af232`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a7a177826060163422b9ca892ed89baa8`
+
+- :ref:`exhale_function_math_2common_8hpp_1acc512c350a545fbc747a478ac52d97a7`
+
+- :ref:`exhale_function_math_2common_8hpp_1aef39de32632c75c75dd14327bc5fe53e`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad42c16ffb0cccc14f1b3e4431ebb7360`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1aafb5e3f0c9c72dfaad42cf4ab647d897`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a7ef14859fcd2dfeb4317ff495f9a540f`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a04ba7f4111fd4507fc535e853a159315`
+
+- :ref:`exhale_function_math_2common_8hpp_1a70a4c8546c467add099960ef515a730c`
+
+- :ref:`exhale_function_math_2common_8hpp_1a08f44b909ad5790238e36d53932b2b62`
+
+- :ref:`exhale_function_math_2common_8hpp_1a0f8dcee12dd323c8da035c44a5eab1d4`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a72f3bac8cf4c2f9a5c48c0a932e5d7ea`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a8046abec5719302ab215695ad5d85efe`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ad72d204441761c0dcc8a6b4bb153f960`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a1521d1eb8a8cc2e3a5976a2c885c82ec`
+
+- :ref:`exhale_function_math_2common_8hpp_1a819d4fa2de93fb8044f5a16bea101d93`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a4eb7610da7a4489a1e259377cbe1b52c`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a441286cbb2c145a05f7ea39e69d467df`
+
+- :ref:`exhale_function_math_2common_8hpp_1a910d64964bd3a6062005167c22fc7904`
+
+- :ref:`exhale_function_math_2common_8hpp_1a638dedca1f1ba4a48360c7bb95c8e855`
+
+- :ref:`exhale_function_math_2common_8hpp_1a27d90d5a5ba02bfeb6b807718c8ed98e`
+
+- :ref:`exhale_function_math_2common_8hpp_1a12b81e6b741a3f5c8aa071c1aa031ee3`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1afd32254e32574bf29367ebef86b9a433`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1abb3f245de3774d17ecc50ac11561ffb6`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1abf7b0e7bcc326c8318bbc0740193bbc1`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ab11933eee32aa9614c10b45fa985c0c4`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1afd02d4794f736ace9d1b10a40422c3bd`
+
+- :ref:`exhale_function_math_2common_8hpp_1aae82c45cde3a7d851478a80c48e67ace`
+
+- :ref:`exhale_function_math_2common_8hpp_1a71f0ea1d8aa2222e573853c2ea9d02db`
+
+- :ref:`exhale_function_math_2common_8hpp_1a62e9f8c22fe169e7ca869bd883abc221`
+
+- :ref:`exhale_function_math_2common_8hpp_1a1e39960016d6f199eafd0a7959a5aba0`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ac18b22444ffd00f5dc84a30175af086a`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a5cd92cba68711822726994ebdae4b16f`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a4bf71aff3e3233e8b5a3c81c5e0ac269`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a3508f03e5235fe27d050d8b5e57c993f`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a83c2bf484060a49b423ff794ee6e34ff`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aea07ff94fba446362a2029399604d170`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ad4d8a7a87180fd32925d3def57d155ef`
+
+- :ref:`exhale_function_simd_2math_8hpp_1ac2021fcef22a96527f2595677cfd5a37`
+
+- :ref:`exhale_function_simd_2math_8hpp_1aa97846e4556ca4e36aeb891b7becbf18`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9bcff4fabd71aa258735d81f0053e27b`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9c1e00674b9d66f06cacbbcd6d064f1d`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad34209fbc5fafb644d0ae51e80c08fbf`
+
+- :ref:`exhale_function_math_2common_8hpp_1a796ed79369711042358713e6b54f339a`
+
+- :ref:`exhale_function_range_8hpp_1aff6a37181bd02080840cbb8fe82c2760`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a842bd97646f723e62c55a1dd352ec6fb`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a56e668f99875e24d4e7393a0f8d007b7`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a7f88d7b6f4c43765b95da0452b5099ce`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a9f8236fca3caabe267f127c63632db7f`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a522465d6e8cb901857b56a00c35d3108`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1aa03232b57cbded96ebd1b82da89c856a`
+
+- :ref:`exhale_function_math_2common_8hpp_1a20d7c5e43f139d9c91fd7f20d4108943`
+
+- :ref:`exhale_function_math_2common_8hpp_1aeb6f9d75ad126d25bccb26b22863d06f`
+
+- :ref:`exhale_function_vecmath_8hpp_1a0202818a38c2cc16a5a1a8c6dc681019`
+
+- :ref:`exhale_function_vecmath_8hpp_1a9da34916eb90f6cf9a45f39b8a754a49`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a9c92cf27a16a1711335f7a91a8413a72`
+
+- :ref:`exhale_function_math_2common_8hpp_1a6f9db0e9e49957c4fae9aeaa28219c62`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aa075d5ba48f0ad0fb00d49619fe325b5`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a135809543a020da86de628d73d47e071`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a395b0dd4dc80dfb42fcdfbbec425d394`
+
+- :ref:`exhale_function_math_2common_8hpp_1a010b8a37b052ad512f7f846376a0529c`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a24fca51717a750620f760698bfed98ec`
+
+- :ref:`exhale_function_math_2common_8hpp_1aac2b3df25cb5034be9fedbedf8290f71`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a07df81b2b334cc16fa7c7c1076b2000f`
+
+- :ref:`exhale_function_math_2common_8hpp_1abd6a055ef6c4fc363e169b814602765a`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1af9906aa44f7e235e1c544497e987b2af`
+
+- :ref:`exhale_function_math_2common_8hpp_1a0a8a8f58a81821520f3e3ce2cae09c02`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ae7d2baeaba1e0563021f16a62e055d84`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9c66174e0be44a9ed0cda98ae6f693e0`
+
+- :ref:`exhale_function_math_2common_8hpp_1ac76e5093c4433d45c47290d4b9050f36`
+
+- :ref:`exhale_function_math_2common_8hpp_1a7219f29008210360bbf68f56a04e55b4`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1aa5c2fd0ca0b58a9c6a4822e19f0303a9`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a14c66bc003f70e82c21391387d351a34`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad01ed10d796f269404ade9e4ea47e410`
+
+- :ref:`exhale_function_math_2common_8hpp_1a82146db94cde24fd27648ef34e6ad58a`
+
+- :ref:`exhale_function_math_2common_8hpp_1a4829d136748a8968ee1bb6b7225f44b9`
+
+- :ref:`exhale_function_simd_2math_8hpp_1ae6fbf45c516a606f49ee3efc3a83def2`
+
+- :ref:`exhale_function_simd_2math_8hpp_1ae1dbd9debc8b5e77fc4d55c483b29854`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a11108e841c222ea1079fb3ee2ad8c76a`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aad7307464ff8505c572ae5f6bd1a2f02`
+
+- :ref:`exhale_function_math_2common_8hpp_1a50b52c3920737be16f95e837fbf5fa60`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad198e4f1897231d37c9d5c2c6a2a57b4`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1af2cd0ef50e4a04f83db34cc5c1896774`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a8b661a0c11458e8985c7f74b8b7e8aff`
+
+- :ref:`exhale_function_math_2common_8hpp_1a4c20d0bf0c1a966534145a02c78ee75f`
+
+- :ref:`exhale_function_math_2common_8hpp_1ab6c71cc574c5bb324efa7fb152feb977`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1af8ce9466a0e68ddb2f22ee8c6e622ca9`
+
+- :ref:`exhale_function_math_2common_8hpp_1a1432acaf67c922eddf5f68b7dce157ca`
+
+- :ref:`exhale_function_norm__integers_8hpp_1afcf34cfd8bac2efd6293c18aac29c802`
+
+- :ref:`exhale_function_math_2common_8hpp_1a84882af14aba0b85c96e3eba2c4700cd`
+
+- :ref:`exhale_function_math_2common_8hpp_1ac01cee76ff40c7570b8a83cf7b559ef6`
+
+- :ref:`exhale_function_math_2common_8hpp_1a918006e3547d0640b60e4b81ff914d49`
+
+- :ref:`exhale_function_math_2common_8hpp_1a3fcea4728be6de05f552eeb90fade063`
+
+- :ref:`exhale_function_math_2common_8hpp_1a73bf25d3686ff6e467dd078ae9d14452`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a72cacbd1bcc5727865ad883c3b837823`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a42e2a13743f87cc4d5987b45ef84dd65`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a676782067b525c10790b020a11166023`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ada730629b5fc36881be0be21f7536a93`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a6a8697385bb25840d0e5c397b4e56fdc`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a4a8c47ca1ca8fb8fdd604085635c859c`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a98680f85e5ea3e2f1fbf16f43bb8c8db`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a26ef672ce80294701d1c1f68d4c490a4`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aded36c182107de9df5a351712ad4f222`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a6b1e9ed2429b7c3bda4e6bbed0872972`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a32598e403a03889f4c0dd390ddccf3fd`
+
+- :ref:`exhale_function_norm__integers_8hpp_1a2674d9cc3ce35a1178888ae3e2366268`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ac2cd7d2b8aea0513be4012eb0bb66b53`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1af1be23d77c66e35d5986aa072c7c1801`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a2aabde84277ca356e53e54fd2365d5ad`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a90efa4a82d52483b900e40824ff3ce32`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aa9d9f364a9cba74e7c835cc81e36673e`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1afddf79519e7bcdd64e48fb2df45140e4`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1af35eecf8347cd331abbe333f99d2053c`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a0f2529ef322a926f747c14c5089b52c1`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a879c555a3989b66b643ee507cab77319`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a2e9f9391211a634a1e0501491585cf5d`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a61c0e340ed88f611b6c49535a2cd8543`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aebe1e3e5e319a2b013ba47a23882857c`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1abddbab66ecacb412b27e034f873fd89b`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ab12292b182b4f72eda456d5ab3f9ad46`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a67964a5190c19191ed9d316e9a65cfce`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ad6ea3412f59a4aa5f6a06c6e06035606`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a451b184a4351d30fb975c1aa02a2b763`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a02363617efeb0ca2c21696298bf17593`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aa40ed17e2f0ac3331427f53f2a835210`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ab2fab72b3ff1e6e8f9c030a31e577297`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1af94904dfc34046e2f8742f3e7ab4ba41`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1afaa2c0776a8f0de6048725367a16d595`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a1f65c3e76500352b19b0c952d59156fb`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ada201fe0b009dc4d393c289565560c1b`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a82c0b30fddb8c6ee0642fa5caeed4696`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a4fdc44ffbf424dc257322a1ca94f2071`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a63c09dcf37c94b5e3dceb6daed1e4ea2`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a90fdfce1a910b755c4192d36fe95f929`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a50826f1621f46932a15569385e6f3ad6`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aeb699dec80b9542124cddb833cdc0954`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a70b2b827cd22066d44e3fa95bc063327`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1acbf9764aa15ffa68c3e151092358eb1d`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ab88d69ce850578d158e33a452a9789de`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a26e95db71b4f832ae77069320b2b9343`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1afc6abc7468d9fbbe0a7a80725fe6cb8a`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aded204692c67c625f2c7c52a2ad1f16c`

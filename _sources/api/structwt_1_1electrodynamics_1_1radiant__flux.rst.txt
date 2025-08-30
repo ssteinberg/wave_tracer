@@ -1,0 +1,26 @@
+.. _exhale_struct_structwt_1_1electrodynamics_1_1radiant__flux:
+
+Struct radiant_flux
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public mp_units::quantity_spec< radiant_flux, isq::power >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::electrodynamics::radiant_flux
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

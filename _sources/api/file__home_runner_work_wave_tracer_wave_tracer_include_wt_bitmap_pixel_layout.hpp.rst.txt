@@ -1,0 +1,81 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp:
+
+File pixel_layout.hpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap/pixel_layout.hpp``)
+---------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``cstdint``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/spectrum/colourspace/RGB/RGB.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_block.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__bitmap`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1pixel__layout__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_pixel__layout_8hpp_1a95cd3b29f96dd94e9f3729d63df34f58`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_pixel__layout_8hpp_1aad2b111b00a9bf8f000e38aff748b812`
+

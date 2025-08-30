@@ -1,0 +1,34 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_ITU.hpp:
+
+Program Listing for File spectrum_from_ITU.hpp
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_ITU.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/util/spectrum_from_ITU.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <memory>
+   
+   #include <wt/wt_context.hpp>
+   #include <wt/spectrum/spectrum.hpp>
+   
+   namespace wt::spectrum {
+   
+   std::unique_ptr<spectrum_t> spectrum_from_ITU_material(std::string id, const std::string& material);
+   
+   }

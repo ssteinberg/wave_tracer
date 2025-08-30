@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a9717f720a3bc3e2c0e4e2f440ad435d7:
+
+Function wt::m::exp(const Numeric auto)
+=======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::exp(const Numeric auto)
+   :project: wave_tracer

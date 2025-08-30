@@ -1,0 +1,14 @@
+.. _exhale_enum_scene__renderer_8hpp_1a3c39475bfe27b107d457d5f7904eacfa:
+
+Enum rendering_state_t
+======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::scene::rendering_state_t
+   :project: wave_tracer

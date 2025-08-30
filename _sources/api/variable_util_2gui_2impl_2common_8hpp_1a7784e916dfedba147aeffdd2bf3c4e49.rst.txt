@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2gui_2impl_2common_8hpp_1a7784e916dfedba147aeffdd2bf3c4e49:
+
+Variable wt::gui::previewer_colourmap_bar_legend_size
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::gui::previewer_colourmap_bar_legend_size
+   :project: wave_tracer

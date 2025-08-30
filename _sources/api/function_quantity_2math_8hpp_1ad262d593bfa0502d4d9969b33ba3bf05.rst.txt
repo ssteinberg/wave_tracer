@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1ad262d593bfa0502d4d9969b33ba3bf05:
+
+Function wt::m::is_lt
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::is_lt(const Quantity auto, const Quantity auto)
+   :project: wave_tracer

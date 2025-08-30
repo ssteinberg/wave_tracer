@@ -1,0 +1,63 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_enum.hpp:
+
+File enum.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/format``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/format/enum.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_enum.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``magic_enum/magic_enum_format.hpp``
+
+- ``optional``
+
+- ``string_view``
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__format`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_enum_8hpp_1a6ed2b9ccbb0ad5adc63ddb35a7c158bf`
+

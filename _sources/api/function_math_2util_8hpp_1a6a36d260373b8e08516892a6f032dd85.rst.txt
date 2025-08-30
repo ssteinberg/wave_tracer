@@ -1,0 +1,14 @@
+.. _exhale_function_math_2util_8hpp_1a6a36d260373b8e08516892a6f032dd85:
+
+Template Function wt::util::tri_face_normal
+===========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::util::tri_face_normal(const Va&, const Vb&, const Vc&)
+   :project: wave_tracer

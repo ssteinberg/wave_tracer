@@ -1,0 +1,14 @@
+.. _exhale_function_unreachable_8hpp_1adb8ad835b6bed99980b519451ded0e2e:
+
+Function wt::unreachable
+========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::unreachable()
+   :project: wave_tracer

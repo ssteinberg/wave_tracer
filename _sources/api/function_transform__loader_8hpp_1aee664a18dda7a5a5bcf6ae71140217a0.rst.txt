@@ -1,0 +1,14 @@
+.. _exhale_function_transform__loader_8hpp_1aee664a18dda7a5a5bcf6ae71140217a0:
+
+Function wt::load_transform_sfp
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform_loader.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::load_transform_sfp(const scene::loader::node_t&, scene::loader::loader_t *)
+   :project: wave_tracer

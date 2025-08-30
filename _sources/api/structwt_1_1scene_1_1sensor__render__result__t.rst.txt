@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1scene_1_1sensor__render__result__t:
+
+Struct sensor_render_result_t
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::scene::sensor_render_result_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

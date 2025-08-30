@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1bsdf_1_1dielectric__t:
+
+Class dielectric_t
+==================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_dielectric.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::bsdf::bsdf_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1bsdf__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::bsdf::dielectric_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

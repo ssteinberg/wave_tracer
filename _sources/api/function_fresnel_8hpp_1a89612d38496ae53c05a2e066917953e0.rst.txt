@@ -1,0 +1,14 @@
+.. _exhale_function_fresnel_8hpp_1a89612d38496ae53c05a2e066917953e0:
+
+Function wt::fresnel
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fresnel.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::fresnel(c_t, const dir3_t&, const dir3_t&)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_variable_utd_8hpp_1a15b24c307055e9d01041a8051545adcc:
+
+Variable wt::utd::utd_min_sin_beta
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_utd.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::utd::utd_min_sin_beta
+   :project: wave_tracer

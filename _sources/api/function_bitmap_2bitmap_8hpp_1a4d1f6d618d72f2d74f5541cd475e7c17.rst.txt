@@ -1,0 +1,14 @@
+.. _exhale_function_bitmap_2bitmap_8hpp_1a4d1f6d618d72f2d74f5541cd475e7c17:
+
+Template Function wt::bitmap::convert_texels(bitmap_t<T, Dims>&&)
+=================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::convert_texels(bitmap_t<T, Dims>&&)
+   :project: wave_tracer

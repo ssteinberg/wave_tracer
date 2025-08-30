@@ -1,0 +1,65 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_db.hpp:
+
+File spectrum_from_db.hpp
+=========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/util``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/util/spectrum_from_db.hpp``)
+--------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_db.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``memory``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/spectrum/spectrum.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__spectrum`
+
+- :ref:`namespace_wt__spectrum__detail_spectrum_from_db`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_spectrum__from__db_8hpp_1a47cb50ab05e7cc34e66f4ed47bb78ea6`
+
+- :ref:`exhale_function_spectrum__from__db_8hpp_1a84456f1d2de06ab11ded95e26dfde86d`
+
+- :ref:`exhale_function_spectrum__from__db_8hpp_1a23c74f13dec05549d2fda10030b84894`
+
+- :ref:`exhale_function_spectrum__from__db_8hpp_1adf0bae01487f9e10f3dc5419a4ef6a2d`
+

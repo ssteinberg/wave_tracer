@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1a55cf3bed7a4b07a3eafef76e49c2bb04:
+
+Function wt::simd::load(simd_avx_t<double, 8>&, const double \*)
+================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::load(simd_avx_t<double, 8>&, const double *)
+   :project: wave_tracer

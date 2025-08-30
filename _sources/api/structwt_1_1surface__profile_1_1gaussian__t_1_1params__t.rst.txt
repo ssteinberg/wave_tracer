@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1surface__profile_1_1gaussian__t_1_1params__t:
+
+Struct gaussian_t::params_t
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_gaussian.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1surface__profile_1_1gaussian__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::surface_profile::gaussian_t::params_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

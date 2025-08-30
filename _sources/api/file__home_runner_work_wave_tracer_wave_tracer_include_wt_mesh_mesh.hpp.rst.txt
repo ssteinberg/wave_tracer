@@ -1,0 +1,95 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp:
+
+File mesh.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/mesh``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/mesh/mesh.hpp``)
+-----------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/shapes/aabb.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp`)
+
+- ``wt/math/transform/transform.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`)
+
+- ``wt/math/util.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`)
+
+- ``wt/mesh/surface_differentials.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_surface_differentials.hpp`)
+
+- ``wt/mesh/triangle.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_triangle.hpp`)
+
+- ``wt/scene/element/info.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_info.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_cube.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_cylinder.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_icosahedron.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_lens.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_obj_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_ply_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_prism.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_rectangle.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_sphere.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__mesh`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1mesh_1_1mesh__t_1_1tri__indices__t`
+
+- :ref:`exhale_class_classwt_1_1mesh_1_1mesh__t`
+

@@ -1,0 +1,73 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp:
+
+File utils.hpp
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/imgui``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/imgui/utils.hpp``)
+----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``imgui_internal.h``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/util/gui/imgui/imgui.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui.hpp`)
+
+- ``wt/util/gui/impl/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`)
+
+- ``wt/util/gui/utils.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`)
+
+- ``wt/util/logger/logger.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__gui`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1a5c3aa0c7a1bae89a091e761776e9ab99`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1a22c59f193d666190e08f0596b5afead6`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1aa657a8f58b923f0addb50538627f1add`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1a5da30c30b269d5004f8d910f37b68519`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1a648566a5d04e765e6bf4e65463d8f289`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1ac314c8efa6006fcc5bec53783212a42e`
+

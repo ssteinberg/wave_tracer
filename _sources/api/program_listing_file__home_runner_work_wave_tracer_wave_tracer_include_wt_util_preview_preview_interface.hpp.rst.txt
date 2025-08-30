@@ -1,0 +1,62 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_interface.hpp:
+
+Program Listing for File preview_interface.hpp
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_interface.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/preview/preview_interface.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/math/common.hpp>
+   #include <wt/bitmap/bitmap.hpp>
+   #include <wt/sensor/film/defs.hpp>
+   
+   namespace wt {
+   
+   namespace sensor::response {
+   class tonemap_t;
+   }
+   
+   constexpr inline std::chrono::milliseconds default_preview_update_interval() noexcept {
+       using namespace std::chrono_literals;
+       return 2000 * (1ms);
+   }
+   
+   class preview_interface_t {
+   public:
+       virtual ~preview_interface_t() noexcept = default;
+   
+       [[nodiscard]] virtual std::chrono::milliseconds preview_update_interval() const noexcept {
+           return default_preview_update_interval();
+       }
+       [[nodiscard]] virtual unsigned preview_update_rate_limit_factor() const noexcept {
+           return 4;
+       }
+   
+       virtual void update(const std::string& preview_id, sensor::developed_scalar_film_t<2>&& surface,
+                           const f_t spp_completed,
+                           const sensor::response::tonemap_t* tonemap = nullptr) const = 0;
+   
+       virtual void update(const std::string& preview_id, sensor::developed_polarimetric_film_t<2>&& surface,
+                           const f_t spp_completed,
+                           const sensor::response::tonemap_t* tonemap = nullptr) const = 0;
+   
+       [[nodiscard]] virtual bool polarimetric_preview() const noexcept = 0;
+       [[nodiscard]] virtual bool available() const noexcept = 0;
+   };
+   
+   }

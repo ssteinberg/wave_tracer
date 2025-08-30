@@ -1,0 +1,14 @@
+.. _exhale_function_node__readers_8hpp_1abfe5f0b8140127d6249e688e741a636e:
+
+Function wt::scene::loader::read_attribute(const node_t&, const std::string&, std::string&)
+===========================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::loader::read_attribute(const node_t&, const std::string&, std::string&)
+   :project: wave_tracer

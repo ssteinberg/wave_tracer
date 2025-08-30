@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a836165a584ecca8c414905df301a9833:
+
+Template Function wt::m::max_element(const vec1<T>&)
+====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::max_element(const vec1<T>&)
+   :project: wave_tracer

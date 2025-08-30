@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1aa5c2fd0ca0b58a9c6a4822e19f0303a9:
+
+Function wt::m::round(const Quantity auto)
+==========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::round(const Quantity auto)
+   :project: wave_tracer

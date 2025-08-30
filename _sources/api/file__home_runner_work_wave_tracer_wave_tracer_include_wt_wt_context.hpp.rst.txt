@@ -1,0 +1,226 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp:
+
+File wt_context.hpp
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/wt_context.hpp``)
+------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``filesystem``
+
+- ``optional``
+
+- ``wt/math/quantity/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_constructor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_constructor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_bsdf.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_composite.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_dielectric.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_diffuse.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_mask.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_normalmap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_scale.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_surface_spm.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_two_sided.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_area.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_directional.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_infinite_emitter.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_point.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_spot.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_integrator.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_integrator_context.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd_lut.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_uniform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_scene_element.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_bootstrap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_xml_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_mask_mask.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_RGB.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_XYZ.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_monochromatic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_multichannel.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_response.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_film_backed_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_binned.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_blackbody.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_analytic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_container.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_uniform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_composite.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_discrete.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_function.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_gaussian.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_piecewise_linear.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_rgb.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_uniform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_ITU.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_db.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_bitmap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_checkerboard.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex_constant.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex_container.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_constant.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_function.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_mix.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_quantity.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_scale.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_texture.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_transform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_font_renderer_font_renderer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__thread_pool`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1wt__context__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_wt__context_8hpp_1a9de27c1bcf053c475b3fca7f93e70c0d`
+

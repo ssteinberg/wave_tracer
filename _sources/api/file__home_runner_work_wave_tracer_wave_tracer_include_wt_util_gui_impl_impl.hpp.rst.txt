@@ -1,0 +1,92 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp:
+
+File impl.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/impl``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/impl/impl.hpp``)
+--------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``atomic``
+
+- ``chrono`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`)
+
+- ``common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`)
+
+- ``memory``
+
+- ``optional``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/scene/loader/bootstrap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_bootstrap.hpp`)
+
+- ``wt/scene/scene_renderer.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`)
+
+- ``wt/sensor/response/RGB.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_RGB.hpp`)
+
+- ``wt/util/format/utils.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp`)
+
+- ``wt/util/gui/dependencies.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_dependencies.hpp`)
+
+- ``wt/util/gui/gui.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_gui.hpp`)
+
+- ``wt/util/gui/impl/perf_stat.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_perf_stat.hpp`)
+
+- ``wt/util/gui/impl/scene_info.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_scene_info.hpp`)
+
+- ``wt/util/gui/utils.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`)
+
+- ``wt/util/logger/logger.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp`)
+
+- ``wt/util/logger/string_ostream.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/version.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_version.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__gui`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1impl__t`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_impl_8hpp_1aa773cfce4f2e9e07b3ce950de1f7ac89`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_eft_8hpp_1aa8c5564b2974cb0122c2f867c3e94d70:
+
+Template Function wt::m::eft::sum_prod(const V1&, const V2&, const V1&, const V2&)
+==================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::eft::sum_prod(const V1&, const V2&, const V1&, const V2&)
+   :project: wave_tracer

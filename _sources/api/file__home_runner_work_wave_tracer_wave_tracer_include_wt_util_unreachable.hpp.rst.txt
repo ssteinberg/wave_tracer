@@ -1,0 +1,69 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp:
+
+File unreachable.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/unreachable.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_product_distribution.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_film_backed_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_whitepoint.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_unreachable_8hpp_1adb8ad835b6bed99980b519451ded0e2e`
+

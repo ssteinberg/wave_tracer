@@ -1,0 +1,36 @@
+.. _exhale_class_classwt_1_1ads_1_1bvh8w__t:
+
+Class bvh8w_t
+=============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1bvh8w__t_1_1tris__vectorized__data__t`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::ads::ads_t`` (:ref:`exhale_class_classwt_1_1ads_1_1ads__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::ads::bvh8w_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

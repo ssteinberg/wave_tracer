@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2gui_2impl_2common_8hpp_1ac38d6ebee715bef7908ed46fbca8a82b:
+
+Variable wt::gui::plot_col_mono_line
+====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::gui::plot_col_mono_line
+   :project: wave_tracer

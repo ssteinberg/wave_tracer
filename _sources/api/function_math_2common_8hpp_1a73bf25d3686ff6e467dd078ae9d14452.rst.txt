@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a73bf25d3686ff6e467dd078ae9d14452:
+
+Template Function wt::m::sqrt(const glm::mat<N, M, T>&)
+=======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::sqrt(const glm::mat<N, M, T>&)
+   :project: wave_tracer

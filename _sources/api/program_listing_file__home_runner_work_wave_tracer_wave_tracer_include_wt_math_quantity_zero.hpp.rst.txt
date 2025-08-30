@@ -1,0 +1,132 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp:
+
+Program Listing for File zero.hpp
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity/zero.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/math/defs.hpp>
+   #include <wt/util/concepts.hpp>
+   
+   namespace wt {
+   
+   
+   struct zero_t {};
+   inline constexpr zero_t zero;
+   
+   
+   template <NumericOrComplex T>
+   inline constexpr bool operator==(const T& s, zero_t) noexcept {
+       return s == (T)0;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator==(zero_t, const T& s) noexcept {
+       return (T)0 == s;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator!=(const T& s, zero_t) noexcept {
+       return s != (T)0;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator!=(zero_t, const T& s) noexcept {
+       return (T)0 != s;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator<(const T& s, zero_t) noexcept {
+       return s < (T)0;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator<(zero_t, const T& s) noexcept {
+       return (T)0 < s;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator<=(const T& s, zero_t) noexcept {
+       return s <= (T)0;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator<=(zero_t, const T& s) noexcept {
+       return (T)0 <= s;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator>(const T& s, zero_t) noexcept {
+       return s > (T)0;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator>(zero_t, const T& s) noexcept {
+       return (T)0 > s;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator>=(const T& s, zero_t) noexcept {
+       return s >= (T)0;
+   }
+   template <NumericOrComplex T>
+   inline constexpr bool operator>=(zero_t, const T& s) noexcept {
+       return (T)0 >= s;
+   }
+   
+   template <Quantity Q>
+   inline constexpr bool operator==(const Q& s, zero_t) noexcept {
+       return s == Q::zero();
+   }
+   template <Quantity Q>
+   inline constexpr bool operator==(zero_t, const Q& s) noexcept {
+       return Q::zero() == s;
+   }
+   template <Quantity Q>
+   inline constexpr bool operator!=(const Q& s, zero_t) noexcept {
+       return s != Q::zero();
+   }
+   template <Quantity Q>
+   inline constexpr bool operator!=(zero_t, const Q& s) noexcept {
+       return Q::zero() != s;
+   }
+   template <Quantity Q>
+   inline constexpr bool operator<(const Q& s, zero_t) noexcept {
+       return s < Q::zero();
+   }
+   template <Quantity Q>
+   inline constexpr bool operator<(zero_t, const Q& s) noexcept {
+       return Q::zero() < s;
+   }
+   template <Quantity Q>
+   inline constexpr bool operator<=(const Q& s, zero_t) noexcept {
+       return s <= Q::zero();
+   }
+   template <Quantity Q>
+   inline constexpr bool operator<=(zero_t, const Q& s) noexcept {
+       return Q::zero() <= s;
+   }
+   template <Quantity Q>
+   inline constexpr bool operator>(const Q& s, zero_t) noexcept {
+       return s > Q::zero();
+   }
+   template <Quantity Q>
+   inline constexpr bool operator>(zero_t, const Q& s) noexcept {
+       return Q::zero() > s;
+   }
+   template <Quantity Q>
+   inline constexpr bool operator>=(const Q& s, zero_t) noexcept {
+       return s >= Q::zero();
+   }
+   template <Quantity Q>
+   inline constexpr bool operator>=(zero_t, const Q& s) noexcept {
+       return Q::zero() >= s;
+   }
+   
+   }

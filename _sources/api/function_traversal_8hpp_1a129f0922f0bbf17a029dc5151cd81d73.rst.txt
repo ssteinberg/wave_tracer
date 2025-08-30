@@ -1,0 +1,14 @@
+.. _exhale_function_traversal_8hpp_1a129f0922f0bbf17a029dc5151cd81d73:
+
+Function wt::integrator::offseted_ray_origin(const Intersection auto&, const ray_t&)
+====================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::offseted_ray_origin(const Intersection auto&, const ray_t&)
+   :project: wave_tracer

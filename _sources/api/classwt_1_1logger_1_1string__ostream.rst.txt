@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1logger_1_1string__ostream:
+
+Template Class string_ostream
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::ostream``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::logger::string_ostream
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

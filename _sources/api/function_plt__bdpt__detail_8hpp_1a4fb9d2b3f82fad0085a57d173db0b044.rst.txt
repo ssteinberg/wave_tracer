@@ -1,0 +1,14 @@
+.. _exhale_function_plt__bdpt__detail_8hpp_1a4fb9d2b3f82fad0085a57d173db0b044:
+
+Function wt::integrator::plt_bdpt::bdpt_populate_subpaths_pdfs
+==============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_bdpt::bdpt_populate_subpaths_pdfs(const std::vector<vertex_t>&, std::vector<vertex_pdfs_t>&, std::size_t, transport_e)
+   :project: wave_tracer

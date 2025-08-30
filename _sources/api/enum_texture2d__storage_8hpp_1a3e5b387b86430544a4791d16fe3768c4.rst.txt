@@ -1,0 +1,14 @@
+.. _exhale_enum_texture2d__storage_8hpp_1a3e5b387b86430544a4791d16fe3768c4:
+
+Enum texture_filter_type_e
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::bitmap::texture_filter_type_e
+   :project: wave_tracer

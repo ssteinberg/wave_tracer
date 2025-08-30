@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1aeb6f9d75ad126d25bccb26b22863d06f:
+
+Template Function wt::m::modulo(const vec<N, T>&, const vec<N, T>&)
+===================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::modulo(const vec<N, T>&, const vec<N, T>&)
+   :project: wave_tracer

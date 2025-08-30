@@ -1,0 +1,29 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap:
+
+
+Directory bitmap
+================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap``
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap_stats.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_load2d.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_write2d.hpp`
+
+

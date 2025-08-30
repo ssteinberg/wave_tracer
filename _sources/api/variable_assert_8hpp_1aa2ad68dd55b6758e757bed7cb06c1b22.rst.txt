@@ -1,0 +1,14 @@
+.. _exhale_variable_assert_8hpp_1aa2ad68dd55b6758e757bed7cb06c1b22:
+
+Variable wt::f_t_assert_tolerance
+=================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::f_t_assert_tolerance
+   :project: wave_tracer

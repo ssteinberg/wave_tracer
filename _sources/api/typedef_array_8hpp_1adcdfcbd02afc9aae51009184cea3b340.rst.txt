@@ -1,0 +1,14 @@
+.. _exhale_typedef_array_8hpp_1adcdfcbd02afc9aae51009184cea3b340:
+
+Typedef wt::array_t
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_array.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::array_t
+   :project: wave_tracer

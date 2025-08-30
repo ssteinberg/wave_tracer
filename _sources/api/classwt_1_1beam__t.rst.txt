@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1beam__t:
+
+Template Class beam_t
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::beam::beam_generic_t`` (:ref:`exhale_class_classwt_1_1beam_1_1beam__generic__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::beam_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

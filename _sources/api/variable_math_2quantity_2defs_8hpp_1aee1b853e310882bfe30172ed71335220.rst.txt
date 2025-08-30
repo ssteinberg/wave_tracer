@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2quantity_2defs_8hpp_1aee1b853e310882bfe30172ed71335220:
+
+Variable wt::electrodynamics::radiant_flux
+==========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::electrodynamics::radiant_flux
+   :project: wave_tracer

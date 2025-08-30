@@ -1,0 +1,14 @@
+.. _exhale_function_math_2util_8hpp_1a1a4bcb0303e77eea4deb9740b7feb944:
+
+Function wt::util::is_point_in_circle
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::util::is_point_in_circle(const vec2_t&, const f_t, const vec2_t&)
+   :project: wave_tracer

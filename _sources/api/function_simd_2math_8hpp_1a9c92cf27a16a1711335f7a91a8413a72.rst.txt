@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1a9c92cf27a16a1711335f7a91a8413a72:
+
+Template Function wt::m::permute2f
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::permute2f(const wide_vector<8, N, Q>&, const wide_vector<8, N, Q>&)
+   :project: wave_tracer

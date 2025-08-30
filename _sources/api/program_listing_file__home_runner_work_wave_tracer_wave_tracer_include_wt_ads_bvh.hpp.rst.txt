@@ -1,0 +1,104 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh.hpp:
+
+Program Listing for File bvh.hpp
+================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    *
+    * wave tracer
+    * Copyright  Shlomi Steinberg
+    * Authors:  Umut Emre, Shlomi Steinberg
+    *
+    * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+    *
+    */
+   
+   #pragma once
+   
+   #include <wt/math/shapes/aabb.hpp>
+   #include <wt/math/common.hpp>
+   #include <wt/math/shapes/elliptic_cone.hpp>
+   #include <wt/wt_context.hpp>
+   
+   #include "bvh_node.hpp"
+   #include "common.hpp"
+   
+   namespace wt::ads {
+   
+   namespace construction {
+   class ads_constructor_t;
+   class bvh_constructor_t;
+   class bvh8w_constructor_t;
+   }
+   
+   class bvh_t final {
+       friend class construction::ads_constructor_t;
+       friend class construction::bvh_constructor_t;
+       friend class construction::bvh8w_constructor_t;
+   
+   public:
+       using node_t = bvh::node_t;
+       using node_cluster_t = bvh::node_cluster_t;
+   
+   private:
+       std::vector<node_cluster_t> clusters;
+       std::vector<tri_t> tree_tris;
+   
+       f_t sah_cost;
+   
+   public:
+       bvh_t(std::vector<node_cluster_t> clusters, std::vector<tri_t> tris, f_t sah_cost)
+           : clusters(std::move(clusters)),
+             tree_tris(std::move(tris)),
+             sah_cost(sah_cost) {}
+   
+       [[nodiscard]] constexpr inline auto root_node_id() const noexcept {
+           return idx_t{ 0 };
+       }
+   
+       [[nodiscard]] inline const auto& node_clusters() const noexcept { return clusters; }
+       [[nodiscard]] inline const auto& triangles() const noexcept { return tree_tris; }
+       [[nodiscard]] inline auto& triangles() noexcept { return tree_tris; }
+   
+       [[nodiscard]] inline const auto& node_at(idx_t i) const noexcept {
+           return node_clusters()[i / 2].nodes[i % 2];
+       }
+   
+       [[nodiscard]] inline const auto& root() const noexcept {
+           return node_at(root_node_id());
+       }
+       [[nodiscard]] inline const aabb_t& V() const noexcept {
+           return root().aabb;
+       }
+   
+       [[nodiscard]] inline auto get_sah_cost() const noexcept {
+           return sah_cost;
+       }
+   
+       [[nodiscard]] inline const auto& children_of(const node_t& node) const noexcept {
+           return node_clusters()[node.children_cluster_offset].nodes;
+       }
+   
+       [[nodiscard]] inline auto children_indices(const node_t& node) const noexcept {
+           const auto offset = node.children_cluster_offset * 2;
+           return std::array<idx_t, 2>{offset, offset + 1};
+       }
+   
+       [[nodiscard]] inline auto node_count() const noexcept { return 2 * clusters.size() - 1; }
+   
+       [[nodiscard]] inline const tri_t &tri(tuid_t tuid) const noexcept {
+           return tree_tris[tuid.uid];
+       }
+       [[nodiscard]] inline tuid_t get_tuid(idx_t tidx) const noexcept {
+           return { tidx };
+       }
+   };
+   
+   }  // namespace wt::ads

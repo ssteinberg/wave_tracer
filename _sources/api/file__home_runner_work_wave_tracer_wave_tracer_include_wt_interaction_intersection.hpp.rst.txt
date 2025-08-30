@@ -1,0 +1,97 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp:
+
+File intersection.hpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/intersection.hpp``)
+--------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`)
+
+- ``wt/ads/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_common.hpp`)
+
+- ``wt/math/barycentric.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_barycentric.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/frame.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`)
+
+- ``wt/math/intersect/intersect_defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`)
+
+- ``wt/mesh/mesh.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp`)
+
+- ``wt/mesh/surface_differentials.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_surface_differentials.hpp`)
+
+- ``wt/texture/texture.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_texture.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_free_space_diffraction.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_position_sample.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex_constant.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex_container.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1intersection__edge__t`
+
+- :ref:`exhale_struct_structwt_1_1intersection__surface__t`
+
+- :ref:`exhale_struct_structwt_1_1intersection__volumetric__t`
+

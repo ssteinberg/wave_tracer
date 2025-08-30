@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1thread__pool_1_1tpool__worker__arena__t:
+
+Template Class tpool_worker_arena_t
+===================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool_worker_arena.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::thread_pool::tpool_worker_arena_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

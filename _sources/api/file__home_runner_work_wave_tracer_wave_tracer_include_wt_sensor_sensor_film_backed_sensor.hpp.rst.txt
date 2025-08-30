@@ -1,0 +1,82 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_film_backed_sensor.hpp:
+
+File film_backed_sensor.hpp
+===========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/sensor``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/sensor/film_backed_sensor.hpp``)
+----------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_film_backed_sensor.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/sensor/film/film.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`)
+
+- ``wt/sensor/mask/mask.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_mask_mask.hpp`)
+
+- ``wt/sensor/sensor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.hpp`)
+
+- ``wt/spectrum/spectrum.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__sensor`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__backed__sensor__generic__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__backed__sensor__t`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_film__backed__sensor_8hpp_1adac77d395d258926c93fa0a567f28e49`
+
+- :ref:`exhale_typedef_film__backed__sensor_8hpp_1a1638e1e91312dd19d51c3d2e73d80283`
+

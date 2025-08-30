@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2defs_8hpp_1a879c555a3989b66b643ee507cab77319:
+
+Variable wt::m::inv_sqrt_pi
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::m::inv_sqrt_pi
+   :project: wave_tracer

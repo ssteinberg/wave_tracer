@@ -1,0 +1,14 @@
+.. _exhale_function_plt__bdpt__detail_8hpp_1a33db4d9aaf587601fdcacfa0d026b16b:
+
+Function wt::integrator::plt_bdpt::find_closest_triangle
+========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_bdpt::find_closest_triangle(const ads::intersection_record_t::triangles_accessor_t&, const ads::ads_t&, const pqrange_t<>&, const pqvec3_t&, const dir3_t&, const frame_t&, const elliptic_cone_t&, const beam::gaussian_wavefront_t&, bool, bool)
+   :project: wave_tracer

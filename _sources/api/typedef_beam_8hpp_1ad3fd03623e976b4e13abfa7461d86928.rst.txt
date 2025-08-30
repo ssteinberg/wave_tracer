@@ -1,0 +1,14 @@
+.. _exhale_typedef_beam_8hpp_1ad3fd03623e976b4e13abfa7461d86928:
+
+Typedef wt::diffuse_importance_beam_t
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::diffuse_importance_beam_t
+   :project: wave_tracer

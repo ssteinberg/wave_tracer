@@ -1,0 +1,14 @@
+.. _exhale_function_attributes_8hpp_1a2943759205859d891edce89ec9ac915c:
+
+Function wt::scene::element::attributes::make_wavelength_map
+============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::element::attributes::make_wavelength_map(std::map<wavelength_t, attribute_ptr>)
+   :project: wave_tracer

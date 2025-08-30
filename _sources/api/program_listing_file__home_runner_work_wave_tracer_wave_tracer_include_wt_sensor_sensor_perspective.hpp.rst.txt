@@ -1,0 +1,304 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp:
+
+Program Listing for File perspective.hpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/sensor/perspective.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <memory>
+   #include <optional>
+   
+   #include <wt/sensor/sensor/film_backed_sensor.hpp>
+   #include <wt/sensor/film/film.hpp>
+   #include <wt/sensor/sensor_sample.hpp>
+   
+   #include <wt/beam/beam.hpp>
+   #include <wt/sampler/sampler.hpp>
+   #include <wt/spectrum/spectrum.hpp>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/transform/transform.hpp>
+   #include <wt/math/shapes/ray.hpp>
+   
+   #include <wt/wt_context.hpp>
+   
+   namespace wt {
+   
+   class scene_t;
+   
+   namespace sensor {
+   
+   template <bool polarimetric>
+   class perspective_t final : public film_backed_sensor_t<2, polarimetric> {
+       friend class wt::scene_t;
+   
+       // the spatial standard deviation of a sourced beam, w.r.t. sensor element size
+       static constexpr f_t beam_source_spatial_stddev = .25;
+       // the fake distance of the virtual sensor film from the sensor's origin
+       static constexpr length_t image_plane_z = 1 * u::cm;
+   
+   public:
+       using film_t = film_backed_sensor_t<2,polarimetric>::film_t;
+   
+   private:
+       transform_t sensor_transform;
+       transform_t sensor_to_camera_trns;
+   
+       angle_t sensor_fov;
+       f_t sourcing_tan_alpha;
+       f_t phase_space_extent_scale;
+   
+       pqvec2_t snsr_extent;
+       pqvec2_t snsr_element_extent;
+   
+       pqvec3_t ddir_dx, ddir_dy;  // sensor position differentials
+   
+   protected:
+       [[nodiscard]] pqvec3_t point_on_sensor(const vec2_t& film_pos) const noexcept {
+           const auto p = sensor_to_camera_trns.matrix() * vec4_t{ film_pos.x,film_pos.y,1,1 };
+           const auto d = vec3_t{ p.x,p.y,p.z }/p.w;
+           return d * isq::length[u::m];
+       }
+       [[nodiscard]] vec2_t point_on_film(const dir3_t& dir) const noexcept {
+           const auto p = dir/m::abs(dir.z);
+           const auto d = sensor_to_camera_trns.inverse().matrix() * vec4_t{ p.x,p.y,1,1 };
+           return vec2_t{ d.x,d.y } / d.w;
+       }
+   
+       [[nodiscard]] inline auto direction_pdvx() const noexcept { return ddir_dx; }
+       [[nodiscard]] inline auto direction_pdvy() const noexcept { return ddir_dy; }
+   
+       [[nodiscard]] importance_intensity_beam_t Se(
+               const ray_t& r,
+               const SolidAngle auto recp_sa_density,
+               const wavenumber_t k) const noexcept {
+           const auto J = radiant_importance(recp_sa_density);
+           return {
+               r,
+               J,   // non-polarimetric sensitivity
+               k,
+               this->sourcing_geometry(k)
+           };
+       }
+   
+   public:
+       perspective_t(const wt_context_t &ctx,
+                     std::string id,
+                     transform_t transform,
+                     angle_t fov,
+                     film_t film,
+                     std::uint32_t samples_per_element,
+                     bool ray_trace,
+                     std::shared_ptr<mask::mask_t> sensor_mask = nullptr,
+                     std::optional<f_t> sourcing_tan_alpha = std::nullopt,
+                     f_t phase_space_extent_scale = 1) noexcept
+           : film_backed_sensor_t<2,polarimetric>(
+                   ctx,
+                   std::move(id),
+                   std::move(film),
+                   samples_per_element,
+                   ray_trace,
+                   std::move(sensor_mask)),
+             sensor_transform(transform),
+             sensor_to_camera_trns((
+                 transform_t::viewport(vec2_t{ film.dimensions() }) *
+                 transform_t::perspective(fov, film.aspect_ratio(), u::to_m(image_plane_z))
+             ).inverse()),
+             sensor_fov(fov),
+             phase_space_extent_scale(phase_space_extent_scale),
+             ddir_dx(point_on_sensor({ 1,0 })-
+                     point_on_sensor({ 0,0 })),
+             ddir_dy(point_on_sensor({ 0,1 })-
+                     point_on_sensor({ 0,0 }))
+       {
+           // z of partial derivatives is expected to be 0
+           assert_iszero(u::to_m(ddir_dx.z));
+           assert_iszero(u::to_m(ddir_dy.z));
+   
+           const auto& dim  = this->film().dimensions();
+           const auto film0 = point_on_sensor({ 0,0 });
+           const auto filmW = point_on_sensor(vec2_t{ dim.x,0 });
+           const auto filmH = point_on_sensor(vec2_t{ 0,dim.y });
+   
+           snsr_extent = pqvec2_t{ m::length(filmW-film0), m::length(filmH-film0) };
+           snsr_element_extent = snsr_extent / vec2_t{ this->film().dimensions() };
+   
+           if (!sourcing_tan_alpha) {
+               const auto pixel_len = this->element_extent().x;
+               sourcing_tan_alpha = (f_t)(pixel_len / image_plane_z);
+           }
+           this->sourcing_tan_alpha = *sourcing_tan_alpha;
+       }
+       perspective_t(perspective_t&&) = default;
+   
+       [[nodiscard]] inline pqvec3_t position() const noexcept {
+           return sensor_transform(pqvec3_t::zero(), transform_point);
+       }
+       [[nodiscard]] inline dir3_t view_dir() const noexcept {
+           return sensor_transform(dir3_t{ 0,0,1 });
+       }
+       [[nodiscard]] inline dir3_t up_dir() const noexcept {
+           return sensor_transform(dir3_t{ 0,1,0 });
+       }
+   
+       [[nodiscard]] inline Angle auto fov() const noexcept { return sensor_fov; }
+   
+       [[nodiscard]] inline const auto& sensor_extent() const noexcept { return snsr_extent; }
+   
+       [[nodiscard]] inline const auto& element_extent() const noexcept { return snsr_element_extent; }
+   
+       [[nodiscard]] inline Area auto sensor_area() const noexcept { return m::prod(snsr_extent); }
+   
+       [[nodiscard]] inline SolidAngle auto recp_solid_angle_density_for_sample(const dir3_t& d) const noexcept {
+           return sensor_area() / m::sqr(image_plane_z) * (d.z * d.z * d.z * u::ang::sr);
+       }
+   
+       [[nodiscard]] bool is_delta_position() const noexcept override  { return true; }
+       [[nodiscard]] bool is_delta_direction() const noexcept override { return false; }
+   
+       [[nodiscard]] inline beam::sourcing_geometry_t sourcing_geometry(const wavenumber_t k) const noexcept {
+           // "fake" perspective point sensors image beyond the diffraction limit
+           const auto initial_spatial_extent = 
+               this->element_extent().x *
+               beam_source_spatial_stddev * beam::gaussian_wavefront_t::beam_cross_section_envelope;
+   
+           const auto se =
+               beam::sourcing_geometry_t::source(
+                   initial_spatial_extent,
+                   sourcing_tan_alpha,
+                   k
+               ).phase_space_extent().enlarge(phase_space_extent_scale);
+           return
+               beam::sourcing_geometry_t::source(se);
+       }
+       
+       [[nodiscard]] inline beam::phase_space_extent_t sourcing_beam_extent(const wavenumber_t k) const noexcept override {
+           return sourcing_geometry(k).phase_space_extent();
+       }
+   
+       [[nodiscard]] inline QE_area_t radiant_importance(const SolidAngle auto recp_sa_density) const noexcept {
+           // total importance flux must be 1 for a physical sensor. Spectral sensitivity is ignored here.
+           const QE_flux_t W = f_t(1) * u::ang::sr * square(u::m);
+           return W / recp_sa_density;
+       }
+   
+       [[nodiscard]] sensor_sample_t sample(sampler::sampler_t& sampler,
+                                            const vec3u32_t& sensor_element,
+                                            const wavenumber_t k) const noexcept override {
+           const auto film_pos = vec2u32_t{ sensor_element };
+           const auto centre = point_on_sensor(vec2_t{ film_pos } + vec2_t{ .5,.5 });
+   
+           const auto pixel_offset = sampler.r2() - vec2_t{ .5,.5 };
+           const auto dir_local =
+               m::normalize(
+                   centre +
+                   pixel_offset.x*direction_pdvx() +
+                   pixel_offset.y*direction_pdvy()
+               );
+           const auto dir = sensor_transform(dir_local);
+   
+           const auto recp_dpd = recp_solid_angle_density_for_sample(dir_local);
+           const auto P = ray_t{ position(), dir };
+   
+           const auto beam = Se(P, recp_dpd, k) * recp_dpd;
+   
+           assert(m::isfinite(beam.intensity()));
+   
+           return sensor_sample_t{
+               .sensor = this,
+   
+               .beam = beam,
+   
+               .ppd = area_sampling_pd_t::discrete(1),
+               .dpd = solid_angle_density_t{ 1 / recp_dpd },
+   
+               .element = sensor_element_sample_t{
+                   .element = { film_pos, 0 },
+                   .offset  = { pixel_offset, 0 },
+               },
+           };
+       }
+   
+       [[nodiscard]] sensor_direct_sample_t sample_direct(sampler::sampler_t& sampler,
+                                                          const pqvec3_t& wp,
+                                                          const wavenumber_t k) const noexcept override {
+           const auto wdl = wp - position();
+           const auto recp_dist2 = 1/m::length2(wdl);
+           const auto wd = dir3_t{ wdl * m::sqrt(recp_dist2) };
+   
+           const auto dir_local = sensor_transform.inverse()(wd);
+           const auto film_pos_fp = point_on_film(dir_local);
+           const auto sample_recp_sa = recp_solid_angle_density_for_sample(dir_local);
+   
+           const auto film_pos = vec2u32_t{ film_pos_fp };
+           const auto pixel_offset = m::fract(film_pos_fp) - vec2_t{ .5,.5 };
+   
+           // ensures we are sourcing within the sensor extent
+           const f_t w =
+               dir_local.z>limits<f_t>::epsilon() &&
+               film_pos.x>=0 && film_pos.y>=0 &&
+               film_pos.x<this->film().dimensions().x && film_pos.y<this->film().dimensions().y ?
+                   1 : 0;
+   
+           const auto P = ray_t{ position(), wd };
+           const auto beam = Se(P, sample_recp_sa, k) * 
+                           recp_dist2 * w;
+   
+           return sensor_direct_sample_t{
+               .sensor = this,
+   
+               .beam = beam,
+   
+               .dpd = solid_angle_sampling_pd_t::discrete(1),
+   
+               .element = sensor_element_sample_t{
+                   .element = { film_pos, 0 },
+                   .offset  = { pixel_offset, 0 },
+               },
+           };
+       }
+   
+       [[nodiscard]] area_sampling_pd_t pdf_position(const pqvec3_t& p) const noexcept override {
+           return area_sampling_pd_t::discrete(1);
+       }
+   
+       [[nodiscard]] solid_angle_sampling_pd_t pdf_direction(const pqvec3_t& p, const dir3_t& dir) const noexcept override {
+           const auto d = sensor_transform.inverse()(dir);
+           const auto sample_recp_sa = recp_solid_angle_density_for_sample(d);
+   
+           return d.z>limits<f_t>::epsilon() ?
+                   solid_angle_density_t{ 1 / sample_recp_sa } :
+                   solid_angle_density_t::zero();
+       }
+   
+       [[nodiscard]] scene::element::info_t description() const override;
+   
+   public:
+       static std::shared_ptr<perspective_t> load(std::string id,
+                                                  scene::loader::loader_t* loader,
+                                                  const scene::loader::node_t& node,
+                                                  const wt::wt_context_t &context);
+   };
+   
+   using perspective_scalar_t = perspective_t<false>;
+   using perspective_polarimetric_t = perspective_t<true>;
+   
+   }
+   }

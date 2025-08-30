@@ -1,0 +1,83 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp:
+
+File beam_generic.hpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_beam>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/beam``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/beam/beam_generic.hpp``)
+-------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``wt/ads/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_common.hpp`)
+
+- ``wt/ads/intersection_record.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_intersection_record.hpp`)
+
+- ``wt/beam/beam_geometry.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp`)
+
+- ``wt/beam/gaussian_wavefront.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_gaussian_wavefront.hpp`)
+
+- ``wt/bsdf/bsdf.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_bsdf.hpp`)
+
+- ``wt/interaction/intersection.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`)
+
+- ``wt/interaction/polarimetric/mueller.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp`)
+
+- ``wt/interaction/polarimetric/stokes.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/distribution/gaussian2d.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian2d.hpp`)
+
+- ``wt/math/frame.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`)
+
+- ``wt/math/shapes/elliptic_cone.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`)
+
+- ``wt/scene/shape.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__beam`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1beam_1_1beam__generic__t`
+

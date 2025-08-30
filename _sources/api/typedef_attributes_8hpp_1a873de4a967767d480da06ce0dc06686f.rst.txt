@@ -1,0 +1,14 @@
+.. _exhale_typedef_attributes_8hpp_1a873de4a967767d480da06ce0dc06686f:
+
+Typedef wt::scene::element::attributes::wavelength_range_bin_t
+==============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::scene::element::attributes::wavelength_range_bin_t
+   :project: wave_tracer

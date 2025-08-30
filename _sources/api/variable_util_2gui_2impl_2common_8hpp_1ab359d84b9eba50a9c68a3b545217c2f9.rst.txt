@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2gui_2impl_2common_8hpp_1ab359d84b9eba50a9c68a3b545217c2f9:
+
+Variable wt::gui::plot_col_rgb1
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::gui::plot_col_rgb1
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_plt__bdpt__detail_8hpp_1a7cd5680bf3a06dfdf787da5fffcb34b8:
+
+Function wt::integrator::plt_bdpt::bdpt_compute_mis_weight
+==========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_bdpt::bdpt_compute_mis_weight(arena_t *, const integrator_context_t&, const plt_bdpt_t::options_t&, const int, const int, const bdpt_connect_ret_t&)
+   :project: wave_tracer

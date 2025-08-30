@@ -1,0 +1,14 @@
+.. _exhale_enum_gui_2utils_8hpp_1a7944c64ecacf9b6c4414f3cdf0c6527a:
+
+Enum log_type_e
+===============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::gui::log_type_e
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_misc_8hpp_1ae40fabf83321231722dfdf9ba32e1cca:
+
+Function wt::intersect::intersect_edge_ellipsoid
+================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::intersect_edge_ellipsoid(pqvec3_t, pqvec3_t, const pqvec3_t&, const dir3_t&, const dir3_t&, const pqvec3_t&)
+   :project: wave_tracer

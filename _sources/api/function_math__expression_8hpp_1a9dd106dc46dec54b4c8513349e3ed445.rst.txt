@@ -1,0 +1,14 @@
+.. _exhale_function_math__expression_8hpp_1a9dd106dc46dec54b4c8513349e3ed445:
+
+Template Function wt::parse_expression
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_math_expression.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::parse_expression(const std::string&)
+   :project: wave_tracer

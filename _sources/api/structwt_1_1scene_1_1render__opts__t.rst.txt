@@ -1,0 +1,27 @@
+.. _exhale_struct_structwt_1_1scene_1_1render__opts__t:
+
+Struct render_opts_t
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1render__opts__t_1_1progress__callback__t`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::scene::render_opts_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1a7b37a61aea642734bf57a33cab44f777:
+
+Function wt::simd::max(simd_avx_t<double, 4>, simd_avx_t<double, 4>)
+====================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::max(simd_avx_t<double, 4>, simd_avx_t<double, 4>)
+   :project: wave_tracer

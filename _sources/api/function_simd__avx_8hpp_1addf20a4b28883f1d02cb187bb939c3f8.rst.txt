@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1addf20a4b28883f1d02cb187bb939c3f8:
+
+Function wt::simd::set(simd_avx_t<float, 4>&, const std::array<float, 4>&)
+==========================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::set(simd_avx_t<float, 4>&, const std::array<float, 4>&)
+   :project: wave_tracer

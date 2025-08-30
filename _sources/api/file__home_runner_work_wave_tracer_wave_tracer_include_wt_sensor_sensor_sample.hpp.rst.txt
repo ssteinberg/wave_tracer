@@ -1,0 +1,83 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp:
+
+File sensor_sample.hpp
+======================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/sensor_sample.hpp``)
+----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``optional``
+
+- ``wt/beam/beam.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`)
+
+- ``wt/interaction/intersection.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/sampler/density.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_integrator.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_sensor.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__sensor`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1sensor_1_1sensor__element__sample__t`
+
+- :ref:`exhale_struct_structwt_1_1sensor__direct__connection__t`
+
+- :ref:`exhale_struct_structwt_1_1sensor__direct__sample__t`
+
+- :ref:`exhale_struct_structwt_1_1sensor__sample__t`
+

@@ -1,0 +1,31 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_dependencies.hpp:
+
+Program Listing for File dependencies.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_dependencies.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/dependencies.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <GL/glew.h>
+   #include <SDL3/SDL.h>
+   #include <SDL3/SDL_opengl.h>
+   
+   #include <wt/util/gui/imgui/imgui.hpp>
+   
+   #include <wt/util/gui/img_inspect/imgui_tex_inspect.h>
+   #include <wt/util/gui/img_inspect/tex_inspect_opengl.h>

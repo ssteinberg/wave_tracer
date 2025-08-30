@@ -1,0 +1,22 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines:
+
+
+Directory engines
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/simd``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/simd/engines``
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+

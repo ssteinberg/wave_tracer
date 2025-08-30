@@ -1,0 +1,41 @@
+.. _exhale_class_classwt_1_1spectrum_1_1spectrum__real__t:
+
+Class spectrum_real_t
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::spectrum::spectrum_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1spectrum__t`)
+
+
+Derived Types
+*************
+
+- ``public wt::spectrum::analytic_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1analytic__t`)
+- ``public wt::spectrum::binned_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1binned__t`)
+- ``public wt::spectrum::blackbody_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1blackbody__t`)
+- ``public wt::spectrum::composite_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1composite__t`)
+- ``public wt::spectrum::discrete_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1discrete__t`)
+- ``public wt::spectrum::function_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1function__t`)
+- ``public wt::spectrum::gaussian_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1gaussian__t`)
+- ``public wt::spectrum::piecewise_linear_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1piecewise__linear__t`)
+- ``public wt::spectrum::rgb_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1rgb__t`)
+- ``public wt::spectrum::uniform_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1uniform__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::spectrum::spectrum_real_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

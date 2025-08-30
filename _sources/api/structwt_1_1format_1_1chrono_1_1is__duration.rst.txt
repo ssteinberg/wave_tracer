@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1format_1_1chrono_1_1is__duration:
+
+Template Struct is_duration
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::format::chrono::is_duration
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

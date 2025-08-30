@@ -1,0 +1,64 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector_registry.hpp:
+
+File stat_collector_registry.hpp
+================================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/statistics_collector``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/statistics_collector/stat_collector_registry.hpp``)
+---------------------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector_registry.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``functional``
+
+- ``memory``
+
+- ``stat_collector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector.hpp`)
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``tbb/tbb.h``
+
+- ``thread`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool.hpp`)
+
+- ``utility``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_constructor_stats.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_stats.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap_stats.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_stats.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+

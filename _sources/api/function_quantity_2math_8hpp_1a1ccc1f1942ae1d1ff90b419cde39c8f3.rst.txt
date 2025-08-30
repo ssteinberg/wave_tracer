@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a1ccc1f1942ae1d1ff90b419cde39c8f3:
+
+Function wt::m::isfinite(const Quantity auto)
+=============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::isfinite(const Quantity auto)
+   :project: wave_tracer

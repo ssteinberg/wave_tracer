@@ -1,0 +1,14 @@
+.. _exhale_typedef_stokes_8hpp_1a63612b3342e899a599621745d9d68df1:
+
+Typedef wt::radiant_flux_stokes_t
+=================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::radiant_flux_stokes_t
+   :project: wave_tracer

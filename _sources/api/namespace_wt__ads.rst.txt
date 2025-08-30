@@ -1,0 +1,79 @@
+
+.. _namespace_wt__ads:
+
+Namespace wt::ads
+=================
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt__ads__bvh`
+
+- :ref:`namespace_wt__ads__bvh8w`
+
+- :ref:`namespace_wt__ads__construction`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1ads__t_1_1intersect__opts__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1bvh8w__t_1_1tris__vectorized__data__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1edge__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__ray__work__tri__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__ray__work__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__t_1_1containers__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__t_1_1rt__record__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__t_1_1triangles__accessor__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__work__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__work__tri__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1tri__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1tuid__t`
+
+- :ref:`exhale_class_classwt_1_1ads_1_1ads__t`
+
+- :ref:`exhale_class_classwt_1_1ads_1_1bvh8w__t`
+
+- :ref:`exhale_class_classwt_1_1ads_1_1bvh__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_traversal__common_8hpp_1a9c59a094b7dc30223a7871babd8df2ca`
+
+- :ref:`exhale_function_traversal__common_8hpp_1a3cd1d1c24851ea45bf7a9d8bcae05270`
+
+- :ref:`exhale_function_traversal__common_8hpp_1a8c0acd7aa3750435ac734817bdcbffb3`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_ads_2common_8hpp_1ae75c1739a2d786506e1000f0dbd54f98`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_ads_2common_8hpp_1ab5f1e0d1abd49c9463881d422b95c986`

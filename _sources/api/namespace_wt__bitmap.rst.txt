@@ -1,0 +1,125 @@
+
+.. _namespace_wt__bitmap:
+
+Namespace wt::bitmap
+====================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1bitmap2d__load__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1colour__encoding__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1colour__encoding__t_1_1srgb__lut__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1is__texel`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1is__texel_3_01T_01_4`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1pixel__layout__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__config__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__storage__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__storage__t_1_1aligned__block__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__storage__t_1_1tex__info__t`
+
+- :ref:`exhale_class_classwt_1_1bitmap_1_1bitmap__t`
+
+- :ref:`exhale_class_classwt_1_1bitmap_1_1texture2d__t`
+
+- :ref:`exhale_class_classwt_1_1bitmap_1_1texture2d__tmpl__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_bitmap_2common_8hpp_1ac0c1275b2e08d53135d8ac63e24b27ed`
+
+- :ref:`exhale_enum_pixel__layout_8hpp_1a95cd3b29f96dd94e9f3729d63df34f58`
+
+- :ref:`exhale_enum_texture2d__storage_8hpp_1ae2407c05659603184ecb6356e201603c`
+
+- :ref:`exhale_enum_texture2d__storage_8hpp_1a3e5b387b86430544a4791d16fe3768c4`
+
+- :ref:`exhale_enum_texture2d__storage_8hpp_1ac16ad09ed5ca67fb927aa90824779ace`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_texture2d__storage_8hpp_1a1b13dc79865037e63130c1d55ad1cce0`
+
+- :ref:`exhale_function_texture2d__storage_8hpp_1a66adb342b261025f92f50b1c22dfbcb4`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a38b3bd8622024939ce7cac54e6027ca9`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a2631121d3f97d7d964a46446f136c2c5`
+
+- :ref:`exhale_function_pixel__layout_8hpp_1aad2b111b00a9bf8f000e38aff748b812`
+
+- :ref:`exhale_function_texel__convert_8hpp_1ae32d1fa153953314c12cfe894c4fcce9`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a56a9f4b81429742be82b8878fda5aa55`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a83e46f1c2e884c465cc063d52318ebad`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a4d1f6d618d72f2d74f5541cd475e7c17`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1aa59c20107ebe053b56da9faf2261bcc0`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a58e2f9ed75a1c274c0b8e12e596a6d1e`
+
+- :ref:`exhale_function_load2d_8hpp_1a1cac5197e5a6b2724f6c2acbfe3a1f07`
+
+- :ref:`exhale_function_load2d_8hpp_1a105928cfc8010d25f9734808acbbffee`
+
+- :ref:`exhale_function_load2d_8hpp_1a28ca737c32c7b66345323205f1c5091f`
+
+- :ref:`exhale_function_load2d_8hpp_1a94f389578a27b1ff4a98169b493932a4`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1abc88b9157564cb449251ebb406745b26`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a00af6a1dde528c3e522f71a171a20f06`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1af83567b2110249ac4e921f2c9fc5a044`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a76fc1f291d4db9bf7c9170f84f3f04d4`
+
+- :ref:`exhale_function_texture2d__storage_8hpp_1af4c92e8e599a3e26de73cbe76645d017`
+
+- :ref:`exhale_function_texture2d__storage_8hpp_1a99c0bd69a97c721509ffa3725e549e04`
+
+- :ref:`exhale_function_write2d_8hpp_1aa3fbd1146b5d66d8481b628dc54e53c8`
+
+- :ref:`exhale_function_write2d_8hpp_1ae391fbfa4ca59877d31363e41701e83b`
+
+- :ref:`exhale_function_write2d_8hpp_1a188a71e440f721a9b97749c6b6cf7b3a`
+
+- :ref:`exhale_function_write2d_8hpp_1affb8eb5a9e79669a582018ec4aed7c61`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_bitmap_2bitmap_8hpp_1af4713fe2a5c9f196c436e80dfcbf34b3`
+
+- :ref:`exhale_typedef_bitmap_2bitmap_8hpp_1ae635eff7c1d881ce0f16a63d740bde78`
+
+- :ref:`exhale_typedef_bitmap_2bitmap_8hpp_1ad8719dadce4ee5a2c2ae8bb430a65bc0`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_texel__convert_8hpp_1a45f409bdcced479a11fa6a9ad2edac9a`

@@ -1,0 +1,14 @@
+.. _exhale_function_ads_2bvh8w_2common_8hpp_1a55c6ecfd16c602f3fc954cf98f7182b5:
+
+Function wt::ads::bvh8w::is_ptr_empty
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::ads::bvh8w::is_ptr_empty(std::int32_t)
+   :project: wave_tracer

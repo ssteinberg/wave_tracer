@@ -1,0 +1,144 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_product_distribution.hpp:
+
+File product_distribution.hpp
+=============================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/distribution``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/distribution/product_distribution.hpp``)
+----------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_product_distribution.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``binned_piecewise_linear_distribution.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_binned_piecewise_linear_distribution.hpp`)
+
+- ``cassert``
+
+- ``discrete_distribution.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_discrete_distribution.hpp`)
+
+- ``gaussian1d.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian1d.hpp`)
+
+- ``piecewise_linear_distribution.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_binned_piecewise_linear_distribution.hpp`)
+
+- ``truncated_gaussian1d.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_truncated_gaussian1d.hpp`)
+
+- ``uniform_distribution.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_uniform_distribution.hpp`)
+
+- ``utility``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1product__distribution__ret__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_product__distribution_8hpp_1af006fefd5238a55542334dccb86359fa`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a6f241f63b4ef56469e9cf45448702918`
+
+- :ref:`exhale_function_product__distribution_8hpp_1acebed1d45e384af7a4a8147add58eba7`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a75191bee906e76c84c3f9669ca5bff3a`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ac4c45b5f3c19aa5d63909706ce009d1e`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a4a8f295bba678099b149a8ff51e4b281`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a3b3191d649af9da1b2f7cc20dad7675e`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a2d5415fb48a2b35e5ce9717a2b370353`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ac66eedc3dc3e01ea68c4f1ef8c257c16`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a33f1015427ecfbb985e6d705010be6fc`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a33dc6d0dbaf9f50602907bb2eaf8631b`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a394eadeb77d8198c5180dde61bba8cc2`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ad224f9da0159644d9b85ef6c62a0ec32`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a4a747d8d7f8a4b0453b749d341843835`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a965b8253c2cf8b88bd5a9fff4ad97901`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ac154d6704046ea61a3690814341f4ce0`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a74dc645a1be35bdd82f9d82d1a22395f`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a3214f8acd95645e651edf7076cae8c73`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a109e607490660ee87b04ee740e29d4eb`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a1fb92e198b35143fa2f48ad5cba022fb`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ac5e7579d0b7f190ab244f19b939a3a0d`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ae48ae11364319ff077d5508df4ca21fc`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ad418b014e0728a3906c17d3ee1950f65`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a26a9a324be8bd26aaeded4ba26e22862`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a73e35a911c1f3fbf017933828b1ca6ab`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a02118cc216c1a39e091da8cc464cf35e`
+
+- :ref:`exhale_function_product__distribution_8hpp_1adcb5aab995c82057add2cfa7a1c9c448`
+
+- :ref:`exhale_function_product__distribution_8hpp_1aa6a5b343c707e6b0cbe2357d77b09f22`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a6a375c8eefbc7a7a2f15091b3541ad4a`
+
+- :ref:`exhale_function_product__distribution_8hpp_1afd661954146d5fb0433b5b5d50faccae`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ab74097acb5a35978943ad4aec6074cfd`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a684d215754f5ea04736f5e216c6e1b4c`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a6273cd83a31893ea331719a8a759477a`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a573a1bfb469889912fd8b5734f87a344`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a9969c4ad852bba635c240d1aa7c0b24a`
+
+- :ref:`exhale_function_product__distribution_8hpp_1adf81a70f295776b7609b74b075a58d26`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a35a6d3cc9125bec9253751f463e36c3d`
+

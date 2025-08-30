@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1ads_1_1bvh8w__t_1_1tris__vectorized__data__t:
+
+Struct bvh8w_t::tris_vectorized_data_t
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1ads_1_1bvh8w__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::ads::bvh8w_t::tris_vectorized_data_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

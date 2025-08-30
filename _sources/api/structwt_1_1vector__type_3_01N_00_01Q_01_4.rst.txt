@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1vector__type_3_01N_00_01Q_01_4:
+
+Template Struct vector_type< N, Q >
+===================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::vector_type< N, Q >
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

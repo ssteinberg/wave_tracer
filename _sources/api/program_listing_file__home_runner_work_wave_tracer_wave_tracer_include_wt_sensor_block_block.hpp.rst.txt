@@ -1,0 +1,44 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_block.hpp:
+
+Program Listing for File block.hpp
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_block.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/block/block.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/math/common.hpp>
+   #include <wt/bitmap/pixel_layout.hpp>
+   
+   namespace wt::sensor {
+   
+   struct block_handle_t {
+       void* block = nullptr;
+   
+       // block position in film (position on film that maps to (0,0) of block, ignoring padding)
+       vec3u32_t position;
+       // block size
+       vec3u32_t size;
+   
+       block_handle_t() = default;
+       block_handle_t(block_handle_t&&) = default;
+   
+       block_handle_t(const block_handle_t&) = delete;
+       block_handle_t& operator=(const block_handle_t&) = delete;
+   };
+   
+   }

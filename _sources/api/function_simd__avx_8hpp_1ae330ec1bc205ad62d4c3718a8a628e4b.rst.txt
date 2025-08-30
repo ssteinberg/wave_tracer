@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1ae330ec1bc205ad62d4c3718a8a628e4b:
+
+Function wt::simd::le(simd_avx_t<float, 8>, simd_avx_t<float, 8>)
+=================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::le(simd_avx_t<float, 8>, simd_avx_t<float, 8>)
+   :project: wave_tracer

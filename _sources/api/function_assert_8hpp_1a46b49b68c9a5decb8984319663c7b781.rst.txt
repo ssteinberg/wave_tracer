@@ -1,0 +1,14 @@
+.. _exhale_function_assert_8hpp_1a46b49b68c9a5decb8984319663c7b781:
+
+Template Function wt::assert_isnotzero
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::assert_isnotzero(Fp, Fp)
+   :project: wave_tracer

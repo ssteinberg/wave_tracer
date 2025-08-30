@@ -1,0 +1,65 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp:
+
+File for_range.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/for_range.hpp``)
+----------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``algorithm``
+
+- ``cmath`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`)
+
+- ``concepts`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``ranges``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_for__range_8hpp_1a090227d6fd4a605e74bab9ab2844aff8`
+
+- :ref:`exhale_function_for__range_8hpp_1ae5d8153aa49ce78615903ac76104c926`
+

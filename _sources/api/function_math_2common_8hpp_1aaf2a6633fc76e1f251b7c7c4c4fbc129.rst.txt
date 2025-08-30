@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1aaf2a6633fc76e1f251b7c7c4c4fbc129:
+
+Template Function wt::m::abs(const glm::mat<N, M, T>&)
+======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::abs(const glm::mat<N, M, T>&)
+   :project: wave_tracer

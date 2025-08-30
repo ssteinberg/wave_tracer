@@ -1,0 +1,236 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp:
+
+File defs.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity/defs.hpp``)
+--------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``mp-units/systems/isq/electromagnetism.h``
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/math/quantity/framework.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_framework.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_EM_concepts.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__angular`
+
+- :ref:`namespace_wt__electrodynamics`
+
+- :ref:`namespace_wt__isq`
+
+- :ref:`namespace_wt__siconstants`
+
+- :ref:`namespace_wt__u`
+
+- :ref:`namespace_wt__u__ang`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1irradiance`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1QE`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1QE__area`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1QE__solid__angle`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1QE__solid__angle__area`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1radiance`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1radiant__flux`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1radiant__intensity`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a413573986df569b6c9f79e9ba0328dae`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1afb24d937d4aa63b0f9dffbc0bbfd0b57`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1aa88f23531566da78ce258e76a31a1b00`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1ad4be56b3921d93aa2f6a66ffe8079ba4`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a8f93d3455627c76fe7de996de6d90693`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a02cf56f823414637da13d74f0d7fa219`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a59e686f54893111b889647e6738aa211`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1ae8dd28ef7f1a6682b2530fa9f0efc349`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a3a52776bbfd007628b7687e2380ec7cf`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1ae99b655d42f4b628c2e0d1d04556a4b2`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a71727390ae6edcd1ac05cf37362ab2ec`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1acb353c14efd0c0e8c16ff01bd40ab092`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1ab6a8a403ed4a61b90c23e5e8a25c4ca2`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1acc337f3e96720e02f68bcab412e4ae8b`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1aaffe3224d9859c5704dda50fa69a893e`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a7527001d6c6b83f3da2bcdc93c1fbd7c`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1ae3e336c29435e4a9da8e27f8c89364ef`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a93348d33e630209cf5d8937cecf6fc56`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a7e457f182af98e091484f3d805811a2e`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1aa44245ae619ed7fdf7e2911eff965f73`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a43aedb3a30b68e2aacab7fb41448d871`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1abe1cdc76c14e65dfaa3b1683769c8717`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1aef49743dc31b9c060fc7befb84e137d8`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a39b2cc361f4a02caa74b60837fefa471`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a82430ee0191140c7c4d81b12bb49ff27`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a0c2760e5f1c596c2b8af65c7e654fa37`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a769fa36908b97aefb3d9083d5dca8b50`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1aeee84554086139ec9820ccb2bcffd387`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1acab19fed04dba1697f49c8dc9779a00d`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a7e911f91bfb4963532d929de6c1f20c1`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a7ba0dbd1682257fb20745ab0bafbc744`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1ac13efe4e2594b1580e12dcc4cc3c95bb`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1af3336b78bc04f7f7b96e14fdc333ce54`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a0dd00157973d7d9b4dbea87a0ec5c8ee`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a2f17710cbde835bb5b3573d60d8741df`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1ab10fc8bcece22c4bdb7a497be12b1be6`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a4041a44eec51a64e81f08bfcc0de34f6`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a74c98e4bc194a705123208fc57d219b4`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a71c4b3ff25b4b10271c41890d844f67e`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a3ecfc1fa0f5a80222dd202834733c2d9`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a697e2996ede71937649d42f7a788901c`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1abd7bab5ef022d4516b9e44fdd22983b1`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a04f8854a64550b54c373d8c2f161ee07`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1aeec5037523de8e197973fb23ac9ceb84`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a4b78b570bb2b10d3535ba574364ca42b`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a91f9fc9245ba0ac26aa6e8a57b25bbae`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1abdd23c5f7b329ed0eb5c7bfe7a144614`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a8be8e6ea8c29a3a09c67968e833ec171`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a76ad462ab14b65c3e5e88388008d077d`
+
+- :ref:`exhale_typedef_math_2quantity_2defs_8hpp_1a9964d0a10d9d2251a0a0afe5ac4815f9`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a8a551cecbb3d8438d061e406f3b7590a`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a1e97644e768c0c8bd9b3af51c67d28bf`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a468da9f816fea7d127f8ca71c6df7b7f`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1afd77a50a395141f9495355cffd775ac4`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a711e26ba5e5f681ce959064c0f30e74a`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a23000c64152f4f010b6baec7cd826e12`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a1a59d5ced73393d281873c48916d647c`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1aee1b853e310882bfe30172ed71335220`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1ab84ad1054a72c27f1d6ea29ff65513bb`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a8b7c82541a31762aa63eb938ee42879d`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1aa77874edfd3fc1b660ffcc899b0f9783`
+
+- :ref:`exhale_variable_namespacewt_1_1isq_1a5ba662494805c0138e77334805be9e65`
+

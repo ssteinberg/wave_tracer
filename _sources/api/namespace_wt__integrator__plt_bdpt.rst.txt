@@ -1,0 +1,64 @@
+
+.. _namespace_wt__integrator__plt_bdpt:
+
+Namespace wt::integrator::plt_bdpt
+==================================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1arena__t`
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1bdpt__connect__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1bdpt__walk__data__t`
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1vertex__pdfs__t`
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1vertex__t`
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt_1_1wavefront__intersection__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_vertex_8hpp_1a2a5a74238921bb254a007b14efc1474c`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a7cd5680bf3a06dfdf787da5fffcb34b8`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a4fb9d2b3f82fad0085a57d173db0b044`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a3bc2148bf961c23e5d4b05912d522966`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a5fa1ef30906a2a5a903c7ed591003729`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a33db4d9aaf587601fdcacfa0d026b16b`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a5169a365e2c8e0ebc96a331f8a3e5ed9`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1aa60fe7f32cb04e74f30b6b22cb32a542`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1abbeaca3ed959f947ea4431b49599aa6b`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1ae6601651512282b3ab8c8cafca8053dd`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a2e7cd7f1544224ce6f01ed72f1606ecf`
+
+- :ref:`exhale_function_plt__bdpt__detail_8hpp_1a9519a5febaf1bd433a93227efea992bf`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_plt__bdpt__detail_8hpp_1a808e16504cecb83dc621a0d18eb767d3`

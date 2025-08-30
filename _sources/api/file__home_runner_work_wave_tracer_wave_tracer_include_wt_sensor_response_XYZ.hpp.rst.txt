@@ -1,0 +1,73 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_XYZ.hpp:
+
+File XYZ.hpp
+============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/response``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/response/XYZ.hpp``)
+---------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_XYZ.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``memory``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/scene/element/scene_element.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_scene_element.hpp`)
+
+- ``wt/sensor/response/multichannel.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_multichannel.hpp`)
+
+- ``wt/sensor/response/response.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_response.hpp`)
+
+- ``wt/sensor/response/tonemap/tonemap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`)
+
+- ``wt/spectrum/spectrum.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_RGB.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__sensor`
+
+- :ref:`namespace_wt__sensor__response`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1response_1_1XYZ__t`
+

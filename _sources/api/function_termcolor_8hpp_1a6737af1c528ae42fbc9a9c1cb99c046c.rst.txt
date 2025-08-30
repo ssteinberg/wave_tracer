@@ -1,0 +1,14 @@
+.. _exhale_function_termcolor_8hpp_1a6737af1c528ae42fbc9a9c1cb99c046c:
+
+Function wt::logger::termcolour::move_right
+===========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::logger::termcolour::move_right(std::ostream&, int)
+   :project: wave_tracer

@@ -1,0 +1,151 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp:
+
+File bitmap.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap/bitmap.hpp``)
+---------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``algorithm``
+
+- ``cassert``
+
+- ``cstddef``
+
+- ``lancir.h``
+
+- ``magic_enum/magic_enum_format.hpp``
+
+- ``memory``
+
+- ``optional``
+
+- ``utility``
+
+- ``wt/bitmap/pixel_layout.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp`)
+
+- ``wt/bitmap/texel_convert.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_load2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_write2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_previewer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_mask_mask.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_response.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_font_renderer_font_renderer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_gui.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_imgui_tex_inspect.h`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_imgui_tex_inspect_internal.h`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_interface.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_tev.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__bitmap`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1bitmap_1_1bitmap__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a38b3bd8622024939ce7cac54e6027ca9`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a2631121d3f97d7d964a46446f136c2c5`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1aa59c20107ebe053b56da9faf2261bcc0`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a83e46f1c2e884c465cc063d52318ebad`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a4d1f6d618d72f2d74f5541cd475e7c17`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a56a9f4b81429742be82b8878fda5aa55`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a58e2f9ed75a1c274c0b8e12e596a6d1e`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1af83567b2110249ac4e921f2c9fc5a044`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1abc88b9157564cb449251ebb406745b26`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a00af6a1dde528c3e522f71a171a20f06`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a76fc1f291d4db9bf7c9170f84f3f04d4`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_bitmap_2bitmap_8hpp_1af4713fe2a5c9f196c436e80dfcbf34b3`
+
+- :ref:`exhale_typedef_bitmap_2bitmap_8hpp_1ae635eff7c1d881ce0f16a63d740bde78`
+
+- :ref:`exhale_typedef_bitmap_2bitmap_8hpp_1ad8719dadce4ee5a2c2ae8bb430a65bc0`
+

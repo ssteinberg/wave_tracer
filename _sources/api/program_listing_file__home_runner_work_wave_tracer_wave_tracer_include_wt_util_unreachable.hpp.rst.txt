@@ -1,0 +1,37 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp:
+
+Program Listing for File unreachable.hpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/unreachable.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   namespace wt {
+   
+   [[noreturn]] inline void unreachable() {
+       // Uses compiler specific extensions if possible.
+       // Even if no extension is used, undefined behavior is still raised by
+       // an empty function body and the noreturn attribute.
+   #if defined(_MSC_VER) && !defined(__clang__) // MSVC
+       __assume(false);
+   #else // GCC, Clang
+       __builtin_unreachable();
+   #endif
+   }
+   
+   }

@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a9c1e00674b9d66f06cacbbcd6d064f1d:
+
+Template Function wt::m::mix(const vec<N, S>&, const vec<N, S>&, const T&)
+==========================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::mix(const vec<N, S>&, const vec<N, S>&, const T&)
+   :project: wave_tracer

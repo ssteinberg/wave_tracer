@@ -1,0 +1,87 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp:
+
+File fma.hpp
+============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/fma.hpp``)
+----------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cmath`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`)
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/math/quantity/quantity_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`)
+
+- ``wt/math/type_traits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`)
+
+- ``wt/math/unit_vector/unit_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__m`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_fma_8hpp_1ad2f5df90f33fb9e945c43d26d7a406f1`
+
+- :ref:`exhale_function_fma_8hpp_1a1dd5a62b93abe9700aae1dc6e9f1fafe`
+
+- :ref:`exhale_function_fma_8hpp_1a9e7c715754e6802029ee5eb718131f61`
+
+- :ref:`exhale_function_fma_8hpp_1ad5585255523c890aa1208e62f3e08595`
+
+- :ref:`exhale_function_fma_8hpp_1a641d0c055042ea64fd08a2816090adfb`
+
+- :ref:`exhale_function_fma_8hpp_1a39930d2f02475f1e44a9238168413d63`
+
+- :ref:`exhale_function_fma_8hpp_1ae0dd6d07dd0685e0bc8ee6d95b13ac1f`
+
+- :ref:`exhale_function_fma_8hpp_1a823261d4e74c402fd75139387e08618a`
+
+- :ref:`exhale_function_fma_8hpp_1a55c30b1e81031296f1ca15c86f94a2ff`
+
+- :ref:`exhale_function_fma_8hpp_1ac7c473779a0f605d559471be9d95fed5`
+
+- :ref:`exhale_function_fma_8hpp_1a09cc4f901bf15a791bb19b7310425493`
+
+- :ref:`exhale_function_fma_8hpp_1a96d1358bf59886322a63342be00b7697`
+

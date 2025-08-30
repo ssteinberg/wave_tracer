@@ -1,0 +1,63 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform_loader.hpp:
+
+File transform_loader.hpp
+=========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/transform``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/transform/transform_loader.hpp``)
+---------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform_loader.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/transform/transform.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`)
+
+- ``wt/scene/loader/node.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__scene`
+
+- :ref:`namespace_wt__scene__loader`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_transform__loader_8hpp_1a8c1db2ea877490f85baa5e8647233b18`
+
+- :ref:`exhale_function_transform__loader_8hpp_1a7ea6e04d9166e2a8fa3a00a989e55104`
+
+- :ref:`exhale_function_transform__loader_8hpp_1aee664a18dda7a5a5bcf6ae71140217a0`
+

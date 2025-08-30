@@ -1,0 +1,85 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_uniform.hpp:
+
+Program Listing for File uniform.hpp
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_uniform.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/uniform.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <memory>
+   
+   #include <wt/sampler/sampler.hpp>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/distribution/uniform_distribution.hpp>
+   #include <wt/wt_context.hpp>
+   
+   #include "spectrum.hpp"
+   
+   namespace wt::spectrum {
+   
+   class uniform_t final : public spectrum_real_t {
+   private:
+       uniform_distribution_t dist;
+       f_t avg_spectral_pwr;
+   
+   public:
+       uniform_t(std::string id, f_t avg_pwr,
+                 const range_t<wavenumber_t> krange = range_t<wavenumber_t>::positive())
+           : spectrum_real_t(std::move(id)),
+             dist(uniform_distribution_t{ { u::to_inv_mm(krange.min), u::to_inv_mm(krange.max) } }),
+             avg_spectral_pwr(avg_pwr)
+       {}
+       uniform_t(const uniform_t&) = default;
+       uniform_t(uniform_t&&) = default;
+   
+       [[nodiscard]] const distribution1d_t* distribution() const noexcept override {
+           return &dist;
+       }
+   
+       [[nodiscard]] f_t average_power() const noexcept { return avg_spectral_pwr; }
+   
+       [[nodiscard]] f_t power() const noexcept override {
+           return dist.range().length() * avg_spectral_pwr;
+       }
+   
+       [[nodiscard]] f_t power(const range_t<wavenumber_t>& wavenumbers) const noexcept override {
+           return avg_spectral_pwr * u::to_inv_mm((wavenumber_range() & wavenumbers).length());
+       }
+   
+       [[nodiscard]] range_t<wavenumber_t> wavenumber_range() const noexcept override {
+           return { dist.range().min / u::mm, dist.range().max / u::mm };
+       }
+       
+       [[nodiscard]] wavenumber_t mean_wavenumber() const noexcept override { return wavenumber_range().centre(); }
+       
+       [[nodiscard]] f_t f(const wavenumber_t wavenumber) const noexcept override {
+           return wavenumber_range().contains(wavenumber) ? avg_spectral_pwr : 0;
+       }
+       
+   public:
+       static std::unique_ptr<spectrum_real_t> load(std::string id, 
+                                               scene::loader::loader_t* loader, 
+                                               const scene::loader::node_t& node, 
+                                               const wt::wt_context_t &context);
+   
+       [[nodiscard]] scene::element::info_t description() const override;
+   };
+   
+   }

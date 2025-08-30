@@ -1,0 +1,14 @@
+.. _exhale_function_ads_2bvh8w_2common_8hpp_1af898e69b3b32d10753974cd260da5260:
+
+Function wt::ads::bvh8w::is_ptr_child
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::ads::bvh8w::is_ptr_child(std::int32_t)
+   :project: wave_tracer

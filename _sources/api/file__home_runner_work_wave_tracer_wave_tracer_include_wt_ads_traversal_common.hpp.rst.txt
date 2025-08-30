@@ -1,0 +1,76 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_traversal_common.hpp:
+
+File traversal_common.hpp
+=========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/traversal_common.hpp``)
+----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_traversal_common.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``ads.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`)
+
+- ``common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`)
+
+- ``intersection_record.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_intersection_record.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/shapes/elliptic_cone.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__ads`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__ray__work__tri__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__ray__work__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__record__work__t`
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1intersection__work__tri__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_traversal__common_8hpp_1a9c59a094b7dc30223a7871babd8df2ca`
+
+- :ref:`exhale_function_traversal__common_8hpp_1a3cd1d1c24851ea45bf7a9d8bcae05270`
+
+- :ref:`exhale_function_traversal__common_8hpp_1a8c0acd7aa3750435ac734817bdcbffb3`
+

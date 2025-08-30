@@ -1,0 +1,74 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_interface.hpp:
+
+File preview_interface.hpp
+==========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/preview``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/preview/preview_interface.hpp``)
+--------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_interface.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/sensor/film/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_previewer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_gui.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_tev.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__sensor`
+
+- :ref:`namespace_wt__sensor__response`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1preview__interface__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_preview__interface_8hpp_1af9d4f1ade7b1d49e47d6c32a38884e4d`
+

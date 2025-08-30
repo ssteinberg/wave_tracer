@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a4dae42168413b3e1cce4a26b4f4975f4:
+
+Function wt::m::asin
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::asin(const Numeric auto)
+   :project: wave_tracer

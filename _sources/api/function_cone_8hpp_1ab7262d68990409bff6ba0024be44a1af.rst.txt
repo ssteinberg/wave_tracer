@@ -1,0 +1,14 @@
+.. _exhale_function_cone_8hpp_1ab7262d68990409bff6ba0024be44a1af:
+
+Template Function wt::intersect::test_cone_edge
+===============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::test_cone_edge(const elliptic_cone_t&, const pqvec3_t&, const pqvec3_t&, const pqrange_t<>&)
+   :project: wave_tracer

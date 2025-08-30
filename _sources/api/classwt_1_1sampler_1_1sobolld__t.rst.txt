@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1sampler_1_1sobolld__t:
+
+Class sobolld_t
+===============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::sampler::sampler_t`` (:ref:`exhale_class_classwt_1_1sampler_1_1sampler__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::sampler::sobolld_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,131 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp:
+
+File transform.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/transform``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/transform/transform.hpp``)
+--------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``glm/gtc/matrix_inverse.hpp``
+
+- ``glm/gtc/matrix_transform.hpp``
+
+- ``glm/gtx/transform.hpp``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/frame.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`)
+
+- ``wt/math/glm.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp`)
+
+- ``wt/math/rotation.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_rotation.hpp`)
+
+- ``wt/math/shapes/ray.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ray.hpp`)
+
+- ``wt/math/type_traits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`)
+
+- ``wt/util/assert.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_spot.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_cube.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_cylinder.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_icosahedron.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_lens.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_obj_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_ply_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_prism.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_rectangle.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_sphere.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_transform.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1transform__point__t`
+
+- :ref:`exhale_struct_structwt_1_1transform__vector__t`
+
+- :ref:`exhale_class_classwt_1_1transform__generic__t`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_math_2transform_2transform_8hpp_1aaf8f5116e07221f49b811f32fc073a64`
+
+- :ref:`exhale_typedef_math_2transform_2transform_8hpp_1ab554760415afc7ca323cd7df0fdb2be3`
+
+- :ref:`exhale_typedef_math_2transform_2transform_8hpp_1aa896ca555d1cd2f65711b5cddbe5e2dd`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_math_2transform_2transform_8hpp_1a54c3bc701808fa36a1d98d6a4fc4628a`
+
+- :ref:`exhale_variable_math_2transform_2transform_8hpp_1a860fc350edb6be7aa1a791d74991b4df`
+

@@ -1,0 +1,46 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_node.hpp:
+
+Program Listing for File bvh_node.hpp
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_node.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh_node.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    *
+    * wave tracer
+    * Copyright  Shlomi Steinberg
+    * Authors:  Umut Emre, Shlomi Steinberg
+    *
+    * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+    *
+    */
+   
+   #pragma once
+   
+   #include <wt/math/shapes/aabb.hpp>
+   #include <wt/math/common.hpp>
+   
+   #include "wt/ads/common.hpp"
+   
+   namespace wt::ads::bvh {
+   
+   struct node_t {
+       aabb_t aabb = aabb_t::null();
+   
+       idx_t children_cluster_offset;
+       bool is_leaf;
+   
+       idx_t tris_offset;
+       idx_t tri_count;
+   };
+   
+   struct node_cluster_t {
+       std::array<node_t, 2> nodes;
+   };
+   
+   }  // namespace wt::ads::bvh

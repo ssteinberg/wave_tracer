@@ -1,0 +1,13 @@
+
+.. _namespace_wt__spectrum__detail_spectrum_from_db:
+
+Namespace wt::spectrum::detail_spectrum_from_db
+===============================================
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_spectrum__from__db_8hpp_1a47cb50ab05e7cc34e66f4ed47bb78ea6`

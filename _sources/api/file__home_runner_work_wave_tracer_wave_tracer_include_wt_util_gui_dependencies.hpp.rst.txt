@@ -1,0 +1,53 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_dependencies.hpp:
+
+File dependencies.hpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/dependencies.hpp``)
+-----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_dependencies.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``GL/glew.h``
+
+- ``SDL3/SDL.h``
+
+- ``SDL3/SDL_opengl.h``
+
+- ``wt/util/gui/img_inspect/imgui_tex_inspect.h`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_imgui_tex_inspect.h`)
+
+- ``wt/util/gui/img_inspect/tex_inspect_opengl.h`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_tex_inspect_opengl.h`)
+
+- ``wt/util/gui/imgui/imgui.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`
+
+
+

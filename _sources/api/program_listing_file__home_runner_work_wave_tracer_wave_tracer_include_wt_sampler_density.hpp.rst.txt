@@ -1,0 +1,124 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp:
+
+Program Listing for File density.hpp
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sampler/density.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <cassert>
+   #include <type_traits>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/sampler/measure.hpp>
+   #include <wt/math/quantity/defs.hpp>
+   
+   namespace wt {
+   
+   template <Quantity DensityQ>
+       requires std::is_same_v<typename DensityQ::rep, f_t>
+   struct sampling_pd_t {
+       constexpr sampling_pd_t() noexcept = default;
+       constexpr sampling_pd_t(DensityQ d) noexcept : d(d) { assert(d>=zero); }
+   
+       static inline auto discrete(f_t mass) noexcept {
+           sampling_pd_t pd;
+           pd.m = -mass;
+           assert(mass>=0);
+   
+           return pd;
+       }
+   
+       sampling_pd_t(const sampling_pd_t&) noexcept = default;
+       sampling_pd_t& operator=(const sampling_pd_t&) noexcept = default;
+   
+       [[nodiscard]] inline measure_e measure() const noexcept {
+           return std::signbit(m) ? measure_e::discrete : measure_e::continuos;
+       }
+       [[nodiscard]] inline auto is_discrete() const noexcept { return measure() == measure_e::discrete; }
+   
+       [[nodiscard]] inline auto density() const noexcept {
+           assert(!is_discrete());
+           return d;
+       }
+       [[nodiscard]] inline auto density_or_zero() const noexcept {
+           return is_discrete() ? DensityQ{} : density();
+       }
+       [[nodiscard]] inline auto mass() const noexcept {
+           assert(is_discrete());
+           return -m;
+       }
+   
+       [[nodiscard]] inline bool isfinite() const noexcept { return m::isfinite(m); }
+       [[nodiscard]] inline bool isnan() const noexcept { return m::isnan(m); }
+   
+       inline friend sampling_pd_t operator*(f_t f, sampling_pd_t s) noexcept {
+           assert(f>=0);
+           s.m = f * s.m;
+           return s;
+       }
+       inline friend sampling_pd_t operator*(sampling_pd_t s, f_t f) noexcept {
+           assert(f>=0);
+           s.m *= f;
+           return s;
+       }
+       inline friend sampling_pd_t operator/(sampling_pd_t s, f_t f) noexcept {
+           assert(f>0);
+           s.m /= f;
+           return s;
+       }
+   
+       inline auto& operator*=(f_t f) noexcept {
+           assert(f>=0);
+           m *= f;
+           return *this;
+       }
+       inline auto& operator/=(f_t f) noexcept {
+           assert(f>0);
+           m /= f;
+           return *this;
+       }
+   
+       inline friend bool operator==(const sampling_pd_t& s, zero_t) noexcept {
+           return s.m==0;
+       }
+       inline friend bool operator==(zero_t, const sampling_pd_t& s) noexcept {
+           return s.m==0;
+       }
+       inline friend bool operator!=(const sampling_pd_t& s, zero_t) noexcept {
+           return s.m!=0;
+       }
+       inline friend bool operator!=(zero_t, const sampling_pd_t& s) noexcept {
+           return s.m!=0;
+       }
+   
+   private:
+       union {
+           DensityQ d;
+           f_t m = 0;
+       };
+   };
+   
+   using area_sampling_pd_t = sampling_pd_t<area_density_t>;
+   using angle_sampling_pd_t = sampling_pd_t<angle_density_t>;
+   using solid_angle_sampling_pd_t = sampling_pd_t<solid_angle_density_t>;
+   
+   using wavenumber_sampling_pd_t = sampling_pd_t<wavenumber_density_t>;
+   using wavelength_sampling_pd_t = sampling_pd_t<wavelength_density_t>;
+   
+   }

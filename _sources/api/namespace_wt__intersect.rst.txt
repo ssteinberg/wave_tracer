@@ -1,0 +1,112 @@
+
+.. _namespace_wt__intersect:
+
+Namespace wt::intersect
+=======================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1clip__triangle__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__ball__aabb__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__ball__aabb__w__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__cone__edge__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__cone__plane__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__cone__tri__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__edge__circle__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__edge__sphere__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__ray__aabb__w__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__ray__tri__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1intersect_1_1intersect__ray__tri__w__ret__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_clip_8hpp_1a029da057b93141713df638c6e1b79f3d`
+
+- :ref:`exhale_function_cone__intersection__tolerance_8hpp_1a6285be55473eec4fbc2baed632c90f0b`
+
+- :ref:`exhale_function_cone_8hpp_1ac18d0c62eba91e2dce87a3092815ebc5`
+
+- :ref:`exhale_function_cone_8hpp_1a7d2e24815f742a6ca5cfa970ed73a170`
+
+- :ref:`exhale_function_cone_8hpp_1a525a3f9b366807908f621577b0df937e`
+
+- :ref:`exhale_function_cone_8hpp_1a18efead7b3692f45302b544564829c8e`
+
+- :ref:`exhale_function_cone_8hpp_1a3a4ab6d0509e8f2c6c4139df436bbda4`
+
+- :ref:`exhale_function_cone_8hpp_1a66616ea4dc7077825ba7f901643dbc7f`
+
+- :ref:`exhale_function_misc_8hpp_1acb477a48183a2317b4a9ecb96864654c`
+
+- :ref:`exhale_function_misc_8hpp_1a92b306595c499ab4289abb0e62183cc7`
+
+- :ref:`exhale_function_misc_8hpp_1a9e6a4825a407179ee1ac93b1ad5797e3`
+
+- :ref:`exhale_function_misc_8hpp_1ae40fabf83321231722dfdf9ba32e1cca`
+
+- :ref:`exhale_function_misc_8hpp_1a57b1c01a435c1292d59e4d4a41c660fc`
+
+- :ref:`exhale_function_misc_8hpp_1aa0673605bc912927e7d0eafd7db681ca`
+
+- :ref:`exhale_function_misc_8hpp_1a7ea34efdfc135898509b8e890e4c1e5d`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a9cd08c18949566686cdaa8b9f86776d6`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a9b0ce7ec9a11af03ce15bdd18682f253`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a1b9359ea4240199b7b861cb79ee464fd`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a1a7b1c99b07d7ad56857eead3d337e50`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a440e3316530ff1a37a6b89d7316efd26`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a0f910d2c895e1fe20aa008f69f82fcb8`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1aede74569a433269b5e61d4c8f7a17a48`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a54953db725d1ad8e80e2171838330c1c`
+
+- :ref:`exhale_function_misc_8hpp_1ad1bf00c33aaf512ba8ef9dcc49721c71`
+
+- :ref:`exhale_function_intersect_2ball_8hpp_1a01045b0840caabcefca1e3233ca62059`
+
+- :ref:`exhale_function_intersect_2ball_8hpp_1aa68728106a15250427c7b66d07bbd863`
+
+- :ref:`exhale_function_intersect_2ball_8hpp_1a58fee5aa1f5fc5bb88fb714410627b28`
+
+- :ref:`exhale_function_intersect_2ball_8hpp_1a36812a94d99b453ae1fea78028b9341d`
+
+- :ref:`exhale_function_cone_8hpp_1a7b598ece54f9704cec96169b737eb8d4`
+
+- :ref:`exhale_function_cone_8hpp_1ab7262d68990409bff6ba0024be44a1af`
+
+- :ref:`exhale_function_cone_8hpp_1a48f47e93a6aa325a26254a41efb0fceb`
+
+- :ref:`exhale_function_cone_8hpp_1a4cf4fb2425e82f02ddff245aa69e69ab`
+
+- :ref:`exhale_function_misc_8hpp_1a7e941e634bedd97e6216735a58ba09e9`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a3f04badef7d5aae0661a2c9627bb3725`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a7cab734656a2705b334fad1893b71633`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1af6e1ed66116db085978dbe4cdc7f9ab1`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a02b632cd627cd22ad4d7284498f9bfdb`

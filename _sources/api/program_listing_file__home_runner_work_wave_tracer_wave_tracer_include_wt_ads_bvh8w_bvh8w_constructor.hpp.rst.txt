@@ -1,0 +1,54 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_constructor.hpp:
+
+Program Listing for File bvh8w_constructor.hpp
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_constructor.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh8w/bvh8w_constructor.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    *
+    * wave tracer
+    * Copyright  Shlomi Steinberg
+    *
+    * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+    *
+    */
+   
+   #pragma once
+   
+   #include <memory>
+   
+   #include <vector>
+   #include <optional>
+   
+   #include <wt/scene/shape.hpp>
+   #include <wt/wt_context.hpp>
+   
+   #include <wt/ads/util.hpp>
+   #include <wt/ads/ads_constructor.hpp>
+   #include "bvh8w.hpp"
+   
+   namespace wt::ads::construction {
+   
+   class bvh8w_constructor_t final : public ads_constructor_t {
+   public:
+       bvh8w_constructor_t(std::vector<std::shared_ptr<shape_t>> objs,
+                           const wt::wt_context_t &context,
+                           std::optional<progress_callback_t> progress_callbacks = {});
+   
+       std::unique_ptr<ads_t> get() && override {
+           assert(bvh8w);
+           return std::move(bvh8w);
+       }
+   
+   private:
+       std::unique_ptr<bvh8w_t> bvh8w;
+       progress_track_t pt;
+   };
+   
+   }

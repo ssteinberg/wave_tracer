@@ -1,0 +1,14 @@
+.. _exhale_function_rotation_8hpp_1a80893e102658c983fec72d657906e8cd:
+
+Function wt::util::rotation_matrix(const dir3_t&, const dir3_t&)
+================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_rotation.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::util::rotation_matrix(const dir3_t&, const dir3_t&)
+   :project: wave_tracer

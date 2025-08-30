@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1a2ca22e872d5a8f93b0c56787d98eb610:
+
+Function wt::simd::abs(simd_avx_t<float, 4>)
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::abs(simd_avx_t<float, 4>)
+   :project: wave_tracer

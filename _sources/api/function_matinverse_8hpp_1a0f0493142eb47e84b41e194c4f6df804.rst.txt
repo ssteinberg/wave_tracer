@@ -1,0 +1,14 @@
+.. _exhale_function_matinverse_8hpp_1a0f0493142eb47e84b41e194c4f6df804:
+
+Template Function wt::m::inverse(const mat2<T>&)
+================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_matinverse.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::inverse(const mat2<T>&)
+   :project: wave_tracer

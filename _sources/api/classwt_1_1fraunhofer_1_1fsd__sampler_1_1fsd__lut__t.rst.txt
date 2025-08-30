@@ -1,0 +1,27 @@
+.. _exhale_class_classwt_1_1fraunhofer_1_1fsd__sampler_1_1fsd__lut__t:
+
+Class fsd_lut_t
+===============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd_lut.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1fraunhofer_1_1fsd__sampler_1_1fsd__lut__t_1_1data__t`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::fraunhofer::fsd_sampler::fsd_lut_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

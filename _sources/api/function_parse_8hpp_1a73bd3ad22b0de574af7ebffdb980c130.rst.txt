@@ -1,0 +1,14 @@
+.. _exhale_function_parse_8hpp_1a73bd3ad22b0de574af7ebffdb980c130:
+
+Function wt::parse_matrix4
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::parse_matrix4(const std::string&)
+   :project: wave_tracer

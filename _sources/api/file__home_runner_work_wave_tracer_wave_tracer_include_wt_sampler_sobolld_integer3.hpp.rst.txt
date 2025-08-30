@@ -1,0 +1,72 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_integer3.hpp:
+
+File integer3.hpp
+=================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sampler/sobolld``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sampler/sobolld/integer3.hpp``)
+--------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_integer3.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``cstdint``
+
+- ``wt/util/array.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_array.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_irreducible_gf3.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_sobolld_sampler.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__sampler`
+
+- :ref:`namespace_wt__sampler__sobolld`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1sampler_1_1sobolld_1_1integer3__t`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_integer3_8hpp_1a8684d5ea17cfab1929156a274621b585`
+

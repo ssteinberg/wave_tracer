@@ -1,0 +1,14 @@
+.. _exhale_function_pixel__layout_8hpp_1aad2b111b00a9bf8f000e38aff748b812:
+
+Function wt::bitmap::convert_pixel_layout
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::convert_pixel_layout(pixel_layout_e, pixel_layout_e, vec4_t)
+   :project: wave_tracer

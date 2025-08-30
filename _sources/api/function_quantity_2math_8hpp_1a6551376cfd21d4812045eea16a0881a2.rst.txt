@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a6551376cfd21d4812045eea16a0881a2:
+
+Function wt::m::is_lteq
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::is_lteq(const Quantity auto, const Quantity auto)
+   :project: wave_tracer

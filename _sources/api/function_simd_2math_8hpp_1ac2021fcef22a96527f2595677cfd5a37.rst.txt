@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1ac2021fcef22a96527f2595677cfd5a37:
+
+Template Function wt::m::mix(const wide_vector<W, N, Q>&, const wide_vector<W, N, Q>&, const wide_vector<W, N, simd::unitless>&)
+================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::mix(const wide_vector<W, N, Q>&, const wide_vector<W, N, Q>&, const wide_vector<W, N, simd::unitless>&)
+   :project: wave_tracer

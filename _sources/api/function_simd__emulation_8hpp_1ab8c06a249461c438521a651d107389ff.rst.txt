@@ -1,0 +1,14 @@
+.. _exhale_function_simd__emulation_8hpp_1ab8c06a249461c438521a651d107389ff:
+
+Function wt::simd::cast_to_512d(simd_emulated_t<double, 4>)
+===========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::cast_to_512d(simd_emulated_t<double, 4>)
+   :project: wave_tracer

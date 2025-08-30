@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1unit__vector__storage_3_011_00_01T_01_4:
+
+Template Struct unit_vector_storage< 1, T >
+===========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::unit_vector_storage< 1, T >
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

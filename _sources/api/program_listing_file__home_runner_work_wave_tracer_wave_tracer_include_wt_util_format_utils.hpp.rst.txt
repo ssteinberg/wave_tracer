@@ -1,0 +1,82 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp:
+
+Program Listing for File utils.hpp
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/format/utils.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <algorithm>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/util/concepts.hpp>
+   
+   #include <string>
+   #include <string_view>
+   #include <cctype>
+   #include <bit>
+   
+   namespace wt::format {
+   
+   template <bool trim_prefix = true, bool trim_suffix = true>
+   constexpr inline std::string trim(std::string_view sv, const char* trimchars = " \t\v\r\n") noexcept {
+       if constexpr (trim_prefix)
+           sv.remove_prefix( std::min(sv.find_first_not_of(trimchars), sv.size()));
+       if constexpr (trim_suffix)
+           sv = sv.substr( 0,std::min(sv.find_last_not_of(trimchars)+1, sv.size()));
+   
+       return std::string{ sv };
+   }
+   
+   template <char open='(', char close=')'>
+   constexpr inline std::size_t find_closing_bracket(std::string_view sv, std::size_t pos=0) noexcept {
+       if (sv.empty() || sv[pos]!=open)
+           return std::string::npos;
+   
+       int t=1;
+       for (;pos<sv.size() && t>0;++pos) {
+           if (sv[pos]==open) ++t;
+           else if (sv[pos]==close) --t;
+       }
+       if (t==0) return pos;
+   
+       return std::string::npos;
+   }
+   
+   
+   inline auto tolower(std::string s) {
+       std::ranges::transform(s, s.begin(),
+                              [](unsigned char c){ return std::tolower(c); });
+       return s;
+   }
+   inline auto toupper(std::string s) {
+       std::ranges::transform(s, s.begin(),
+                              [](unsigned char c){ return std::toupper(c); });
+       return s;
+   }
+   
+   template <std::integral T>
+   constexpr T byteswap(T n) noexcept {
+       static_assert(std::has_unique_object_representations_v<T>, 
+                     "T may not have padding bits");
+       auto value_representation = std::bit_cast<std::array<std::byte, sizeof(T)>>(n);
+       std::ranges::reverse(value_representation);
+       return std::bit_cast<T>(value_representation);
+   }
+   
+   }

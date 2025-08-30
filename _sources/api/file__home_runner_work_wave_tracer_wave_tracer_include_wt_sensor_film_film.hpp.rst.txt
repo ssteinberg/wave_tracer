@@ -1,0 +1,99 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp:
+
+File film.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/film``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/film/film.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``memory``
+
+- ``stack``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``wt/interaction/polarimetric/stokes.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/distribution/gaussian1d.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian1d.hpp`)
+
+- ``wt/scene/element/attributes.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`)
+
+- ``wt/scene/loader/node.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node.hpp`)
+
+- ``wt/scene/loader/node_readers.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`)
+
+- ``wt/sensor/block/block.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_block.hpp`)
+
+- ``wt/sensor/block/padded_block.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_padded_block.hpp`)
+
+- ``wt/sensor/film/film_storage.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp`)
+
+- ``wt/sensor/response/response.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_response.hpp`)
+
+- ``wt/sensor/sensor_sample.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp`)
+
+- ``wt/util/for_range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp`)
+
+- ``wt/util/logger/logger.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_film_backed_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__sensor`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1sensor_1_1film__t_1_1rfilter__weights__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__t`
+

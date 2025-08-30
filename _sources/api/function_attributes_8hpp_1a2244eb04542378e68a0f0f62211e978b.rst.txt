@@ -1,0 +1,14 @@
+.. _exhale_function_attributes_8hpp_1a2244eb04542378e68a0f0f62211e978b:
+
+Template Function wt::scene::element::attributes::make_element(const E \*)
+==========================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::element::attributes::make_element(const E *)
+   :project: wave_tracer

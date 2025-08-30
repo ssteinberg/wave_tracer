@@ -1,0 +1,14 @@
+.. _exhale_function_style_8hpp_1ac84966e23c8eece9ae5674a668163bbb:
+
+Function wt::gui::set_imgui_style
+=================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_style.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::gui::set_imgui_style()
+   :project: wave_tracer

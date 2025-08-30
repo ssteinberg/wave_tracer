@@ -1,0 +1,14 @@
+.. _exhale_variable_fractal_8hpp_1ab9c775ed586257b7a45ec891e8f45cea:
+
+Variable wt::surface_profile::fractal_profile_details::max_GGX_alpha
+====================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_fractal.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::surface_profile::fractal_profile_details::max_GGX_alpha
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a3d2c137dbd435ec15678b2e36df8fa86:
+
+Function wt::m::cot
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::cot(const Angle auto)
+   :project: wave_tracer

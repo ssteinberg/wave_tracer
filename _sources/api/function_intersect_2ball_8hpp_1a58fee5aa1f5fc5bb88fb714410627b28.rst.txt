@@ -1,0 +1,14 @@
+.. _exhale_function_intersect_2ball_8hpp_1a58fee5aa1f5fc5bb88fb714410627b28:
+
+Template Function wt::intersect::test_ball_tri(const ball_t&, const pqvec3_w_t<W>&, const pqvec3_w_t<W>&, const pqvec3_w_t<W>&, const vec3_w_t<W>&)
+===================================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ball.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::test_ball_tri(const ball_t&, const pqvec3_w_t<W>&, const pqvec3_w_t<W>&, const pqvec3_w_t<W>&, const vec3_w_t<W>&)
+   :project: wave_tracer

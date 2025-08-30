@@ -1,0 +1,127 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_padded_block.hpp:
+
+Program Listing for File padded_block.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_padded_block.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/block/padded_block.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <vector>
+   #include <algorithm>
+   
+   #include <wt/math/common.hpp>
+   
+   namespace wt::sensor {
+   
+   template <typename T, std::size_t Dims>
+   struct padded_block_t {
+       static_assert(Dims>=1 && Dims<=3);
+   
+       using size_t = vec<Dims, std::uint16_t>;
+   
+       std::vector<T> data;
+       size_t size{};
+       std::uint16_t padding{};    // left, top, right and bottom padding
+       std::uint8_t channels{};
+   
+       padded_block_t() = default;
+       padded_block_t(const size_t& size,
+                      const std::uint8_t channels,
+                      std::uint16_t padding)
+           : size(size),
+             channels(channels),
+             padding(padding)
+       {
+           std::size_t elems = 1;
+           for (auto d=0ul;d<Dims;++d)
+               elems *= std::size_t(size[d] + 2*padding);
+           data.resize(elems*channels);
+       }
+       padded_block_t(padded_block_t&&) = default;
+       padded_block_t(const padded_block_t&) = default;
+       padded_block_t& operator=(padded_block_t&&) = default;
+       padded_block_t& operator=(const padded_block_t&) = default;
+   
+       inline auto& operator()(std::uint16_t x, 
+                               std::uint8_t c) requires (Dims==1) { 
+           assert(x<size.x+2*padding);
+           return data[x*channels+c];
+       }
+       inline const auto& operator()(std::uint32_t x, 
+                                     std::uint8_t c) const requires (Dims==1) { 
+           assert(x<size.x+2*padding);
+           return data[x*channels+c];
+       }
+       inline auto& operator()(std::uint16_t x, 
+                               std::uint16_t y, 
+                               std::uint8_t c) requires (Dims==2) {
+           assert(x<size.x+2*padding && y<size.y+2*padding);
+           return data[((size.x+2*padding)*y+x)*channels+c];
+       }
+       inline const auto& operator()(std::uint16_t x, 
+                                     std::uint16_t y, 
+                                     std::uint8_t c) const requires (Dims==2) {
+           assert(x<size.x+2*padding && y<size.y+2*padding);
+           return data[((size.x+2*padding)*y+x)*channels+c];
+       }
+       inline auto& operator()(std::uint16_t x, 
+                               std::uint16_t y, 
+                               std::uint16_t z, 
+                               std::uint8_t c) requires (Dims==3) {
+           assert(x<size.x+2*padding && y<size.y+2*padding && z<=size.z+2*padding);
+           return data[((size.x+2*padding)*(size.y+2*padding)*z + (size.x+2*padding)*y + x)*channels+c];
+       }
+       inline const auto& operator()(std::uint16_t x, 
+                                     std::uint16_t y, 
+                                     std::uint16_t z, 
+                                     std::uint8_t c) const requires (Dims==3) {
+           assert(x<size.x+2*padding && y<size.y+2*padding && z<=size.z+2*padding);
+           return data[((size.x+2*padding)*(size.y+2*padding)*z + (size.x+2*padding)*y + x)*channels+c];
+       }
+   
+       inline auto& operator()(const vec1u32_t& idx,
+                               std::uint32_t c) noexcept requires(Dims==1) {
+           return (*this)(idx.x,c);
+       }
+       inline const auto& operator()(const vec1u32_t& idx,
+                                     std::uint8_t c) const noexcept requires(Dims==1) {
+           return (*this)(idx.x,c);
+       }
+       inline auto& operator()(const vec2u32_t& idx,
+                               std::uint8_t c) noexcept requires(Dims==2) {
+           return (*this)(idx.x,idx.y,c);
+       }
+       inline const auto& operator()(const vec2u32_t& idx,
+                                     std::uint8_t c) const noexcept requires(Dims==2) {
+           return (*this)(idx.x,idx.y,c);
+       }
+       inline auto& operator()(const vec3u32_t& idx,
+                               std::uint32_t c) noexcept requires(Dims==3) {
+           return (*this)(idx.x,idx.y,idx.z,c);
+       }
+       inline const auto& operator()(const vec3u32_t& idx,
+                                     std::uint8_t c) const noexcept requires(Dims==3) {
+           return (*this)(idx.x,idx.y,idx.z,c);
+       }
+   
+       inline void clear(const T& t = {}) noexcept {
+           std::fill(data.begin(),data.end(),t);
+       }
+   };
+   
+   }

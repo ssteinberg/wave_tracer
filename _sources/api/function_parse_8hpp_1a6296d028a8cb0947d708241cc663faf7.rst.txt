@@ -1,0 +1,14 @@
+.. _exhale_function_parse_8hpp_1a6296d028a8cb0947d708241cc663faf7:
+
+Function wt::parse_hostname_and_port
+====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::parse_hostname_and_port(const std::string&)
+   :project: wave_tracer

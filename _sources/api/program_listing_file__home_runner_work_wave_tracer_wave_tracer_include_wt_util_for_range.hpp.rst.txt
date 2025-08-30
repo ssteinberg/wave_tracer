@@ -1,0 +1,56 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp:
+
+Program Listing for File for_range.hpp
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/for_range.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <cmath>
+   #include <concepts>
+   #include <algorithm>
+   #include <ranges>
+   
+   #include <wt/math/common.hpp>
+   
+   namespace wt {
+   
+   template <std::weakly_incrementable I, std::invocable<I> Func>
+   constexpr inline void for_range(I start, I end, Func func) noexcept {
+       std::ranges::for_each(std::views::iota(start, end), std::move(func));
+   }
+   
+   template <std::size_t Dims, std::weakly_incrementable I, std::invocable<vec<Dims, I>> Func>
+   constexpr inline void for_range(vec<Dims, I> start, vec<Dims, I> end, Func func) noexcept {
+       if constexpr (Dims==1) {
+           for_range(start[0], end[0], [func=std::move(func)](I i) {
+               func(vec<1,I>{ i });
+           });
+       }
+       else {
+           const auto s = vec<Dims-1,I>{ start };
+           const auto e = vec<Dims-1,I>{ end };
+           for_range(s,e,[func=std::move(func), start=start[Dims-1], end=end[Dims-1]](vec<Dims-1, I> is) {
+               for_range(start, end, [is,&func](I i) {
+                   func(vec<Dims,I>{ is,i });
+               });
+           });
+       }
+   }
+   
+   }

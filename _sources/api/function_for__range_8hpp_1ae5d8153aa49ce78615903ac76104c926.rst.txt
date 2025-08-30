@@ -1,0 +1,14 @@
+.. _exhale_function_for__range_8hpp_1ae5d8153aa49ce78615903ac76104c926:
+
+Template Function wt::for_range(I, I, Func)
+===========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::for_range(I, I, Func)
+   :project: wave_tracer

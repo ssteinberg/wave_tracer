@@ -1,0 +1,26 @@
+.. _exhale_struct_structwt_1_1is__scoped__enum:
+
+Template Struct is_scoped_enum
+==============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_type_traits.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::bool_constant< detail::is_scoped_enum_impl< T > >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::is_scoped_enum
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

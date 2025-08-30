@@ -1,0 +1,14 @@
+.. _exhale_function_vecmath_8hpp_1ad206a42a4945c5e3c1deeb63d946edd0:
+
+Template Function wt::m::dot(const V1&, const V2&)
+==================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::dot(const V1&, const V2&)
+   :project: wave_tracer

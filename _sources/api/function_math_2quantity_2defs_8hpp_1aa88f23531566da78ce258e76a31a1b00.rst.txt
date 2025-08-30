@@ -1,0 +1,14 @@
+.. _exhale_function_math_2quantity_2defs_8hpp_1aa88f23531566da78ce258e76a31a1b00:
+
+Function wt::u::to_Hz
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::u::to_Hz(const QuantityOf<electrodynamics::frequency> auto)
+   :project: wave_tracer

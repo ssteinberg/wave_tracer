@@ -1,0 +1,14 @@
+.. _exhale_variable_traversal_8hpp_1abd877990996657083987008742780a03:
+
+Variable wt::integrator::ballistic_scale
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::integrator::ballistic_scale
+   :project: wave_tracer

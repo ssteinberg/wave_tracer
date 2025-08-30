@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1a0eb785f260cee6efa0825016ce9e374a:
+
+Template Function wt::operator/(const S&, const quantity_vector<N, Q>&)
+=======================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::operator/(const S&, const quantity_vector<N, Q>&)
+   :project: wave_tracer

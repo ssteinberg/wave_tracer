@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2type__traits_8hpp_1a1d47c2eae8291de31f8c7cba17f7afa5:
+
+Variable wt::is_scalar_vector_v
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::is_scalar_vector_v
+   :project: wave_tracer

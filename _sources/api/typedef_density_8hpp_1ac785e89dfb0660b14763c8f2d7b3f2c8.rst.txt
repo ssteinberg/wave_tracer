@@ -1,0 +1,14 @@
+.. _exhale_typedef_density_8hpp_1ac785e89dfb0660b14763c8f2d7b3f2c8:
+
+Typedef wt::area_sampling_pd_t
+==============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::area_sampling_pd_t
+   :project: wave_tracer

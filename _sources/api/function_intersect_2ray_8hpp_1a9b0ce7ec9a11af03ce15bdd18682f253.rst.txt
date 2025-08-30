@@ -1,0 +1,14 @@
+.. _exhale_function_intersect_2ray_8hpp_1a9b0ce7ec9a11af03ce15bdd18682f253:
+
+Function wt::intersect::intersect_ray_aabb(const ray_t&, aabb_t, const pqrange_t<>&)
+====================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::intersect_ray_aabb(const ray_t&, aabb_t, const pqrange_t<>&)
+   :project: wave_tracer

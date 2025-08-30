@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1sensor_1_1film__storage__handle__t:
+
+Class film_storage_handle_t
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public wt::sensor::film_storage_t< polarimetric, Dims >`` (:ref:`exhale_class_classwt_1_1sensor_1_1film__storage__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::sensor::film_storage_handle_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_spectrum__from__db_8hpp_1a47cb50ab05e7cc34e66f4ed47bb78ea6:
+
+Function wt::spectrum::detail_spectrum_from_db::spectrum_from_db
+================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_db.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::spectrum::detail_spectrum_from_db::spectrum_from_db(const wt_context_t&, const std::string&, const std::uint16_t, const wavelength_t, const f_t, const bool)
+   :project: wave_tracer

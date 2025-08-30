@@ -1,0 +1,14 @@
+.. _exhale_function_edge__classification_8hpp_1ad6fe5e12c20e1ed938a17b939655b1cc:
+
+Function wt::ads::construction::edge_for
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::ads::construction::edge_for(const tri_t *, const tri_t *, const tuid_t, const tuid_t, const pqvec3_t&, const pqvec3_t&, const pqvec3_t&, const pqvec3_t *, std::atomic<bool>&)
+   :project: wave_tracer

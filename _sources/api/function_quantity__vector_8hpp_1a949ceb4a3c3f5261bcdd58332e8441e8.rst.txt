@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1a949ceb4a3c3f5261bcdd58332e8441e8:
+
+Template Function wt::m::clamp(const quantity_vector<N, Q>&, const Q&, const Q&)
+================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::clamp(const quantity_vector<N, Q>&, const Q&, const Q&)
+   :project: wave_tracer

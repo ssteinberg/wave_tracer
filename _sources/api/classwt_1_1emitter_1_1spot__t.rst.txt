@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1emitter_1_1spot__t:
+
+Class spot_t
+============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_spot.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::emitter::emitter_t`` (:ref:`exhale_class_classwt_1_1emitter_1_1emitter__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::emitter::spot_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_norm__integers_8hpp_1a2674d9cc3ce35a1178888ae3e2366268:
+
+Template Function wt::m::unorm_to_fp
+====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_norm_integers.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::unorm_to_fp(T)
+   :project: wave_tracer

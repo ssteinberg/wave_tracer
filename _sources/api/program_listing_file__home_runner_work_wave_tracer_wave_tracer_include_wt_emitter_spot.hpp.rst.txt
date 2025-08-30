@@ -1,0 +1,191 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_spot.hpp:
+
+Program Listing for File spot.hpp
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_spot.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/emitter/spot.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <cassert>
+   
+   #include <wt/spectrum/spectrum.hpp>
+   #include <wt/emitter/emitter.hpp>
+   
+   #include <wt/wt_context.hpp>
+   #include <wt/math/transform/transform.hpp>
+   #include <wt/math/common.hpp>
+   
+   namespace wt::emitter {
+   
+   class spot_t final : public emitter_t {
+   private:
+       std::shared_ptr<spectrum::spectrum_real_t> spectrum;
+       angle_t cutoff, falloff;  // cutoff > falloff
+       transform_t to_world;
+   
+       std::optional<length_t> extent;
+       f_t max_tan_alpha;
+   
+   private:
+       f_t cos_cutoff, cos_falloff;
+       angle_density_t recp_cutoff_range;
+   
+   public:
+       spot_t(std::string id, 
+              std::shared_ptr<spectrum::spectrum_real_t> radiant_intensity, 
+              angle_t cutoff, angle_t falloff, 
+              const transform_t& to_world,
+              std::optional<length_t> extent,
+              f_t emitter_phase_space_extent_scale = 1) 
+           : emitter_t(std::move(id), emitter_phase_space_extent_scale), 
+             spectrum(std::move(radiant_intensity)),
+             cutoff(cutoff),
+             falloff(falloff),
+             to_world(to_world),
+             extent(extent),
+             max_tan_alpha(m::tan(falloff)),
+             cos_cutoff(m::cos(cutoff)),
+             cos_falloff(m::cos(falloff)),
+             recp_cutoff_range(f_t(1) / (cutoff-falloff))
+       {
+           assert(cutoff>falloff);
+           assert(falloff>=0*u::ang::rad);
+       }
+       spot_t(const spot_t&) = default;
+       spot_t(spot_t&&) = default;
+   
+       [[nodiscard]] inline auto position() const noexcept {
+           return to_world(pqvec3_t::zero(), transform_point);
+       }
+       [[nodiscard]] inline auto mean_direction() const noexcept { 
+           return to_world(dir3_t{ 0,0,1 });
+       }
+   
+       [[nodiscard]] inline auto compute_falloff(const dir3_t& local_direction) const noexcept {
+           const auto cos_theta = local_direction.z;
+           if (cos_theta <= cos_cutoff)  return f_t(0);
+           if (cos_theta >= cos_falloff) return f_t(1);
+           return u::to_num((cutoff - m::acos(cos_theta)) * recp_cutoff_range);
+       }
+   
+       [[nodiscard]] inline bool is_delta_position() const noexcept override { return true; }
+       [[nodiscard]] inline bool is_delta_direction() const noexcept override { return false; }
+   
+       [[nodiscard]] inline spectral_radiant_intensity_t spectral_radiant_intensity(const wavenumber_t k) const noexcept {
+           return spectrum->f(k) * spectral_radiant_intensity_t::unit;
+       }
+       [[nodiscard]] inline SolidAngle auto spot_solid_angle() const noexcept {
+           return (m::two_pi * (1 - f_t(.5)*(cos_cutoff + cos_falloff))) * u::ang::sr;
+       }
+       
+       [[nodiscard]] const spectrum::spectrum_real_t& emission_spectrum() const noexcept override {
+           return *spectrum;
+       }
+       
+       [[nodiscard]] inline spectral_radiant_flux_t power(wavenumber_t k) const noexcept override {
+           return spectral_radiant_intensity(k) * spot_solid_angle();
+       }
+       [[nodiscard]] inline radiant_flux_t power(const range_t<wavenumber_t>& krange) const noexcept override {
+           return spectrum->power(krange) * (u::W / u::ang::sr) * 
+                  spot_solid_angle();
+       }
+   
+       [[nodiscard]] inline beam::sourcing_geometry_t sourcing_geometry(const wavenumber_t k) const noexcept {
+           // spot sources are not physical, default to a fake a spatial extent of 5λ
+           static constexpr f_t lambda_to_extent = 10;
+           const auto initial_spatial_extent =
+               extent.value_or(lambda_to_extent * wavenum_to_wavelen(k));
+   
+           auto se =
+               beam::sourcing_geometry_t::source_mub_from(
+                   initial_spatial_extent,
+                   k
+               ).phase_space_extent().enlarge(get_requested_phase_space_extent_scale());
+           se.tan_alpha = m::min(se.tan_alpha,max_tan_alpha);
+           return
+               beam::sourcing_geometry_t::source(se);
+       }
+   
+       [[nodiscard]] spectral_radiant_intensity_beam_t Le(
+               const ray_t& r, 
+               const wavenumber_t k) const noexcept {
+           return spectral_radiant_intensity_beam_t{
+               r, spectral_radiant_intensity(k),
+               k,
+               sourcing_geometry(k)
+           };
+       }
+   
+       [[nodiscard]] spectral_radiant_flux_stokes_t Li(
+               const importance_flux_beam_t& beam,
+               const intersection_surface_t* surface=nullptr) const noexcept override {
+           // delta position emitter: well designed integrators should not arrive here
+           assert(false);
+           return {};
+       }
+   
+       [[nodiscard]] emitter_sample_t sample(sampler::sampler_t& sampler,
+                                             const wavenumber_t k) const noexcept override;
+   
+       [[nodiscard]] position_sample_t sample_position(sampler::sampler_t& sampler) const noexcept override {
+           return position_sample_t{
+               .p = position(),
+               .ppd = area_sampling_pd_t::discrete(1),
+           };
+       }
+   
+       [[nodiscard]] emitter_direct_sample_t sample_direct(
+               sampler::sampler_t& sampler,
+               const pqvec3_t& wp,
+               const wavenumber_t k) const noexcept override;
+   
+       [[nodiscard]] area_sampling_pd_t pdf_position(
+               const pqvec3_t& p,
+               const intersection_surface_t* surface=nullptr) const noexcept override {
+           return area_sampling_pd_t::discrete(1);
+       }
+   
+       [[nodiscard]] solid_angle_sampling_pd_t pdf_direction(
+               const pqvec3_t& p,
+               const dir3_t& dir, 
+               const intersection_surface_t* surface=nullptr) const noexcept override {
+           const auto cutoff_solid_angle = m::two_pi * (1-cos_cutoff);
+           return solid_angle_density_t{ 
+               sampler::sampler_t::uniform_cone_pdf(cutoff_solid_angle) / u::ang::sr
+           };
+       }
+   
+       [[nodiscard]] solid_angle_sampling_pd_t pdf_direct(
+               const pqvec3_t& wp,
+               const ray_t& r,
+               const intersection_surface_t* surface=nullptr) const noexcept override {
+           return solid_angle_sampling_pd_t::discrete(1);
+       }
+   
+       [[nodiscard]] scene::element::info_t description() const override;
+   
+   public:
+       static std::unique_ptr<emitter_t> load(std::string id, 
+                                              scene::loader::loader_t* loader, 
+                                              const scene::loader::node_t& node, 
+                                              const wt::wt_context_t &context);
+   };
+   
+   }
+   

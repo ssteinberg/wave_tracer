@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1bitmap_1_1pixel__layout__t:
+
+Struct pixel_layout_t
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::bitmap::pixel_layout_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

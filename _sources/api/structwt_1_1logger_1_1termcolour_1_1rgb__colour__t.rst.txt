@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1logger_1_1termcolour_1_1rgb__colour__t:
+
+Struct rgb_colour_t
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::logger::termcolour::rgb_colour_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

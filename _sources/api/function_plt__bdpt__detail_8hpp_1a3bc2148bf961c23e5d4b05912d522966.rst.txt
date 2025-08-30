@@ -1,0 +1,14 @@
+.. _exhale_function_plt__bdpt__detail_8hpp_1a3bc2148bf961c23e5d4b05912d522966:
+
+Function wt::integrator::plt_bdpt::connect_and_integrate
+========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_bdpt::connect_and_integrate(const ads::ads_t&, const beam::Beam auto&, const vertex_geo_variant_t&, const beam::Beam auto&, const vertex_geo_variant_t&)
+   :project: wave_tracer

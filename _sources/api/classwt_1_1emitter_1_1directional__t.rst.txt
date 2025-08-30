@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1emitter_1_1directional__t:
+
+Class directional_t
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_directional.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::emitter::infinite_emitter_t`` (:ref:`exhale_class_classwt_1_1emitter_1_1infinite__emitter__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::emitter::directional_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

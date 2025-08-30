@@ -1,0 +1,14 @@
+.. _exhale_function_parse_8hpp_1ab1589ffdfef43fe984bdc74544fcc764:
+
+Function wt::stob_strict(const std::string&, bool)
+==================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::stob_strict(const std::string&, bool)
+   :project: wave_tracer

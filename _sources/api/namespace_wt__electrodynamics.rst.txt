@@ -1,0 +1,54 @@
+
+.. _namespace_wt__electrodynamics:
+
+Namespace wt::electrodynamics
+=============================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1irradiance`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1QE`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1QE__area`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1QE__solid__angle`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1QE__solid__angle__area`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1radiance`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1radiant__flux`
+
+- :ref:`exhale_struct_structwt_1_1electrodynamics_1_1radiant__intensity`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a8a551cecbb3d8438d061e406f3b7590a`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a1e97644e768c0c8bd9b3af51c67d28bf`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a468da9f816fea7d127f8ca71c6df7b7f`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1afd77a50a395141f9495355cffd775ac4`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a711e26ba5e5f681ce959064c0f30e74a`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a23000c64152f4f010b6baec7cd826e12`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a1a59d5ced73393d281873c48916d647c`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1aee1b853e310882bfe30172ed71335220`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1ab84ad1054a72c27f1d6ea29ff65513bb`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1a8b7c82541a31762aa63eb938ee42879d`
+
+- :ref:`exhale_variable_math_2quantity_2defs_8hpp_1aa77874edfd3fc1b660ffcc899b0f9783`

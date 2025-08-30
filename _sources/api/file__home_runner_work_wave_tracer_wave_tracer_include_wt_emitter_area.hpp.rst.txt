@@ -1,0 +1,69 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_area.hpp:
+
+File area.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/emitter``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/emitter/area.hpp``)
+--------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_area.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``mutex``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/emitter/emitter.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/distribution/discrete_distribution.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_discrete_distribution.hpp`)
+
+- ``wt/scene/shape.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`)
+
+- ``wt/texture/texture.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_texture.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__emitter`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1emitter_1_1area__t_1_1sampling__data__t`
+
+- :ref:`exhale_struct_structwt_1_1emitter_1_1area__t_1_1sampling__data__t_1_1triangle__sample__t`
+
+- :ref:`exhale_struct_structwt_1_1emitter_1_1area__t_1_1triangle__sampling__data__t`
+
+- :ref:`exhale_class_classwt_1_1emitter_1_1area__t`
+

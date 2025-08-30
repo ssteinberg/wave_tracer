@@ -1,0 +1,65 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_common.hpp:
+
+File common.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/simd``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/simd/common.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_common.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstdint``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__simd`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1scalar__logical__true__value`
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1scalar__logical__true__value_3_01double_01_4`
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1scalar__logical__true__value_3_01float_01_4`
+

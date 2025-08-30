@@ -1,0 +1,14 @@
+.. _exhale_typedef_bitmap_2bitmap_8hpp_1af4713fe2a5c9f196c436e80dfcbf34b3:
+
+Typedef wt::bitmap::bitmap1d_t
+==============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::bitmap::bitmap1d_t
+   :project: wave_tracer

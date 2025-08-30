@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a84882af14aba0b85c96e3eba2c4700cd:
+
+Template Function wt::m::sqr
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::sqr(T)
+   :project: wave_tracer

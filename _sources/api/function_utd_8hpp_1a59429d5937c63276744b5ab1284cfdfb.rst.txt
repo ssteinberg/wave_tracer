@@ -1,0 +1,14 @@
+.. _exhale_function_utd_8hpp_1a59429d5937c63276744b5ab1284cfdfb:
+
+Function wt::utd::UTDF
+======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_utd.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::utd::UTDF(f_t)
+   :project: wave_tracer

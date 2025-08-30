@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a3819d380109197e12deda49cbc0d535f:
+
+Function wt::freq_to_wavelen
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::freq_to_wavelen(const Frequency auto)
+   :project: wave_tracer

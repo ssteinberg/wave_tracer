@@ -1,0 +1,14 @@
+.. _exhale_function_parse__quantity_8hpp_1a5a162fc1a0393313b19560843fac325b:
+
+Function wt::operator>>(std::istream&, QuantityOf<isq::length> auto&)
+=====================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::operator>>(std::istream&, QuantityOf<isq::length> auto&)
+   :project: wave_tracer

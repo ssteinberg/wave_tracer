@@ -1,0 +1,36 @@
+.. _exhale_class_classwt_1_1texture_1_1bitmap__t:
+
+Class bitmap_t
+==============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_bitmap.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1texture_1_1bitmap__t_1_1private__token__t`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::texture::texture_t`` (:ref:`exhale_class_classwt_1_1texture_1_1texture__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::texture::bitmap_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

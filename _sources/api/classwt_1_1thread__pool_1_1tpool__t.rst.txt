@@ -1,0 +1,28 @@
+.. _exhale_class_classwt_1_1thread__pool_1_1tpool__t:
+
+Class tpool_t
+=============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1thread__pool_1_1tpool__t_1_1mutable__data__t`
+- :ref:`exhale_struct_structwt_1_1thread__pool_1_1tpool__t_1_1task__t`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::thread_pool::tpool_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

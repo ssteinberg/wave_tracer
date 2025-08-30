@@ -1,0 +1,14 @@
+.. _exhale_function_format_2utils_8hpp_1a73a6c54781d95d1855938f2657ed6718:
+
+Template Function wt::format::byteswap
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::format::byteswap(T)
+   :project: wave_tracer

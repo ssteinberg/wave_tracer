@@ -1,0 +1,14 @@
+.. _exhale_typedef_traversal_8hpp_1ad5a052b04c8c3ef7cf21075195f8171c:
+
+Typedef wt::integrator::vertex_geo_variant_t
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::integrator::vertex_geo_variant_t
+   :project: wave_tracer

@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1discrete__distribution__t_3_01vec2__t_01_4:
+
+Template Class discrete_distribution_t< vec2_t >
+================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_discrete_distribution.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::distribution1d_t`` (:ref:`exhale_class_classwt_1_1distribution1d__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::discrete_distribution_t< vec2_t >
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

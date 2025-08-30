@@ -1,0 +1,58 @@
+
+.. _namespace_wt__bsdf:
+
+Namespace wt::bsdf
+==================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1bsdf_1_1bsdf__query__t`
+
+- :ref:`exhale_struct_structwt_1_1bsdf_1_1bsdf__result__t`
+
+- :ref:`exhale_struct_structwt_1_1bsdf_1_1bsdf__sample__t`
+
+- :ref:`exhale_struct_structwt_1_1bsdf_1_1composite__t_1_1comparator__rangew__t`
+
+- :ref:`exhale_class_classwt_1_1bsdf_1_1bsdf__t`
+
+- :ref:`exhale_class_classwt_1_1bsdf_1_1composite__t`
+
+- :ref:`exhale_class_classwt_1_1bsdf_1_1dielectric__t`
+
+- :ref:`exhale_class_classwt_1_1bsdf_1_1diffuse__t`
+
+- :ref:`exhale_class_classwt_1_1bsdf_1_1mask__t`
+
+- :ref:`exhale_class_classwt_1_1bsdf_1_1normalmap__t`
+
+- :ref:`exhale_class_classwt_1_1bsdf_1_1scale__t`
+
+- :ref:`exhale_class_classwt_1_1bsdf_1_1surface__spm__t`
+
+- :ref:`exhale_class_classwt_1_1bsdf_1_1two__sided__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_bsdf_2common_8hpp_1af785fc9511294f1dfc057dad2f7c626e`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_bsdf_2common_8hpp_1a19fc4e4cad62ad82e58835abbe6b6a2b`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_bsdf_2common_8hpp_1a9ef0d5d10bce867e6505b16d6a1dee6a`

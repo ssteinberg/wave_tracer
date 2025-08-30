@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1a96bb21216624f91a9d7b2a7b2aadbe77:
+
+Template Function wt::simd::blend(simd_avx_t<double, 4>, simd_avx_t<double, 4>)
+===============================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::blend(simd_avx_t<double, 4>, simd_avx_t<double, 4>)
+   :project: wave_tracer

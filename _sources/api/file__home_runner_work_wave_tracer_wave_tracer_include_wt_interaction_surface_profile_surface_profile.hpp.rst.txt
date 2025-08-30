@@ -1,0 +1,75 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp:
+
+File surface_profile.hpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/surface_profile``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/surface_profile/surface_profile.hpp``)
+---------------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``memory``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/sampler/sampler.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`)
+
+- ``wt/scene/element/scene_element.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_scene_element.hpp`)
+
+- ``wt/texture/texture.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_texture.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_surface_spm.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_dirac.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_fractal.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_gaussian.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__surface_profile`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1surface__profile_1_1surface__profile__sample__ret__t`
+
+- :ref:`exhale_class_classwt_1_1surface__profile_1_1surface__profile__t`
+

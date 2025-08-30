@@ -1,0 +1,14 @@
+.. _exhale_typedef_math_2quantity_2defs_8hpp_1a697e2996ede71937649d42f7a788901c:
+
+Typedef wt::spectral_radiance_t
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::spectral_radiance_t
+   :project: wave_tracer

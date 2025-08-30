@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1aa97a989178ce779cfb1c2e7a0d63540c:
+
+Template Function wt::m::max(const quantity_vector<N, Q>&, const quantity_vector<N, Q>&)
+========================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::max(const quantity_vector<N, Q>&, const quantity_vector<N, Q>&)
+   :project: wave_tracer

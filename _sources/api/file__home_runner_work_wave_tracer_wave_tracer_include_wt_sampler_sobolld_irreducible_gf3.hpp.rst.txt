@@ -1,0 +1,73 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_irreducible_gf3.hpp:
+
+File irreducible_gf3.hpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sampler/sobolld``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sampler/sobolld/irreducible_gf3.hpp``)
+---------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_irreducible_gf3.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``cstdint``
+
+- ``filesystem``
+
+- ``fstream``
+
+- ``integer3.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_integer3.hpp`)
+
+- ``sstream``
+
+- ``stdexcept``
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/util/array.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_array.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_sobolld_sampler.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__sampler`
+
+- :ref:`namespace_wt__sampler__sobolld`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1sampler_1_1sobolld_1_1irreducible__gf3__t`
+

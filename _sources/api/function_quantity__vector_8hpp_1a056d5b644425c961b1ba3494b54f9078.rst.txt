@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1a056d5b644425c961b1ba3494b54f9078:
+
+Template Function wt::m::isnan(const quantity_vector<N, T>&)
+============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::isnan(const quantity_vector<N, T>&)
+   :project: wave_tracer

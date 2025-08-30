@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a52dc46c9c50f8a7d8fd9776bcb11f284:
+
+Template Function wt::m::floor(const glm::vec<N, T>&)
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::floor(const glm::vec<N, T>&)
+   :project: wave_tracer

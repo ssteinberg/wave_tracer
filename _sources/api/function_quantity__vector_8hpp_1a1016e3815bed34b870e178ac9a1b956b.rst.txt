@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1a1016e3815bed34b870e178ac9a1b956b:
+
+Template Function wt::m::iszero(const quantity_vector<N, Q>&)
+=============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::iszero(const quantity_vector<N, Q>&)
+   :project: wave_tracer

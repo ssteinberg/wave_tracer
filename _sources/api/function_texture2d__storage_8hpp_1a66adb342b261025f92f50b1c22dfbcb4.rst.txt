@@ -1,0 +1,14 @@
+.. _exhale_function_texture2d__storage_8hpp_1a66adb342b261025f92f50b1c22dfbcb4:
+
+Template Function wt::bitmap::clamp_texel
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::clamp_texel(texel_clamp_mode_e, T)
+   :project: wave_tracer

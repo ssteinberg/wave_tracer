@@ -1,0 +1,29 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution:
+
+
+Directory distribution
+======================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/distribution``
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_binned_piecewise_linear_distribution.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_discrete_distribution.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_distribution1d.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian1d.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian2d.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_piecewise_linear_distribution.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_product_distribution.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_truncated_gaussian1d.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_uniform_distribution.hpp`
+
+

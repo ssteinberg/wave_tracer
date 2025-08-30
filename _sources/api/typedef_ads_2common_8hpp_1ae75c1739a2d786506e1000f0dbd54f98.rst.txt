@@ -1,0 +1,14 @@
+.. _exhale_typedef_ads_2common_8hpp_1ae75c1739a2d786506e1000f0dbd54f98:
+
+Typedef wt::ads::idx_t
+======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_common.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::ads::idx_t
+   :project: wave_tracer

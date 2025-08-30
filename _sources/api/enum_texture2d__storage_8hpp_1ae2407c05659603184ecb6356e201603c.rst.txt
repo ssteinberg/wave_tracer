@@ -1,0 +1,14 @@
+.. _exhale_enum_texture2d__storage_8hpp_1ae2407c05659603184ecb6356e201603c:
+
+Enum texel_clamp_mode_e
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::bitmap::texel_clamp_mode_e
+   :project: wave_tracer

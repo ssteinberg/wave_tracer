@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1compiled__math__expression__t:
+
+Struct compiled_math_expression_t
+=================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_math_expression.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::compiled_math_expression_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

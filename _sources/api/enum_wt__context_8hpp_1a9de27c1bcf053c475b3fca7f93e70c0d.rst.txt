@@ -1,0 +1,14 @@
+.. _exhale_enum_wt__context_8hpp_1a9de27c1bcf053c475b3fca7f93e70c0d:
+
+Enum verbosity_e
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::verbosity_e
+   :project: wave_tracer

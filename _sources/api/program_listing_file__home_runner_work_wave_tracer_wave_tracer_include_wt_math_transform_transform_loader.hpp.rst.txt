@@ -1,0 +1,44 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform_loader.hpp:
+
+Program Listing for File transform_loader.hpp
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform_loader.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/transform/transform_loader.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/scene/loader/node.hpp>
+   #include <wt/math/transform/transform.hpp>
+   
+   namespace wt {
+   
+   namespace scene::loader { class loader_t; }
+   
+   transform_f_t load_transform_sfp(const scene::loader::node_t& node, scene::loader::loader_t* loader);
+   
+   transform_d_t load_transform_dfp(const scene::loader::node_t& node, scene::loader::loader_t* loader);
+   
+   inline transform_t load_transform(const scene::loader::node_t& node, scene::loader::loader_t* loader) {
+       if constexpr (std::is_same_v<f_t,float>) {
+           return static_cast<transform_t>(load_transform_sfp(node, loader));
+       }
+       else {
+           return static_cast<transform_t>(load_transform_dfp(node, loader));
+       }
+   }
+   
+   }

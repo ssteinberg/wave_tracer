@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a7222926a2b56979d97af9d3060cea697:
+
+Function wt::wavenum_to_wavelen
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::wavenum_to_wavelen(const Wavenumber auto)
+   :project: wave_tracer

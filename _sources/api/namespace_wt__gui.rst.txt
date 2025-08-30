@@ -1,0 +1,141 @@
+
+.. _namespace_wt__gui:
+
+Namespace wt::gui
+=================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1gl__image__t`
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1gl__images__t`
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1histogram__t`
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1impl__t`
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1logbox__ctx__t`
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1perf__stat__t`
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1plot__t`
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1scene__info__t`
+
+- :ref:`exhale_struct_structwt_1_1gui_1_1spectral__plot__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_gui_2utils_8hpp_1a6a6a31e226e5ee6e164f41d012d2919e`
+
+- :ref:`exhale_enum_gui_2utils_8hpp_1a7944c64ecacf9b6c4414f3cdf0c6527a`
+
+- :ref:`exhale_enum_gui_2utils_8hpp_1a8073b31b8949b5cc233932b046d97450`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_perf__stat_8hpp_1aa230d5a16dd1a381c5df8166a864596d`
+
+- :ref:`exhale_function_scene__info_8hpp_1ab40dd17dc7da00e5bf847a46a3382cd5`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1a5c3aa0c7a1bae89a091e761776e9ab99`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1a22c59f193d666190e08f0596b5afead6`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1aa657a8f58b923f0addb50538627f1add`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1a5da30c30b269d5004f8d910f37b68519`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1a648566a5d04e765e6bf4e65463d8f289`
+
+- :ref:`exhale_function_style_8hpp_1ac84966e23c8eece9ae5674a668163bbb`
+
+- :ref:`exhale_function_gui_2imgui_2utils_8hpp_1ac314c8efa6006fcc5bec53783212a42e`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_impl_8hpp_1aa773cfce4f2e9e07b3ce950de1f7ac89`
+
+- :ref:`exhale_typedef_gui_2utils_8hpp_1a9755e3ea4564b36b51bb04b664794077`
+
+- :ref:`exhale_typedef_gui_2utils_8hpp_1ab995d480a6fa949c4a6bc67c834695fc`
+
+- :ref:`exhale_typedef_util_2gui_2impl_2common_8hpp_1ab137b6425b1bcf692ab2a77d48d7d767`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ab81fa3b139373c51aab43a5b5e32f456`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a10704c6f8827a6c093af3efe243898df`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1af23506c876fb6578ce4e38e60a8e210e`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ac119d03099fef3adb6130ce0a852421c`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a4264c08a6d1a19f6e98d18a37e01688f`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a3dcfa533604fd18d61fca0d85e22b9e3`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a91632fe7b4b6e3bebfb7372c39d8e722`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ab86aeaebc8c870613f1fb2b344a0889a`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a86ffaddfd060720489a9384728315e8c`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1af927884e9ae16ce3ba0d4ed93addd0ea`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a5b3b0645df39fe170852f0f3116aec5f`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1af4559d304d59ba4269b5bab57e8d2e71`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ac38d6ebee715bef7908ed46fbca8a82b`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ab359d84b9eba50a9c68a3b545217c2f9`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1aba3fb60a27565bcd36b4afd599136379`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1aacbaff2266b8cd9c6d5fd5af58850f1e`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a7d8211260c1f12dc55b98e6cac11c7d3`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a2d24a833d80e8d9b746ad08c6b61b947`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a88b6d2ceb0d0bc8172573239eaeb4a3c`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a88a11087d481fea91b7b9332d932c168`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1adedff7f75b966df35ac77efc072891e5`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1af39bce0d4b96324253f998921486ea67`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a27ce86079f2f3b54b56ca1481dcf8f82`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a7784e916dfedba147aeffdd2bf3c4e49`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a4c64734013778013b5a192bfb56b7bbd`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ac99934bbfb497ff858577e1bc479f385`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1aac4fee5de287fddfb1f3f609ed007bc1`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a678d9c22e66a5e1bd0dd0c432f2abeb1`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a2163ad07545b941617c9e1d874a1939b`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a6b642c4b43b26600a01b3b1dfc67e4d9`

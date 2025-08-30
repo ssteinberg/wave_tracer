@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1integrator_1_1plt__bdpt__t_1_1options__t:
+
+Struct plt_bdpt_t::options_t
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1integrator_1_1plt__bdpt__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::integrator::plt_bdpt_t::options_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

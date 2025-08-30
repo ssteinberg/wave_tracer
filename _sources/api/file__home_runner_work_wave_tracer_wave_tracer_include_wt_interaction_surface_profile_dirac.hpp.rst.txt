@@ -1,0 +1,53 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_dirac.hpp:
+
+File dirac.hpp
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/surface_profile``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/surface_profile/dirac.hpp``)
+-----------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_dirac.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/interaction/surface_profile/surface_profile.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__surface_profile`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1surface__profile_1_1dirac__t`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1ab618e7945a4e5439f98d82f05bd91a0d:
+
+Function wt::m::acot
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::acot(const Numeric auto)
+   :project: wave_tracer

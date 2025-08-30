@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1logger_1_1indicators_1_1block__progress__bar__t:
+
+Class block_progress_bar_t
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_progressbar.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::logger::indicators::block_progress_bar_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

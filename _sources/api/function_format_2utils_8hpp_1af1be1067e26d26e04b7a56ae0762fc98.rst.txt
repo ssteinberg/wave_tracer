@@ -1,0 +1,14 @@
+.. _exhale_function_format_2utils_8hpp_1af1be1067e26d26e04b7a56ae0762fc98:
+
+Template Function wt::format::find_closing_bracket
+==================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::format::find_closing_bracket(std::string_view, std::size_t)
+   :project: wave_tracer

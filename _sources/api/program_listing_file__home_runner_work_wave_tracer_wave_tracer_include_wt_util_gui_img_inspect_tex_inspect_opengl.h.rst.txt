@@ -1,0 +1,21 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_tex_inspect_opengl.h:
+
+Program Listing for File tex_inspect_opengl.h
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_tex_inspect_opengl.h>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/img_inspect/tex_inspect_opengl.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   // ImGuiTexInspect, a texture inspector widget for dear imgui
+   #pragma once
+   
+   #include <cstddef>
+   namespace ImGuiTexInspect
+   {
+   bool ImplOpenGL3_Init(const char *glsl_version = NULL);
+   void ImplOpenGl3_Shutdown();
+   } // namespace ImGuiTexInspect

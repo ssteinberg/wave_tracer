@@ -1,0 +1,14 @@
+.. _exhale_function_plt__path__detail_8hpp_1acdd1d0eae71d267dc633aa694ca3c2af:
+
+Function wt::integrator::plt_path::do_fsd
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_path::do_fsd(const ads::ads_t&, const elliptic_cone_t&, const vertex_geo_variant_t&, const pqvec3_t&, const free_space_diffraction_t&, const Wavenumber auto&)
+   :project: wave_tracer

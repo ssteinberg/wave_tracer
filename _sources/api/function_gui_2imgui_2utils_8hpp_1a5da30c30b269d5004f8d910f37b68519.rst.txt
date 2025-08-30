@@ -1,0 +1,14 @@
+.. _exhale_function_gui_2imgui_2utils_8hpp_1a5da30c30b269d5004f8d910f37b68519:
+
+Function wt::gui::imgui_loading_progress_bar
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::gui::imgui_loading_progress_bar(const std::string&, const vec3_t&, float)
+   :project: wave_tracer

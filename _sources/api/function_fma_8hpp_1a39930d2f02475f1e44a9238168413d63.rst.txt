@@ -1,0 +1,14 @@
+.. _exhale_function_fma_8hpp_1a39930d2f02475f1e44a9238168413d63:
+
+Function wt::m::fma(const FloatingPoint auto, const FloatingPoint auto, const FloatingPoint auto)
+=================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::fma(const FloatingPoint auto, const FloatingPoint auto, const FloatingPoint auto)
+   :project: wave_tracer

@@ -1,0 +1,400 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp:
+
+Program Listing for File film.hpp
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/film/film.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <vector>
+   #include <stack>
+   #include <memory>
+   
+   #include <cassert>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/distribution/gaussian1d.hpp>
+   #include <wt/util/for_range.hpp>
+   
+   #include <wt/bitmap/bitmap.hpp>
+   
+   #include <wt/interaction/polarimetric/stokes.hpp>
+   #include <wt/sensor/sensor_sample.hpp>
+   
+   #include <wt/sensor/block/block.hpp>
+   #include <wt/sensor/block/padded_block.hpp>
+   
+   #include <wt/sensor/film/film_storage.hpp>
+   #include <wt/sensor/response/response.hpp>
+   
+   #include <wt/scene/loader/node_readers.hpp>
+   #include <wt/util/logger/logger.hpp>
+   
+   #include <wt/scene/loader/node.hpp>
+   #include <wt/wt_context.hpp>
+   #include <wt/scene/element/attributes.hpp>
+   
+   namespace wt::sensor {
+   
+   template <std::size_t Dims, bool polarimetric>
+   class film_t {
+   private:
+       static_assert(Dims>=1 && Dims<=3);
+   
+   public:
+       using film_storage_type = film_storage_t<polarimetric, Dims>;
+       using FilmSampleT = film_storage_type::T;
+   
+       using film_sample_t = film_storage_type::element_t;
+       using block_t = padded_block_t<film_sample_t, Dims>;
+   
+       using bvec_t   = bvec<Dims>;
+       using size_t   = vec<Dims, std::uint32_t>;
+       using index_t  = vec<Dims, std::int32_t>;
+       using offset_t = vec<Dims, f_t>;
+   
+   private:
+       const size_t size;
+   
+       std::shared_ptr<response::response_t> sensor_response;
+   
+       const size_t block_size;
+       mutable std::stack<block_handle_t> blocks;
+   
+       // beam Gaussian reconstruction data
+       static constexpr f_t rfilter_stddev_to_radius = 3;
+       const std::uint16_t rf_radius;
+       const gaussian1d_t rfilter;
+   
+       const bvec_t flip = {};
+   
+   private:
+       [[nodiscard]] inline FilmSampleT sensitivity(const radiant_flux_stokes_t& sample, 
+                                                    const std::uint16_t channel,
+                                                    const wavenumber_t k) const noexcept {
+           // apply response function and extract Watts
+           FilmSampleT s;
+           if constexpr (polarimetric)
+               s = (FilmSampleT)u::to_W(sample.S);
+           else
+               s = (FilmSampleT)u::to_W(sample.intensity());
+           return s * sensor_response->f(channel, k);
+       }
+   
+       [[nodiscard]] inline block_handle_t create_film_block() const noexcept {
+           block_handle_t ret;
+           ret.block = new block_t{ 
+               typename block_t::size_t{ block_size }, 
+               pixel_layout().components, 
+               rf_radius 
+           };
+           ret.position = {};
+           ret.size = {};
+           
+           return ret;
+       }
+   
+       inline void clear_block(block_handle_t& block) const noexcept {
+           reinterpret_cast<block_t*>(block.block)->clear();
+       }
+   
+   public:
+       film_t(const wt::wt_context_t &context,
+              const size_t& size,
+              std::shared_ptr<response::response_t> response,
+              f_t rfilter_stddev,
+              const size_t& block_size,
+              bvec_t flip)
+           : size(size),
+             sensor_response(std::move(response)),
+             block_size(block_size),
+             rf_radius(std::uint32_t(m::ceil(rfilter_stddev * rfilter_stddev_to_radius) + f_t(.5))),
+             rfilter(gaussian1d_t{ rfilter_stddev }),
+             flip(flip)
+       {
+           assert(rfilter_stddev>=0 && rf_radius>=0);
+       }
+   
+       film_t(film_t&&) noexcept = default;
+       
+       ~film_t() noexcept {
+           while (!blocks.empty()) {
+               delete reinterpret_cast<block_t*>(blocks.top().block);
+               blocks.pop();
+           }
+       }
+   
+       [[nodiscard]] inline auto elements() const noexcept {
+           return size;
+       }
+       [[nodiscard]] inline std::size_t total_element_count() const noexcept {
+           return m::prod(size);
+       }
+   
+       [[nodiscard]] inline std::unique_ptr<film_storage_handle_t> create_film_storage(
+               const wt::wt_context_t &context,
+               sensor_write_flags_e flags) const noexcept {
+           const auto fill = film_sample_t{ .value=FilmSampleT{}, .weight=0 };
+   
+           return std::make_unique<film_storage_type>(
+               context, size, flip,
+               pixel_layout(), fill, flags,
+               sensor_response->get_tonemap()
+           );
+       }
+   
+       [[nodiscard]] inline block_handle_t acquire_film_block(size_t block_position, sensor_write_flags_e flags) const noexcept {
+           if (blocks.empty())
+               blocks.emplace(create_film_block());
+   
+           assert(m::all(block_position<dimensions()));
+   
+           block_handle_t ret;
+   
+           if ((flags & wt::sensor::sensor_write_flags_e::writes_block_splats) != 0) {
+               // pop block and clear it
+               ret.block = blocks.top().block;
+               blocks.pop();
+               clear_block(ret);
+           }
+   
+           // calculate writeable dimensions
+           auto ps = vec3u32_t{ 0 };
+           auto sz = vec3u32_t{ 1 };
+           const auto max_sz = dimensions() - block_position;
+           for (auto d=0ul;d<Dims;++d) {
+               ps[d] = block_position[d];
+               sz[d] = m::min(block_size[d], max_sz[d]);
+           }
+   
+           ret.position = ps;
+           ret.size     = sz;
+   
+           return ret;
+       }
+       inline void release_film_block(block_handle_t&& block, sensor_write_flags_e flags) const noexcept {
+           if ((flags & wt::sensor::sensor_write_flags_e::writes_block_splats) != 0)
+               blocks.emplace(std::move(block));
+       }
+   
+       void splat_direct(film_storage_handle_t* storage_handle,
+                         const sensor_element_sample_t& element,
+                         const radiant_flux_stokes_t& sample,
+                         const wavenumber_t k) const noexcept {
+           assert(sample.isfinite() && sample.intensity()>=zero);
+   
+           auto* storage_ptr = dynamic_cast<film_storage_type*>(storage_handle);
+           if (!storage_ptr) {
+               assert(false);
+               return;
+           }
+   
+           const auto r = (int)rf_radius;
+           const auto rfw = compute_rfilter_weights(offset_t{ element.offset });
+           const auto comps = pixel_layout().components;
+   
+           const auto& film_pos = element.element;
+           for (std::uint8_t c=0;c<comps;++c) {
+               auto val = sensitivity(sample, c, k);
+               // avoid NaNs, infs and negatives
+               // we may bail out on zero on light splats.
+               if constexpr (polarimetric)
+                   if (val.x<=0 || !m::isfinite(val))
+                       continue;
+               if constexpr (!polarimetric)
+                   if (val<=0 || !m::isfinite(val))
+                       continue;
+   
+               storage_ptr->write_light_splat(film_pos, c, val,
+                                              r, rfw.weights->data(), rfw.recp_total_weight);
+           }
+       }
+       
+       void splat(const block_handle_t& block_handle,
+                  const sensor_element_sample_t& element,
+                  const radiant_flux_stokes_t& sample,
+                  const wavenumber_t k) const noexcept {
+           assert(sample.isfinite() && sample.intensity()>=zero);
+   
+           assert(m::all(element.element>=block_handle.position && 
+                         element.element<block_handle.position+block_handle.size));
+   
+           auto& block = *reinterpret_cast<block_t*>(block_handle.block);
+           const auto r = (int)rf_radius;
+           const auto pos = index_t{ element.element-block_handle.position } + index_t{ block.padding };
+   
+           const auto rfw = compute_rfilter_weights(offset_t{ element.offset });
+           const auto comps = pixel_layout().components;
+   
+           for (std::uint8_t c=0;c<comps;++c) {
+               auto val = sensitivity(sample, c, k);
+               // avoid NaNs, infs and negatives
+               // we cannot bail out on zero: need to sum up weights.
+               if constexpr (polarimetric)
+                   val = val.x>=0 && m::isfinite(val) ? val : FilmSampleT{};
+               else
+                   val = val>=0 && m::isfinite(val) ? val : 0;
+   
+               std::size_t i=0;
+               for_range(index_t{ -r }, index_t{ r+1 }, [&](auto ridx) {
+                   const auto w = (*rfw.weights)[i++] * rfw.recp_total_weight;
+                   block(size_t{ pos + ridx }, c) += film_sample_t{
+                       .value = w * val,
+                       .weight = w,
+                   };
+               });
+           }
+       }
+   
+       [[nodiscard]] inline const auto* response() const noexcept {
+           return sensor_response.get();
+       }
+       [[nodiscard]] inline bitmap::pixel_layout_t pixel_layout() const noexcept {
+           return sensor_response->pixel_layout();
+       }
+   
+       [[nodiscard]] inline auto dimensions() const noexcept { return size; }
+       
+       [[nodiscard]] inline const auto aspect_ratio() const noexcept requires (Dims==2) {
+           return f_t(size.x)/f_t(size.y);
+       }
+   
+   private:
+       struct rfilter_weights_t {
+           const std::vector<f_t>* weights;
+           f_t recp_total_weight;
+       };
+       [[nodiscard]] rfilter_weights_t compute_rfilter_weights(const offset_t& pixel_fractional_offset) const noexcept {
+           const auto r = (int)rf_radius;
+           const auto& o = pixel_fractional_offset;
+   
+           const auto W  = 2*r+1;
+           static thread_local std::vector<f_t> temp, weights;
+   
+           temp.resize(Dims*W);
+           weights.clear();
+   
+           // integrate rfilter over pixel footprint
+   
+           for (auto d=0ul;d<Dims;++d)
+           for (auto x=-r;x<=r;++x) {
+               temp[x+r + d*W] = rfilter.integrate(range_t{ x+o[d]-f_t(.5), x+o[d]+f_t(.5) });
+               assert(temp[x+r + d*W]>=0);
+           }
+   
+           f_t tw = 0;
+           for_range(index_t{ -r }, index_t{ r+1 }, [&](auto ridx) {
+               f_t w = 1;
+               for (auto d=0ul;d<Dims;++d)
+                   w *= temp[ridx[d]+r + d*W];
+               w = m::max<f_t>(0,w);
+               
+               // total weight
+               tw += w;
+               weights.push_back(w);
+           });
+   
+           return {
+               .weights = &weights, 
+               .recp_total_weight = tw>0 ? f_t(1)/tw : 0
+           };
+       }
+   
+   public:
+       [[nodiscard]] scene::element::info_t description() const {
+           using namespace scene::element;
+           return scene::element::info_t{
+               .cls = "film",
+               .type = typeid(*this).name(),
+               .attribs = {
+                   { "size", attributes::make_vector(size) },
+                   { "sensor response", attributes::make_element(sensor_response.get()) }
+               }
+           };
+       }
+   
+   public:
+       static film_t load(scene::loader::loader_t* loader, 
+                          const scene::loader::node_t& node, 
+                          f_t rfilter_stddev,
+                          const wt::wt_context_t &context) {
+           const auto& type = node["type"];
+           if (type != "" && type != "array")
+               throw std::runtime_error("(film loader) Only film of type 'array' is supported");
+   
+           const std::string filmid = "film";
+   
+           auto size = size_t{ 0 };
+           std::shared_ptr<response::response_t> response;
+           f_t rfilter_scale = 1;
+           std::string flip = "";
+   
+           try {
+           for (auto& item : node.children_view()) {
+               if (item["name"]=="height") {
+                   if constexpr (Dims<2)
+                       throw std::runtime_error("(film loader) unexpected 'height' in 1-dimensional film");
+                   size[1] = stoull_strict(item["value"]);
+               }
+               else if (item["name"]=="depth") {
+                   if constexpr (Dims<3)
+                       throw std::runtime_error("(film loader) unexpected 'depth' in 1/2-dimensional film");
+                   size[2] = stoull_strict(item["value"]);
+               }
+               else if (!scene::loader::load_scene_element(item, response, loader, context) &&
+                        !scene::loader::read_attribute(item, "width", size[0]) &&
+                        !scene::loader::read_attribute(item, "rfilter_scale", rfilter_scale) &&
+                        !scene::loader::read_attribute(item, "flip", flip))
+                   logger::cwarn()
+                       << loader->node_description(item)
+                       << "(film loader) Unqueried node type " << item.name() << " (\"" << item["name"] << "\")" << '\n';
+           }
+           } catch(const std::format_error& exp) {
+               throw std::runtime_error("(film loader) " + std::string{ exp.what() });
+           }
+   
+           if (!response)
+               throw std::runtime_error("(film loader) 'response' must provide a sensor response function");
+           if (m::prod(size)==0)
+               throw std::runtime_error("(film loader) Film dimensions must all be positive");
+           if (rfilter_scale<0)
+               throw std::runtime_error("(film loader) 'rfilter_scale' must be non-negative");
+   
+           bvec_t bflip = {};
+           for (const auto& c : flip) {
+               constexpr auto max_flip_char = Dims==1 ? 'x' : Dims==2 ? 'y' : 'z';
+               if (c>='x' && c<=max_flip_char && !bflip[c-'x'])
+                   bflip[c-'x'] = true;
+               else
+                   throw std::runtime_error("(film loader) Invalid 'flip' value");
+           }
+           
+           return film_t{ 
+               context,
+               size,
+               std::move(response),
+               rfilter_stddev * rfilter_scale,
+               size_t{ context.renderer_block_size },
+               bflip
+           };
+       }
+   };
+   
+   }
+   

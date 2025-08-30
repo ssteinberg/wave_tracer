@@ -1,0 +1,79 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp:
+
+File edge_classification.hpp
+============================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/edge_classification.hpp``)
+-------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``ads.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`)
+
+- ``common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`)
+
+- ``future``
+
+- ``mutex``
+
+- ``optional``
+
+- ``util.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_util.hpp`)
+
+- ``vector`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/intersect/intersect_defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`)
+
+- ``wt/math/shapes/ball.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ball.hpp`)
+
+- ``wt/math/shapes/elliptic_cone.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`)
+
+- ``wt/util/logger/logger.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp`)
+
+- ``wt/util/thread_pool/tpool.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__ads`
+
+- :ref:`namespace_wt__ads__construction`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_edge__classification_8hpp_1ad6fe5e12c20e1ed938a17b939655b1cc`
+
+- :ref:`exhale_function_edge__classification_8hpp_1a8d6228dce81056316e6937fcc9ec55bd`
+
+- :ref:`exhale_function_edge__classification_8hpp_1ad489f5bb349e954eef297e34aeb7c089`
+

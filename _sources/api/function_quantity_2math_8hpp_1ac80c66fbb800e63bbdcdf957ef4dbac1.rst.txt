@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1ac80c66fbb800e63bbdcdf957ef4dbac1:
+
+Function wt::operator<(const Quantity auto, const Quantity auto)
+================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::operator<(const Quantity auto, const Quantity auto)
+   :project: wave_tracer

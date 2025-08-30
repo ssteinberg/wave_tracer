@@ -1,0 +1,38 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_framework.hpp:
+
+Program Listing for File framework.hpp
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_framework.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity/framework.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #ifdef __GNUC__
+   #pragma GCC diagnostic push
+   #pragma GCC diagnostic ignored "-Wc++23-extensions"
+   #endif
+   
+   #include <mp-units/framework.h>
+   #include <mp-units/systems/isq/si_quantities.h>
+   #include <mp-units/systems/isq/electromagnetism.h>
+   #include <mp-units/systems/si.h>
+   #include <mp-units/systems/angular.h>
+   #include <mp-units/math.h>
+   
+   #ifdef __GNUC__
+   #pragma GCC diagnostic pop
+   #endif

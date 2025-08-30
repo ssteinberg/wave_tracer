@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1scene_1_1element_1_1info__t:
+
+Class info_t
+============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_info.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::scene::element::info_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,85 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ball.hpp:
+
+Program Listing for File ball.hpp
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ball.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/shapes/ball.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/simd/wide_vector.hpp>
+   #include <array>
+   
+   namespace wt {
+   
+   struct ball_t {
+       pqvec3_t centre;
+       length_t radius;
+   
+       [[nodiscard]] constexpr inline bool empty() const noexcept {
+           return radius==zero;
+       }
+   
+       [[nodiscard]] constexpr inline bool isfinite() const noexcept {
+           return m::isfinite(radius) && m::isfinite(centre);
+       }
+   
+       [[nodiscard]] constexpr inline bool overlaps(const ball_t& o) const noexcept {
+           return m::length2(centre-o.centre) < m::sqr(radius + o.radius);
+       }
+   
+       [[nodiscard]] constexpr inline bool contains(const pqvec3_t& p) const noexcept {
+           return m::length2(centre-p) < m::sqr(radius);
+       }
+       [[nodiscard]] constexpr inline bool contains(const ball_t& ball) const noexcept {
+           return m::length2(centre-ball.centre) < m::sqr(m::max<length_t>(0*u::m, radius-ball.radius));
+       }
+   
+       template <std::size_t W>
+       [[nodiscard]] inline auto contains(const pqvec3_w_t<W>& p) const noexcept {
+           const auto r2 = q_w_t<W,area_t>{ m::sqr(radius) };
+           const auto c  = pqvec3_w_t<W>{ centre };
+           const auto cp = c - p;
+   
+           const auto cp2 = m::dot(cp, cp);
+           return cp2 < r2;
+       }
+   
+       [[nodiscard]] constexpr inline auto volume() const noexcept {
+           return f_t(4./3.) * m::pi * m::sqr(radius)*radius;
+       }
+       [[nodiscard]] constexpr inline auto surface_area() const noexcept {
+           return 4 * m::pi * m::sqr(radius);
+       }
+   
+       [[nodiscard]] constexpr inline auto grow(const length_t r) const noexcept {
+           return ball_t{ .centre=centre, .radius=m::max<length_t>(0*u::m,radius+r) };
+       }
+   
+   
+       [[nodiscard]] constexpr static inline ball_t from_points(const std::convertible_to<pqvec3_t> auto& ...pts) {
+           const pqvec3_t c = (pqvec3_t{ pts } + ...) / (f_t)sizeof...(pts);
+           area_t r2 = {};
+           for (const auto& p : std::array{ pqvec3_t{ pts }... })
+               r2 = m::max<area_t>(r2,m::length2(p-c));
+           
+           return ball_t{ .centre=c, .radius=m::sqrt(r2) };
+       }
+   };
+   
+   }

@@ -1,0 +1,26 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter:
+
+
+Directory emitter
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/emitter``
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_area.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_directional.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_infinite_emitter.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_point.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_spot.hpp`
+
+

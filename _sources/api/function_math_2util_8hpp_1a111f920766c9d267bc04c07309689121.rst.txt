@@ -1,0 +1,14 @@
+.. _exhale_function_math_2util_8hpp_1a111f920766c9d267bc04c07309689121:
+
+Template Function wt::util::is_point_in_sphere
+==============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::util::is_point_in_sphere(const Vp&, const Length auto, const Vo&)
+   :project: wave_tracer

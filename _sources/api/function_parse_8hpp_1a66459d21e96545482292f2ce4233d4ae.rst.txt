@@ -1,0 +1,14 @@
+.. _exhale_function_parse_8hpp_1a66459d21e96545482292f2ce4233d4ae:
+
+Template Function wt::parse_vec2
+================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::parse_vec2(const std::string&)
+   :project: wave_tracer

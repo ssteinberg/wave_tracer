@@ -1,0 +1,14 @@
+.. _exhale_function_eft_8hpp_1af9cc72dc52919b0296ce4effc8a044ce:
+
+Template Function wt::m::eft::diff_prod(T, const V&, T, const V&)
+=================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::eft::diff_prod(T, const V&, T, const V&)
+   :project: wave_tracer

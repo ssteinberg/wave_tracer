@@ -1,0 +1,14 @@
+.. _exhale_function_bitmap_2bitmap_8hpp_1a58e2f9ed75a1c274c0b8e12e596a6d1e:
+
+Template Function wt::bitmap::copy_component
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::copy_component(const bitmap_t<T, Dims>&, bitmap_t<T, Dims>&, std::uint32_t, std::uint32_t)
+   :project: wave_tracer

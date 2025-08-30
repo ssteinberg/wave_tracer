@@ -1,0 +1,27 @@
+.. _exhale_class_classwt_1_1fraunhofer_1_1free__space__diffraction__t:
+
+Class free_space_diffraction_t
+==============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1fraunhofer_1_1free__space__diffraction__t_1_1sample__ret__t`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::fraunhofer::free_space_diffraction_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_misc_8hpp_1a7ea34efdfc135898509b8e890e4c1e5d:
+
+Function wt::intersect::intersect_line_ellipse
+==============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::intersect_line_ellipse(const pqvec2_t&, const pqvec2_t&, const length_t, const length_t)
+   :project: wave_tracer

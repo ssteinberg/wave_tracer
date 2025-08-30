@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1ads_1_1construction_1_1progress__callback__t:
+
+Struct progress_callback_t
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_util.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::ads::construction::progress_callback_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

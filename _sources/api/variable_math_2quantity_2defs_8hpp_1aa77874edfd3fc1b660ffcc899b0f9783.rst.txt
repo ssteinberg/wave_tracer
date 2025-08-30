@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2quantity_2defs_8hpp_1aa77874edfd3fc1b660ffcc899b0f9783:
+
+Variable wt::electrodynamics::wavenumber
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::electrodynamics::wavenumber
+   :project: wave_tracer

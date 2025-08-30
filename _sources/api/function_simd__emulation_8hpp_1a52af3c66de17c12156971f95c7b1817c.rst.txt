@@ -1,0 +1,14 @@
+.. _exhale_function_simd__emulation_8hpp_1a52af3c66de17c12156971f95c7b1817c:
+
+Template Function wt::simd::lxor(simd_emulated_t<Fp, W>, simd_emulated_t<Fp, W>)
+================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::lxor(simd_emulated_t<Fp, W>, simd_emulated_t<Fp, W>)
+   :project: wave_tracer

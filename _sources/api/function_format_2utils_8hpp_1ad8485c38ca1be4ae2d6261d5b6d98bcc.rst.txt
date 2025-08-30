@@ -1,0 +1,14 @@
+.. _exhale_function_format_2utils_8hpp_1ad8485c38ca1be4ae2d6261d5b6d98bcc:
+
+Function wt::format::toupper
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::format::toupper(std::string)
+   :project: wave_tracer

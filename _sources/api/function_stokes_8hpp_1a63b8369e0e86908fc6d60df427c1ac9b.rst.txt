@@ -1,0 +1,14 @@
+.. _exhale_function_stokes_8hpp_1a63b8369e0e86908fc6d60df427c1ac9b:
+
+Template Function wt::operator!=(zero_t, const stokes_parameters_t<Q>&)
+=======================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::operator!=(zero_t, const stokes_parameters_t<Q>&)
+   :project: wave_tracer

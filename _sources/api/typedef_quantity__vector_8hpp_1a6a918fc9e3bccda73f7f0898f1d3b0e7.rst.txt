@@ -1,0 +1,14 @@
+.. _exhale_typedef_quantity__vector_8hpp_1a6a918fc9e3bccda73f7f0898f1d3b0e7:
+
+Typedef wt::pqvec3d_t
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::pqvec3d_t
+   :project: wave_tracer

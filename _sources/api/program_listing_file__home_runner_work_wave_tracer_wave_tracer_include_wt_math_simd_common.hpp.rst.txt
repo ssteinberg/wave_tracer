@@ -1,0 +1,46 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_common.hpp:
+
+Program Listing for File common.hpp
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_common.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/simd/common.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <cstdint>
+   #include <wt/math/common.hpp>
+   #include <wt/util/concepts.hpp>
+   
+   namespace wt::simd {
+   
+   
+   template <FloatingPoint Fp>
+   struct scalar_logical_true_value {};
+   template <>
+   struct scalar_logical_true_value<double> {
+       constexpr inline double operator()() const noexcept {
+           return m::reinterpret_bits<double>(std::uint64_t(0xFFFFFFFFFFFFFFFF));
+       }
+   };
+   template <>
+   struct scalar_logical_true_value<float> {
+       constexpr inline float operator()() const noexcept {
+           return m::reinterpret_bits<float>(std::uint32_t(0xFFFFFFFF));
+       }
+   };
+   
+   }

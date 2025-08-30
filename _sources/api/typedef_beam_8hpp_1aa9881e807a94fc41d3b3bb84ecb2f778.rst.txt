@@ -1,0 +1,14 @@
+.. _exhale_typedef_beam_8hpp_1aa9881e807a94fc41d3b3bb84ecb2f778:
+
+Typedef wt::irradiance_beam_t
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::irradiance_beam_t
+   :project: wave_tracer

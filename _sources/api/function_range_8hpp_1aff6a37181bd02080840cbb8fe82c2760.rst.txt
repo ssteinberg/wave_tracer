@@ -1,0 +1,14 @@
+.. _exhale_function_range_8hpp_1aff6a37181bd02080840cbb8fe82c2760:
+
+Template Function wt::m::mix(const range_t<S, inclusiveness>&, const T&)
+========================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::mix(const range_t<S, inclusiveness>&, const T&)
+   :project: wave_tracer

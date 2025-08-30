@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1a7f88d7b6f4c43765b95da0452b5099ce:
+
+Template Function wt::m::mix(const quantity_vector<N, Q>&, const quantity_vector<N, Q>&, const vec<N, T>&)
+==========================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::mix(const quantity_vector<N, Q>&, const quantity_vector<N, Q>&, const vec<N, T>&)
+   :project: wave_tracer

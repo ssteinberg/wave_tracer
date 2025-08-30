@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a56e668f99875e24d4e7393a0f8d007b7:
+
+Template Function wt::m::mix(const Q&, const Q&, const S&)
+==========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::mix(const Q&, const Q&, const S&)
+   :project: wave_tracer

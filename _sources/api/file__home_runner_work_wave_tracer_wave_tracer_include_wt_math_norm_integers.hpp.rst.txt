@@ -1,0 +1,67 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_norm_integers.hpp:
+
+File norm_integers.hpp
+======================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/norm_integers.hpp``)
+--------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_norm_integers.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``concepts`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__m`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_norm__integers_8hpp_1af3df83ea0c85e9017f0b3830632fa863`
+
+- :ref:`exhale_function_norm__integers_8hpp_1ad3e2358d4302b162a836d3b4d427ad58`
+
+- :ref:`exhale_function_norm__integers_8hpp_1afcf34cfd8bac2efd6293c18aac29c802`
+
+- :ref:`exhale_function_norm__integers_8hpp_1a2674d9cc3ce35a1178888ae3e2366268`
+

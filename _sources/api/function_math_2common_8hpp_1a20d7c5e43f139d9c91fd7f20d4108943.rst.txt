@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a20d7c5e43f139d9c91fd7f20d4108943:
+
+Template Function wt::m::modulo(T, T)
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::modulo(T, T)
+   :project: wave_tracer

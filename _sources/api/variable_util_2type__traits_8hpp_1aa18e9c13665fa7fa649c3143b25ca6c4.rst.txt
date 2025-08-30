@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2type__traits_8hpp_1aa18e9c13665fa7fa649c3143b25ca6c4:
+
+Variable wt::is_scoped_enum_v
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_type_traits.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::is_scoped_enum_v
+   :project: wave_tracer

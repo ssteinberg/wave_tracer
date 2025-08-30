@@ -1,0 +1,14 @@
+.. _exhale_variable_chrono_8hpp_1a622c53a96670f036f60e73aed1b5ecc2:
+
+Variable wt::format::chrono::is_duration_v
+==========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::format::chrono::is_duration_v
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a8f48dabb641171b44e51a4273ca4ef78:
+
+Template Function wt::m::clamp01(const glm::vec<N, T>&)
+=======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::clamp01(const glm::vec<N, T>&)
+   :project: wave_tracer

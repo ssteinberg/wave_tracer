@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1a791ceeaad75b3b6f6f4e0fccf0fd6e26:
+
+Template Function wt::m::fma(const wide_vector<W, N, Q1>&, const wide_vector<W, N, Q2>&, const wide_vector<W, N, decltype(std::declval<Q1>() \*std::declval<Q2>())>&)
+=====================================================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::fma(const wide_vector<W, N, Q1>&, const wide_vector<W, N, Q2>&, const wide_vector<W, N, decltype(std::declval<Q1>() *std::declval<Q2>())>&)
+   :project: wave_tracer

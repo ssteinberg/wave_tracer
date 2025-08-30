@@ -1,0 +1,14 @@
+.. _exhale_function_traversal_8hpp_1ad0c4785bcce527a0e49f1ebd7b19fd98:
+
+Function wt::integrator::traverse_shadow(const ads::ads_t&, const elliptic_cone_t&, const vertex_geo_variant_t&, const length_t, const length_t, const traversal_opts_t&)
+=========================================================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::traverse_shadow(const ads::ads_t&, const elliptic_cone_t&, const vertex_geo_variant_t&, const length_t, const length_t, const traversal_opts_t&)
+   :project: wave_tracer

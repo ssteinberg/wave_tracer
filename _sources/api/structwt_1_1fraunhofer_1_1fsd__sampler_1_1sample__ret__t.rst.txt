@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1fraunhofer_1_1fsd__sampler_1_1sample__ret__t:
+
+Struct sample_ret_t
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd_sampler.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::fraunhofer::fsd_sampler::sample_ret_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

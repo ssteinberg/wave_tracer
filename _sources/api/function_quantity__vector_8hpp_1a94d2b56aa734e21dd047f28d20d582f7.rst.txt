@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1a94d2b56aa734e21dd047f28d20d582f7:
+
+Template Function wt::m::mean
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::mean(const quantity_vector<N, T>&)
+   :project: wave_tracer

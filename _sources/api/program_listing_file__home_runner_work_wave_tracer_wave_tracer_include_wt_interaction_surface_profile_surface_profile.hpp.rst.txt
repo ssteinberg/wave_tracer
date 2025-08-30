@@ -1,0 +1,92 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp:
+
+Program Listing for File surface_profile.hpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/surface_profile/surface_profile.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <memory>
+   
+   #include <wt/scene/element/scene_element.hpp>
+   #include <wt/sampler/sampler.hpp>
+   #include <wt/texture/texture.hpp>
+   #include <wt/wt_context.hpp>
+   
+   #include <wt/math/common.hpp>
+   
+   namespace wt::surface_profile {
+   
+   using texture::texture_query_t;
+   
+   struct surface_profile_sample_ret_t {
+       dir3_t wo;
+       f_t pdf, psd;
+       f_t weight;   // psd/pdf
+   };
+   
+   class surface_profile_t : public scene::scene_element_t {
+   public:
+       static constexpr std::string scene_element_class() noexcept { return "surface_profile"; }
+   
+       using rms_t = quantity<inverse(isq::length[u::mm])>;
+       using rms2_t = quantity<inverse(isq::area[square(u::mm)])>;
+       using recp_rms_t = quantity<isq::length[u::mm]>;
+       using recp_rms2_t = quantity<isq::area[square(u::mm)]>;
+       using variance_t = quantity<inverse(isq::area[square(u::mm)])>;
+   
+   public:
+       surface_profile_t(std::string id) : scene_element_t(std::move(id)) {}
+       surface_profile_t(surface_profile_t&&) = default;
+       virtual ~surface_profile_t() noexcept = default;
+   
+       [[nodiscard]] virtual bool is_delta_only(wavenumber_t k) const noexcept = 0;
+       
+       [[nodiscard]] virtual bool needs_interaction_footprint() const noexcept = 0;
+   
+       [[nodiscard]] virtual variance_t variance(const texture_query_t& query) const noexcept = 0;
+   
+       [[nodiscard]] virtual rms_t rms_roughness(const texture_query_t& query) const noexcept = 0;
+   
+       [[nodiscard]] virtual f_t alpha(const dir3_t& wi,
+                                      const dir3_t& wo,
+                                      const texture_query_t& query) const noexcept = 0;
+       [[nodiscard]] virtual f_t alpha(const dir3_t& wi,
+                                       const texture_query_t& query) const noexcept = 0;
+   
+       [[nodiscard]] virtual f_t psd(const dir3_t& wi,
+                                     const dir3_t& wo,
+                                     const texture_query_t& query) const noexcept = 0;
+   
+       [[nodiscard]] virtual surface_profile_sample_ret_t sample(
+               const dir3_t &wi,
+               const texture_query_t& query,
+               sampler::sampler_t& sampler) const noexcept = 0;
+       
+       [[nodiscard]] virtual f_t pdf(const dir3_t& wi,
+                                     const dir3_t& wo,
+                                     const texture_query_t& query) const noexcept = 0;
+   
+   public:
+       static std::unique_ptr<surface_profile_t> load(std::string id, scene::loader::loader_t* loader, const scene::loader::node_t& node, const wt::wt_context_t &context);
+   
+       [[nodiscard]] virtual scene::element::info_t description() const override = 0;
+   };
+   
+   }

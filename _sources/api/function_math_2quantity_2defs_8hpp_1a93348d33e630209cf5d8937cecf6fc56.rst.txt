@@ -1,0 +1,14 @@
+.. _exhale_function_math_2quantity_2defs_8hpp_1a93348d33e630209cf5d8937cecf6fc56:
+
+Function wt::u::to_W(const QuantityOf<isq::power> auto)
+=======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::u::to_W(const QuantityOf<isq::power> auto)
+   :project: wave_tracer

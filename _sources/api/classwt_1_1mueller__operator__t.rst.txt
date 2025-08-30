@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1mueller__operator__t:
+
+Class mueller_operator_t
+========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::mueller_operator_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

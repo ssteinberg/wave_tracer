@@ -1,0 +1,14 @@
+.. _exhale_variable_fsd_8hpp_1a193c991e970e9b02cf93e9c06c893c42:
+
+Variable wt::fraunhofer::fsd::P0_sigma
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::fraunhofer::fsd::P0_sigma
+   :project: wave_tracer

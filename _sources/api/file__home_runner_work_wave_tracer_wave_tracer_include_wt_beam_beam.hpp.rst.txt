@@ -1,0 +1,117 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp:
+
+File beam.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_beam>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/beam``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/beam/beam.hpp``)
+-----------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/beam/beam_generic.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp`)
+
+- ``wt/interaction/polarimetric/stokes.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__beam`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1beam_1_1beam__radiometric__data__t`
+
+- :ref:`exhale_struct_structwt_1_1beam_1_1beam__radiometric__data__t_3_01transport__e_1_1backward_00_01Q_01_4`
+
+- :ref:`exhale_struct_structwt_1_1beam_1_1beam__radiometric__data__t_3_01transport__e_1_1forward_00_01Q_01_4`
+
+- :ref:`exhale_class_classwt_1_1beam__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_beam_8hpp_1a8dd51ea4dd261eecb4557d914ce8acc1`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_beam_8hpp_1a4fc3eb6f13dd35559f2891f746fb7273`
+
+- :ref:`exhale_typedef_beam_8hpp_1ad3fd03623e976b4e13abfa7461d86928`
+
+- :ref:`exhale_typedef_beam_8hpp_1aeb0b95a1d2c5fe0ddbe67881f0784ddd`
+
+- :ref:`exhale_typedef_beam_8hpp_1a67c93109030109fe1157685afa935de6`
+
+- :ref:`exhale_typedef_beam_8hpp_1a9d80da942f5374d0e9f499add73f06e7`
+
+- :ref:`exhale_typedef_beam_8hpp_1aa9881e807a94fc41d3b3bb84ecb2f778`
+
+- :ref:`exhale_typedef_beam_8hpp_1a43fbddfce5df3a269b0cd89271dbd5e6`
+
+- :ref:`exhale_typedef_beam_8hpp_1ab8617f813affd925b3bd24ee6607ac9d`
+
+- :ref:`exhale_typedef_beam_8hpp_1a4be8eff2cfd0daae551d12d8d021cf0b`
+
+- :ref:`exhale_typedef_beam_8hpp_1a80b578e664d932237e04c9810803633c`
+
+- :ref:`exhale_typedef_beam_8hpp_1a0e4dc7c17217caab1bab2b0c6e317dd9`
+
+- :ref:`exhale_typedef_beam_8hpp_1a4b34c3c9eeda84ebc5faf2436f30a326`
+
+- :ref:`exhale_typedef_beam_8hpp_1a9b59910595c05280c3027294e987caa8`
+

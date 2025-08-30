@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a0f8dcee12dd323c8da035c44a5eab1d4:
+
+Template Function wt::m::min(const glm::mat<N, M, T>&, const glm::mat<N, M, T>&)
+================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::min(const glm::mat<N, M, T>&, const glm::mat<N, M, T>&)
+   :project: wave_tracer

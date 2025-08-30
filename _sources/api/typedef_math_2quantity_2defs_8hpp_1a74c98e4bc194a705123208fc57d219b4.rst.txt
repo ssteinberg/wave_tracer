@@ -1,0 +1,14 @@
+.. _exhale_typedef_math_2quantity_2defs_8hpp_1a74c98e4bc194a705123208fc57d219b4:
+
+Typedef wt::solid_angle_density_t
+=================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::solid_angle_density_t
+   :project: wave_tracer

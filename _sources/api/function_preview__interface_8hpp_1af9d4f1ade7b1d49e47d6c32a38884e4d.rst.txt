@@ -1,0 +1,14 @@
+.. _exhale_function_preview__interface_8hpp_1af9d4f1ade7b1d49e47d6c32a38884e4d:
+
+Function wt::default_preview_update_interval
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_interface.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::default_preview_update_interval()
+   :project: wave_tracer

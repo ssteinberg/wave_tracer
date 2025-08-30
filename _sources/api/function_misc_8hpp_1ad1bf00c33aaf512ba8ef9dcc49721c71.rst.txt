@@ -1,0 +1,14 @@
+.. _exhale_function_misc_8hpp_1ad1bf00c33aaf512ba8ef9dcc49721c71:
+
+Function wt::intersect::test_aabb_tri
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::test_aabb_tri(const aabb_t&, pqvec3_t, pqvec3_t, pqvec3_t)
+   :project: wave_tracer

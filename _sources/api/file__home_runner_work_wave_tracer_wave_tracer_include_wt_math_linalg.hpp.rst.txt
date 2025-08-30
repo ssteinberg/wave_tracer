@@ -1,0 +1,66 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_linalg.hpp:
+
+File linalg.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/linalg.hpp``)
+-------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_linalg.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``optional``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/eft/eft.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1QR__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1SVD__ret__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_linalg_8hpp_1af43ce1fd3a741d0b11b78f879f386942`
+
+- :ref:`exhale_function_linalg_8hpp_1a46247a70acd701a84df51d4debe41af8`
+
+- :ref:`exhale_function_linalg_8hpp_1a6f162eb573dfc8a5aa52b01ab3fe234a`
+
+- :ref:`exhale_function_linalg_8hpp_1a53b70e17cd562030993b4608fb177f10`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_traversal_8hpp_1a68459642613e9a9e9191378a65c35469:
+
+Function wt::integrator::intersection_position(const Intersection auto&)
+========================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::intersection_position(const Intersection auto&)
+   :project: wave_tracer

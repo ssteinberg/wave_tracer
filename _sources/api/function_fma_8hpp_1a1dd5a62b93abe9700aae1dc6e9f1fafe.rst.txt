@@ -1,0 +1,14 @@
+.. _exhale_function_fma_8hpp_1a1dd5a62b93abe9700aae1dc6e9f1fafe:
+
+Function wt::m::fma(const std::integral auto, const std::integral auto, const std::integral auto)
+=================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::fma(const std::integral auto, const std::integral auto, const std::integral auto)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_typedef_logger_8hpp_1a1600228f4845e48992c8f7edf4161782:
+
+Typedef wt::logger::log_verbosity_e
+===================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::logger::log_verbosity_e
+   :project: wave_tracer

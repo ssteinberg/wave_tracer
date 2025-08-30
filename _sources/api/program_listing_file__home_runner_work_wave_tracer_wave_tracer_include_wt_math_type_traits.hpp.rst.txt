@@ -1,0 +1,127 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp:
+
+Program Listing for File type_traits.hpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/type_traits.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/math/defs.hpp>
+   #include <wt/math/unit_vector/unit_vector.hpp>
+   #include <wt/math/quantity/quantity_vector.hpp>
+   #include <wt/math/quantity/type_traits.hpp>
+   
+   namespace wt {
+   
+   
+   // element count of different vector types
+   template <typename T>
+   struct element_count {
+   };
+   template <QuantityVector QV>
+   struct element_count<QV> {
+       static constexpr std::size_t value = QV::element_count;
+   };
+   template <UnitVector UV>
+   struct element_count<UV> {
+       static constexpr std::size_t value = UV::element_count;
+   };
+   template <NumericVector V>
+   struct element_count<V> {
+       static constexpr std::size_t value = V::length();
+   };
+   template <typename T>
+   static constexpr auto element_count_v = element_count<T>::value;
+   
+   
+   // element type of different vector types
+   template <typename T>
+   struct vector_element_type {
+   };
+   template <QuantityVector QV>
+   struct vector_element_type<QV> {
+       using type = QV::quantity_t;
+   };
+   template <UnitVector UV>
+   struct vector_element_type<UV> {
+       using type = UV::element_type;
+   };
+   template <std::size_t N, typename T>
+   struct vector_element_type<glm::vec<N,T>> {
+       using type = T;
+   };
+   template <typename T>
+   using vector_element_type_t = vector_element_type<T>::type;
+   
+   
+   // element representation (type or quantity rep) of different vector types
+   template <typename T>
+   struct vector_element_rep {
+   };
+   template <QuantityVector QV>
+   struct vector_element_rep<QV> {
+       using type = QV::quantity_t::rep;
+   };
+   template <UnitVector UV>
+   struct vector_element_rep<UV> {
+       using type = UV::element_type;
+   };
+   template <std::size_t N, typename T>
+   struct vector_element_rep<glm::vec<N,T>> {
+       using type = T;
+   };
+   template <typename T>
+   using vector_element_rep_t = vector_element_rep<T>::type;
+   
+   
+   template <typename T>
+   struct is_scalar_vector {
+       static constexpr bool value = false;
+   };
+   template <NumericVector UV>
+   struct is_scalar_vector<UV> {
+       static constexpr bool value = true;
+   };
+   template <typename T>
+   constexpr inline auto is_scalar_vector_v = is_scalar_vector<T>::value;
+   
+   
+   template <typename T>
+   struct is_quantity_vector {
+       static constexpr bool value = false;
+   };
+   template <QuantityVector UV>
+   struct is_quantity_vector<UV> {
+       static constexpr bool value = true;
+   };
+   template <typename T>
+   constexpr inline auto is_quantity_vector_v = is_quantity_vector<T>::value;
+   
+   
+   template <typename T>
+   struct is_unit_vector {
+       static constexpr bool value = false;
+   };
+   template <UnitVector UV>
+   struct is_unit_vector<UV> {
+       static constexpr bool value = true;
+   };
+   template <typename T>
+   constexpr inline auto is_unit_vector_v = is_unit_vector<T>::value;
+   
+   }

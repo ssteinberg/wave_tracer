@@ -1,0 +1,72 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp:
+
+File common.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh8w``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh8w/common.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``bvh8w_node.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_node.hpp`)
+
+- ``wt/math/shapes/aabb.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp`)
+
+- ``wt/math/simd/wide_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__ads`
+
+- :ref:`namespace_wt__ads__bvh8w`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1ads_1_1bvh8w_1_1bvh8w__aabbs__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_ads_2bvh8w_2common_8hpp_1a92af498257a0442f5d59cb87c8a72379`
+
+- :ref:`exhale_function_ads_2bvh8w_2common_8hpp_1af898e69b3b32d10753974cd260da5260`
+
+- :ref:`exhale_function_ads_2bvh8w_2common_8hpp_1a55c6ecfd16c602f3fc954cf98f7182b5`
+
+- :ref:`exhale_function_ads_2bvh8w_2common_8hpp_1ae5a37576bcb6aeb3898cdaf208471381`
+
+- :ref:`exhale_function_ads_2bvh8w_2common_8hpp_1a550dfcec98debcd4fe01b8e6f3ac6c5d`
+
+- :ref:`exhale_function_ads_2bvh8w_2common_8hpp_1a8099e66834959b158f5b5721316f45ab`
+

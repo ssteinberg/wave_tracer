@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1aac2b3df25cb5034be9fedbedf8290f71:
+
+Template Function wt::m::prod(const vec2<T>&)
+=============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::prod(const vec2<T>&)
+   :project: wave_tracer

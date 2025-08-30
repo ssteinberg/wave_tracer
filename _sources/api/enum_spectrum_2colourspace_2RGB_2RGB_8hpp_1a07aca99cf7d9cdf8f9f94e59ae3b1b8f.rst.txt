@@ -1,0 +1,14 @@
+.. _exhale_enum_spectrum_2colourspace_2RGB_2RGB_8hpp_1a07aca99cf7d9cdf8f9f94e59ae3b1b8f:
+
+Enum RGB_colourspace_e
+======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::colourspace::RGB_colourspace_e
+   :project: wave_tracer

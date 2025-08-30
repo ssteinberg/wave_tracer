@@ -1,0 +1,14 @@
+.. _exhale_variable_wide__vector_8hpp_1a0ed74cfb45050e946f87f001aa2916f4:
+
+Variable wt::simd::aligned_data
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::simd::aligned_data
+   :project: wave_tracer

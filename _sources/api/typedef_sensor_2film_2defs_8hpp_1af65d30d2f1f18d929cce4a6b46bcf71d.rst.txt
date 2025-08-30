@@ -1,0 +1,14 @@
+.. _exhale_typedef_sensor_2film_2defs_8hpp_1af65d30d2f1f18d929cce4a6b46bcf71d:
+
+Typedef wt::sensor::developed_polarimetric_film_t
+=================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::sensor::developed_polarimetric_film_t
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a5fe11243712e250697c4c5d747a76421:
+
+Template Function wt::m::iszero(const T&)
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::iszero(const T&)
+   :project: wave_tracer

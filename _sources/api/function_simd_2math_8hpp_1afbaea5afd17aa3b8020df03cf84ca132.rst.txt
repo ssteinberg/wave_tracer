@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1afbaea5afd17aa3b8020df03cf84ca132:
+
+Template Function wt::m::hmax(const wide_vector<8, N, Q>&)
+==========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::hmax(const wide_vector<8, N, Q>&)
+   :project: wave_tracer

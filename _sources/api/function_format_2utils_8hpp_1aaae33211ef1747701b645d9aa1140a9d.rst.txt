@@ -1,0 +1,14 @@
+.. _exhale_function_format_2utils_8hpp_1aaae33211ef1747701b645d9aa1140a9d:
+
+Template Function wt::format::trim
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::format::trim(std::string_view, const char *)
+   :project: wave_tracer

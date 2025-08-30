@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a7219f29008210360bbf68f56a04e55b4:
+
+Template Function wt::m::reinterpret_bits
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::reinterpret_bits(Src)
+   :project: wave_tracer

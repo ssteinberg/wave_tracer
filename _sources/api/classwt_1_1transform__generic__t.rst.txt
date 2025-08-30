@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1transform__generic__t:
+
+Template Class transform_generic_t
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::transform_generic_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

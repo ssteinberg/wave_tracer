@@ -1,0 +1,14 @@
+.. _exhale_define_tonemap_8hpp_1a66737340e9ec1ffb7dc29897c0af2c46:
+
+Define TINYCOLORMAP_WITH_GLM
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: TINYCOLORMAP_WITH_GLM
+   :project: wave_tracer

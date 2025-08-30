@@ -1,0 +1,14 @@
+.. _exhale_function_intersect_2ray_8hpp_1a9cd08c18949566686cdaa8b9f86776d6:
+
+Function wt::intersect::intersect_line_plane
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::intersect_line_plane(const pqvec3_t&, const pqvec3_t&, const pqvec3_t&, const dir3_t&)
+   :project: wave_tracer

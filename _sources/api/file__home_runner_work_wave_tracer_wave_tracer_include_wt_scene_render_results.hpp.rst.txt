@@ -1,0 +1,77 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp:
+
+File render_results.hpp
+=======================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/render_results.hpp``)
+----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``chrono`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`)
+
+- ``memory``
+
+- ``variant``
+
+- ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``wt/bitmap/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp`)
+
+- ``wt/sensor/film/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp`)
+
+- ``wt/sensor/sensor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_interrupts.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_gui.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__scene`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1developed__polarimetric__film__pair__t`
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1developed__scalar__film__pair__t`
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1render__result__t`
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1sensor__render__result__t`
+

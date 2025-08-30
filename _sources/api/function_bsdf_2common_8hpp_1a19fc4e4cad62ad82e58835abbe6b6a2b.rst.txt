@@ -1,0 +1,14 @@
+.. _exhale_function_bsdf_2common_8hpp_1a19fc4e4cad62ad82e58835abbe6b6a2b:
+
+Function wt::bsdf::flip_transport
+=================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bsdf::flip_transport(transport_e)
+   :project: wave_tracer

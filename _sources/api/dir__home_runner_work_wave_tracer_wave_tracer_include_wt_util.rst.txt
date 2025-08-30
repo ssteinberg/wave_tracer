@@ -1,0 +1,40 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util:
+
+
+Directory util
+==============
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/util``
+
+Subdirectories
+--------------
+
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_font_renderer`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool`
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_array.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_math_expression.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_seeded_mt19937_64.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_type_traits.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unique_function.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`
+
+

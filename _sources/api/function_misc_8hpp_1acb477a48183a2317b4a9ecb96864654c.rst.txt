@@ -1,0 +1,14 @@
+.. _exhale_function_misc_8hpp_1acb477a48183a2317b4a9ecb96864654c:
+
+Function wt::intersect::intersect_edge_circle
+=============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::intersect_edge_circle(const pqvec2_t&, const pqvec2_t&, const length_t)
+   :project: wave_tracer

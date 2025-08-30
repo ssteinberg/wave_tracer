@@ -1,0 +1,30 @@
+
+.. _namespace_wt__format:
+
+Namespace wt::format
+====================
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt__format__chrono`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_format_2utils_8hpp_1a73a6c54781d95d1855938f2657ed6718`
+
+- :ref:`exhale_function_format_2utils_8hpp_1af1be1067e26d26e04b7a56ae0762fc98`
+
+- :ref:`exhale_function_enum_8hpp_1a6ed2b9ccbb0ad5adc63ddb35a7c158bf`
+
+- :ref:`exhale_function_format_2utils_8hpp_1a0aad8beec2a53531d5d1b91d20c0af66`
+
+- :ref:`exhale_function_format_2utils_8hpp_1ad8485c38ca1be4ae2d6261d5b6d98bcc`
+
+- :ref:`exhale_function_format_2utils_8hpp_1aaae33211ef1747701b645d9aa1140a9d`

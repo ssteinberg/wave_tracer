@@ -1,0 +1,14 @@
+.. _exhale_function_barycentric_8hpp_1add27ee64bfc57469fa04b17c8878a345:
+
+Function wt::barycentric(const barycentric_t&, const vec3_t&)
+=============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_barycentric.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::barycentric(const barycentric_t&, const vec3_t&)
+   :project: wave_tracer

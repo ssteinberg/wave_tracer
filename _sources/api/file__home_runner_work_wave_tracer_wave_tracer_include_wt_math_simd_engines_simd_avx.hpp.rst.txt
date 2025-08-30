@@ -1,0 +1,332 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp:
+
+File simd_avx.hpp
+=================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/simd/engines``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/simd/engines/simd_avx.hpp``)
+----------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``array`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_array.hpp`)
+
+- ``bit`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``cstdint``
+
+- ``immintrin.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__simd`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1simd__avx__t`
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1simd__avx__t_3_01double_00_014_01_4`
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1simd__avx__t_3_01double_00_018_01_4`
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1simd__avx__t_3_01float_00_014_01_4`
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1simd__avx__t_3_01float_00_018_01_4`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_simd__avx_8hpp_1a2ca22e872d5a8f93b0c56787d98eb610`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a366f5c0bd0040385bf53968068636cc1`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a3e976a4bb11416bb05f332b550622655`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a85e821d6026778b67ffe7f7c3f19b12a`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a50a847e8ea7683b6260c9d588b9b8d2e`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a7e18d49d3baf57506cd33f4d092ef935`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a641482b9c8790136aff55c0a12c251c6`
+
+- :ref:`exhale_function_simd__avx_8hpp_1af816cdb77bdd9b0e89f7fa46cfa6d39b`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a4b2f2b3e0086ec026f103eac518e0748`
+
+- :ref:`exhale_function_simd__avx_8hpp_1adb5a55270479bccddd237fbfde8a8e86`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a4e6a0771ba828199320c8c43cb18b35d`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a0341d3758bc812c1a5ed73aafa241bcd`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a9ca0c40f6a9ce3f8bdef77f23d7929c3`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a063da2924c0053c89480e33afd5ff17b`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a96bb21216624f91a9d7b2a7b2aadbe77`
+
+- :ref:`exhale_function_simd__avx_8hpp_1afceb9d7f16d21f27939540863a06ecb4`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a491fa2210a84d44665a1085ff66949ee`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ad6aedcb62cd0f5c55ae11df79690d2cf`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ae40690925c7b4caa6440bac208d24c37`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a3ac39a436077c6672eb7be38bd6a2959`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a7e96425b010151b82bb6dc0f0ba73f56`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a4c127edf97bfa52b673798db1ae2f96e`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a2babb56cff0a4e9af337ef117fb652d3`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a06a2be6a6a838460f91c0faed83cd07f`
+
+- :ref:`exhale_function_simd__avx_8hpp_1abe06114436d981c25d550c2d207cb518`
+
+- :ref:`exhale_function_simd__avx_8hpp_1af636d162c77db8c007925082255e1f13`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a93c17223c1b12722e0db134372574bd1`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a6b57fd3d430cff80650900c5b623060e`
+
+- :ref:`exhale_function_simd__avx_8hpp_1aa165aada30d5cab45693e04fea3fb47c`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ab4c950e35b123640f5772c170c5d470d`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ae45e184c16d54245a055cf61e8b0daa2`
+
+- :ref:`exhale_function_simd__avx_8hpp_1af9629d3544431657d24d8aa665106b20`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a1474681b24981645251ed043ab6f3f08`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a0f732e3d8b009a44b3592fdd09f0b30a`
+
+- :ref:`exhale_function_simd__avx_8hpp_1af87e859b23c75016cd33c304b2e16bc9`
+
+- :ref:`exhale_function_simd__avx_8hpp_1afcc76fff8cb9fcb9144330f0bea003bb`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a9439a069200e898f62804fc60df85f2d`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ac99261368b8f57a7ff7a3f5d6f72fb9b`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a0134a0541c99349a526e1dd60fc52eca`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a5986783a8d588a14f1aba3c7741d8636`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a02b3e389af004f18987c636361ed33a3`
+
+- :ref:`exhale_function_simd__avx_8hpp_1af5484738b1c6206ca62d36bb790912ab`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a635ca93d611bedc99d3068920d545962`
+
+- :ref:`exhale_function_simd__avx_8hpp_1afeffef154d86ac09772e809d0d628c18`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a656b7560f2115edd48c881498583be19`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ac2d5bc96f29a70df8dfb85981e03e4e9`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a30db4ed8fe0f5115c4e7134dc74fc9cc`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ae53bf48fedc46cfe3e13b700a999d1fa`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a411fc5ec9d6b49dc14c788859b1cda1b`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a9971db2479cd4b6dfb80da6ac621e1c9`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a0fbbdc9783d7ea2d683094dc37a959ec`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a40edb06eb223ec918b6eeac90db07ac8`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a4064703d6bb99af36f158067a3fa7fc5`
+
+- :ref:`exhale_function_simd__avx_8hpp_1af7561f62654116e83c5df204df53c5a3`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ae1706c71438991a3accd89c3f7e16660`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a43c1a1f8d63c73e1a4c08db74c48eb4d`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ad667e13b065f082990ddb91f10dd5055`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ac84f769d2be904a7944b861361249261`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a8a2709d858bd20eeb0ede0a0b3aa8b6d`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a14ae94be0a33b6070574efa9f7a2e5bd`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a87f8f70743d44e72de4109cd1be21d0f`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ae46bab733a7f09cd479e900cce51739b`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a64a6941cf4a278a1ec2970d0c5d7b318`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ae330ec1bc205ad62d4c3718a8a628e4b`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a9106991e59f0ce56a8714646e41d8628`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a038642e17bac6e496a48e3f852b50953`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a9d0ee02177923ac790ba0657eb2ee83e`
+
+- :ref:`exhale_function_simd__avx_8hpp_1aedadae397b72edc207f703c3d22de617`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a577d178efaca69b2cabb370023321a44`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ace0dd8b0d2f2d13ff6063123e9c50c72`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a6959de8e2b53893752963741b2aafb11`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a6f464ea95e6518dab835702f9a74a7aa`
+
+- :ref:`exhale_function_simd__avx_8hpp_1aa8823bdfb7c878ca9cd8a1e9660af5ef`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a5394255c086d80993281630889af8df8`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ad0e752ba23e891d3009f37773ea47989`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ad1a1b4b73ff5ac207fafc22f9dc6f316`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a276af486104702895d62c384804ee5f2`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a55cf3bed7a4b07a3eafef76e49c2bb04`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a97baeebe02cbc919c9b0b2cddd4a6ce9`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a54ff4f8ee9002226ddb27f8573d68e5f`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a1dd06243cee60d6aa74862e6829e1044`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a51d6114fdc4e1fcc4e691f772fcad278`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a6e29debcdd205bad53f16ff982669279`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a4d80c6c65924b2301592a197958ccfa2`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ab566e9c281348396dc10a6b3cefaad18`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a0735367e54942c86cad2ba0d9640d567`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a1ff1f13c0570d2ed16396a82ceda7ff9`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a2b26e3a94f4a11bc6873d8d2944b24a9`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a2c2696cc0b7258951ee11e6de8fe01f9`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a9cabdf840eb27402305d0d2d1fee1d9f`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ac7256397473a868aba324bf61c25c775`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ab7c67281ba5fac0b1ee889b3876bf5f1`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ace9ef3821c67d7ae136d35ab413c4aa1`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a08abda7258f8bad8af0ce3082db61788`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a9e85808476230c9c72f1b40371511e04`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a030cb378053dd5c1cfcb041d871f61bb`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a7b37a61aea642734bf57a33cab44f777`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a3b282fb01876faed5e7de175fb96ceb0`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a6daa7002e1507618a699bf65a50cc1cd`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a9919bca9e0fabc676c05b79c22f48e09`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a3ca885bc43c3360fa0e7efaa86439586`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a2dc4c44c48be59fdac04d62125418ede`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a15829b784082d8ef1f42b0b23ac6147a`
+
+- :ref:`exhale_function_simd__avx_8hpp_1af5ea4145df0be845ef6ff956448e2cca`
+
+- :ref:`exhale_function_simd__avx_8hpp_1af9410864335ec9b6d50fb8666c7b8b6e`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a7b1b99065a6d3d53240e27c4e5020407`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ad9ecc6b57a6ca0b7951608959a7733a6`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a6d0069adbccfdd56eb01c523911098f0`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ab29ec5ff394d480c86e9ecf0c7fd3204`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a508048bc6a526898aa00d543ac15f5df`
+
+- :ref:`exhale_function_simd__avx_8hpp_1aef5ce76c23bf2cc59a581cb75ace3499`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a50c4677ebfe3e7d0d81f3731bb345d98`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a4a3a42f138cf1ce20ed3434610d55a71`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ad5f318056c518a66568af9627e06c800`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ae80a6c571b556335a2a05e52e9ca5596`
+
+- :ref:`exhale_function_simd__avx_8hpp_1addf20a4b28883f1d02cb187bb939c3f8`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a2d6332b452f6100453ec3bd9ac4534a6`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a10cb63e33a907d185f6f9d0612b7a65c`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a80854e5bb7ad8c9a748e6d73c897b789`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a83bc8fd3ae6f69f04e027ecb4a06f1ab`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ae8589a0f92f943c59d7b4a6d596d3464`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a90c227d7a76da03bd960cafbfe8e71ec`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a2215c966d5093911b364a9d6cef1d0cc`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ae9db124358195cf4919b9e48b263e966`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a20aa6a64cebd84a7cbfc066b77d9529e`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a8597ce05d3383b6f8aed383f19af8219`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a3f2c729e7fd72ac925a38af0fbc25d06`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a6229a346198d95283a61318cd7557ed1`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a837443d2c08ec4f8d12755c2c5b450b4`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a2da3ce891d885b19349cf635b20a9857`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a0bd137e3b7c357ee8f1584871635bd40`
+
+- :ref:`exhale_function_simd__avx_8hpp_1aa91390105b69e270626121e09a51e258`
+

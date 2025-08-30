@@ -1,0 +1,14 @@
+.. _exhale_function_parse_8hpp_1af70dcb1a70d19f9955355a506ffd97a5:
+
+Function wt::stoi_strict(const std::string&, int)
+=================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::stoi_strict(const std::string&, int)
+   :project: wave_tracer

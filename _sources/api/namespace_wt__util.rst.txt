@@ -1,0 +1,39 @@
+
+.. _namespace_wt__util:
+
+Namespace wt::util
+==================
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_math_2util_8hpp_1a1a4bcb0303e77eea4deb9740b7feb944`
+
+- :ref:`exhale_function_math_2util_8hpp_1ae4d4f54b9260cc1425ba63bd8fe13cf5`
+
+- :ref:`exhale_function_math_2util_8hpp_1a6b23c2e8acf0c344663108be8ae83574`
+
+- :ref:`exhale_function_math_2util_8hpp_1a79fd43cc7b2dc5bf945a8b5d399bbd92`
+
+- :ref:`exhale_function_math_2util_8hpp_1aed3d17c5a69dc951f135cfcbf8717a01`
+
+- :ref:`exhale_function_math_2util_8hpp_1a111f920766c9d267bc04c07309689121`
+
+- :ref:`exhale_function_math_2util_8hpp_1a0b55133c4d98d42c194bbfc760c0be5a`
+
+- :ref:`exhale_function_math_2util_8hpp_1adc54c5a8b1cb6bc092d9c443e9248d4d`
+
+- :ref:`exhale_function_math_2util_8hpp_1abdcae0d0b5d4f8411c36f6be74ae0199`
+
+- :ref:`exhale_function_math_2util_8hpp_1a4e4062f6dac0526fd3bc959eec5557d8`
+
+- :ref:`exhale_function_rotation_8hpp_1a80893e102658c983fec72d657906e8cd`
+
+- :ref:`exhale_function_rotation_8hpp_1a61637f12b5895673e32177798a9dc97e`
+
+- :ref:`exhale_function_math_2util_8hpp_1a6a36d260373b8e08516892a6f032dd85`
+
+- :ref:`exhale_function_math_2util_8hpp_1aae21197832a50f89dff031eea0b8fe15`

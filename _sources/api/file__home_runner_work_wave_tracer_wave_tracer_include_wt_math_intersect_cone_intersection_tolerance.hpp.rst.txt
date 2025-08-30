@@ -1,0 +1,61 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone_intersection_tolerance.hpp:
+
+File cone_intersection_tolerance.hpp
+====================================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect/cone_intersection_tolerance.hpp``)
+--------------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone_intersection_tolerance.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/shapes/aabb.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp`)
+
+- ``wt/math/shapes/elliptic_cone.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__intersect`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_cone__intersection__tolerance_8hpp_1a6285be55473eec4fbc2baed632c90f0b`
+

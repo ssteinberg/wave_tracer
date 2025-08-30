@@ -1,0 +1,14 @@
+.. _exhale_enum_texture2d__storage_8hpp_1ac16ad09ed5ca67fb927aa90824779ace:
+
+Enum texture_wrap_mode_e
+========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::bitmap::texture_wrap_mode_e
+   :project: wave_tracer

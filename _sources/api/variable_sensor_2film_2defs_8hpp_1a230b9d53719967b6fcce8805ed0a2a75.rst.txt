@@ -1,0 +1,14 @@
+.. _exhale_variable_sensor_2film_2defs_8hpp_1a230b9d53719967b6fcce8805ed0a2a75:
+
+Variable wt::sensor::use_double_precision_for_internal_storage
+==============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::sensor::use_double_precision_for_internal_storage
+   :project: wave_tracer

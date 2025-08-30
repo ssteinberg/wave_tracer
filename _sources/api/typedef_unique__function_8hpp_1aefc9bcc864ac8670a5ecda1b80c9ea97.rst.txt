@@ -1,0 +1,14 @@
+.. _exhale_typedef_unique__function_8hpp_1aefc9bcc864ac8670a5ecda1b80c9ea97:
+
+Typedef wt::unique_function
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unique_function.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::unique_function
+   :project: wave_tracer

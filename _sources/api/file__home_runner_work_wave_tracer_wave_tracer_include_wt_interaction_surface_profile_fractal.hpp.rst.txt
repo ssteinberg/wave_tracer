@@ -1,0 +1,96 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_fractal.hpp:
+
+File fractal.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/surface_profile``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/surface_profile/fractal.hpp``)
+-------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_fractal.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``wt/interaction/surface_profile/surface_profile.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/texture/quantity.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_quantity.hpp`)
+
+- ``wt/texture/texture.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_texture.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_gaussian.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__surface_profile`
+
+- :ref:`namespace_wt__surface_profile__fractal_profile_details`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1surface__profile_1_1fractal__t_1_1params__t`
+
+- :ref:`exhale_class_classwt_1_1surface__profile_1_1fractal__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_fractal_8hpp_1ad4339c52c81d543057fc9a93ad4f2d4c`
+
+- :ref:`exhale_function_fractal_8hpp_1ade223e95e54ec99585f2b919ac9abef4`
+
+- :ref:`exhale_function_fractal_8hpp_1a4821838446dbf1416a19dab4b97c0b9a`
+
+- :ref:`exhale_function_fractal_8hpp_1ad9792867011952ef5001a934cac76c63`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_fractal_8hpp_1a8d1e551c162d25e5a1ddec1472b6412e`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_fractal_8hpp_1ab9c775ed586257b7a45ec891e8f45cea`
+
+- :ref:`exhale_variable_fractal_8hpp_1adfc7cd3f251b404a267ad77ef28b24eb`
+

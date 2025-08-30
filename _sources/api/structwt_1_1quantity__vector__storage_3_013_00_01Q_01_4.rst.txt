@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1quantity__vector__storage_3_013_00_01Q_01_4:
+
+Template Struct quantity_vector_storage< 3, Q >
+===============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::quantity_vector_storage< 3, Q >
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

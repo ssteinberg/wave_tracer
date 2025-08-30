@@ -1,0 +1,14 @@
+.. _exhale_function_gui_2imgui_2utils_8hpp_1ac314c8efa6006fcc5bec53783212a42e:
+
+Function wt::gui::text_size
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::gui::text_size(const std::string&, float, ImFont *)
+   :project: wave_tracer

@@ -1,0 +1,27 @@
+.. _exhale_class_classwt_1_1gaussian2d__t:
+
+Class gaussian2d_t
+==================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian2d.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1gaussian2d__t_1_1sample__ret__t`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::gaussian2d_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

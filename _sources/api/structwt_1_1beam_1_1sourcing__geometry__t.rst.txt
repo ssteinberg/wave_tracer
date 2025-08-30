@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1beam_1_1sourcing__geometry__t:
+
+Struct sourcing_geometry_t
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::beam::sourcing_geometry_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

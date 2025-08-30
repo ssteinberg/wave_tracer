@@ -1,0 +1,14 @@
+.. _exhale_function_enum_8hpp_1a6ed2b9ccbb0ad5adc63ddb35a7c158bf:
+
+Template Function wt::format::parse_enum
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_enum.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::format::parse_enum(const std::string_view&)
+   :project: wave_tracer

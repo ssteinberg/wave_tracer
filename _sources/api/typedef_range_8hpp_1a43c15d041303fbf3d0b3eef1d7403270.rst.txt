@@ -1,0 +1,14 @@
+.. _exhale_typedef_range_8hpp_1a43c15d041303fbf3d0b3eef1d7403270:
+
+Typedef wt::pqrange_t
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::pqrange_t
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1a15f1dfdca6ccd4da5f55a5b587ac771b:
+
+Template Function wt::m::max_dimension(const qvec2<T>&)
+=======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::max_dimension(const qvec2<T>&)
+   :project: wave_tracer

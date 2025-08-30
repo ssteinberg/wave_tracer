@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1seeded__mt19937__64:
+
+Class seeded_mt19937_64
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_seeded_mt19937_64.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::seeded_mt19937_64
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

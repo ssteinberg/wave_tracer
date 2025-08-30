@@ -1,0 +1,14 @@
+.. _exhale_function_fractal_8hpp_1ad4339c52c81d543057fc9a93ad4f2d4c:
+
+Function wt::surface_profile::fractal_profile_details::roughness_to_alpha
+=========================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_fractal.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::surface_profile::fractal_profile_details::roughness_to_alpha(f_t)
+   :project: wave_tracer

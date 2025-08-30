@@ -1,0 +1,97 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp:
+
+Program Listing for File clip.hpp
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect/clip.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <array>
+   
+   #include <wt/util/unreachable.hpp>
+   
+   #include <wt/math/range.hpp>
+   #include <wt/math/intersect/misc.hpp>
+   
+   namespace wt::intersect {
+   
+   struct clip_triangle_ret_t {
+       std::array<pqvec3_t,5> vs;  // clipped polygon
+       int tris = 0;
+       
+       [[nodiscard]] std::array<pqvec3_t,3> triangle(const std::size_t idx) const noexcept {
+           if (idx == 0) return { vs[0],vs[1],vs[2] };
+           if (idx == 1) return { vs[2],vs[0],vs[tris==2?3:4] };
+           if (idx == 2) return { vs[4],vs[2],vs[3] };
+           
+           unreachable();
+       }
+   };
+   
+   [[nodiscard]] inline clip_triangle_ret_t clip_triangle_z(const pqvec3_t& a,
+                                                            const pqvec3_t& b,
+                                                            const pqvec3_t& c,
+                                                            const pqrange_t<>& zrange) noexcept {
+       const auto& ppmax = pqvec3_t{ 0*u::m,0*u::m, zrange.max };
+       const auto& ppmin = pqvec3_t{ 0*u::m,0*u::m, zrange.min };
+       const auto n = dir3_t{ 0,0,1 };
+       
+       std::array<pqvec3_t,3> tri = { a,b,c };
+       // classify: 0 - in range, +1 - far, -1 - near
+       std::array<int,3> cls;
+       for (int i=0;i<3;++i)
+           cls[i] = tri[i].z > zrange.max ? +1 : tri[i].z < zrange.min ? -1 : 0;
+   
+       clip_triangle_ret_t ret;
+       std::size_t idx=0;
+   
+       const auto add_vertex = [&](const auto& v) {
+           assert(idx<5);
+           if (idx<5) ret.vs[idx++] = v;
+       };
+       for (int i=0;i<3;++i) {
+           const auto next = i==2 ? 0 : i+1;
+   
+           // add current if inside range
+           if (cls[i]==0) add_vertex(tri[i]);
+           // add connection to next if crossing clip plane
+           if (cls[next]!=cls[i]) {
+               const auto pt = intersect::intersect_edge_plane(tri[i],tri[next],
+                                                               cls[i]==-1 ? ppmin : cls[i]==1||cls[next]==1 ? ppmax : ppmin,
+                                                               n);
+               assert(pt);
+               add_vertex(pt.value_or(cls[i]!=0?tri[i]:tri[next]));
+   
+               // if crossing both clip planes
+               if (cls[next]!=0 && cls[i]!=0) {
+                   const auto pt = intersect::intersect_edge_plane(tri[i],tri[next],
+                                                                   cls[next]==1 ? ppmax : ppmin,
+                                                                   n);
+                   assert(pt);
+                   add_vertex(pt.value_or(tri[next]));
+               }
+           }
+       }
+   
+       ret.tris = idx<3 ? 0 : idx==3 ? 1 : idx==4 ? 2 : 3;
+       // assert(idx>=3);
+   
+       return ret;
+   }
+   
+   }

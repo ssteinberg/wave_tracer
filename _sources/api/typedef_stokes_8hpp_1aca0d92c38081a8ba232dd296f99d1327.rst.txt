@@ -1,0 +1,14 @@
+.. _exhale_typedef_stokes_8hpp_1aca0d92c38081a8ba232dd296f99d1327:
+
+Typedef wt::QE_stokes_t
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::QE_stokes_t
+   :project: wave_tracer

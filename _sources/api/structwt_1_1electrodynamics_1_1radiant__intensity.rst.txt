@@ -1,0 +1,26 @@
+.. _exhale_struct_structwt_1_1electrodynamics_1_1radiant__intensity:
+
+Struct radiant_intensity
+========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public mp_units::quantity_spec< radiant_intensity, radiant_flux/angular::solid_angle >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::electrodynamics::radiant_intensity
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

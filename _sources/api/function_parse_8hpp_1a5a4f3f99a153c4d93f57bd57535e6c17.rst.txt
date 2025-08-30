@@ -1,0 +1,14 @@
+.. _exhale_function_parse_8hpp_1a5a4f3f99a153c4d93f57bd57535e6c17:
+
+Function wt::stof_strict(const std::string&, f_t)
+=================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::stof_strict(const std::string&, f_t)
+   :project: wave_tracer

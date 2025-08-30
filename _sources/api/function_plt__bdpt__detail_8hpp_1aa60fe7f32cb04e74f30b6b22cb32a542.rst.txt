@@ -1,0 +1,14 @@
+.. _exhale_function_plt__bdpt__detail_8hpp_1aa60fe7f32cb04e74f30b6b22cb32a542:
+
+Function wt::integrator::plt_bdpt::generate_sensor_subpath
+==========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_bdpt::generate_sensor_subpath(std::vector<vertex_t>&, fraunhofer_fsd_bsdfs_arena_t *, const fraunhofer::fsd_sampler::fsd_sampler_t *, const plt_bdpt_t::options_t&, const sensor_sample_t&, const integrator_context_t&, sampler::sampler_t&)
+   :project: wave_tracer

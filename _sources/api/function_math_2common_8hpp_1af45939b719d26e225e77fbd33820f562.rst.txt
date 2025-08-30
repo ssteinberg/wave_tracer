@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1af45939b719d26e225e77fbd33820f562:
+
+Template Function wt::m::min(const glm::vec<N, T>&, const glm::vec<N, T>&, const glm::vec<N, T>&)
+=================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::min(const glm::vec<N, T>&, const glm::vec<N, T>&, const glm::vec<N, T>&)
+   :project: wave_tracer

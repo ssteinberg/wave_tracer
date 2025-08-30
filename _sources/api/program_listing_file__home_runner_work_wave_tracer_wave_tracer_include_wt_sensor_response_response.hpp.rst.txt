@@ -1,0 +1,77 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_response.hpp:
+
+Program Listing for File response.hpp
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_response.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/response/response.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <memory>
+   
+   #include <wt/spectrum/spectrum.hpp>
+   
+   #include <wt/scene/element/scene_element.hpp>
+   #include <wt/wt_context.hpp>
+   #include <wt/math/common.hpp>
+   
+   #include <wt/bitmap/bitmap.hpp>
+   
+   #include <wt/sensor/response/tonemap/tonemap.hpp>
+   
+   namespace wt::sensor::response {
+   
+   class response_t : public scene::scene_element_t {
+   public:
+       static constexpr std::string scene_element_class() noexcept { return "response"; }
+   
+   private:
+       std::shared_ptr<tonemap_t> tonemap;
+   
+   public:
+       response_t(std::string id,
+                  std::shared_ptr<tonemap_t>&& tonemap)
+           : scene_element_t(std::move(id)),
+             tonemap(std::move(tonemap))
+       {}
+       response_t(const response_t&) = default;
+       response_t(response_t&&) = default;
+       virtual ~response_t() noexcept = default;
+   
+       [[nodiscard]] const auto& get_tonemap() const noexcept {
+           return tonemap;
+       }
+   
+       [[nodiscard]] virtual bitmap::pixel_layout_t pixel_layout() const noexcept = 0;
+   
+       [[nodiscard]] auto channels() const noexcept { return pixel_layout().components; }
+       
+       [[nodiscard]] virtual const f_t f(
+               std::uint32_t channel,
+               const wavenumber_t& k) const noexcept = 0;
+       
+       [[nodiscard]] virtual const spectrum::spectrum_real_t& sensitivity() const noexcept = 0;
+   
+   public:
+       static std::unique_ptr<response_t> load(std::string id, 
+                                               scene::loader::loader_t* loader, 
+                                               const scene::loader::node_t& node, 
+                                               const wt::wt_context_t &context);
+   };
+   
+   }

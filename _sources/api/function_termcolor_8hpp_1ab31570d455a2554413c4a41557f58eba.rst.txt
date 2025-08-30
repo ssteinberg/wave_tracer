@@ -1,0 +1,14 @@
+.. _exhale_function_termcolor_8hpp_1ab31570d455a2554413c4a41557f58eba:
+
+Function wt::logger::termcolour::blink
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::logger::termcolour::blink(std::ostream&)
+   :project: wave_tracer

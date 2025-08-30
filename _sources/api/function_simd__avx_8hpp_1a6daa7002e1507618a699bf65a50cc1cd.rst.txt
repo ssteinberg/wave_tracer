@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1a6daa7002e1507618a699bf65a50cc1cd:
+
+Function wt::simd::merge_lower_upper(simd_avx_t<double, 4>, simd_avx_t<double, 4>)
+==================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::merge_lower_upper(simd_avx_t<double, 4>, simd_avx_t<double, 4>)
+   :project: wave_tracer

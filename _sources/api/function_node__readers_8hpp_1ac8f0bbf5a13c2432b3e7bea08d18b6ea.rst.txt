@@ -1,0 +1,14 @@
+.. _exhale_function_node__readers_8hpp_1ac8f0bbf5a13c2432b3e7bea08d18b6ea:
+
+Function wt::scene::loader::load_texture_element(const node_t&, std::shared_ptr<texture::texture_t>&, loader_t \*, const wt_context_t&)
+=======================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::loader::load_texture_element(const node_t&, std::shared_ptr<texture::texture_t>&, loader_t *, const wt_context_t&)
+   :project: wave_tracer

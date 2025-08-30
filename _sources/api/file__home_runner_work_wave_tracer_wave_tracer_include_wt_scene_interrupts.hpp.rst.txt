@@ -1,0 +1,67 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_interrupts.hpp:
+
+File interrupts.hpp
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/interrupts.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_interrupts.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``functional``
+
+- ``render_results.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__scene`
+
+- :ref:`namespace_wt__scene__interrupts`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1scene_1_1interrupts_1_1capture__intermediate__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1interrupts_1_1interrupt__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1interrupts_1_1pause__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1interrupts_1_1resume__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1interrupts_1_1terminate__t`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1af84037b56f5123ce83591f741a2723a9:
+
+Template Function wt::u::to_inv_mm(const quantity_vector<N, Q>&)
+================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::u::to_inv_mm(const quantity_vector<N, Q>&)
+   :project: wave_tracer

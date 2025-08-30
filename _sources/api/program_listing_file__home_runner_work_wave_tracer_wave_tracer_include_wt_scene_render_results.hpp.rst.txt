@@ -1,0 +1,72 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp:
+
+Program Listing for File render_results.hpp
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/render_results.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <chrono>
+   #include <memory>
+   #include <variant>
+   
+   #include <wt/sensor/film/defs.hpp>
+   #include <wt/sensor/sensor.hpp>
+   #include <wt/bitmap/bitmap.hpp>
+   #include "wt/bitmap/common.hpp"
+   
+   namespace wt::scene {
+   
+   template <std::size_t Dims>
+   struct developed_scalar_film_pair_t {
+       std::unique_ptr<sensor::developed_scalar_film_t<Dims>> developed_tonemapped;
+       bitmap::colour_encoding_t tonemapped_film_colour_encoding;
+   
+       std::unique_ptr<sensor::developed_scalar_film_t<Dims>> developed;
+   };
+   template <std::size_t Dims>
+   struct developed_polarimetric_film_pair_t {
+       std::unique_ptr<sensor::developed_polarimetric_film_t<Dims>> developed_tonemapped;
+       bitmap::colour_encoding_t tonemapped_film_colour_encoding;
+   
+       std::unique_ptr<sensor::developed_polarimetric_film_t<Dims>> developed;
+   };
+   
+   struct sensor_render_result_t {
+       const sensor::sensor_t* sensor;
+       std::chrono::high_resolution_clock::duration render_elapsed_time{};
+   
+       using developed_films_t = std::variant<
+           developed_scalar_film_pair_t<1>,
+           developed_scalar_film_pair_t<2>,
+           developed_scalar_film_pair_t<3>,
+           developed_polarimetric_film_pair_t<1>,
+           developed_polarimetric_film_pair_t<2>,
+           developed_polarimetric_film_pair_t<3>
+       >;
+       developed_films_t developed_films;
+   
+       std::size_t spe_written;
+       std::optional<f_t> fractional_spe;
+   };
+   struct render_result_t {
+       std::unordered_map<std::string, sensor_render_result_t> sensors;
+       std::chrono::high_resolution_clock::duration render_elapsed_time{};
+   };
+   
+   }

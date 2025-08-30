@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1wt__version__t:
+
+Struct wt_version_t
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_version.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::wt_version_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

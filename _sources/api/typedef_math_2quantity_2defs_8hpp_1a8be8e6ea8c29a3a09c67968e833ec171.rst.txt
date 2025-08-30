@@ -1,0 +1,14 @@
+.. _exhale_typedef_math_2quantity_2defs_8hpp_1a8be8e6ea8c29a3a09c67968e833ec171:
+
+Typedef wt::wavelength_t
+========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::wavelength_t
+   :project: wave_tracer

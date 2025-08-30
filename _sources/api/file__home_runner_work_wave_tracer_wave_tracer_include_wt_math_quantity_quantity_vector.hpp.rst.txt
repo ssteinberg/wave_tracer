@@ -1,0 +1,325 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp:
+
+File quantity_vector.hpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity/quantity_vector.hpp``)
+-------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``cstddef``
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/math/quantity/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`)
+
+- ``wt/math/quantity/framework.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_framework.hpp`)
+
+- ``wt/math/quantity/math.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`)
+
+- ``wt/math/quantity/quantity_limits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_limits.hpp`)
+
+- ``wt/math/quantity/type_traits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__m`
+
+- :ref:`namespace_wt__u`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1quantity__vector`
+
+- :ref:`exhale_struct_structwt_1_1quantity__vector__storage`
+
+- :ref:`exhale_struct_structwt_1_1quantity__vector__storage_3_011_00_01Q_01_4`
+
+- :ref:`exhale_struct_structwt_1_1quantity__vector__storage_3_012_00_01Q_01_4`
+
+- :ref:`exhale_struct_structwt_1_1quantity__vector__storage_3_013_00_01Q_01_4`
+
+- :ref:`exhale_struct_structwt_1_1quantity__vector__storage_3_014_00_01Q_01_4`
+
+- :ref:`exhale_struct_structwt_1_1vector__type`
+
+- :ref:`exhale_struct_structwt_1_1vector__type_3_01N_00_01Q_01_4`
+
+- :ref:`exhale_struct_structwt_1_1vector__type_3_01N_00_01T_01_4`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa3eb607855966f77d71981952548c642`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a130455a8d64e83c3202db043be2fab66`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a949ceb4a3c3f5261bcdd58332e8441e8`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a09763ff3bb2429b3591c0e141b64543f`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a520f1ad6ebd6456360b5216024dc0551`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a6fffd8e046144dc88bb5c24e00709811`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a11ae26e68634935e611159dea733cd9c`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a48aa20527c53ed275b42dc07b36e3e28`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1affff5087a32dd6fea6e52cb8890fc9ff`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ad0b5097e155ed128574691882373edc5`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aee661cad23027c0c7f82db94e2361666`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a056d5b644425c961b1ba3494b54f9078`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a1016e3815bed34b870e178ac9a1b956b`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa97a989178ce779cfb1c2e7a0d63540c`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aba3d97738ccb9d1225661c6a8ae97c27`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1abfc1495f433911cc34cd65fc8be25161`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa9bac93f9ef72aac3204f79b046956da`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a15f1dfdca6ccd4da5f55a5b587ac771b`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a474fad67f92e3b527782a644367e7f40`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aec2cee7b2b33743641a38d9cedf062e9`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a9e3d30abe47a5514db0cee8011ce863b`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ae0cdcc4bbf7af33dd1f3ffb1576fc232`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa7d0f1a4738728479b28e25c295ea246`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a7f6bfb0cbff5f2285df1667680886435`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a94d2b56aa734e21dd047f28d20d582f7`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a8046abec5719302ab215695ad5d85efe`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a1521d1eb8a8cc2e3a5976a2c885c82ec`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ad72d204441761c0dcc8a6b4bb153f960`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1afd32254e32574bf29367ebef86b9a433`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1abb3f245de3774d17ecc50ac11561ffb6`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1abf7b0e7bcc326c8318bbc0740193bbc1`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ab11933eee32aa9614c10b45fa985c0c4`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ac18b22444ffd00f5dc84a30175af086a`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a5cd92cba68711822726994ebdae4b16f`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a4bf71aff3e3233e8b5a3c81c5e0ac269`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a3508f03e5235fe27d050d8b5e57c993f`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a842bd97646f723e62c55a1dd352ec6fb`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a7f88d7b6f4c43765b95da0452b5099ce`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a522465d6e8cb901857b56a00c35d3108`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a24fca51717a750620f760698bfed98ec`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a07df81b2b334cc16fa7c7c1076b2000f`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1af9906aa44f7e235e1c544497e987b2af`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ae7d2baeaba1e0563021f16a62e055d84`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a14c66bc003f70e82c21391387d351a34`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aad7307464ff8505c572ae5f6bd1a2f02`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a8b661a0c11458e8985c7f74b8b7e8aff`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a42e2a13743f87cc4d5987b45ef84dd65`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a98680f85e5ea3e2f1fbf16f43bb8c8db`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a26ef672ce80294701d1c1f68d4c490a4`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aded36c182107de9df5a351712ad4f222`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a6b1e9ed2429b7c3bda4e6bbed0872972`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a634a9384ffd829942cf8cdeb90485156`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a0ef1864d78175819848b96cb6d4a21cd`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a031f7731a9899d5df9fe2406a2640e66`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aea039d54721b29356380abc5664f6502`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a073483a03588fa7c8fc7d3427135a07b`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a2bbde637507c3af6928546a5fbea99c7`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a8bbc01a169add4a247e005b193bd553e`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a60b6247c950d55a732fbcfacf164a669`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a011bca89872b53e662503a0b2b614ef5`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aacd4f92ab21d60b516bc45619d9daad8`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a85aec6c00dcdfd2f599a7ab0a0c9805d`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ae2363072449e14c1de66a9eae2c9f179`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ab2a00e4d4271062210594861854ebc62`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a6716b4dfeb6bfdc6d05b976c27dcaef9`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a028ef607ca48ddf958a3d0952fe03da8`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a0eb785f260cee6efa0825016ce9e374a`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a30a0a627b5531a809c58aeac20919981`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa101573fcec46fdee8a7f771681edbde`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a53c5fa30b6fd32d90ee39ef60e3493c0`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1afbc9c3ddae0375faf39dc3fa28c1994f`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a0af4398eafe9bf475b86acc74154d462`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aaff086da2085ff2c267640ce1f0785ee`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a0f1f9df3464923e198ddef31a710f5e3`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a49a910c99cef866ea3f99ce29f6fbb40`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1af84037b56f5123ce83591f741a2723a9`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ab8bc8ed400638f950b2cb9c953065c10`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a499aebb3d635e987e72ff07fbfb52d0c`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a1f89b69fa4d1dd9bcbbd4299e8bb2bf7`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a72abd4b0c2e93ddbaa788800cd3ea2ed`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ad05e4edb545cb98fef09b2ffe4b816d9`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1acfd3390a75d12a1d9a885eb123d50af6`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a0bfd6722a14ee415b28cc631ec5706cc`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a37dde1594807fcf052455f2f335b5d11`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ac49b1217443bafbb060b565df10b2ad9`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aa06e6db570c3ead568d5b18f9c23826f`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a89cd37e017f29a6aee21de78f7f9208c`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a7fdc981e7a59567a4ad2325168fd94b3`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a8942730bff3dc28db182b81f54fb8ce2`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1ad0d540f32e6060b158f427520438b1eb`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a30efc7b823816bb8a10d7160b7405e61`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a6a918fc9e3bccda73f7f0898f1d3b0e7`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a467e5af5bea9c6d2ebaad16e08ad5f76`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a51e111e12a206dd343e97b6093ccad1f`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1aea9f009b30ddeffc90180098e740f0de`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1af8009a512579a6015d5a7991a41ee7c4`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a2b58d51a1dc627acad05d7df65384514`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1acefdc6ec021df9e1909dd8190a319f31`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a45e1219c2cf64124d232a96e050dea5e`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a110a7ced3c7349343d86a83048b9369b`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a99bbc76b6f86ece4ad218b448165ac35`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1aadaa5b5d1501676aaf6c0abe568aef5b`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a37728ac19892cafd0e181d44cfb72ccd`
+
+- :ref:`exhale_typedef_quantity__vector_8hpp_1a318e3126bb15204df72b4bb8114f5839`
+

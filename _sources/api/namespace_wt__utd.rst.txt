@@ -1,0 +1,33 @@
+
+.. _namespace_wt__utd:
+
+Namespace wt::utd
+=================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1utd_1_1fsd__aperture__t`
+
+- :ref:`exhale_struct_structwt_1_1utd_1_1UTD__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1utd_1_1wedge__edge__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_utd_8hpp_1a46fe591269664846841657ce483b26a4`
+
+- :ref:`exhale_function_utd_8hpp_1a59429d5937c63276744b5ab1284cfdfb`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_utd_8hpp_1a15b24c307055e9d01041a8051545adcc`

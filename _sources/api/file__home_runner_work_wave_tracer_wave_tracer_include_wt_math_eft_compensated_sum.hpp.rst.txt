@@ -1,0 +1,59 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_compensated_sum.hpp:
+
+File compensated_sum.hpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/eft``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/eft/compensated_sum.hpp``)
+--------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_compensated_sum.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__m`
+
+- :ref:`namespace_wt__m__eft`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1m_1_1eft_1_1compensated__fp__t`
+

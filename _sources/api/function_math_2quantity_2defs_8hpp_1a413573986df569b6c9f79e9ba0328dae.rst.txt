@@ -1,0 +1,14 @@
+.. _exhale_function_math_2quantity_2defs_8hpp_1a413573986df569b6c9f79e9ba0328dae:
+
+Template Function wt::u::numerical_value_in(const Quantity auto&, const U)
+==========================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::u::numerical_value_in(const Quantity auto&, const U)
+   :project: wave_tracer

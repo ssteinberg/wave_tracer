@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1a3f2c729e7fd72ac925a38af0fbc25d06:
+
+Function wt::simd::sqrt(simd_avx_t<double, 8>)
+==============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::sqrt(simd_avx_t<double, 8>)
+   :project: wave_tracer

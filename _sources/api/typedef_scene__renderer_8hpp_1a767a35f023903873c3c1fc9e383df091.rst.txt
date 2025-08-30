@@ -1,0 +1,14 @@
+.. _exhale_typedef_scene__renderer_8hpp_1a767a35f023903873c3c1fc9e383df091:
+
+Typedef wt::scene::duration_t
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::scene::duration_t
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1ab6c71cc574c5bb324efa7fb152feb977:
+
+Template Function wt::m::signbit(const vec<N, T>&)
+==================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::signbit(const vec<N, T>&)
+   :project: wave_tracer

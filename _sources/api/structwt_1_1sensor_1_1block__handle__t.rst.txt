@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1sensor_1_1block__handle__t:
+
+Struct block_handle_t
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_block.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::sensor::block_handle_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

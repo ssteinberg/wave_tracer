@@ -1,0 +1,14 @@
+.. _exhale_typedef_gui_2utils_8hpp_1a9755e3ea4564b36b51bb04b664794077:
+
+Typedef wt::gui::preview_bitmap_polarimetric_t
+==============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::gui::preview_bitmap_polarimetric_t
+   :project: wave_tracer

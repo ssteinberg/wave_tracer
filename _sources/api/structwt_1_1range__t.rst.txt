@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1range__t:
+
+Template Struct range_t
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::range_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

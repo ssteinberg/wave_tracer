@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1is__unit__vector_3_01UV_01_4:
+
+Template Struct is_unit_vector< UV >
+====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::is_unit_vector< UV >
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_typedef_util_2gui_2impl_2common_8hpp_1ab137b6425b1bcf692ab2a77d48d7d767:
+
+Typedef wt::gui::rendering_state_t
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::gui::rendering_state_t
+   :project: wave_tracer

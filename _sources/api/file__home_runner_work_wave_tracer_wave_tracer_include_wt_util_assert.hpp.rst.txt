@@ -1,0 +1,90 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp:
+
+File assert.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/assert.hpp``)
+-------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``type_traits`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp`)
+
+- ``utility``
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ray.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_transform.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_assert_8hpp_1a46b49b68c9a5decb8984319663c7b781`
+
+- :ref:`exhale_function_assert_8hpp_1aa0059c128a8703afdbf9ef0e9b4c4739`
+
+- :ref:`exhale_function_assert_8hpp_1a53f63507b46f87542bff59f529304548`
+
+- :ref:`exhale_function_assert_8hpp_1a2f75704d9a120268c67c0cbba3349378`
+
+- :ref:`exhale_function_assert_8hpp_1ac6db7253021f6a717ad7434fdfd72386`
+
+- :ref:`exhale_function_assert_8hpp_1a0cddb2a1249135c09c63e845528c7869`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_assert_8hpp_1aa2ad68dd55b6758e757bed7cb06c1b22`
+

@@ -1,0 +1,40 @@
+.. _exhale_class_classwt_1_1scene_1_1scene__element__t:
+
+Class scene_element_t
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_scene_element.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public wt::bsdf::bsdf_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1bsdf__t`)
+- ``public wt::emitter::emitter_t`` (:ref:`exhale_class_classwt_1_1emitter_1_1emitter__t`)
+- ``public wt::fraunhofer::fsd_sampler::fsd_sampler_t`` (:ref:`exhale_class_classwt_1_1fraunhofer_1_1fsd__sampler_1_1fsd__sampler__t`)
+- ``public wt::integrator::integrator_t`` (:ref:`exhale_class_classwt_1_1integrator_1_1integrator__t`)
+- ``public wt::sampler::sampler_t`` (:ref:`exhale_class_classwt_1_1sampler_1_1sampler__t`)
+- ``public wt::sensor::mask::mask_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1mask_1_1mask__t`)
+- ``public wt::sensor::response::response_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1response_1_1response__t`)
+- ``public wt::sensor::response::tonemap_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1response_1_1tonemap__t`)
+- ``public wt::sensor::sensor_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1sensor__t`)
+- ``public wt::shape_t`` (:ref:`exhale_class_classwt_1_1shape__t`)
+- ``public wt::spectrum::spectrum_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1spectrum__t`)
+- ``public wt::surface_profile::surface_profile_t`` (:ref:`exhale_class_classwt_1_1surface__profile_1_1surface__profile__t`)
+- ``public wt::texture::complex_t`` (:ref:`exhale_class_classwt_1_1texture_1_1complex__t`)
+- ``public wt::texture::quantity_t< Q >`` (:ref:`exhale_class_classwt_1_1texture_1_1quantity__t`)
+- ``public wt::texture::texture_t`` (:ref:`exhale_class_classwt_1_1texture_1_1texture__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::scene::scene_element_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

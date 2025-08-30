@@ -1,0 +1,14 @@
+.. _exhale_function_node__readers_8hpp_1a9c2fc3c6e46a73203d84966a7678176a:
+
+Template Function wt::scene::loader::read_vec_attribute
+=======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::loader::read_vec_attribute(const node_t&, const std::optional<V>)
+   :project: wave_tracer

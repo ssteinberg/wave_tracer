@@ -1,0 +1,14 @@
+.. _exhale_function_quantity__vector_8hpp_1ac18b22444ffd00f5dc84a30175af086a:
+
+Template Function wt::m::min_element(const qvec1<T>&)
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::min_element(const qvec1<T>&)
+   :project: wave_tracer

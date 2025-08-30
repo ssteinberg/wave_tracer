@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1bitmap_1_1colour__encoding__t_1_1srgb__lut__t:
+
+Struct colour_encoding_t::srgb_lut_t
+====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_struct_structwt_1_1bitmap_1_1colour__encoding__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::bitmap::colour_encoding_t::srgb_lut_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

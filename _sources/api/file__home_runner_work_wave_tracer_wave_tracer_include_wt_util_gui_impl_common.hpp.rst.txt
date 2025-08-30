@@ -1,0 +1,126 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp:
+
+File common.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/impl``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/impl/common.hpp``)
+----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/scene/scene_renderer.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`)
+
+- ``wt/util/gui/dependencies.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_dependencies.hpp`)
+
+- ``wt/util/gui/utils.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__gui`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_util_2gui_2impl_2common_8hpp_1ab137b6425b1bcf692ab2a77d48d7d767`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ab81fa3b139373c51aab43a5b5e32f456`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a10704c6f8827a6c093af3efe243898df`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1af23506c876fb6578ce4e38e60a8e210e`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ac119d03099fef3adb6130ce0a852421c`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a4264c08a6d1a19f6e98d18a37e01688f`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a3dcfa533604fd18d61fca0d85e22b9e3`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a91632fe7b4b6e3bebfb7372c39d8e722`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ab86aeaebc8c870613f1fb2b344a0889a`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a86ffaddfd060720489a9384728315e8c`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1af927884e9ae16ce3ba0d4ed93addd0ea`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a5b3b0645df39fe170852f0f3116aec5f`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1af4559d304d59ba4269b5bab57e8d2e71`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ac38d6ebee715bef7908ed46fbca8a82b`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ab359d84b9eba50a9c68a3b545217c2f9`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1aba3fb60a27565bcd36b4afd599136379`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1aacbaff2266b8cd9c6d5fd5af58850f1e`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a7d8211260c1f12dc55b98e6cac11c7d3`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a2d24a833d80e8d9b746ad08c6b61b947`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a88b6d2ceb0d0bc8172573239eaeb4a3c`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a88a11087d481fea91b7b9332d932c168`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1adedff7f75b966df35ac77efc072891e5`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1af39bce0d4b96324253f998921486ea67`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a27ce86079f2f3b54b56ca1481dcf8f82`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a7784e916dfedba147aeffdd2bf3c4e49`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a4c64734013778013b5a192bfb56b7bbd`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1ac99934bbfb497ff858577e1bc479f385`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1aac4fee5de287fddfb1f3f609ed007bc1`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a678d9c22e66a5e1bd0dd0c432f2abeb1`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a2163ad07545b941617c9e1d874a1939b`
+
+- :ref:`exhale_variable_util_2gui_2impl_2common_8hpp_1a6b642c4b43b26600a01b3b1dfc67e4d9`
+

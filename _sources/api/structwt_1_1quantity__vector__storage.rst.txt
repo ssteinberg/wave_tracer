@@ -1,0 +1,29 @@
+.. _exhale_struct_structwt_1_1quantity__vector__storage:
+
+Template Struct quantity_vector_storage
+=======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public wt::quantity_vector< length_t >`` (:ref:`exhale_struct_structwt_1_1quantity__vector`)
+- ``public wt::quantity_vector< Q >`` (:ref:`exhale_struct_structwt_1_1quantity__vector`)
+- ``public wt::quantity_vector< length_density_t >`` (:ref:`exhale_struct_structwt_1_1quantity__vector`)
+- ``public wt::quantity_vector< N, Q >`` (:ref:`exhale_struct_structwt_1_1quantity__vector`)
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::quantity_vector_storage
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,40 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum:
+
+
+Directory spectrum
+==================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum``
+
+Subdirectories
+--------------
+
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util`
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_analytic.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_binned.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_blackbody.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_analytic.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_container.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_uniform.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_composite.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_discrete.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_function.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_gaussian.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_piecewise_linear.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_rgb.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_uniform.hpp`
+
+

@@ -1,0 +1,14 @@
+.. _exhale_function_math_2util_8hpp_1a79fd43cc7b2dc5bf945a8b5d399bbd92:
+
+Function wt::util::is_point_in_rectangle(const vec2_t&, const vec2_t&, const vec2_t&, const vec2_t&, const vec2_t&)
+===================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::util::is_point_in_rectangle(const vec2_t&, const vec2_t&, const vec2_t&, const vec2_t&, const vec2_t&)
+   :project: wave_tracer

@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1mesh_1_1mesh__t_1_1tri__indices__t:
+
+Struct mesh_t::tri_indices_t
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1mesh_1_1mesh__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::mesh::mesh_t::tri_indices_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

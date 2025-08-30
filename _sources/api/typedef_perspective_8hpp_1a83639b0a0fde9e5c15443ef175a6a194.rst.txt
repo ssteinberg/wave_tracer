@@ -1,0 +1,14 @@
+.. _exhale_typedef_perspective_8hpp_1a83639b0a0fde9e5c15443ef175a6a194:
+
+Typedef wt::sensor::perspective_polarimetric_t
+==============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::sensor::perspective_polarimetric_t
+   :project: wave_tracer

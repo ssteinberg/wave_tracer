@@ -1,0 +1,31 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unique_function.hpp:
+
+Program Listing for File unique_function.hpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unique_function.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/unique_function.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <function2/function2.hpp>
+   
+   namespace wt {
+   
+   template <typename Sig>
+   using unique_function = fu2::unique_function<Sig>;
+   
+   }

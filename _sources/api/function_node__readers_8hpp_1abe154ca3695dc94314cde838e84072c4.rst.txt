@@ -1,0 +1,14 @@
+.. _exhale_function_node__readers_8hpp_1abe154ca3695dc94314cde838e84072c4:
+
+Function wt::scene::loader::load_transform(const node_t&, const std::string&, std::optional<transform_d_t>&, loader_t \*)
+=========================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::loader::load_transform(const node_t&, const std::string&, std::optional<transform_d_t>&, loader_t *)
+   :project: wave_tracer

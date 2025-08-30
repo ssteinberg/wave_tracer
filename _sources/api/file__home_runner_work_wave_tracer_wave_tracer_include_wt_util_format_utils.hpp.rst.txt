@@ -1,0 +1,79 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp:
+
+File utils.hpp
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/format``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/format/utils.hpp``)
+-------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``algorithm``
+
+- ``bit`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``cctype``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``string_view``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__format`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_format_2utils_8hpp_1a73a6c54781d95d1855938f2657ed6718`
+
+- :ref:`exhale_function_format_2utils_8hpp_1af1be1067e26d26e04b7a56ae0762fc98`
+
+- :ref:`exhale_function_format_2utils_8hpp_1a0aad8beec2a53531d5d1b91d20c0af66`
+
+- :ref:`exhale_function_format_2utils_8hpp_1ad8485c38ca1be4ae2d6261d5b6d98bcc`
+
+- :ref:`exhale_function_format_2utils_8hpp_1aaae33211ef1747701b645d9aa1140a9d`
+

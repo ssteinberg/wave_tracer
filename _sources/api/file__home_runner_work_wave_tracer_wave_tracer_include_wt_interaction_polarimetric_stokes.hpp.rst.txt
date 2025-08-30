@@ -1,0 +1,125 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp:
+
+File stokes.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/polarimetric``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/polarimetric/stokes.hpp``)
+---------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``utility``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/frame.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`)
+
+- ``wt/math/rotation.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_rotation.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_RGB.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_monochromatic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_multichannel.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1stokes__parameters__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_stokes_8hpp_1a4b7c62c9ab46986113f00d6e602bf19b`
+
+- :ref:`exhale_function_stokes_8hpp_1a63b8369e0e86908fc6d60df427c1ac9b`
+
+- :ref:`exhale_function_stokes_8hpp_1a58f224265b4c5e1b7b701e287d7a5cb7`
+
+- :ref:`exhale_function_stokes_8hpp_1a311f641d2814dec05e8d9a843fa3de93`
+
+- :ref:`exhale_function_stokes_8hpp_1a691507fadec21ebfa40ee48d5776400c`
+
+- :ref:`exhale_function_stokes_8hpp_1a81e52b212ee3e78cba1f7de785db7f04`
+
+- :ref:`exhale_function_stokes_8hpp_1a2494b53e6d166f326b02b6c823fa9686`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_stokes_8hpp_1a4004818c1e2f7bd62477e3d91b1f2c2f`
+
+- :ref:`exhale_typedef_stokes_8hpp_1a1301ef9fc00fd4c50a0b892501ea7f40`
+
+- :ref:`exhale_typedef_stokes_8hpp_1a263ecf4839ef7adc93c9b7ad85bb9794`
+
+- :ref:`exhale_typedef_stokes_8hpp_1aae758c1ed198538eeb730e0cadcf26e3`
+
+- :ref:`exhale_typedef_stokes_8hpp_1aca0d92c38081a8ba232dd296f99d1327`
+
+- :ref:`exhale_typedef_stokes_8hpp_1a875b9b3251f7dac3ecfd7384b0d40585`
+
+- :ref:`exhale_typedef_stokes_8hpp_1a63612b3342e899a599621745d9d68df1`
+
+- :ref:`exhale_typedef_stokes_8hpp_1ab67e66aebc87d27733d2797add190ca8`
+
+- :ref:`exhale_typedef_stokes_8hpp_1a5b24c71278d40080e8455bf4d93560db`
+
+- :ref:`exhale_typedef_stokes_8hpp_1a5abe9d7c315798a2d1da82125cc3815a`
+
+- :ref:`exhale_typedef_stokes_8hpp_1a2dbb94b8891c57783ccedb022a42b61e`
+
+- :ref:`exhale_typedef_stokes_8hpp_1af66e1ab059f17ba43ab538701ea24ec4`
+

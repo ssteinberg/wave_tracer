@@ -1,0 +1,82 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_barycentric.hpp:
+
+File barycentric.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/barycentric.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_barycentric.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``optional``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/shapes/ray.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ray.hpp`)
+
+- ``wt/mesh/triangle.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_triangle.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1barycentric__t`
+
+- :ref:`exhale_struct_structwt_1_1barycentric__t_1_1triangle__point__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_barycentric_8hpp_1a98ec345d0b4c4843640ccd8debfa34bd`
+
+- :ref:`exhale_function_barycentric_8hpp_1add27ee64bfc57469fa04b17c8878a345`
+
+- :ref:`exhale_function_barycentric_8hpp_1a5e15126336bc474af94c9de5e1f5aebf`
+

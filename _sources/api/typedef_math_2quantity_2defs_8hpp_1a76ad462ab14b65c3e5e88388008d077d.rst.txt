@@ -1,0 +1,14 @@
+.. _exhale_typedef_math_2quantity_2defs_8hpp_1a76ad462ab14b65c3e5e88388008d077d:
+
+Typedef wt::wavenumber_density_t
+================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::wavenumber_density_t
+   :project: wave_tracer

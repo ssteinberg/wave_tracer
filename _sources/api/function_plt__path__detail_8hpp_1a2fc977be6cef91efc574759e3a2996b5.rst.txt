@@ -1,0 +1,14 @@
+.. _exhale_function_plt__path__detail_8hpp_1a2fc977be6cef91efc574759e3a2996b5:
+
+Template Function wt::integrator::plt_path::emission
+====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_path::emission(path_walk_data_t<BeamType>&, const intersection_surface_t&, const int)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a918006e3547d0640b60e4b81ff914d49:
+
+Function wt::m::sqrt(const Numeric auto)
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::sqrt(const Numeric auto)
+   :project: wave_tracer

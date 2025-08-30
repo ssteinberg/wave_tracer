@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1logger_1_1logger__t_1_1bar__t:
+
+Struct logger_t::bar_t
+======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1logger_1_1logger__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::logger::logger_t::bar_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

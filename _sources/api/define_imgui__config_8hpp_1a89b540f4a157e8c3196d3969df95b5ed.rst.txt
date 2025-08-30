@@ -1,0 +1,14 @@
+.. _exhale_define_imgui__config_8hpp_1a89b540f4a157e8c3196d3969df95b5ed:
+
+Define ImDrawIdx
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui_config.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: ImDrawIdx
+   :project: wave_tracer

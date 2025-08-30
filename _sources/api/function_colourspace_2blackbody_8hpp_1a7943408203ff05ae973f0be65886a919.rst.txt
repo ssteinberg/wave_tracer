@@ -1,0 +1,14 @@
+.. _exhale_function_colourspace_2blackbody_8hpp_1a7943408203ff05ae973f0be65886a919:
+
+Function wt::colourspace::planckian_locus
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_blackbody.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::colourspace::planckian_locus(const Temperature auto&)
+   :project: wave_tracer

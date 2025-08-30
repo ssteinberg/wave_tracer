@@ -1,0 +1,14 @@
+.. _exhale_function_thread__pool_2utils_8hpp_1a34d00e83e83d9aacbe4c0081804431e2:
+
+Function wt::thread_pool::is_this_thread_tpool_worker
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::thread_pool::is_this_thread_tpool_worker()
+   :project: wave_tracer

@@ -1,0 +1,27 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect:
+
+
+Directory intersect
+===================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect``
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ball.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone_intersection_tolerance.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`
+
+

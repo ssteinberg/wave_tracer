@@ -1,0 +1,611 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp:
+
+File common.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/common.hpp``)
+-------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``bit`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``cmath`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`)
+
+- ``cstring``
+
+- ``limits`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_limits.hpp`)
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/math/eft/eft.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`)
+
+- ``wt/math/matinverse.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_matinverse.hpp`)
+
+- ``wt/math/quantity/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``wt/math/quantity/math.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`)
+
+- ``wt/math/quantity/quantity_limits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_limits.hpp`)
+
+- ``wt/math/quantity/quantity_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`)
+
+- ``wt/math/quantity/zero.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp`)
+
+- ``wt/math/unit_vector/math.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`)
+
+- ``wt/math/unit_vector/unit_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`)
+
+- ``wt/math/vecmath.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_node.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_intersection_record.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_traversal_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_util.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_gaussian_wavefront.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_load2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_bsdf.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_area.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_directional.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_infinite_emitter.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_point.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_spot.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_integrator_context.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fresnel.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd_lut.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd_sampler.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_free_space_diffraction.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_utd.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_dirac.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_fractal.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_gaussian.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_barycentric.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_binned_piecewise_linear_distribution.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_discrete_distribution.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_distribution1d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian1d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian2d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_piecewise_linear_distribution.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_product_distribution.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_truncated_gaussian1d.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_uniform_distribution.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_encoded_normal.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_erf_lut.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_format.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ball.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone_intersection_tolerance.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_linalg.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_matinverse.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_norm_integers.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_rotation.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ball.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ray.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_cube.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_cylinder.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_icosahedron.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_lens.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh_tri_ptr.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_obj_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_ply_loader.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_prism.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_rectangle.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_sphere.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_surface_differentials.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_triangle.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_sobolld_sampler.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_uniform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_position_sample.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_previewer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_block.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_padded_block.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_sensor_element.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_RGB.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_XYZ.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_monochromatic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_multichannel.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_response.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_film_backed_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_analytic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_binned.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_blackbody.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB_to_spectral.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_blackbody.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_whitepoint.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_analytic.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_container.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_uniform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_composite.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_discrete.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_function.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_gaussian.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_piecewise_linear.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_rgb.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_uniform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_bitmap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_checkerboard.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex_constant.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex_container.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_constant.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_function.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_mix.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_quantity.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_scale.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_texture.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_transform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_font_renderer_font_renderer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_gui.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_math_expression.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_interface.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_tev.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter_event.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_histogram.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_stats.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_timings.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__m`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1m_1_1case__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_math_2common_8hpp_1ae81a79886c76751ba8f97f89786e1886`
+
+- :ref:`exhale_function_math_2common_8hpp_1a3a914c7f6df96e313a23127fc027111b`
+
+- :ref:`exhale_function_math_2common_8hpp_1aaf2a6633fc76e1f251b7c7c4c4fbc129`
+
+- :ref:`exhale_function_math_2common_8hpp_1afed0e9e8c40a9470bbea5627686cd953`
+
+- :ref:`exhale_function_math_2common_8hpp_1a8066b7a4debcfe6c7ea5d2ad7b844cf8`
+
+- :ref:`exhale_function_math_2common_8hpp_1a308885ba02afe3751dc5f58029dec414`
+
+- :ref:`exhale_function_math_2common_8hpp_1a122c4bb122c5a079aac0790418a012de`
+
+- :ref:`exhale_function_math_2common_8hpp_1a2a1d7110e04e958bb3c17f4d06c60c63`
+
+- :ref:`exhale_function_math_2common_8hpp_1a5226305380be73c0a7a7dcafeae4b65c`
+
+- :ref:`exhale_function_math_2common_8hpp_1ac6b8c932426dbe9250f38b4112562106`
+
+- :ref:`exhale_function_math_2common_8hpp_1a8f48dabb641171b44e51a4273ca4ef78`
+
+- :ref:`exhale_function_math_2common_8hpp_1ada2b72511d91256a5ecab225f3dc9f73`
+
+- :ref:`exhale_function_math_2common_8hpp_1afe656264191855712961c8fb73190128`
+
+- :ref:`exhale_function_math_2common_8hpp_1aaebdee7eec170f4f49dd7293e51c368f`
+
+- :ref:`exhale_function_math_2common_8hpp_1aa49524fac6ab67e73eea49a40afd91c1`
+
+- :ref:`exhale_function_math_2common_8hpp_1a02bea4adc0458df0d1553b1eefbd0c77`
+
+- :ref:`exhale_function_math_2common_8hpp_1a89fd3e8c7a95474f3252e93fea839d06`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9717f720a3bc3e2c0e4e2f440ad435d7`
+
+- :ref:`exhale_function_math_2common_8hpp_1af53488cba0d9febac5821babae68e6bb`
+
+- :ref:`exhale_function_math_2common_8hpp_1a26ac61ad699a7fdaaaf95c3a40c4328d`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9e036aa4daa3fcef8c6ad578dc9a42f2`
+
+- :ref:`exhale_function_math_2common_8hpp_1a52dc46c9c50f8a7d8fd9776bcb11f284`
+
+- :ref:`exhale_function_math_2common_8hpp_1a46948a72cd1381421db73265f708008b`
+
+- :ref:`exhale_function_math_2common_8hpp_1a79525b8ee98459a3fe7b87b0fb558947`
+
+- :ref:`exhale_function_math_2common_8hpp_1a813d3967f4ffbba07693a818b65e2805`
+
+- :ref:`exhale_function_math_2common_8hpp_1a066cb03cf18f263833f09a387e54292b`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad750765e605412f1b51a33527e79cdf7`
+
+- :ref:`exhale_function_math_2common_8hpp_1a4718cf4287df5d69f29403a8c60dd6aa`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad29eca57d8183d908a940ab154997c3b`
+
+- :ref:`exhale_function_math_2common_8hpp_1a6d6123f2bf409a55553e77dcb175ed48`
+
+- :ref:`exhale_function_math_2common_8hpp_1a5fe11243712e250697c4c5d747a76421`
+
+- :ref:`exhale_function_math_2common_8hpp_1a97146b0bf1c1569f83a6a7c17cc0d4e8`
+
+- :ref:`exhale_function_math_2common_8hpp_1a929cbc93b219b6d64db1284c6642f416`
+
+- :ref:`exhale_function_math_2common_8hpp_1a7c0dac528fb4b5acc841775bd2e33394`
+
+- :ref:`exhale_function_math_2common_8hpp_1a0828394a31a30bf8cda0417232ea0f84`
+
+- :ref:`exhale_function_math_2common_8hpp_1a63d55701b1c2a64a17dda53ffef2e77e`
+
+- :ref:`exhale_function_math_2common_8hpp_1add61f0b7212bda549103e831dc6e5f52`
+
+- :ref:`exhale_function_math_2common_8hpp_1aa28682308aeb6cff6f0ffeb3c0568932`
+
+- :ref:`exhale_function_math_2common_8hpp_1afdd0d321d839ff4963f09532bb8094d3`
+
+- :ref:`exhale_function_math_2common_8hpp_1a4ba4c49af0f68d8355b494ad467380b9`
+
+- :ref:`exhale_function_math_2common_8hpp_1a396ec7df35ffe6dc1c268f0e27ec28d3`
+
+- :ref:`exhale_function_math_2common_8hpp_1a5559482d46b414682ac348b2096023f6`
+
+- :ref:`exhale_function_math_2common_8hpp_1a8f390d21a5d751d9526842357ad9bd5a`
+
+- :ref:`exhale_function_math_2common_8hpp_1ac1e509b14df4d56741b88e8799fac330`
+
+- :ref:`exhale_function_math_2common_8hpp_1aec8f945ac81243ef6217db2788fd01f4`
+
+- :ref:`exhale_function_math_2common_8hpp_1a94f475343a9c12a20dae5e256830a41e`
+
+- :ref:`exhale_function_math_2common_8hpp_1a836165a584ecca8c414905df301a9833`
+
+- :ref:`exhale_function_math_2common_8hpp_1a00bb4770364fc06083d2673f6592b1fb`
+
+- :ref:`exhale_function_math_2common_8hpp_1aa335469d74790641ab982aa192284330`
+
+- :ref:`exhale_function_math_2common_8hpp_1a07bcb0a4730d5118721a062c0d79e5dd`
+
+- :ref:`exhale_function_math_2common_8hpp_1af45939b719d26e225e77fbd33820f562`
+
+- :ref:`exhale_function_math_2common_8hpp_1a6da6d2bb9f629fd781394572ea7af232`
+
+- :ref:`exhale_function_math_2common_8hpp_1acc512c350a545fbc747a478ac52d97a7`
+
+- :ref:`exhale_function_math_2common_8hpp_1aef39de32632c75c75dd14327bc5fe53e`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad42c16ffb0cccc14f1b3e4431ebb7360`
+
+- :ref:`exhale_function_math_2common_8hpp_1a70a4c8546c467add099960ef515a730c`
+
+- :ref:`exhale_function_math_2common_8hpp_1a08f44b909ad5790238e36d53932b2b62`
+
+- :ref:`exhale_function_math_2common_8hpp_1a0f8dcee12dd323c8da035c44a5eab1d4`
+
+- :ref:`exhale_function_math_2common_8hpp_1a819d4fa2de93fb8044f5a16bea101d93`
+
+- :ref:`exhale_function_math_2common_8hpp_1a910d64964bd3a6062005167c22fc7904`
+
+- :ref:`exhale_function_math_2common_8hpp_1a638dedca1f1ba4a48360c7bb95c8e855`
+
+- :ref:`exhale_function_math_2common_8hpp_1a27d90d5a5ba02bfeb6b807718c8ed98e`
+
+- :ref:`exhale_function_math_2common_8hpp_1a12b81e6b741a3f5c8aa071c1aa031ee3`
+
+- :ref:`exhale_function_math_2common_8hpp_1aae82c45cde3a7d851478a80c48e67ace`
+
+- :ref:`exhale_function_math_2common_8hpp_1a71f0ea1d8aa2222e573853c2ea9d02db`
+
+- :ref:`exhale_function_math_2common_8hpp_1a62e9f8c22fe169e7ca869bd883abc221`
+
+- :ref:`exhale_function_math_2common_8hpp_1a1e39960016d6f199eafd0a7959a5aba0`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9bcff4fabd71aa258735d81f0053e27b`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9c1e00674b9d66f06cacbbcd6d064f1d`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad34209fbc5fafb644d0ae51e80c08fbf`
+
+- :ref:`exhale_function_math_2common_8hpp_1a796ed79369711042358713e6b54f339a`
+
+- :ref:`exhale_function_math_2common_8hpp_1a20d7c5e43f139d9c91fd7f20d4108943`
+
+- :ref:`exhale_function_math_2common_8hpp_1aeb6f9d75ad126d25bccb26b22863d06f`
+
+- :ref:`exhale_function_math_2common_8hpp_1a6f9db0e9e49957c4fae9aeaa28219c62`
+
+- :ref:`exhale_function_math_2common_8hpp_1a010b8a37b052ad512f7f846376a0529c`
+
+- :ref:`exhale_function_math_2common_8hpp_1aac2b3df25cb5034be9fedbedf8290f71`
+
+- :ref:`exhale_function_math_2common_8hpp_1abd6a055ef6c4fc363e169b814602765a`
+
+- :ref:`exhale_function_math_2common_8hpp_1a0a8a8f58a81821520f3e3ce2cae09c02`
+
+- :ref:`exhale_function_math_2common_8hpp_1a9c66174e0be44a9ed0cda98ae6f693e0`
+
+- :ref:`exhale_function_math_2common_8hpp_1ac76e5093c4433d45c47290d4b9050f36`
+
+- :ref:`exhale_function_math_2common_8hpp_1a7219f29008210360bbf68f56a04e55b4`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad01ed10d796f269404ade9e4ea47e410`
+
+- :ref:`exhale_function_math_2common_8hpp_1a82146db94cde24fd27648ef34e6ad58a`
+
+- :ref:`exhale_function_math_2common_8hpp_1a4829d136748a8968ee1bb6b7225f44b9`
+
+- :ref:`exhale_function_math_2common_8hpp_1a50b52c3920737be16f95e837fbf5fa60`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad198e4f1897231d37c9d5c2c6a2a57b4`
+
+- :ref:`exhale_function_math_2common_8hpp_1a4c20d0bf0c1a966534145a02c78ee75f`
+
+- :ref:`exhale_function_math_2common_8hpp_1ab6c71cc574c5bb324efa7fb152feb977`
+
+- :ref:`exhale_function_math_2common_8hpp_1a1432acaf67c922eddf5f68b7dce157ca`
+
+- :ref:`exhale_function_math_2common_8hpp_1a84882af14aba0b85c96e3eba2c4700cd`
+
+- :ref:`exhale_function_math_2common_8hpp_1ac01cee76ff40c7570b8a83cf7b559ef6`
+
+- :ref:`exhale_function_math_2common_8hpp_1a918006e3547d0640b60e4b81ff914d49`
+
+- :ref:`exhale_function_math_2common_8hpp_1a3fcea4728be6de05f552eeb90fade063`
+
+- :ref:`exhale_function_math_2common_8hpp_1a73bf25d3686ff6e467dd078ae9d14452`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_math_2common_8hpp_1a6ee85545b3c7f3d5928121600a49d083`
+

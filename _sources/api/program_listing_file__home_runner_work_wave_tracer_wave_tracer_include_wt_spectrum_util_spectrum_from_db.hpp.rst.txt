@@ -1,0 +1,77 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_db.hpp:
+
+Program Listing for File spectrum_from_db.hpp
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_db.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/util/spectrum_from_db.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <vector>
+   #include <memory>
+   
+   #include <wt/wt_context.hpp>
+   #include <wt/spectrum/spectrum.hpp>
+   
+   namespace wt::spectrum {
+   
+   namespace detail_spectrum_from_db {
+   
+   struct spectrum_from_material_ret_t {
+       std::string id;
+       std::vector<std::unique_ptr<spectrum_t>> channels;
+   };
+   
+   spectrum_from_material_ret_t spectrum_from_db(const wt_context_t& ctx,
+                                                 const std::string& name,
+                                                 const std::uint16_t channels,
+                                                 const wavelength_t db_wavelength,
+                                                 const f_t scale,
+                                                 const bool bin = false);
+   
+   }
+   
+   inline std::unique_ptr<spectrum_t> emission_spectrum_from_db(
+           const wt_context_t &ctx,
+           const std::string& name,
+           const f_t scale=1) {
+       // emission db are provided with wavelength in nm
+       auto ret = detail_spectrum_from_db::spectrum_from_db(ctx, "emission/"+name, 1,
+                                                            1*u::nm, scale);
+       assert(!ret.channels.empty());
+       return ret.channels.empty() ? nullptr : std::move(ret.channels[0]);
+   }
+   
+   inline auto spectrum_from_material(const wt_context_t& ctx,
+                                      const std::string& name) {
+       // IOR db are provided with wavelength in um
+       return detail_spectrum_from_db::spectrum_from_db(ctx, "ior/"+name, 2,
+                                                        1*u::µm, 1);
+   }
+   
+   inline auto response_spectrum_from_db(const wt_context_t& ctx,
+                                         const std::string& name,
+                                         const std::uint16_t channels,
+                                         const bool bin = true) {
+       // sensitivity db are provided with wavelength in nm
+       return detail_spectrum_from_db::spectrum_from_db(ctx, "sensitivity/"+name, channels,
+                                                        1*u::nm, 1,
+                                                        bin);
+   }
+   
+   }

@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a1e39960016d6f199eafd0a7959a5aba0:
+
+Template Function wt::m::min_element(const vec4<T>&)
+====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::min_element(const vec4<T>&)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1af8ce9466a0e68ddb2f22ee8c6e622ca9:
+
+Function wt::m::sin
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::sin(const Angle auto)
+   :project: wave_tracer

@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1scene_1_1developed__scalar__film__pair__t:
+
+Template Struct developed_scalar_film_pair_t
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::scene::developed_scalar_film_pair_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

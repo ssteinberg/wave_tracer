@@ -1,0 +1,14 @@
+.. _exhale_function_simd__emulation_8hpp_1a8ca66efb34be996a40b0d8aecd02b74b:
+
+Template Function wt::simd::ceil(simd_emulated_t<Fp, W>)
+========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::ceil(simd_emulated_t<Fp, W>)
+   :project: wave_tracer

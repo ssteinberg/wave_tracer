@@ -1,0 +1,14 @@
+.. _exhale_function_plt__bdpt__detail_8hpp_1a9519a5febaf1bd433a93227efea992bf:
+
+Template Function wt::integrator::plt_bdpt::sample_surface_interaction
+======================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_bdpt::sample_surface_interaction(bdpt_walk_data_t<BeamType>&, const ads::tri_t&, const barycentric_t&, const shape_t *, const pqvec3_t&, const length_t)
+   :project: wave_tracer

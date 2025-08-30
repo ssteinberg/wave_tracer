@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a4829d136748a8968ee1bb6b7225f44b9:
+
+Template Function wt::m::round(const glm::mat<N, M, T>&)
+========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::round(const glm::mat<N, M, T>&)
+   :project: wave_tracer

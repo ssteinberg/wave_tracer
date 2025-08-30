@@ -1,0 +1,14 @@
+.. _exhale_function_math_2quantity_2defs_8hpp_1ae3e336c29435e4a9da8e27f8c89364ef:
+
+Function wt::u::to_sr
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::u::to_sr(const QuantityOf<angular::solid_angle> auto)
+   :project: wave_tracer

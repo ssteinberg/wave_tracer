@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a2fe19413ec3197ae62cffaf169ad27ab:
+
+Template Function wt::m::clamp(const Q&, const Q&, const Q&)
+============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::clamp(const Q&, const Q&, const Q&)
+   :project: wave_tracer

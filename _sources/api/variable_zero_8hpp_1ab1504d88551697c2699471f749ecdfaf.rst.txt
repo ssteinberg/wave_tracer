@@ -1,0 +1,14 @@
+.. _exhale_variable_zero_8hpp_1ab1504d88551697c2699471f749ecdfaf:
+
+Variable wt::zero
+=================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::zero
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_define_imgui__log_8hpp_1adf4d73301961430d50d7edd96f92ce38:
+
+Define IMGUI_DEFINE_MATH_OPERATORS
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui_log.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: IMGUI_DEFINE_MATH_OPERATORS
+   :project: wave_tracer

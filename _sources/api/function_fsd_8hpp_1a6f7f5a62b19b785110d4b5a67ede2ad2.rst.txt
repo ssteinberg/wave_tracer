@@ -1,0 +1,14 @@
+.. _exhale_function_fsd_8hpp_1a6f7f5a62b19b785110d4b5a67ede2ad2:
+
+Function wt::fraunhofer::fsd::alpha1(vec2_t)
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::fraunhofer::fsd::alpha1(vec2_t)
+   :project: wave_tracer

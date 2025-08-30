@@ -1,0 +1,119 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp:
+
+Program Listing for File free_space_diffraction.hpp
+===================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/fsd/fraunhofer/free_space_diffraction.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/ads/intersection_record.hpp>
+   #include <wt/sampler/sampler.hpp>
+   
+   #include <wt/beam/gaussian_wavefront.hpp>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/frame.hpp>
+   #include <wt/math/shapes/elliptic_cone.hpp>
+   #include <wt/sampler/density.hpp>
+   
+   #include <wt/interaction/fsd/fraunhofer/fsd.hpp>
+   #include <wt/interaction/fsd/fraunhofer/fsd_sampler.hpp>
+   
+   namespace wt::fraunhofer {
+   
+   class free_space_diffraction_t {
+   private:
+       static constexpr auto fsd_unit = f_t(1) * u::mm;
+       static constexpr f_t  wo2_cutoff = .85;
+   
+       fsd::fsd_aperture_t aperture;
+   
+       wavenumber_t k;
+       frame_t frame;
+   
+       const fsd_sampler::fsd_sampler_t *fsd_sampler;
+   
+   public:
+       struct sample_ret_t {
+           dir3_t wo;
+           solid_angle_sampling_pd_t dpd;
+           f_t weight;
+       };
+   
+   public:
+       free_space_diffraction_t(const ads::ads_t* ads,
+                                const fsd_sampler::fsd_sampler_t *fsd_sampler,
+                                const frame_t& frame,
+                                wavenumber_t k, f_t totalPower,
+                                const elliptic_cone_t& beam,
+                                const ads::intersection_record_t::edges_container_t& edges,
+                                const beam::gaussian_wavefront_t& wave_function) noexcept;
+       free_space_diffraction_t(free_space_diffraction_t&&) noexcept = default;
+   
+       [[nodiscard]] bool empty() const noexcept { return aperture.edges.empty(); }
+   
+       [[nodiscard]] const auto& get_frame() const noexcept { return frame; }
+   
+       [[nodiscard]] sample_ret_t sample(sampler::sampler_t& sampler) const noexcept {
+           const auto sample = fsd_sampler->sample(sampler, aperture);
+           const auto scale  = u::to_num(this->k * fsd_unit);
+   
+           if (sample.pdf>0) {
+               // tan to sin and scale
+               const auto zeta    = sample.xi / scale;
+               const auto wolocal = zeta / (m::sqrt(vec2_t{ 1 }+m::sqr(zeta)));
+               const auto wo2     = m::length2(wolocal);
+               if (wo2 < wo2_cutoff) {
+                   const auto z = m::sqrt(1-wo2);
+                   return {
+                       .wo = dir3_t{ wolocal,z },
+                       .dpd = solid_angle_density_t{ sample.pdf / u::ang::sr },
+                       .weight = sample.weight,
+                   };
+               }
+           }
+   
+           return {
+               .wo = { 0,0,1 },
+               .dpd = solid_angle_density_t::zero(), 
+               .weight = 0,
+           };
+       }
+   
+       [[nodiscard]] f_t f(const dir3_t &wolocal) const noexcept {
+           return (f_t)(pdf(wolocal) * u::ang::sr);
+       }
+   
+       [[nodiscard]] solid_angle_density_t pdf(const dir3_t& wolocal) const noexcept {
+           const auto wo2 = m::length2(vec2_t{ wolocal });
+           if (wolocal.z<=0 || wo2>=wo2_cutoff)
+               return solid_angle_density_t::zero();
+   
+           const auto scale = u::to_num(this->k * fsd_unit);
+           // sin to tan and scale
+           const auto zeta = vec2_t{ wolocal } / m::sqrt(vec2_t{ 1 }-m::sqr(vec2_t{ wolocal }));
+           const auto xi   = scale * zeta;
+   
+           const auto pdf = fsd_sampler->pdf(aperture, xi);
+           assert(m::isfinite(pdf) && pdf>=0);
+   
+           return (0<=pdf&&pdf<f_t(1e+2) ? pdf : 0) / u::ang::sr;
+       }
+   };
+   
+   }

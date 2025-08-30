@@ -1,0 +1,14 @@
+.. _exhale_function_texture2d__storage_8hpp_1af4c92e8e599a3e26de73cbe76645d017:
+
+Template Function wt::bitmap::white_value_for_bitmap_type
+=========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::white_value_for_bitmap_type()
+   :project: wave_tracer

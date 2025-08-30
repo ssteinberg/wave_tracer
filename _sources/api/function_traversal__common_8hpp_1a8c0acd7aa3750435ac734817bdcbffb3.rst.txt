@@ -1,0 +1,14 @@
+.. _exhale_function_traversal__common_8hpp_1a8c0acd7aa3750435ac734817bdcbffb3:
+
+Template Function wt::ads::ray_work_to_intersection_record
+==========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_traversal_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::ads::ray_work_to_intersection_record(const Ads&, const intersection_record_ray_work_t&, const pqrange_t<>)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_bitmap_2bitmap_8hpp_1af83567b2110249ac4e921f2c9fc5a044:
+
+Template Function wt::bitmap::resize(bitmap_t<T, Dims>&&, typename bitmap_t<T, Dims>::size_t)
+=============================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::resize(bitmap_t<T, Dims>&&, typename bitmap_t<T, Dims>::size_t)
+   :project: wave_tracer

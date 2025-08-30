@@ -1,0 +1,14 @@
+.. _exhale_define_wide__vector_8hpp_1a2006102be8ddabd8e82c44e9174eb1c5:
+
+Define simd_t
+=============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: simd_t
+   :project: wave_tracer

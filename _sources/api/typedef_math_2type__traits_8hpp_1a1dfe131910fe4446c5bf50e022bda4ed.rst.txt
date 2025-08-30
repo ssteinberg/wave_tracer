@@ -1,0 +1,14 @@
+.. _exhale_typedef_math_2type__traits_8hpp_1a1dfe131910fe4446c5bf50e022bda4ed:
+
+Typedef wt::vector_element_type_t
+=================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::vector_element_type_t
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_termcolor_8hpp_1aae85f8a1ceb9f11ba5ef490b15210d19:
+
+Function wt::logger::termcolour::is_colourized(std::ostream&)
+=============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::logger::termcolour::is_colourized(std::ostream&)
+   :project: wave_tracer

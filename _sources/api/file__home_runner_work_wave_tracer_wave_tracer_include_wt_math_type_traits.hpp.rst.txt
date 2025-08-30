@@ -1,0 +1,123 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp:
+
+File type_traits.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/type_traits.hpp``)
+------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/math/quantity/quantity_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`)
+
+- ``wt/math/quantity/type_traits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp`)
+
+- ``wt/math/unit_vector/unit_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_format.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1element__count`
+
+- :ref:`exhale_struct_structwt_1_1element__count_3_01QV_01_4`
+
+- :ref:`exhale_struct_structwt_1_1element__count_3_01UV_01_4`
+
+- :ref:`exhale_struct_structwt_1_1element__count_3_01V_01_4`
+
+- :ref:`exhale_struct_structwt_1_1is__quantity__vector`
+
+- :ref:`exhale_struct_structwt_1_1is__quantity__vector_3_01UV_01_4`
+
+- :ref:`exhale_struct_structwt_1_1is__scalar__vector`
+
+- :ref:`exhale_struct_structwt_1_1is__scalar__vector_3_01UV_01_4`
+
+- :ref:`exhale_struct_structwt_1_1is__unit__vector`
+
+- :ref:`exhale_struct_structwt_1_1is__unit__vector_3_01UV_01_4`
+
+- :ref:`exhale_struct_structwt_1_1vector__element__rep`
+
+- :ref:`exhale_struct_structwt_1_1vector__element__rep_3_01QV_01_4`
+
+- :ref:`exhale_struct_structwt_1_1vector__element__rep_3_01UV_01_4`
+
+- :ref:`exhale_struct_structwt_1_1vector__element__type`
+
+- :ref:`exhale_struct_structwt_1_1vector__element__type_3_01QV_01_4`
+
+- :ref:`exhale_struct_structwt_1_1vector__element__type_3_01UV_01_4`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_math_2type__traits_8hpp_1ab43f6d7e21c6cf1516270090c6e14f9a`
+
+- :ref:`exhale_typedef_math_2type__traits_8hpp_1a1dfe131910fe4446c5bf50e022bda4ed`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_math_2type__traits_8hpp_1aa21889f6bd9da44cf43eb7cac4ee859c`
+
+- :ref:`exhale_variable_math_2type__traits_8hpp_1a9127de54c0d2410c46fe455631c3597d`
+
+- :ref:`exhale_variable_math_2type__traits_8hpp_1a1d47c2eae8291de31f8c7cba17f7afa5`
+
+- :ref:`exhale_variable_math_2type__traits_8hpp_1a0e08a331819e89c390451a8740403b96`
+

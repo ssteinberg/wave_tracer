@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1logger_1_1file__logger__t:
+
+Class file_logger_t
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_file_log.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::logger::file_logger_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

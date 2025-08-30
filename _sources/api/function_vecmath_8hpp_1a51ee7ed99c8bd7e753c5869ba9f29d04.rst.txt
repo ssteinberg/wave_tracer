@@ -1,0 +1,14 @@
+.. _exhale_function_vecmath_8hpp_1a51ee7ed99c8bd7e753c5869ba9f29d04:
+
+Template Function wt::m::cross(const V1&, const V2&)
+====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::cross(const V1&, const V2&)
+   :project: wave_tracer

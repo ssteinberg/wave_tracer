@@ -1,0 +1,130 @@
+
+.. _namespace_wt__logger__termcolour:
+
+Namespace wt::logger::termcolour
+================================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1logger_1_1termcolour_1_1rgb__colour__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_termcolor_8hpp_1ab31570d455a2554413c4a41557f58eba`
+
+- :ref:`exhale_function_termcolor_8hpp_1a76680949379352956683858d081704c0`
+
+- :ref:`exhale_function_termcolor_8hpp_1a164f73c35f0814c0e554438c95cebabb`
+
+- :ref:`exhale_function_termcolor_8hpp_1ab0e02bc213b3eaff1595c618f0544838`
+
+- :ref:`exhale_function_termcolor_8hpp_1a4eeb70fdf8b4355f0e1fdabdbe62041d`
+
+- :ref:`exhale_function_termcolor_8hpp_1aa4c9281928a7ef6dd63e9d13e10a8e2c`
+
+- :ref:`exhale_function_termcolor_8hpp_1a94a4cb51f536549d8da07d2ac009c36f`
+
+- :ref:`exhale_function_termcolor_8hpp_1a7d17c24dddf42715c6fa790d8a5e6e4b`
+
+- :ref:`exhale_function_termcolor_8hpp_1ac4d94d0b0b1de346d930cc650095dbc5`
+
+- :ref:`exhale_function_termcolor_8hpp_1a64ba10078513123ffdcedcc810c69573`
+
+- :ref:`exhale_function_termcolor_8hpp_1ae929513c7b5fda7c97a14a02936492c1`
+
+- :ref:`exhale_function_termcolor_8hpp_1a7ce9eb14f217d9bb7985545f37f7bc4e`
+
+- :ref:`exhale_function_termcolor_8hpp_1abf876d9b16baa474939cec631aa7fd32`
+
+- :ref:`exhale_function_termcolor_8hpp_1a65978eb6cc47734d4871bb579f725e34`
+
+- :ref:`exhale_function_termcolor_8hpp_1a4cfb4b033c7a0f28a791db0dac19b1bd`
+
+- :ref:`exhale_function_termcolor_8hpp_1aaf2620842ca62ce7b459af1fd1953b4a`
+
+- :ref:`exhale_function_termcolor_8hpp_1a640ea07af263051c853b6de49163d3f0`
+
+- :ref:`exhale_function_termcolor_8hpp_1a63c31308208669c4402aa19c5567d104`
+
+- :ref:`exhale_function_termcolor_8hpp_1a809881c7e3ef0412e5d1e5cd9b879e18`
+
+- :ref:`exhale_function_termcolor_8hpp_1ace039183fe5d11ba5cfee338aba53346`
+
+- :ref:`exhale_function_termcolor_8hpp_1aae85f8a1ceb9f11ba5ef490b15210d19`
+
+- :ref:`exhale_function_termcolor_8hpp_1abdc6a0934b76a346087ba6addcc7a308`
+
+- :ref:`exhale_function_termcolor_8hpp_1a473913a149e25028064e1e2948bfb79c`
+
+- :ref:`exhale_function_termcolor_8hpp_1a4785edcf419f227a28cde9825e11a913`
+
+- :ref:`exhale_function_termcolor_8hpp_1ae5057741cbebe0e094502fe573a9b325`
+
+- :ref:`exhale_function_termcolor_8hpp_1aaea90c2784c332b28b21324dbf34fce1`
+
+- :ref:`exhale_function_termcolor_8hpp_1a6737af1c528ae42fbc9a9c1cb99c046c`
+
+- :ref:`exhale_function_termcolor_8hpp_1a62eb35ba42fded56cb1ca999b0584f76`
+
+- :ref:`exhale_function_termcolor_8hpp_1ade74f4346636b9f640c67efde9b1415d`
+
+- :ref:`exhale_function_termcolor_8hpp_1a2c526eb31b02c164e6aef76ba69d1926`
+
+- :ref:`exhale_function_termcolor_8hpp_1a0434ab9e08c8ce5dc1157bff6923f7d1`
+
+- :ref:`exhale_function_termcolor_8hpp_1a3bd3805b010083b8b07ce6e6e30204ac`
+
+- :ref:`exhale_function_termcolor_8hpp_1a1504a639c43d4bdadf97b2274a06bd24`
+
+- :ref:`exhale_function_termcolor_8hpp_1aa144e600c87ae90ee622f7b5623ae4b4`
+
+- :ref:`exhale_function_termcolor_8hpp_1ac647711da300e9c32bd4984fe60ad5c2`
+
+- :ref:`exhale_function_termcolor_8hpp_1ab470b8c6e789029200418de075043dcf`
+
+- :ref:`exhale_function_termcolor_8hpp_1af5765cdbc1c321ebdf00862b21a18a7f`
+
+- :ref:`exhale_function_termcolor_8hpp_1a88b98793464181f84a1d6acd8fdd67b0`
+
+- :ref:`exhale_function_termcolor_8hpp_1a982573752e4217ad1f96c8851360dd60`
+
+- :ref:`exhale_function_termcolor_8hpp_1a79aa5a51c044d49035c9aa70442251aa`
+
+- :ref:`exhale_function_termcolor_8hpp_1a1373d059f4fc342313fd94347e0f15ea`
+
+- :ref:`exhale_function_termcolor_8hpp_1aa7205f752c3a8b89580c9768bdee54b1`
+
+- :ref:`exhale_function_termcolor_8hpp_1ad3ba1a1cf8baca554363ec60dc8b2200`
+
+- :ref:`exhale_function_termcolor_8hpp_1a7b5d58f21973e9446d9e6c3cc8bf2c2d`
+
+- :ref:`exhale_function_termcolor_8hpp_1a31d9ac64f0f0c9ed05ec29488de2059f`
+
+- :ref:`exhale_function_termcolor_8hpp_1aa2b7b03dc12c05b089a1cf5b62f02bce`
+
+- :ref:`exhale_function_termcolor_8hpp_1a23a57e802a08800ca4592cbc53438e62`
+
+- :ref:`exhale_function_termcolor_8hpp_1afac25fd5dacbee32b69d6cef213d3e0e`
+
+- :ref:`exhale_function_termcolor_8hpp_1a261329af7887a427f78e4f50e8fd80bf`
+
+- :ref:`exhale_function_termcolor_8hpp_1a48c636f83660d7fb4a090bba1ec0a94d`
+
+- :ref:`exhale_function_termcolor_8hpp_1a4116703e95d0abcf0d51dcab0f00b289`
+
+- :ref:`exhale_function_termcolor_8hpp_1a7bb351b35baffdebb7f40a10582ad5e5`
+
+- :ref:`exhale_function_termcolor_8hpp_1a45d5fbb6b78b0c72ce31eb98f5e915a2`
+
+- :ref:`exhale_function_termcolor_8hpp_1ae4c3284d8b195757c763a1403e3b2173`
+
+- :ref:`exhale_function_termcolor_8hpp_1ab02cec0154fa5257b04a8dd729138621`
+
+- :ref:`exhale_function_termcolor_8hpp_1a26593a07fd92b7dcf6c2f6b6be2c4520`

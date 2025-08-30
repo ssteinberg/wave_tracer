@@ -1,0 +1,14 @@
+.. _exhale_function_plt__bdpt__detail_8hpp_1abbeaca3ed959f947ea4431b49599aa6b:
+
+Template Function wt::integrator::plt_bdpt::random_walk
+=======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_bdpt::random_walk(bdpt_walk_data_t<BeamType>&)
+   :project: wave_tracer

@@ -1,0 +1,79 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector_registry.hpp:
+
+Program Listing for File stat_collector_registry.hpp
+====================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector_registry.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/statistics_collector/stat_collector_registry.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    *
+    * wave tracer
+    * Copyright  Shlomi Steinberg
+    * Authors:  Umut Emre, Shlomi Steinberg
+    *
+    * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+    *
+    */
+   
+   #pragma once
+   
+   #include <tbb/tbb.h>
+   
+   #include <functional>
+   #include <memory>
+   #include <string>
+   #include <thread>
+   #include <utility>
+   
+   #include "stat_collector.hpp"
+   
+   namespace wt::stats {
+   
+   using collector_map_key_t = std::pair<std::string, std::thread::id>;
+   
+   struct collector_map_key_hash {
+       static bool equal(const collector_map_key_t& x, const collector_map_key_t& y) {
+           return x == y;
+       }
+   
+       static std::size_t hash(const collector_map_key_t& p) {
+           return (std::hash<std::string>{}(p.first) ^ std::hash<std::thread::id>{}(p.second));
+       }
+   };
+   
+   class stat_collector_registry_t {
+       tbb::concurrent_hash_map<collector_map_key_t, std::unique_ptr<stat_collector_t>, collector_map_key_hash> collectors;
+   
+   public:
+       stat_collector_registry_t() = default;
+       stat_collector_registry_t(stat_collector_registry_t& other) = delete;
+       void operator=(const stat_collector_registry_t&) = delete;
+   
+       static stat_collector_registry_t& instance() noexcept {
+           static stat_collector_registry_t instance;
+           return instance;
+       }
+   
+       template <typename T>
+           requires std::is_base_of_v<stat_collector_t, T>
+       T* make_collector(auto&&... args) {
+           auto collector = std::make_unique<T>(std::forward<decltype(args)>(args)...);
+           auto result = collector.get();
+           auto key = std::make_pair(collector->name, std::this_thread::get_id());
+   
+           if (!collectors.insert({key, std::move(collector)})) {
+               throw std::runtime_error(std::format("stat collector with name '{}' registered more than once", key.first));
+           }
+   
+           return result;
+       }
+   
+       [[nodiscard]] std::vector<std::unique_ptr<stat_collector_t>> get_collectors() const;
+   };
+   
+   }  // namespace wt

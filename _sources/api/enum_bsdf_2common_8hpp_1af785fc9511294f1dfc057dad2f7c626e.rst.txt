@@ -1,0 +1,14 @@
+.. _exhale_enum_bsdf_2common_8hpp_1af785fc9511294f1dfc057dad2f7c626e:
+
+Enum transport_e
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::bsdf::transport_e
+   :project: wave_tracer

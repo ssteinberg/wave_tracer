@@ -1,0 +1,14 @@
+.. _exhale_typedef_unit__vector_8hpp_1a67256b43f9cf3dd85b6469d9c7aa31b8:
+
+Typedef wt::dir2_t
+==================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::dir2_t
+   :project: wave_tracer

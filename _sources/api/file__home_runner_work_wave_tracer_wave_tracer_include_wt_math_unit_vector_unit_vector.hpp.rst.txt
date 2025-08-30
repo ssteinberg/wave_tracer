@@ -1,0 +1,106 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp:
+
+File unit_vector.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/unit_vector``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/unit_vector/unit_vector.hpp``)
+------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstddef``
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/math/quantity/quantity_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`)
+
+- ``wt/util/assert.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1unit__vector`
+
+- :ref:`exhale_struct_structwt_1_1unit__vector__storage`
+
+- :ref:`exhale_struct_structwt_1_1unit__vector__storage_3_011_00_01T_01_4`
+
+- :ref:`exhale_struct_structwt_1_1unit__vector__storage_3_012_00_01T_01_4`
+
+- :ref:`exhale_struct_structwt_1_1unit__vector__storage_3_013_00_01T_01_4`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1a30d692f8c7f45d50f070d67640cbfb49`
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1a996b164504c63b91390c8d7f84d65776`
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1a67256b43f9cf3dd85b6469d9c7aa31b8`
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1a2b6e56319eee79f08df50c478d13a057`
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1a937977568ed202446422a854fcf49f3c`
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1a3c82019298629b9e63e4d0575d262434`
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1a67004dd1d60a833034dc38123802e6c0`
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1af5ea7e45c701239a219c15a0363bba20`
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1a107407cabe33b36f64884209e05b4ceb`
+
+- :ref:`exhale_typedef_unit__vector_8hpp_1a396b161896f3315acfa6612aee2a074e`
+

@@ -1,0 +1,14 @@
+.. _exhale_typedef_loader_8hpp_1a1507ffb98cdbf6631491021a93c21899:
+
+Typedef wt::scene::loader::defaults_defines_t
+=============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::scene::loader::defaults_defines_t
+   :project: wave_tracer

@@ -1,0 +1,36 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp:
+
+Program Listing for File glm.hpp
+================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/glm.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #ifdef GLM_VERSION_MAJOR
+   #error "include <wt/math/glm.hpp> before GLM headers"
+   #endif
+   
+   #define GLM_FORCE_EXPLICIT_CTOR
+   #define GLM_FORCE_XYZW_ONLY
+   #define GLM_FORCE_SIZE_T_LENGTH
+   #define GLM_FORCE_LEFT_HANDED
+   #define GLM_ENABLE_EXPERIMENTAL
+   #include <glm/glm.hpp>
+   #include <glm/gtc/constants.hpp>
+   #include <glm/gtc/reciprocal.hpp>
+   #include <glm/gtc/ulp.hpp>

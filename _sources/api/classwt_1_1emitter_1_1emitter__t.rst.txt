@@ -1,0 +1,35 @@
+.. _exhale_class_classwt_1_1emitter_1_1emitter__t:
+
+Class emitter_t
+===============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::scene::scene_element_t`` (:ref:`exhale_class_classwt_1_1scene_1_1scene__element__t`)
+
+
+Derived Types
+*************
+
+- ``public wt::emitter::area_t`` (:ref:`exhale_class_classwt_1_1emitter_1_1area__t`)
+- ``public wt::emitter::infinite_emitter_t`` (:ref:`exhale_class_classwt_1_1emitter_1_1infinite__emitter__t`)
+- ``public wt::emitter::point_t`` (:ref:`exhale_class_classwt_1_1emitter_1_1point__t`)
+- ``public wt::emitter::spot_t`` (:ref:`exhale_class_classwt_1_1emitter_1_1spot__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::emitter::emitter_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

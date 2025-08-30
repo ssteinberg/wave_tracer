@@ -1,0 +1,66 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp:
+
+File glm.hpp
+============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/glm.hpp``)
+----------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``glm/glm.hpp``
+
+- ``glm/gtc/constants.hpp``
+
+- ``glm/gtc/reciprocal.hpp``
+
+- ``glm/gtc/ulp.hpp``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`
+
+
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_glm_8hpp_1abd75661fe7969e19439052a5f69ba5d1`
+
+- :ref:`exhale_define_glm_8hpp_1a7f588cba464c7124722331e8017a3493`
+
+- :ref:`exhale_define_glm_8hpp_1ad39ff9bc8a4676f8e1e28d695e637360`
+
+- :ref:`exhale_define_glm_8hpp_1a85a6c40b6dda265974d71e6b4351bc6e`
+
+- :ref:`exhale_define_glm_8hpp_1a92fa3326bb210b17bbf8f4d8c8302856`
+

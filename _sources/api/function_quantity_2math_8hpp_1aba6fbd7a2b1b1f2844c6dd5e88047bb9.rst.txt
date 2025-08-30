@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1aba6fbd7a2b1b1f2844c6dd5e88047bb9:
+
+Function wt::m::floor(const Quantity auto)
+==========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::floor(const Quantity auto)
+   :project: wave_tracer

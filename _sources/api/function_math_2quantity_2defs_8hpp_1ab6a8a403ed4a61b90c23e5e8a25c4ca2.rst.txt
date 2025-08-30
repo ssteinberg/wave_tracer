@@ -1,0 +1,14 @@
+.. _exhale_function_math_2quantity_2defs_8hpp_1ab6a8a403ed4a61b90c23e5e8a25c4ca2:
+
+Function wt::u::to_mm2(const QuantityOf<isq::area> auto)
+========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::u::to_mm2(const QuantityOf<isq::area> auto)
+   :project: wave_tracer

@@ -1,0 +1,27 @@
+.. _exhale_class_classwt_1_1sensor_1_1virtual__plane__sensor__t:
+
+Class virtual_plane_sensor_t
+============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Types
+**********
+
+- ``public wt::sensor::film_backed_sensor_t< 2 >`` (:ref:`exhale_class_classwt_1_1sensor_1_1film__backed__sensor__t`)
+- ``public wt::sensor::virtual_coverage_sensor_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1virtual__coverage__sensor__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::sensor::virtual_plane_sensor_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

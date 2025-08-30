@@ -1,0 +1,14 @@
+.. _exhale_function_traversal_8hpp_1a6b70d6dd7dee2aa2ef96b90715df6c79:
+
+Function wt::integrator::calculate_min_ballistic_distance
+=========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::calculate_min_ballistic_distance(const elliptic_cone_t&, const ray_t&)
+   :project: wave_tracer

@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1font__renderer__t:
+
+Class font_renderer_t
+=====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_font_renderer_font_renderer.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::font_renderer_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

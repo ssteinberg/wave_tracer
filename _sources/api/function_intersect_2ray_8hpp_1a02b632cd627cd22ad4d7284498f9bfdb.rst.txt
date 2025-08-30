@@ -1,0 +1,14 @@
+.. _exhale_function_intersect_2ray_8hpp_1a02b632cd627cd22ad4d7284498f9bfdb:
+
+Template Function wt::intersect::test_ray_tri(const pqvec3_w_t<W>&, const vec3_w_t<W>&, const pqvec3_w_t<W>&, const pqvec3_w_t<W>&, const pqvec3_w_t<W>&, const pqrange_t<>&)
+=============================================================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::test_ray_tri(const pqvec3_w_t<W>&, const vec3_w_t<W>&, const pqvec3_w_t<W>&, const pqvec3_w_t<W>&, const pqvec3_w_t<W>&, const pqrange_t<>&)
+   :project: wave_tracer

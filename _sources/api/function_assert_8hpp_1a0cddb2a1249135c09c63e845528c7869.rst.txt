@@ -1,0 +1,14 @@
+.. _exhale_function_assert_8hpp_1a0cddb2a1249135c09c63e845528c7869:
+
+Template Function wt::assert_unit_vectors
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::assert_unit_vectors(Ts&&...)
+   :project: wave_tracer

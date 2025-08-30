@@ -1,0 +1,26 @@
+.. _exhale_struct_structwt_1_1wide__vector:
+
+Template Struct wide_vector
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``private wt::detail::simd_data_t< f_t, Width, N >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::wide_vector
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

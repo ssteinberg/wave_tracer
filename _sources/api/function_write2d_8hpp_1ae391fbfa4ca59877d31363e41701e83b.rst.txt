@@ -1,0 +1,14 @@
+.. _exhale_function_write2d_8hpp_1ae391fbfa4ca59877d31363e41701e83b:
+
+Template Function wt::bitmap::write_bitmap2d_exr(const std::filesystem::path&, const bitmap2d_t<T>&, const std::vector<std::string>&, const std::map<std::string, std::string>&)
+================================================================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_write2d.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::write_bitmap2d_exr(const std::filesystem::path&, const bitmap2d_t<T>&, const std::vector<std::string>&, const std::map<std::string, std::string>&)
+   :project: wave_tracer

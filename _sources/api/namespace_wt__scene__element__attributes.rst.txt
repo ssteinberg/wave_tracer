@@ -1,0 +1,81 @@
+
+.. _namespace_wt__scene__element__attributes:
+
+Namespace wt::scene::element::attributes
+========================================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1array__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1container__attribute__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1data__attribute__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1element__attribute__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1element__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1enum__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1map__container__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1map__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1matrix__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1range__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1scalar__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1string__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1vector__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_attributes_8hpp_1a33e362b9c956a6cd60be2670be1d2aae`
+
+- :ref:`exhale_function_attributes_8hpp_1a2244eb04542378e68a0f0f62211e978b`
+
+- :ref:`exhale_function_attributes_8hpp_1a9d225222a10484114c21310033bd160e`
+
+- :ref:`exhale_function_attributes_8hpp_1a8110166d616805f04aff2a83a0c2163c`
+
+- :ref:`exhale_function_attributes_8hpp_1af51ecddc802eda418ad9a358cbd99920`
+
+- :ref:`exhale_function_attributes_8hpp_1af1ce65807445bb1b62f5dd3c0204391e`
+
+- :ref:`exhale_function_attributes_8hpp_1a8a45957d5f473e8d0ccbc48e814d9d1c`
+
+- :ref:`exhale_function_attributes_8hpp_1a60b76dd2e9feedd3db59319a9734738e`
+
+- :ref:`exhale_function_attributes_8hpp_1a2f12cf73e062d70bfd8afe2c3b28cb0c`
+
+- :ref:`exhale_function_attributes_8hpp_1a243968229190ac8d936602fc066478ae`
+
+- :ref:`exhale_function_attributes_8hpp_1ab27004046c1cafc5928753ec3c5fb968`
+
+- :ref:`exhale_function_attributes_8hpp_1a2943759205859d891edce89ec9ac915c`
+
+- :ref:`exhale_function_attributes_8hpp_1a14f7d9789dde07d7bea88c852dc926e6`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_attributes_8hpp_1ae1ef589d9439ee8008a71901c2c8de2d`
+
+- :ref:`exhale_typedef_attributes_8hpp_1af5ab930115c1b159b06c1c13abd06de6`
+
+- :ref:`exhale_typedef_attributes_8hpp_1a873de4a967767d480da06ce0dc06686f`
+
+- :ref:`exhale_typedef_attributes_8hpp_1ae1874f4eb31eb09722a40f9730c57946`

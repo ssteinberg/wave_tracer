@@ -1,0 +1,187 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp:
+
+Program Listing for File intersection.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/intersection.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/ads/common.hpp>
+   
+   #include <wt/mesh/mesh.hpp>
+   #include <wt/mesh/surface_differentials.hpp>
+   
+   #include <wt/texture/texture.hpp>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/frame.hpp>
+   #include <wt/math/barycentric.hpp>
+   #include <wt/math/intersect/intersect_defs.hpp>
+   
+   #include "common.hpp"
+   
+   namespace wt {
+   
+   class shape_t;
+   
+   
+   struct intersection_surface_t {
+       using tidx_t = mesh::mesh_t::tidx_t;
+   
+       pqvec3_t wp;
+   
+       vec2_t uv;
+   
+       barycentric_t bary;
+   
+       intersection_footprint_t footprint;
+       
+       tidx_t mesh_tri_idx;
+       const shape_t* shape = nullptr;
+   
+       frame_t geo;
+       frame_t shading;
+   
+   
+   private:
+       intersection_surface_t(const shape_t* shape,
+                              const dir3_t& geo_n,
+                              const tidx_t mesh_tri_idx,
+                              const barycentric_t::triangle_point_t& bary_point,
+                              const mesh::surface_differentials_t& tf,
+                              const pqvec3_t& beam_intersection_centre) noexcept;
+       inline intersection_surface_t(const shape_t* shape,
+                                     const dir3_t& geo_n,
+                                     const tidx_t mesh_tri_idx,
+                                     const barycentric_t::triangle_point_t& bary_point,
+                                     const mesh::surface_differentials_t& tf) noexcept
+           : intersection_surface_t(shape, geo_n, mesh_tri_idx, bary_point, tf, bary_point.p)
+       {}
+   
+   public:
+       intersection_surface_t(const shape_t* shape,
+                              const dir3_t& geo_n,
+                              const tidx_t mesh_tri_idx,
+                              const barycentric_t& bary,
+                              const pqvec3_t& beam_intersection_centre) noexcept;
+   
+       intersection_surface_t(const shape_t* shape,
+                              const tidx_t mesh_tri_idx,
+                              const barycentric_t& bary) noexcept;
+   
+       inline intersection_surface_t(const shape_t* shape,
+                                     const ads::tri_t& ads_tri,
+                                     const ray_t& ray,
+                                     const intersect::intersect_ray_tri_ret_t& ray_intersection_record) noexcept
+           : intersection_surface_t(shape, ads_tri.n,
+                                    ads_tri.shape_tri_idx, 
+                                    ray_intersection_record.bary, 
+                                    ray.propagate(ray_intersection_record.dist))
+       {}
+   
+       // dummy surface (no associated shape -- like a virtual coverage sensor) intersection
+       inline intersection_surface_t(const dir3_t& geo_n,
+                                     const pqvec3_t& beam_intersection_centre) noexcept
+           : wp(beam_intersection_centre),
+             geo(frame_t::build_orthogonal_frame(geo_n)),
+             shading(frame_t::build_orthogonal_frame(geo_n))
+       {}
+   
+       intersection_surface_t(const intersection_surface_t&) noexcept = default;
+   
+   
+       [[nodiscard]] inline const auto& ng() const noexcept { return geo.n; }
+       [[nodiscard]] inline const auto& ns() const noexcept { return shading.n; }
+   
+       [[nodiscard]] const mesh::surface_differentials_t& tangent_frame() const noexcept;
+   
+       [[nodiscard]] inline auto s_direction(const dir3_t& w) const noexcept {
+           const auto crs = m::cross(w, shading.n);
+           const auto l2  = m::length2(crs);
+           const auto ret = l2<f_t(1e-14) ? 
+               shading.t : 
+               dir3_t{ crs/m::sqrt(l2) };
+   
+           // flip direction when w is pointing inwards, this ensures that the sp frame is identical for w that points in as well as out of the surface.
+           return m::dot(w,shading.n)<0 ? -ret : ret;
+       }
+   
+       [[nodiscard]] inline auto sp_frame(const dir3_t& w) const noexcept {
+           const auto s = s_direction(w);
+           const auto p = dir3_t{ m::cross(s, w) };
+           return frame_t{
+               .t = s,
+               .b = m::dot(w,shading.n)<0 ? -p : p,
+               .n = w,
+           };
+       }
+   
+       [[nodiscard]] texture::texture_query_t texture_query(const wavenumber_t& k) const noexcept;
+   
+       [[nodiscard]] intersection_uv_pdvs_t pdvs_at_intersection() const noexcept;
+   
+       [[nodiscard]] pqvec3_t offseted_ray_origin(const ray_t& ray) const noexcept;
+   };
+   
+   
+   struct intersection_edge_t {
+       // intersected edge
+       const ads::edge_t* edge;
+   
+       // point of edge intersection
+       pqvec3_t wp;
+   
+       inline intersection_edge_t(const ads::edge_t& edge, const pqvec3_t& wp) noexcept
+           : edge(&edge),
+             wp(wp)
+       {}
+   
+       intersection_edge_t(const intersection_edge_t&) noexcept = default;
+   
+       [[nodiscard]] pqvec3_t offseted_ray_origin(const ray_t& ray) const noexcept;
+   
+       [[nodiscard]] inline auto sh_frame(const dir3_t& w) const noexcept {
+           const auto& e = edge->e;
+           const auto& phi  = m::normalize(m::cross(w,e));
+           const auto& beta = dir3_t{ m::cross(phi,w) };
+           return frame_t{
+               .t = beta,
+               .b = phi,
+               .n = w,
+           };
+       }
+   };
+   
+   
+   struct intersection_volumetric_t {
+       // point of intersection
+       pqvec3_t wp;
+   
+       [[nodiscard]] pqvec3_t offseted_ray_origin(const ray_t& ray) const noexcept { return ray.o; }
+   };
+   
+   
+   template <typename T>
+   concept Intersection = requires(T param) {
+       requires std::is_same_v<T,intersection_surface_t> || 
+                std::is_same_v<T,intersection_edge_t> ||
+                std::is_same_v<T,intersection_volumetric_t>;
+   };
+   
+   
+   }

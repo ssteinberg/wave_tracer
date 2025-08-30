@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a26ac61ad699a7fdaaaf95c3a40c4328d:
+
+Template Function wt::m::exp(const glm::mat<N, M, T>&)
+======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::exp(const glm::mat<N, M, T>&)
+   :project: wave_tracer

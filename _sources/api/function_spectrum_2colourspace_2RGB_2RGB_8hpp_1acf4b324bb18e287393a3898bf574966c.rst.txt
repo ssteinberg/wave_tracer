@@ -1,0 +1,14 @@
+.. _exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1acf4b324bb18e287393a3898bf574966c:
+
+Function wt::colourspace::XYZ_to_LAB
+====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::colourspace::XYZ_to_LAB(const vec3_t&, white_point_e)
+   :project: wave_tracer

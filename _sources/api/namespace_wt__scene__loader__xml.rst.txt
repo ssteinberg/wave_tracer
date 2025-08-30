@@ -1,0 +1,15 @@
+
+.. _namespace_wt__scene__loader__xml:
+
+Namespace wt::scene::loader::xml
+================================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1scene_1_1loader_1_1xml_1_1xml__loader__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1loader_1_1xml_1_1xml__node__t`

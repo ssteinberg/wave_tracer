@@ -1,0 +1,326 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp:
+
+File defs.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/defs.hpp``)
+-----------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cmath`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`)
+
+- ``complex`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex.hpp`)
+
+- ``limits`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_limits.hpp`)
+
+- ``numbers``
+
+- ``wt/math/glm.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_compensated_sum.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_matinverse.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__m`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ab4a5f83dc76af7a4392d57da7fc35d4a`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a49f118a5d820f8b06fc9e42fbede5828`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ae5afc093c11199be14e5b97a3bb2f76c`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a691d9535b2e99099a656caef9185ff7e`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a2660cc8d917e867e2d318115854d2343`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a8cb31884a373d10cea92b0023707ae3f`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1aa70cebb0987e884e439329ab8513bb6d`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a9473ec3e78834a49d7022628ae1f87cb`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a3153ce92d02a2605aed4be754a382999`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a9f5d5b68854d3e8984f2857fa249da42`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a13a4a8865757da641b12f1f8212dac1b`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a1832d0f41019e3d84190a9a2cf19b8c5`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a8690aae703cbb8185814b957834326ad`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1acc35732dce5920cf9515f47d1ef3f573`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a608e8962ac8ae431b22e617a1a0d1d6c`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a36f406b10f5be9233a331479cbc7be05`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1aea3cb087cb76218a3583ada269df6417`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ad9e03a2e768a1066a3a1568bebdf477d`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ad1dc207a64e7007e917305b92c5d740c`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a0416ae665d664c454f7c9cdb580f105c`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a5d72e3f73a2fde453255b907694290bc`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1aed3eeca0d100b536deef859f03518921`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a07add4032783e76e5fbd3d6c42b34359`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a771d4b767c5d3f1876a11ce21cead926`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1aa6db3b621f93f4a195da8e2436c62472`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a2dc65edb0b67bc459186c10dbf7e21f6`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a1dd433f0e33e51f8faad67be883d87b4`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a5a6ac5d456d5fc88e6f720dba7240604`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a343473aa4c5e9e96f5fb27e9a651d095`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a0203c9a600f7f2f12b0a53f162d15707`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1afa151fb09491c35ac346f737795e804c`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1aab8062bd0e13124f5e50fe47394a347c`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a87cf98e6daab00176fb1b3ed61cb2a59`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1adeef2d10a8d1fe773b09ab434f92cadb`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ae400c73b40fadd9f6d6394bd0d4f9f0f`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a60fd4a7775542e7f7801a945052484c3`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a1832b1fcb1813a49e912606ebacef863`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a11bbe66f3816c7e1c746b7a7a531e8cc`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a6c30b331154eae1eab744d6cbf68bd7f`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ab3fbc209c34ccf4b3bfb9435606e45a4`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ac46498e4fe8e9f66fb407afc4a08574f`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a326687f699e35c5c0658b0c3562a287a`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1afd7c4b773f7b49a71f124bc7bede4cb2`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a254f5e6b9c4def6c4fc73f803325e690`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ad25c314e7cb81a24a89614168da589ad`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a353e6efee82a5337112185d552956e29`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a6bf06874e26e5b46391bc442011e96da`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ab57d5f24f3923597cee8951ca5eb85d6`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1af46e0c28f05a32be4eb824d71e0afbbc`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ab668be5e8cb798b5cb6c7e0c282ddf5c`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1af640f86842023692714d08d4edc7aa7d`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a05788b1e294c0eddebdfe6249377b9c5`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a718d57de38c3c29c5e0a97cb8284f260`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a8f2e619a3f91eb128d735d7bee1ba48e`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a9b2fa98c85741ac94a0c913f3c2c74c0`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1aa5e3f12073718a798d18d0fff1fe7f8a`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1af0ab2a7c8db24a46dc06cd5a7e2f9209`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a425d25f0e40090c0ede7af112597d174`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ad99b0b06de61008d90ccfc99fbd53f42`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a3acce1ff07208866abcaf74c6ed928f4`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ab26bcfa3d8eff3d7b1d3b560b3ea4dd5`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a61546d293a4f140b33fa968982e6cf53`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a217d34617e48941aa512dd15798e7299`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a2f68e93a633308e0bf6f25e5952722e2`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ad7929cbeaf2841f42ac303badd2c007e`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a04c42c21f22ffd2a4499f562f1958f06`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a0ed0e6611efe0638f7dbb0144da661da`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a88bdf88b83e5e8a67383b0bc810322f1`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a81be807ef5f8905e553e44f6d5921ff6`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ad2e1bf2e72f4e610192dd5e9508fa89d`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a475ecfb1890015a61c0c23455ef0b219`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a279d6fd418bae47cc831a29b55c3419b`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1ad995b08efefb3214920f4d575c0e407a`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a814002b5e2834132475cb66e162db7ab`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a81ff3ed41df607f6923f6b1b6e8a2ff1`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a7d9b08d345977d44c899aea77084ebe9`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a29efaf04162cf323bb005869fa189337`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a6b7855d94abc842daa49aea120225d9d`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a0eb58aa5c0c7e3bddff133c1fbd78b43`
+
+- :ref:`exhale_typedef_math_2defs_8hpp_1a2c06906a4e6c114e95392044946be45f`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ac2cd7d2b8aea0513be4012eb0bb66b53`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1af1be23d77c66e35d5986aa072c7c1801`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a2aabde84277ca356e53e54fd2365d5ad`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a90efa4a82d52483b900e40824ff3ce32`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aa9d9f364a9cba74e7c835cc81e36673e`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1afddf79519e7bcdd64e48fb2df45140e4`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1af35eecf8347cd331abbe333f99d2053c`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a0f2529ef322a926f747c14c5089b52c1`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a879c555a3989b66b643ee507cab77319`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a2e9f9391211a634a1e0501491585cf5d`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a61c0e340ed88f611b6c49535a2cd8543`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aebe1e3e5e319a2b013ba47a23882857c`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1abddbab66ecacb412b27e034f873fd89b`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ab12292b182b4f72eda456d5ab3f9ad46`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a67964a5190c19191ed9d316e9a65cfce`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ad6ea3412f59a4aa5f6a06c6e06035606`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a451b184a4351d30fb975c1aa02a2b763`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a02363617efeb0ca2c21696298bf17593`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aa40ed17e2f0ac3331427f53f2a835210`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ab2fab72b3ff1e6e8f9c030a31e577297`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1af94904dfc34046e2f8742f3e7ab4ba41`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1afaa2c0776a8f0de6048725367a16d595`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a1f65c3e76500352b19b0c952d59156fb`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ada201fe0b009dc4d393c289565560c1b`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a82c0b30fddb8c6ee0642fa5caeed4696`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a4fdc44ffbf424dc257322a1ca94f2071`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a63c09dcf37c94b5e3dceb6daed1e4ea2`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a90fdfce1a910b755c4192d36fe95f929`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a50826f1621f46932a15569385e6f3ad6`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aeb699dec80b9542124cddb833cdc0954`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a70b2b827cd22066d44e3fa95bc063327`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1acbf9764aa15ffa68c3e151092358eb1d`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1ab88d69ce850578d158e33a452a9789de`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1a26e95db71b4f832ae77069320b2b9343`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1afc6abc7468d9fbbe0a7a80725fe6cb8a`
+
+- :ref:`exhale_variable_math_2defs_8hpp_1aded204692c67c625f2c7c52a2ad1f16c`
+

@@ -1,0 +1,14 @@
+.. _exhale_typedef_plt__bdpt__detail_8hpp_1a808e16504cecb83dc621a0d18eb767d3:
+
+Typedef wt::integrator::plt_bdpt::fraunhofer_fsd_bsdfs_arena_t
+==============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::integrator::plt_bdpt::fraunhofer_fsd_bsdfs_arena_t
+   :project: wave_tracer

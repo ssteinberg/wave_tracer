@@ -1,0 +1,95 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp:
+
+File film_storage.hpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/film``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sensor/film/film_storage.hpp``)
+--------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``memory``
+
+- ``optional``
+
+- ``stdexcept``
+
+- ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``wt/bitmap/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp`)
+
+- ``wt/bitmap/pixel_layout.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`)
+
+- ``wt/sensor/block/block.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_block.hpp`)
+
+- ``wt/sensor/block/padded_block.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_padded_block.hpp`)
+
+- ``wt/sensor/block/sensor_element.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_sensor_element.hpp`)
+
+- ``wt/sensor/response/tonemap/tonemap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`)
+
+- ``wt/sensor/sensor_flags.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_flags.hpp`)
+
+- ``wt/util/for_range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp`)
+
+- ``wt/util/thread_pool/tpool.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool.hpp`)
+
+- ``wt/util/thread_pool/tpool_worker_arena.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool_worker_arena.hpp`)
+
+- ``wt/wt_context.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_previewer.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__sensor`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__storage__handle__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__storage__t`
+

@@ -1,0 +1,45 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_constructor.hpp:
+
+Program Listing for File bvh_constructor.hpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_constructor.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh_constructor.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    *
+    * wave tracer
+    * Copyright  Shlomi Steinberg
+    * Authors:  Umut Emre, Shlomi Steinberg
+    *
+    * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+    *
+    */
+   
+   #pragma once
+   
+   #include <memory>
+   #include <vector>
+   #include <wt/scene/shape.hpp>
+   #include <wt/wt_context.hpp>
+   
+   #include "bvh.hpp"
+   #include <wt/ads/util.hpp>
+   
+   namespace wt::ads::construction {
+   
+   class bvh_constructor_t {
+   public:
+       bvh_constructor_t(std::vector<std::shared_ptr<shape_t>> objs,
+                         const wt::wt_context_t &context,
+                         progress_track_t& pt);
+   
+       std::unique_ptr<bvh_t> bvh;
+   
+   };
+   
+   }  // namespace wt::ads

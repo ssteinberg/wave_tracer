@@ -1,0 +1,14 @@
+.. _exhale_function_info_8hpp_1aa743e412656140015011931c583fe5c6:
+
+Template Function wt::scene::element::info_for_scene_element
+============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_info.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::element::info_for_scene_element(const E&, std::string, std::map<std::string, attribute_ptr>)
+   :project: wave_tracer

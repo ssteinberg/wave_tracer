@@ -1,0 +1,103 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp:
+
+File texture2d_storage.hpp
+==========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bitmap/texture2d_storage.hpp``)
+--------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``concepts`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``memory``
+
+- ``utility``
+
+- ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``wt/bitmap/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp`)
+
+- ``wt/bitmap/texel_convert.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/spectrum/colourspace/RGB/RGB.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__bitmap`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__config__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__storage__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__storage__t_1_1aligned__block__t`
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__storage__t_1_1tex__info__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_texture2d__storage_8hpp_1ae2407c05659603184ecb6356e201603c`
+
+- :ref:`exhale_enum_texture2d__storage_8hpp_1a3e5b387b86430544a4791d16fe3768c4`
+
+- :ref:`exhale_enum_texture2d__storage_8hpp_1ac16ad09ed5ca67fb927aa90824779ace`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_texture2d__storage_8hpp_1a1b13dc79865037e63130c1d55ad1cce0`
+
+- :ref:`exhale_function_texture2d__storage_8hpp_1a66adb342b261025f92f50b1c22dfbcb4`
+
+- :ref:`exhale_function_texture2d__storage_8hpp_1af4c92e8e599a3e26de73cbe76645d017`
+
+- :ref:`exhale_function_texture2d__storage_8hpp_1a99c0bd69a97c721509ffa3725e549e04`
+

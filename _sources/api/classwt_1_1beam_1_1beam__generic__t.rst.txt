@@ -1,0 +1,30 @@
+.. _exhale_class_classwt_1_1beam_1_1beam__generic__t:
+
+Class beam_generic_t
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public wt::beam_t< beam::transport_e::forward, spectral_radiance_t >`` (:ref:`exhale_class_classwt_1_1beam__t`)
+- ``public wt::beam_t< beam::transport_e::forward, spectral_radiant_flux_t >`` (:ref:`exhale_class_classwt_1_1beam__t`)
+- ``public wt::beam_t< beam::transport_e::backward, QE_t >`` (:ref:`exhale_class_classwt_1_1beam__t`)
+- ``public wt::beam_t< beam::transport_e::backward, QE_flux_t >`` (:ref:`exhale_class_classwt_1_1beam__t`)
+- ``public wt::beam_t< Transport, Q >`` (:ref:`exhale_class_classwt_1_1beam__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::beam::beam_generic_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,29 @@
+
+.. _namespace_wt__emitter:
+
+Namespace wt::emitter
+=====================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1emitter_1_1area__t_1_1sampling__data__t`
+
+- :ref:`exhale_struct_structwt_1_1emitter_1_1area__t_1_1sampling__data__t_1_1triangle__sample__t`
+
+- :ref:`exhale_struct_structwt_1_1emitter_1_1area__t_1_1triangle__sampling__data__t`
+
+- :ref:`exhale_class_classwt_1_1emitter_1_1area__t`
+
+- :ref:`exhale_class_classwt_1_1emitter_1_1directional__t`
+
+- :ref:`exhale_class_classwt_1_1emitter_1_1emitter__t`
+
+- :ref:`exhale_class_classwt_1_1emitter_1_1infinite__emitter__t`
+
+- :ref:`exhale_class_classwt_1_1emitter_1_1point__t`
+
+- :ref:`exhale_class_classwt_1_1emitter_1_1spot__t`

@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1beam_1_1beam__radiometric__data__t_3_01transport__e_1_1backward_00_01Q_01_4:
+
+Template Struct beam_radiometric_data_t< transport_e::backward, Q >
+===================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::beam::beam_radiometric_data_t< transport_e::backward, Q >
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

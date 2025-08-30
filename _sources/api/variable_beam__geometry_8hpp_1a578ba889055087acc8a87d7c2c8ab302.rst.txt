@@ -1,0 +1,14 @@
+.. _exhale_variable_beam__geometry_8hpp_1a578ba889055087acc8a87d7c2c8ab302:
+
+Variable wt::beam::beam_cross_section_envelope
+==============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::beam::beam_cross_section_envelope
+   :project: wave_tracer

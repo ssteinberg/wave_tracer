@@ -1,0 +1,14 @@
+.. _exhale_function_intersect_2ball_8hpp_1a01045b0840caabcefca1e3233ca62059:
+
+Function wt::intersect::test_ball_aabb(const ball_t&, const aabb_t&)
+====================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ball.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::test_ball_aabb(const ball_t&, const aabb_t&)
+   :project: wave_tracer

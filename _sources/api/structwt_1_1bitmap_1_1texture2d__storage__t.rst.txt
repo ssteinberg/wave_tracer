@@ -1,0 +1,28 @@
+.. _exhale_struct_structwt_1_1bitmap_1_1texture2d__storage__t:
+
+Struct texture2d_storage_t
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__storage__t_1_1aligned__block__t`
+- :ref:`exhale_struct_structwt_1_1bitmap_1_1texture2d__storage__t_1_1tex__info__t`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::bitmap::texture2d_storage_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

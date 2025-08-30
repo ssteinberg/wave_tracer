@@ -1,0 +1,14 @@
+.. _exhale_function_math_2quantity_2defs_8hpp_1aaffe3224d9859c5704dda50fa69a893e:
+
+Function wt::u::to_num(const QuantityOf<dimensionless> auto)
+============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::u::to_num(const QuantityOf<dimensionless> auto)
+   :project: wave_tracer

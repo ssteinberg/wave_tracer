@@ -1,0 +1,14 @@
+.. _exhale_function_simd__emulation_8hpp_1a5389413625de136d5e3811008d42ba56:
+
+Function wt::simd::cast_to_256(simd_emulated_t<float, 4>)
+=========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::cast_to_256(simd_emulated_t<float, 4>)
+   :project: wave_tracer

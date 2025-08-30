@@ -1,0 +1,14 @@
+.. _exhale_function_chrono_8hpp_1a2a4f807e73f78be0ebf233c3ebb1c3c6:
+
+Template Function wt::format::chrono::extract_duration
+======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::format::chrono::extract_duration(const std::chrono::duration<Rep, Period>&)
+   :project: wave_tracer

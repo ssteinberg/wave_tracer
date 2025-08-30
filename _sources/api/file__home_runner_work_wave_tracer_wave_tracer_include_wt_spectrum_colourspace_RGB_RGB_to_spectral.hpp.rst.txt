@@ -1,0 +1,68 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB_to_spectral.hpp:
+
+File RGB_to_spectral.hpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/colourspace/RGB``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/colourspace/RGB/RGB_to_spectral.hpp``)
+------------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB_to_spectral.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_rgb.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_bitmap.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__colourspace`
+
+- :ref:`namespace_wt__colourspace__RGB_to_spectral`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_RGB__to__spectral_8hpp_1ac81fff9a21466db9269daaeb61e28e40`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_RGB__to__spectral_8hpp_1a47b3aedabdf05296e5d5a3dfa8ebfbed`
+
+- :ref:`exhale_variable_RGB__to__spectral_8hpp_1a0f1108e76b125e108cf9176aaf6bfb1c`
+

@@ -1,0 +1,75 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_common.hpp:
+
+Program Listing for File common.hpp
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_common.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/fsd/common.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <vector>
+   #include <optional>
+   
+   #include <wt/ads/common.hpp>
+   #include <wt/math/common.hpp>
+   
+   namespace wt::utd {
+   
+   struct UTD_ret_t {
+       c_t Ds, Dh;
+   
+       dir3_t si,hi;
+       dir3_t so,ho;
+   };
+   
+   struct wedge_edge_t {
+       pqvec3_t v;
+       length_t l;
+       dir3_t nff, tff;
+       dir3_t nbf;
+   
+       angle_t alpha;
+       f_t eta;
+   
+       ads::tuid_t ads_edge_idx;
+   
+       [[nodiscard]] inline auto e() const noexcept {
+           return dir3_t{ m::cross(nff,tff) };
+       }
+   
+       [[nodiscard]] std::optional<pqvec3_t> diffraction_point(
+               const pqvec3_t& src,
+               const pqvec3_t& dst) const noexcept;
+   
+       [[nodiscard]] std::optional<pqvec3_t> diffraction_point(
+               const pqvec3_t& src,
+               const dir3_t& wo) const noexcept;
+   
+       [[nodiscard]] UTD_ret_t UTD(const Wavenumber auto k,
+                                   const dir3_t& wi,
+                                   const dir3_t& wo,
+                                   const length_t ro) const noexcept;
+   };
+   
+   struct fsd_aperture_t {
+       std::vector<wedge_edge_t> edges;  // wedges composing the aperture
+       wavenumber_t k;
+   
+       [[nodiscard]] inline bool single_edge() const noexcept { return edges.size()==1; }
+   };
+   
+   }

@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1intersection__edge__t:
+
+Struct intersection_edge_t
+==========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::intersection_edge_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_variable_tpool_8hpp_1ae98b6a16f4b059f6d8b84e0d998868f4:
+
+Variable wt::thread_pool::native_concurrency
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::thread_pool::native_concurrency
+   :project: wave_tracer

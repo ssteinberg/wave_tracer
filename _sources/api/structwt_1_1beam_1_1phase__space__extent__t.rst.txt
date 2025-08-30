@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1beam_1_1phase__space__extent__t:
+
+Struct phase_space_extent_t
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::beam::phase_space_extent_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

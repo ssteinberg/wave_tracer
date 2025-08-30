@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1thread__pool_1_1tpool__tids__t:
+
+Class tpool_tids_t
+==================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_utils.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::thread_pool::tpool_tids_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

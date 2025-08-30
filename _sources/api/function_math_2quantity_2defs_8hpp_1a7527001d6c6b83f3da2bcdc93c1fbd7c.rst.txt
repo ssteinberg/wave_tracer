@@ -1,0 +1,14 @@
+.. _exhale_function_math_2quantity_2defs_8hpp_1a7527001d6c6b83f3da2bcdc93c1fbd7c:
+
+Function wt::u::to_rad
+======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::u::to_rad(const QuantityOf<angular::angle> auto)
+   :project: wave_tracer

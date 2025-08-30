@@ -1,0 +1,14 @@
+.. _exhale_typedef_math_2defs_8hpp_1a7d9b08d345977d44c899aea77084ebe9:
+
+Typedef wt::vec4i8_t
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::vec4i8_t
+   :project: wave_tracer

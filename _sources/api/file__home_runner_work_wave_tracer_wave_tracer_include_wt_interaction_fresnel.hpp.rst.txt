@@ -1,0 +1,74 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fresnel.hpp:
+
+File fresnel.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/fresnel.hpp``)
+---------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fresnel.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_dielectric.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_surface_spm.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1fresnel__conductor__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1fresnel__ret__t`
+
+- :ref:`exhale_struct_structwt_1_1refract__ret__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_fresnel_8hpp_1a89612d38496ae53c05a2e066917953e0`
+
+- :ref:`exhale_function_fresnel_8hpp_1a9df129a4c183fc37722564ff5765c3a2`
+
+- :ref:`exhale_function_fresnel_8hpp_1a6787135e0a39d89fa588cad67f915832`
+
+- :ref:`exhale_function_fresnel_8hpp_1ae404f3dd3d14c9ade9a3e13a1b7ffa48`
+

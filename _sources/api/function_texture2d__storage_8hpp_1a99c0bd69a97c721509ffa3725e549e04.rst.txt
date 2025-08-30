@@ -1,0 +1,14 @@
+.. _exhale_function_texture2d__storage_8hpp_1a99c0bd69a97c721509ffa3725e549e04:
+
+Function wt::bitmap::wrap_coord
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::wrap_coord(texture_wrap_mode_e, int, std::size_t)
+   :project: wave_tracer

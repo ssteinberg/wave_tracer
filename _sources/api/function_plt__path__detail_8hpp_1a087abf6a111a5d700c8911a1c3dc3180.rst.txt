@@ -1,0 +1,14 @@
+.. _exhale_function_plt__path__detail_8hpp_1a087abf6a111a5d700c8911a1c3dc3180:
+
+Template Function wt::integrator::plt_path::nee_forward
+=======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_path::nee_forward(path_walk_data_t<BeamType>&, const pqvec3_t, const length_t, const QuantityOf<inverse(isq::length)> auto&, const int)
+   :project: wave_tracer

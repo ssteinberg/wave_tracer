@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1spectrum_1_1piecewise__linear__t:
+
+Class piecewise_linear_t
+========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_piecewise_linear.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::spectrum::spectrum_real_t`` (:ref:`exhale_class_classwt_1_1spectrum_1_1spectrum__real__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::spectrum::piecewise_linear_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

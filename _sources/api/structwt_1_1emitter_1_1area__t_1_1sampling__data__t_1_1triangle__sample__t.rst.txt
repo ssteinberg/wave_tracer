@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1emitter_1_1area__t_1_1sampling__data__t_1_1triangle__sample__t:
+
+Struct sampling_data_t::triangle_sample_t
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_area.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_struct_structwt_1_1emitter_1_1area__t_1_1sampling__data__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::emitter::area_t::sampling_data_t::triangle_sample_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

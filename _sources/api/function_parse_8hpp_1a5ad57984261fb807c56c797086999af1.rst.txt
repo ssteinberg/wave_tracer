@@ -1,0 +1,14 @@
+.. _exhale_function_parse_8hpp_1a5ad57984261fb807c56c797086999af1:
+
+Template Function wt::parse_range(const std::string&, range_t<T, inc>&)
+=======================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::parse_range(const std::string&, range_t<T, inc>&)
+   :project: wave_tracer

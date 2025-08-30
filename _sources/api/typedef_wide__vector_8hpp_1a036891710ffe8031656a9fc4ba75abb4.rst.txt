@@ -1,0 +1,14 @@
+.. _exhale_typedef_wide__vector_8hpp_1a036891710ffe8031656a9fc4ba75abb4:
+
+Typedef wt::qvec2_w4_t
+======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::qvec2_w4_t
+   :project: wave_tracer

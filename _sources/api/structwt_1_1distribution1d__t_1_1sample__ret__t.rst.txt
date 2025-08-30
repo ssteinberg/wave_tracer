@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1distribution1d__t_1_1sample__ret__t:
+
+Struct distribution1d_t::sample_ret_t
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_distribution1d.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1distribution1d__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::distribution1d_t::sample_ret_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

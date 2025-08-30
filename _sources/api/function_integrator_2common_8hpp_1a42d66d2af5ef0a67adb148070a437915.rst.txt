@@ -1,0 +1,14 @@
+.. _exhale_function_integrator_2common_8hpp_1a42d66d2af5ef0a67adb148070a437915:
+
+Function wt::integrator::shading_normals_correction_scale
+=========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::shading_normals_correction_scale(const bsdf::transport_e, const f_t, const f_t, const f_t, const f_t)
+   :project: wave_tracer

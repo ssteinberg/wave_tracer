@@ -1,0 +1,30 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction:
+
+
+Directory interaction
+=====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction``
+
+Subdirectories
+--------------
+
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile`
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_common.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fresnel.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`
+
+

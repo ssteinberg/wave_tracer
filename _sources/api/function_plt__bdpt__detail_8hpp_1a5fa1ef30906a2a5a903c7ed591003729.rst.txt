@@ -1,0 +1,14 @@
+.. _exhale_function_plt__bdpt__detail_8hpp_1a5fa1ef30906a2a5a903c7ed591003729:
+
+Function wt::integrator::plt_bdpt::connect_subpaths
+===================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_bdpt::connect_subpaths(const arena_t *, const integrator_context_t&, const plt_bdpt_t::options_t&, const int, const int, sampler::sampler_t&)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_variable_util_2gui_2impl_2common_8hpp_1a678d9c22e66a5e1bd0dd0c432f2abeb1:
+
+Variable wt::gui::status_bar_bg_colour
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::gui::status_bar_bg_colour
+   :project: wave_tracer

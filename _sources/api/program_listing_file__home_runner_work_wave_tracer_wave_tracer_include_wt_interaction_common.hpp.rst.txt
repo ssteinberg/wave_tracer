@@ -1,0 +1,52 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_common.hpp:
+
+Program Listing for File common.hpp
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_common.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/interaction/common.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <wt/math/common.hpp>
+   
+   namespace wt {
+   
+   struct intersection_footprint_t {
+       // direction of major axis
+       dir2_t x = { 1,0 };
+       // length of major and minor axes (a>=b)
+       length_t la = 0*u::m, lb = 0*u::m;
+   
+       [[nodiscard]] inline pqvec2_t a() const noexcept {
+           return x * la;
+       }
+       [[nodiscard]] inline pqvec2_t b() const noexcept {
+           return y() * lb;
+       }
+   
+       [[nodiscard]] inline dir2_t y() const noexcept {
+           return dir2_t{ -x.y, x.x };
+       }
+   };
+   
+   
+   struct intersection_uv_pdvs_t {
+       f_t duda, dudb;
+       f_t dvda, dvdb;
+   };
+   
+   }

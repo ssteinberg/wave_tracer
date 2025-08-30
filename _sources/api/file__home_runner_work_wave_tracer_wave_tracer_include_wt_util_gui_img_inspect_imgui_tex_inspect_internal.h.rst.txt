@@ -1,0 +1,43 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_imgui_tex_inspect_internal.h:
+
+File imgui_tex_inspect_internal.h
+=================================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/img_inspect``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/img_inspect/imgui_tex_inspect_internal.h``)
+-----------------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_imgui_tex_inspect_internal.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``imgui.h`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui.hpp`)
+
+- ``imgui_internal.h``
+
+- ``imgui_tex_inspect.h`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_imgui_tex_inspect.h`)
+
+- ``memory``
+
+- ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
+
+- ``wt/sensor/response/RGB.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_RGB.hpp`)
+
+
+
+
+

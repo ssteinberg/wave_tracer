@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1intersect_1_1intersect__ball__aabb__ret__t:
+
+Struct intersect_ball_aabb_ret_t
+================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::intersect::intersect_ball_aabb_ret_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

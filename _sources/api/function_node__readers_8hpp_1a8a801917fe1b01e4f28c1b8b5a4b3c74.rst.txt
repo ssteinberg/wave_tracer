@@ -1,0 +1,14 @@
+.. _exhale_function_node__readers_8hpp_1a8a801917fe1b01e4f28c1b8b5a4b3c74:
+
+Template Function wt::scene::loader::load_scene_element(const node_t&, std::shared_ptr<SceneElement>&, loader_t \*, const wt_context_t&)
+========================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::loader::load_scene_element(const node_t&, std::shared_ptr<SceneElement>&, loader_t *, const wt_context_t&)
+   :project: wave_tracer

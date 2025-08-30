@@ -1,0 +1,14 @@
+.. _exhale_function_intersect_2ray_8hpp_1af6e1ed66116db085978dbe4cdc7f9ab1:
+
+Function wt::intersect::test_ray_tri(const ray_t&, const pqvec3_t&, const pqvec3_t&, const pqvec3_t&, const pqrange_t<>&, const f_t)
+====================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::test_ray_tri(const ray_t&, const pqvec3_t&, const pqvec3_t&, const pqvec3_t&, const pqrange_t<>&, const f_t)
+   :project: wave_tracer

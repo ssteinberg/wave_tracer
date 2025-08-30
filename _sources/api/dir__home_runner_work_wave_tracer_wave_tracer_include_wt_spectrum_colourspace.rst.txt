@@ -1,0 +1,27 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace:
+
+
+Directory colourspace
+=====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/colourspace``
+
+Subdirectories
+--------------
+
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB`
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_blackbody.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_whitepoint.hpp`
+
+

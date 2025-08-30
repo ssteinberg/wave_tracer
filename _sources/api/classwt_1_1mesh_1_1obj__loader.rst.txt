@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1mesh_1_1obj__loader:
+
+Class obj_loader
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_obj_loader.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::mesh::obj_loader
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

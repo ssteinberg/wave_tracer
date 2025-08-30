@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1a676782067b525c10790b020a11166023:
+
+Template Function wt::m::sqrt(const wide_vector<W, N, Q>&)
+==========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::sqrt(const wide_vector<W, N, Q>&)
+   :project: wave_tracer

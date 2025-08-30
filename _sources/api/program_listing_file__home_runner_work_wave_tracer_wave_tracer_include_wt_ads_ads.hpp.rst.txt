@@ -1,0 +1,101 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp:
+
+Program Listing for File ads.hpp
+================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/ads.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   
+   #include <wt/wt_context.hpp>
+   #include <wt/scene/element/info.hpp>
+   
+   #include <wt/math/shapes/ball.hpp>
+   #include <wt/math/range.hpp>
+   #include <wt/math/shapes/elliptic_cone.hpp>
+   
+   #include "common.hpp"
+   #include "intersection_record.hpp"
+   
+   namespace wt::ads {
+   
+   class ads_t {
+   public:
+       struct intersect_opts_t {
+           bool detect_edges;
+           bool accumulate_edges;
+           bool accumulate_triangles;
+           f_t z_search_range_scale;
+   
+           static constexpr inline intersect_opts_t defaults() noexcept {
+               return {
+                   .detect_edges = true,
+                   .accumulate_edges = false,
+                   .accumulate_triangles = false,
+                   .z_search_range_scale = 1,
+               };
+           }
+       };
+   
+   protected:
+       std::vector<edge_t> edges;
+       std::vector<tri_t> tris;
+   
+   public:
+       ads_t() noexcept = default;
+       ads_t(std::vector<tri_t> tris) noexcept : tris(std::move(tris)) {}
+       ads_t(ads_t&&) = default;
+       virtual ~ads_t() noexcept = default;
+       
+       [[nodiscard]] inline const tri_t& tri(tuid_t tuid) const noexcept {
+           return tris[tuid];
+       }
+       [[nodiscard]] inline const edge_t& edge(std::uint32_t euid) const noexcept {
+           return edges[euid];
+       }
+   
+       [[nodiscard]] inline auto triangles_count() const noexcept { return tris.size(); }
+       [[nodiscard]] virtual std::size_t nodes_count() const noexcept = 0;
+   
+       [[nodiscard]] virtual const aabb_t& V() const noexcept = 0;
+   
+       [[nodiscard]] virtual intersection_record_t intersect(
+               const ball_t &ball,
+               const intersect_opts_t& opts = intersect_opts_t::defaults()) const noexcept = 0;
+   
+       [[nodiscard]] virtual intersection_record_t intersect(
+               const ray_t &ray,
+               const pqrange_t<> range = { 0*u::m, limits<length_t>::infinity() }) const noexcept = 0;
+   
+       [[nodiscard]] virtual intersection_record_t intersect(
+               const elliptic_cone_t &cone,
+               const pqrange_t<> range = { 0*u::m, limits<length_t>::infinity() },
+               const intersect_opts_t& opts = intersect_opts_t::defaults()) const noexcept = 0;
+   
+       [[nodiscard]] virtual bool shadow(
+               const ray_t &ray,
+               const pqrange_t<> range) const noexcept = 0;
+   
+       [[nodiscard]] virtual bool shadow(
+               const elliptic_cone_t &cone,
+               const pqrange_t<> range) const noexcept = 0;
+   
+       [[nodiscard]] virtual scene::element::info_t description() const = 0;
+   };
+   
+   }

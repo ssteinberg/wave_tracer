@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1aaa4114da7722f29c5cfdbe1be8497772:
+
+Template Function wt::m::eft::dot(const wide_vector<W, 3, Q>&, const wide_vector<W, 3, Q>&)
+===========================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::eft::dot(const wide_vector<W, 3, Q>&, const wide_vector<W, 3, Q>&)
+   :project: wave_tracer

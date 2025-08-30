@@ -1,0 +1,14 @@
+.. _exhale_variable_math_2quantity_2defs_8hpp_1a711e26ba5e5f681ce959064c0f30e74a:
+
+Variable wt::electrodynamics::QE_solid_angle
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::electrodynamics::QE_solid_angle
+   :project: wave_tracer

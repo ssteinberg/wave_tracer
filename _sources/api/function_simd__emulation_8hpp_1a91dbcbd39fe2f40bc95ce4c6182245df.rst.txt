@@ -1,0 +1,14 @@
+.. _exhale_function_simd__emulation_8hpp_1a91dbcbd39fe2f40bc95ce4c6182245df:
+
+Function wt::simd::merge_lower_upper(simd_emulated_t<double, 4>, simd_emulated_t<double, 4>)
+============================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::merge_lower_upper(simd_emulated_t<double, 4>, simd_emulated_t<double, 4>)
+   :project: wave_tracer

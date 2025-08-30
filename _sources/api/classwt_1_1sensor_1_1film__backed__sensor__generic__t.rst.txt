@@ -1,0 +1,33 @@
+.. _exhale_class_classwt_1_1sensor_1_1film__backed__sensor__generic__t:
+
+Template Class film_backed_sensor_generic_t
+===========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_film_backed_sensor.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::sensor::sensor_t`` (:ref:`exhale_class_classwt_1_1sensor_1_1sensor__t`)
+
+
+Derived Types
+*************
+
+- ``public wt::sensor::film_backed_sensor_t< 2, polarimetric >`` (:ref:`exhale_class_classwt_1_1sensor_1_1film__backed__sensor__t`)
+- ``public wt::sensor::film_backed_sensor_t< Dims, polarimetric >`` (:ref:`exhale_class_classwt_1_1sensor_1_1film__backed__sensor__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::sensor::film_backed_sensor_generic_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

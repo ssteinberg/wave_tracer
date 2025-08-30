@@ -1,0 +1,36 @@
+
+.. _namespace_wt__scene__element:
+
+Namespace wt::scene::element
+============================
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt__scene__element__attributes`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1attribute__t`
+
+- :ref:`exhale_class_classwt_1_1scene_1_1element_1_1info__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_info_8hpp_1aa743e412656140015011931c583fe5c6`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_info_8hpp_1ad6c07b2bb6d4c64dd5eebf791c9c0959`

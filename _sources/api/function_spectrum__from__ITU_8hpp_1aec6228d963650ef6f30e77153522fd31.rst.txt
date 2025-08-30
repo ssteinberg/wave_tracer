@@ -1,0 +1,14 @@
+.. _exhale_function_spectrum__from__ITU_8hpp_1aec6228d963650ef6f30e77153522fd31:
+
+Function wt::spectrum::spectrum_from_ITU_material
+=================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_ITU.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::spectrum::spectrum_from_ITU_material(std::string, const std::string&)
+   :project: wave_tracer

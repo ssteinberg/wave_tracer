@@ -1,0 +1,1648 @@
+:orphan:
+
+
+Full API
+========
+
+Directories
+***********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_beam.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_xml.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_mask.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_texture.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_font_renderer.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_knobs.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool.rst
+
+Files
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_constructor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_constructor_stats.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_stats.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_analytic.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_area.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_array.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_assert.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ball.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ball.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_barycentric.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_generic.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_binned.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_binned_piecewise_linear_distribution.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_bitmap.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap_stats.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_blackbody.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_blackbody.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_block.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_bootstrap.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_bsdf.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_constructor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_node.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_constructor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_node.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_checkerboard.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_compensated_sum.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_analytic.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex_constant.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_container.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex_container.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_complex_uniform.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_composite.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_composite.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_concepts.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone_intersection_tolerance.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_constant.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_cube.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_cylinder.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_dependencies.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_dielectric.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_diffuse.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_dirac.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_directional.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_discrete.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_discrete_distribution.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_distribution1d.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_EM_concepts.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_emitter.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_encoded_normal.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_enum.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_erf_lut.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_file_log.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_film_backed_sensor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film_storage.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_font_renderer_font_renderer.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_for_range.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_format.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_format.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_fractal.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_framework.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_free_space_diffraction.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_free_space_diffraction.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fresnel.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd_lut.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_fraunhofer_fsd_sampler.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_function.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_function.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_gaussian.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_gaussian.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian1d.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_gaussian2d.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_gaussian_wavefront.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_glm.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_gui.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_icosahedron.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_knobs_imgui-knobs.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui_config.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_imgui_log.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_imgui_tex_inspect.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_imgui_tex_inspect_internal.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_infinite_emitter.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_info.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_integer3.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_integrator.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_integrator_context.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_interrupts.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_intersection_record.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_irreducible_gf3.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_lens.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_linalg.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_load2d.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_xml_loader.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_logger.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_mask.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_mask_mask.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_math_expression.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_matinverse.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_measure.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_mesh_tri_ptr.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_mix.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_monochromatic.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_multichannel.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_norm_integers.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_normalmap.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_obj_loader.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_padded_block.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_perf_stat.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_perspective.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_piecewise_linear.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_piecewise_linear_distribution.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_ply_loader.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_point.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_position_sample.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_interface.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_tev.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_prism.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_product_distribution.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_progressbar.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_quantity.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_limits.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ray.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_rectangle.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_response.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_RGB.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_rgb.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB_to_spectral.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_rotation.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sampler.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_scale.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_scale.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_scene_element.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_scene_info.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_previewer.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_sensor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_seeded_mt19937_64.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_block_sensor_element.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_flags.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_sample.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_sobolld_sampler.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_db.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_util_spectrum_from_ITU.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_sphere.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_emitter_spot.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_collector_registry.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_counter_event.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_histogram.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_stats.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_statistics_collector_stat_timings.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_stats.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_style.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_surface_differentials.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_surface_profile_surface_profile.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_surface_spm.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_img_inspect_tex_inspect_opengl.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_texture.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_tpool_worker_arena.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_transform.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform_loader.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_traversal_common.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_triangle.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_truncated_gaussian1d.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_two_sided.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_type_traits.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_type_traits.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_uniform.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_uniform.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_distribution_uniform_distribution.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unique_function.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_utd.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_util.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_utils.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_utils.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_thread_pool_utils.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_version.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_vertex.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_plane_sensor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_sensor_virtual_sensor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_whitepoint.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_write2d.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_wt_context.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_XYZ.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp.rst

@@ -1,0 +1,98 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp:
+
+File common.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bsdf``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/bsdf/common.hpp``)
+-------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_common.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``bitset``
+
+- ``wt/interaction/intersection.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_intersection.hpp`)
+
+- ``wt/interaction/polarimetric/mueller.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp`)
+
+- ``wt/interaction/polarimetric/stokes.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/frame.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`)
+
+- ``wt/sampler/density.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_density.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_bsdf.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__bsdf`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1bsdf_1_1bsdf__query__t`
+
+- :ref:`exhale_struct_structwt_1_1bsdf_1_1bsdf__result__t`
+
+- :ref:`exhale_struct_structwt_1_1bsdf_1_1bsdf__sample__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_bsdf_2common_8hpp_1af785fc9511294f1dfc057dad2f7c626e`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_bsdf_2common_8hpp_1a19fc4e4cad62ad82e58835abbe6b6a2b`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_bsdf_2common_8hpp_1a9ef0d5d10bce867e6505b16d6a1dee6a`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_zero_8hpp_1ab0a86f1662e34890482f4a9243e146f8:
+
+Template Function wt::operator>=(const Q&, zero_t)
+==================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::operator>=(const Q&, zero_t)
+   :project: wave_tracer

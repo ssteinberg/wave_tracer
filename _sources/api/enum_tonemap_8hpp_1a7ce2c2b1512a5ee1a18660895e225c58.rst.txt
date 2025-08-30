@@ -1,0 +1,14 @@
+.. _exhale_enum_tonemap_8hpp_1a7ce2c2b1512a5ee1a18660895e225c58:
+
+Enum tonemap_e
+==============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_tonemap_tonemap.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::sensor::response::tonemap_e
+   :project: wave_tracer

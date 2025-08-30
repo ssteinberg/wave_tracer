@@ -1,0 +1,14 @@
+.. _exhale_function_texel__convert_8hpp_1ae32d1fa153953314c12cfe894c4fcce9:
+
+Template Function wt::bitmap::convert_texel
+===========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texel_convert.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::bitmap::convert_texel(const Src)
+   :project: wave_tracer

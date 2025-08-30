@@ -1,0 +1,14 @@
+.. _exhale_function_mueller_8hpp_1a72e12fb6644ff8071a98cd84cf8772f7:
+
+Function wt::compose
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_mueller.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::compose(const mueller_operator_t&, const mueller_operator_t&, const frame_t&, const frame_t&)
+   :project: wave_tracer

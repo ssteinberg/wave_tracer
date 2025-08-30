@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a3165c7aee47a5ead60012a7ca9e37a05:
+
+Function wt::m::abs(const Quantity auto)
+========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::abs(const Quantity auto)
+   :project: wave_tracer

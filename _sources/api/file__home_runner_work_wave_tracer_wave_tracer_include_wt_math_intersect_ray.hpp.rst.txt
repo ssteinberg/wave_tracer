@@ -1,0 +1,97 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp:
+
+File ray.hpp
+============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect/ray.hpp``)
+--------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``intersect_defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`)
+
+- ``optional``
+
+- ``wt/math/barycentric.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_barycentric.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/range.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`)
+
+- ``wt/math/shapes/aabb.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp`)
+
+- ``wt/math/shapes/ray.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ray.hpp`)
+
+- ``wt/math/simd/wide_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_stats.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__intersect`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a9cd08c18949566686cdaa8b9f86776d6`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a9b0ce7ec9a11af03ce15bdd18682f253`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a1b9359ea4240199b7b861cb79ee464fd`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a1a7b1c99b07d7ad56857eead3d337e50`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a440e3316530ff1a37a6b89d7316efd26`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a0f910d2c895e1fe20aa008f69f82fcb8`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1aede74569a433269b5e61d4c8f7a17a48`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a54953db725d1ad8e80e2171838330c1c`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a3f04badef7d5aae0661a2c9627bb3725`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a7cab734656a2705b334fad1893b71633`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1af6e1ed66116db085978dbe4cdc7f9ab1`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a02b632cd627cd22ad4d7284498f9bfdb`
+

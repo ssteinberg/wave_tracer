@@ -1,0 +1,14 @@
+.. _exhale_typedef_math_2defs_8hpp_1a8cb31884a373d10cea92b0023707ae3f:
+
+Typedef wt::mat2_t
+==================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::mat2_t
+   :project: wave_tracer

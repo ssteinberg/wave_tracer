@@ -1,0 +1,212 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp:
+
+Program Listing for File loader.hpp
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/loader/loader.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <vector>
+   #include <map>
+   
+   #include <optional>
+   #include <concepts>
+   
+   #include <memory>
+   #include <future>
+   
+   #include <wt/util/unique_function.hpp>
+   
+   #include <wt/wt_context.hpp>
+   #include <wt/util/thread_pool/tpool.hpp>
+   
+   #include <wt/scene/scene.hpp>
+   #include <wt/scene/element/scene_element.hpp>
+   
+   #include "node.hpp"
+   
+   
+   namespace wt { class shape_t; }
+   namespace wt::sensor { class sensor_t; }
+   namespace wt::sampler { class sampler_t; }
+   namespace wt::integrator { class integrator_t; }
+   namespace wt::scene::loader { class node_t; }
+   
+   
+   namespace wt {
+   
+   class scene_loading_exception_t : public std::runtime_error {
+   private:
+       const scene::loader::node_t* node;
+   
+   public:
+       scene_loading_exception_t(const std::string& error_message, const scene::loader::node_t& node) noexcept 
+           : std::runtime_error(error_message),
+             node(&node)
+       {}
+   
+       [[nodiscard]] const auto* get_scene_loader_node() const noexcept { return node; }
+   };
+   
+   }
+   
+   
+   namespace wt::scene::loader {
+   
+   using defaults_defines_t = std::map<std::string, std::string>;
+   
+   struct progress_callback_t {
+       unique_function<void(f_t) const noexcept> scene_loading_progress_update;
+       unique_function<void(f_t) const noexcept> resources_loading_progress_update;
+       unique_function<void() const noexcept> on_terminate;
+       unique_function<void() const noexcept> on_finish;
+   };
+   
+   class loader_t {
+   public:
+       using shared_element_ptr_t = std::shared_ptr<scene::scene_element_t>;
+       using shared_scene_element_task_t = std::shared_future<shared_element_ptr_t>;
+   
+   public:
+       loader_t(std::string name,
+                const wt_context_t &ctx,
+                std::optional<progress_callback_t> callbacks = {});
+       virtual ~loader_t() { wait(); }
+   
+       void wait_shapes() const;
+       std::vector<std::shared_ptr<shape_t>>& get_shapes();
+   
+       [[nodiscard]] const auto& get_name() const noexcept { return name; }
+   
+       [[nodiscard]] inline bool has_errors() const noexcept { return success.load()==false; }
+   
+       std::unique_ptr<scene_t> get();
+   
+       void wait() const;
+   
+       [[nodiscard]] std::optional<const node_t*> get_node_with_id(const std::string& id) const noexcept {
+           if (id.empty())
+               return {};
+   
+           const auto it = all_ids.find(id);
+           if (it==all_ids.end())
+               return {};
+           return it->second;
+       }
+   
+       template <std::derived_from<scene::scene_element_t> T>
+       std::shared_ptr<T> get_scene_element(const std::string &id) {
+           if (auto task = get_shared_task(id); task) {
+               auto obj = task.value().get();
+               if (auto p = std::dynamic_pointer_cast<T>(obj); p)
+                   return std::move(p);
+           }
+           return nullptr;
+       }
+   
+       template <std::invocable F>
+       void enqueue_loading_task(const scene_element_t* resource,
+                                 const std::string&,
+                                 F&& func) {
+           std::shared_future<void> future = std::async(std::launch::async,
+               [f=std::forward<F>(func), this]() mutable {
+                   f();
+                   this->on_completed_aux_task();
+               }
+           );
+   
+           std::unique_lock l(aux_loadable_lock);
+           aux_tasks.emplace(resource, std::move(future));
+           on_new_aux_task();
+       }
+   
+       void register_resource_dependency(const scene_element_t* resource,
+                                         const scene_element_t* dependency) {
+           assert(resource != dependency);
+   
+           std::unique_lock l(aux_loadable_lock);
+   
+           std::vector<std::shared_future<void>> fs;
+           const auto rn = aux_tasks.equal_range(dependency);
+           fs.reserve(std::distance(rn.first, rn.second));
+           for (auto it=rn.first; it!=rn.second; ++it)
+               fs.emplace_back(it->second);
+   
+           const auto hint = aux_tasks.upper_bound(resource);
+           for (auto& f : fs)
+               aux_tasks.emplace_hint(hint, resource, std::move(f));
+       }
+   
+       void complete_loading_tasks_for_resource(const scene_element_t* resource) {
+           std::vector<std::shared_future<void>> fs;
+   
+           {
+               std::unique_lock l(aux_loadable_lock);
+               const auto rn = aux_tasks.equal_range(resource);
+               fs.reserve(std::distance(rn.first, rn.second));
+               for (auto it=rn.first; it!=rn.second; ++it)
+                   fs.emplace_back(it->second);
+           }
+   
+           for (auto& f : fs)
+               f.get();
+       }
+   
+       [[nodiscard]] virtual std::string node_description(const node_t& node) const noexcept = 0;
+   
+   protected:
+       void load(node_t* scene_node,
+                 const defaults_defines_t& user_defines);
+       inline void set_fail() noexcept { success = false; }
+   
+       std::optional<shared_scene_element_task_t> get_shared_task(const std::string &id);
+   
+   private:
+       void update_defaults(node_t& scene_node, const defaults_defines_t& defines);
+   
+       struct version_t {
+           std::uint16_t major{},minor{},patch{};
+       };
+       static version_t parse_version(const std::string& vers);
+       static void set_defines(node_t& node,
+                               const defaults_defines_t& defines,
+                               std::set<std::string>* used_defines = nullptr);
+       static void parse_default(const node_t& node, defaults_defines_t& defines);
+   
+       void on_new_aux_task() noexcept;
+       void on_completed_aux_task() noexcept;
+   
+   protected:
+       const wt_context_t &context;
+       const std::string name;
+   
+   private:
+       struct impl_t;
+       std::shared_ptr<impl_t> pimpl;
+   
+       std::map<std::string, const node_t*> all_ids;
+       std::atomic<std::uint32_t> unnamed_ids = 0;
+       std::atomic<bool> success;
+   
+       alignas(64) mutable std::mutex aux_loadable_lock;
+       std::multimap<const scene_element_t*, std::shared_future<void>> aux_tasks;
+   };
+   
+   
+   }

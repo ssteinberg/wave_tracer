@@ -1,0 +1,14 @@
+.. _exhale_function_termcolor_8hpp_1a261329af7887a427f78e4f50e8fd80bf:
+
+Function wt::logger::termcolour::reset
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::logger::termcolour::reset(std::ostream&)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1a837443d2c08ec4f8d12755c2c5b450b4:
+
+Function wt::simd::sub(simd_avx_t<float, 8>, simd_avx_t<float, 8>)
+==================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::sub(simd_avx_t<float, 8>, simd_avx_t<float, 8>)
+   :project: wave_tracer

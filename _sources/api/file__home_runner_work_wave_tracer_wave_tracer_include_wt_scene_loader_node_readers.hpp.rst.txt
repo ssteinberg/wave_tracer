@@ -1,0 +1,205 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp:
+
+File node_readers.hpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/loader``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/loader/node_readers.hpp``)
+---------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_node_readers.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``concepts`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_concepts.hpp`)
+
+- ``filesystem``
+
+- ``loader.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp`)
+
+- ``node.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_node.hpp`)
+
+- ``optional``
+
+- ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
+- ``utility``
+
+- ``wt/math/transform/transform_loader.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform_loader.hpp`)
+
+- ``wt/math/type_traits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`)
+
+- ``wt/spectrum/spectrum.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_spectrum.hpp`)
+
+- ``wt/texture/complex_constant.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_complex_constant.hpp`)
+
+- ``wt/texture/constant.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_constant.hpp`)
+
+- ``wt/texture/texture.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_texture.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+- ``wt/util/format/enum.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_enum.hpp`)
+
+- ``wt/util/format/parse.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse.hpp`)
+
+- ``wt/util/format/parse_quantity.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp`)
+
+- ``wt/util/math_expression.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_math_expression.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_film.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_quantity.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__scene`
+
+- :ref:`namespace_wt__scene__loader`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_node__readers_8hpp_1acb008cd66b0aab9c7b359f9b53e73522`
+
+- :ref:`exhale_function_node__readers_8hpp_1a658e1d2fc23cbcc69255a9db0b612b83`
+
+- :ref:`exhale_function_node__readers_8hpp_1a4dfdd871697220ea228a07c60d1febb0`
+
+- :ref:`exhale_function_node__readers_8hpp_1acb4ef9b5f7039915963259c30cab02a7`
+
+- :ref:`exhale_function_node__readers_8hpp_1a6ca322114860bd4bc6aebf103721a832`
+
+- :ref:`exhale_function_node__readers_8hpp_1a8a801917fe1b01e4f28c1b8b5a4b3c74`
+
+- :ref:`exhale_function_node__readers_8hpp_1aa3ae285c809369b0f20a92f99ede53db`
+
+- :ref:`exhale_function_node__readers_8hpp_1ac8f0bbf5a13c2432b3e7bea08d18b6ea`
+
+- :ref:`exhale_function_node__readers_8hpp_1a534be6b0d6116dfc6479a8d8296c57ee`
+
+- :ref:`exhale_function_node__readers_8hpp_1a499a11c94b6e7e502b45b1c785f2c42f`
+
+- :ref:`exhale_function_node__readers_8hpp_1a6550ff5e8b7a5d9a346957fa2adf4520`
+
+- :ref:`exhale_function_node__readers_8hpp_1a75fcd25e1604e269fbd50c30f87891e7`
+
+- :ref:`exhale_function_node__readers_8hpp_1abc0b85d5d5b1f34b0d7bf48e02289224`
+
+- :ref:`exhale_function_node__readers_8hpp_1ab5cc179865a3d442d9dad77752aef4f7`
+
+- :ref:`exhale_function_node__readers_8hpp_1a7e8af907a54fa8759c0e6497886ab2ea`
+
+- :ref:`exhale_function_node__readers_8hpp_1affda5bcfc3a39434a248cafd78e33704`
+
+- :ref:`exhale_function_node__readers_8hpp_1abe154ca3695dc94314cde838e84072c4`
+
+- :ref:`exhale_function_node__readers_8hpp_1ae83fa02456d12f5941a4d3cbf6e4d636`
+
+- :ref:`exhale_function_node__readers_8hpp_1a94c6ffa6a465c3cac5c9737f1e7edfda`
+
+- :ref:`exhale_function_node__readers_8hpp_1a8204adc92d266734a5c036b73e6c96cc`
+
+- :ref:`exhale_function_node__readers_8hpp_1ae0348a08cdf18d6e36a270c4b199a681`
+
+- :ref:`exhale_function_node__readers_8hpp_1a4df4555028abf03d7c0241e08a59fb0b`
+
+- :ref:`exhale_function_node__readers_8hpp_1abbb49550c33553dfe8398c26530f87d5`
+
+- :ref:`exhale_function_node__readers_8hpp_1abfe5f0b8140127d6249e688e741a636e`
+
+- :ref:`exhale_function_node__readers_8hpp_1a1fdee47684f70c288292a7947c6b586f`
+
+- :ref:`exhale_function_node__readers_8hpp_1a597c5a89bb96708a234ba8568ee508a9`
+
+- :ref:`exhale_function_node__readers_8hpp_1a0e645d5047ddbf2b07c68c569787e4ca`
+
+- :ref:`exhale_function_node__readers_8hpp_1a9aad6b37d38f89934b11acec556b45f4`
+
+- :ref:`exhale_function_node__readers_8hpp_1a6b743a732856748f350adc2151c6f744`
+
+- :ref:`exhale_function_node__readers_8hpp_1a97ffdf0f864e42fb780a9aa26d844a11`
+
+- :ref:`exhale_function_node__readers_8hpp_1af8e1d2bccdfa5ed1c16aa0b5d48cba93`
+
+- :ref:`exhale_function_node__readers_8hpp_1a0e29c96f6fc64f4b6a46c4343f37abd1`
+
+- :ref:`exhale_function_node__readers_8hpp_1adf1851c066a2c5282787b23bcc123c3c`
+
+- :ref:`exhale_function_node__readers_8hpp_1a7ba4734aa613172d959791e7a78ffd96`
+
+- :ref:`exhale_function_node__readers_8hpp_1a24b8263279357176345ee10b1bf0a763`
+
+- :ref:`exhale_function_node__readers_8hpp_1a692077b2ac6eefd636e014fe0313370c`
+
+- :ref:`exhale_function_node__readers_8hpp_1ae19ca9995958a3b5c5fdd73cec570e1b`
+
+- :ref:`exhale_function_node__readers_8hpp_1acbe9c464fd03d5d5ecb6c1f7cac5a30c`
+
+- :ref:`exhale_function_node__readers_8hpp_1a654e66f6fca47bffd403aba53cf0cf45`
+
+- :ref:`exhale_function_node__readers_8hpp_1a9e38438ce6294e054c04b389d870478c`
+
+- :ref:`exhale_function_node__readers_8hpp_1aff9001326fc13187204857d6c4d894a4`
+
+- :ref:`exhale_function_node__readers_8hpp_1a73ece47298a778c341e57b194afa8bf4`
+
+- :ref:`exhale_function_node__readers_8hpp_1a1673cb3161163869ee253cce8f225b77`
+
+- :ref:`exhale_function_node__readers_8hpp_1af13b527d0d944daa7acc6180086fa4ac`
+
+- :ref:`exhale_function_node__readers_8hpp_1a03049fdcd12d87d93d82a15a985a5977`
+
+- :ref:`exhale_function_node__readers_8hpp_1a683c93b0c28770eb9d92bb65a3dc5ce2`
+
+- :ref:`exhale_function_node__readers_8hpp_1ae779ed328f0e9193502770c30f8d5032`
+
+- :ref:`exhale_function_node__readers_8hpp_1a09c3724b30eae9642abfe5e97d70dda2`
+
+- :ref:`exhale_function_node__readers_8hpp_1a53e7b5e29e7101d2ffd360d436597255`
+
+- :ref:`exhale_function_node__readers_8hpp_1a80131ae9da070ce18f47375e53654dd2`
+
+- :ref:`exhale_function_node__readers_8hpp_1ad977db2c1157a83a9fac39fe26746e63`
+
+- :ref:`exhale_function_node__readers_8hpp_1a0075fbbd4823a228c764721c1089b9bf`
+
+- :ref:`exhale_function_node__readers_8hpp_1aa1cb938629da270191c7a9f4b3149fe6`
+
+- :ref:`exhale_function_node__readers_8hpp_1af3aa35faed62639b0f0ec6fc4dba2829`
+
+- :ref:`exhale_function_node__readers_8hpp_1a779759679e58dd1d444d16c32a0343a7`
+
+- :ref:`exhale_function_node__readers_8hpp_1a199939c1149bcdb71af1afb698503e37`
+
+- :ref:`exhale_function_node__readers_8hpp_1a9c2fc3c6e46a73203d84966a7678176a`
+

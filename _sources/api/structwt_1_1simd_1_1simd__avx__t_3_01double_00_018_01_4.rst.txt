@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1simd_1_1simd__avx__t_3_01double_00_018_01_4:
+
+Template Struct simd_avx_t< double, 8 >
+=======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::simd::simd_avx_t< double, 8 >
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

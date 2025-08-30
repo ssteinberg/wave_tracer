@@ -1,0 +1,14 @@
+.. _exhale_enum_termcolor_8hpp_1a061da0e87d4e81bd3f7e07436314dc9f:
+
+Enum colour
+===========
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::logger::colour
+   :project: wave_tracer

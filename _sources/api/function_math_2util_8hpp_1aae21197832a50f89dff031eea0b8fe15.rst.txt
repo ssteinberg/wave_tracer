@@ -1,0 +1,14 @@
+.. _exhale_function_math_2util_8hpp_1aae21197832a50f89dff031eea0b8fe15:
+
+Template Function wt::util::tri_surface_area
+============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::util::tri_surface_area(const Va&, const Vb&, const Vc&)
+   :project: wave_tracer

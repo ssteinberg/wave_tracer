@@ -1,0 +1,14 @@
+.. _exhale_function_clip_8hpp_1a029da057b93141713df638c6e1b79f3d:
+
+Function wt::intersect::clip_triangle_z
+=======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::clip_triangle_z(const pqvec3_t&, const pqvec3_t&, const pqvec3_t&, const pqrange_t<>&)
+   :project: wave_tracer

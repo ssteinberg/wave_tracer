@@ -1,0 +1,14 @@
+.. _exhale_enum_sensor_2mask_2mask_8hpp_1a7f275664dc9f9a4addf962fe8d42b15d:
+
+Enum mask_mode_e
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_mask_mask.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::sensor::mask::mask_mode_e
+   :project: wave_tracer

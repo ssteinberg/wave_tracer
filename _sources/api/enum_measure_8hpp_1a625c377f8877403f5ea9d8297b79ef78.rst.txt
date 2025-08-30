@@ -1,0 +1,14 @@
+.. _exhale_enum_measure_8hpp_1a625c377f8877403f5ea9d8297b79ef78:
+
+Enum measure_e
+==============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_measure.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: wt::measure_e
+   :project: wave_tracer

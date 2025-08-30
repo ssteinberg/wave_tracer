@@ -1,0 +1,117 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp:
+
+File zero.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/quantity/zero.hpp``)
+--------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1zero__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_zero_8hpp_1a557c2585afb6cd4bf20e18f65f1e663d`
+
+- :ref:`exhale_function_zero_8hpp_1ae4a61a52ed9eda16e5403de51dcb11b0`
+
+- :ref:`exhale_function_zero_8hpp_1a1cde4fda0e3206f31369630bcc61fc9d`
+
+- :ref:`exhale_function_zero_8hpp_1a83ee4f0de7c7bfbee5fd8bef87d6a972`
+
+- :ref:`exhale_function_zero_8hpp_1a729e6bebd289894cd9d65074e6485ba5`
+
+- :ref:`exhale_function_zero_8hpp_1a7c519518501dda1096f6209360af76e4`
+
+- :ref:`exhale_function_zero_8hpp_1acc4bdb74edb41cddcf98577e95ced672`
+
+- :ref:`exhale_function_zero_8hpp_1a56b60dc182bcfaac34cc935816862dae`
+
+- :ref:`exhale_function_zero_8hpp_1a48d7eb73747bab3f9113610a0d182bf1`
+
+- :ref:`exhale_function_zero_8hpp_1acc9abf0fd89214c246cdf7349cce5acc`
+
+- :ref:`exhale_function_zero_8hpp_1a6ce90c67e2e4ef443a34c9f330b3d390`
+
+- :ref:`exhale_function_zero_8hpp_1a95b1a021a981923b734fb7c9d3c674dd`
+
+- :ref:`exhale_function_zero_8hpp_1a30b955f7230de960b36004c5a566f117`
+
+- :ref:`exhale_function_zero_8hpp_1a5e994169e4c89c277e52db80c2a708ed`
+
+- :ref:`exhale_function_zero_8hpp_1a44732f74bef5aaa43c3226ab105ec037`
+
+- :ref:`exhale_function_zero_8hpp_1af10b81b4a575f241cdb99f0b01e2eca3`
+
+- :ref:`exhale_function_zero_8hpp_1a891a0dbf9eb2be03d4c1d527213ab8aa`
+
+- :ref:`exhale_function_zero_8hpp_1a6e64e0e5696d7b25974d15bbf886bd71`
+
+- :ref:`exhale_function_zero_8hpp_1a7c5d99b70e8e1392f1d722044bfa9cf9`
+
+- :ref:`exhale_function_zero_8hpp_1afd0a349d57b97b9615266bb2e175cc9f`
+
+- :ref:`exhale_function_zero_8hpp_1aa4b3afd9da31ea91e45f3313cb0dc27b`
+
+- :ref:`exhale_function_zero_8hpp_1a5d3c4aa887d0ccc02c3942983c6967a1`
+
+- :ref:`exhale_function_zero_8hpp_1ab0a86f1662e34890482f4a9243e146f8`
+
+- :ref:`exhale_function_zero_8hpp_1a626936b4b087c35465715e80c8edb1b0`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_zero_8hpp_1ab1504d88551697c2699471f749ecdfaf`
+

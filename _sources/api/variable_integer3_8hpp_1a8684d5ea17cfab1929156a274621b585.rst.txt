@@ -1,0 +1,14 @@
+.. _exhale_variable_integer3_8hpp_1a8684d5ea17cfab1929156a274621b585:
+
+Variable wt::sampler::sobolld::pow3tab
+======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_sobolld_integer3.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::sampler::sobolld::pow3tab
+   :project: wave_tracer

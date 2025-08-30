@@ -1,0 +1,35 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene:
+
+
+Directory scene
+===============
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene``
+
+Subdirectories
+--------------
+
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element`
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader`
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_interrupts.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_position_sample.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_render_results.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_previewer.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_renderer.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_scene_sensor.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_shape.hpp`
+
+

@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a66760e791f5a239cb99f1192fcefb997:
+
+Function wt::m::islteqzero(const Quantity auto)
+===============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::islteqzero(const Quantity auto)
+   :project: wave_tracer

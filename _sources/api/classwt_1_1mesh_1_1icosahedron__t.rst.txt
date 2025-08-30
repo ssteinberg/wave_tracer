@@ -1,0 +1,17 @@
+.. _exhale_class_classwt_1_1mesh_1_1icosahedron__t:
+
+Class icosahedron_t
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_icosahedron.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::mesh::icosahedron_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

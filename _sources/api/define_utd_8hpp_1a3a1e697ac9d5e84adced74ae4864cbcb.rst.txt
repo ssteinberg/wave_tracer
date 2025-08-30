@@ -1,0 +1,14 @@
+.. _exhale_define_utd_8hpp_1a3a1e697ac9d5e84adced74ae4864cbcb:
+
+Define CERF_AS_CPP
+==================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_utd.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: CERF_AS_CPP
+   :project: wave_tracer

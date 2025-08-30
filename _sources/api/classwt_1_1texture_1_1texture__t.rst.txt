@@ -1,0 +1,38 @@
+.. _exhale_class_classwt_1_1texture_1_1texture__t:
+
+Class texture_t
+===============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_texture.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::scene::scene_element_t`` (:ref:`exhale_class_classwt_1_1scene_1_1scene__element__t`)
+
+
+Derived Types
+*************
+
+- ``public wt::texture::bitmap_t`` (:ref:`exhale_class_classwt_1_1texture_1_1bitmap__t`)
+- ``public wt::texture::checkerboard_t`` (:ref:`exhale_class_classwt_1_1texture_1_1checkerboard__t`)
+- ``public wt::texture::constant_t`` (:ref:`exhale_class_classwt_1_1texture_1_1constant__t`)
+- ``public wt::texture::function_t`` (:ref:`exhale_class_classwt_1_1texture_1_1function__t`)
+- ``public wt::texture::mix_t`` (:ref:`exhale_class_classwt_1_1texture_1_1mix__t`)
+- ``public wt::texture::scale_t`` (:ref:`exhale_class_classwt_1_1texture_1_1scale__t`)
+- ``public wt::texture::transform_t`` (:ref:`exhale_class_classwt_1_1texture_1_1transform__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::texture::texture_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

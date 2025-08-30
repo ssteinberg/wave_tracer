@@ -1,0 +1,33 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_measure.hpp:
+
+Program Listing for File measure.hpp
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_sampler_measure.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/sampler/measure.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <cstdint>
+   
+   namespace wt {
+   
+   enum class measure_e : std::int8_t {
+       discrete,
+       continuos,
+   };
+   
+   }

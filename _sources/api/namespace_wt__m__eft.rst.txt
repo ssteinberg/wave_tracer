@@ -1,0 +1,76 @@
+
+.. _namespace_wt__m__eft:
+
+Namespace wt::m::eft
+====================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1m_1_1eft_1_1compensated__fp__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_eft_8hpp_1a4ee70059a3c6eb4050b3402afe4c89f1`
+
+- :ref:`exhale_function_eft_8hpp_1ad84011cb0830f15028c23a6b577e5d9f`
+
+- :ref:`exhale_function_eft_8hpp_1af9cc72dc52919b0296ce4effc8a044ce`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a748883515aa55d4b1dc5e800e94d3f15`
+
+- :ref:`exhale_function_eft_8hpp_1a45e9b0054872b9cfc19e9abc86aac7fd`
+
+- :ref:`exhale_function_simd_2math_8hpp_1aaa4114da7722f29c5cfdbe1be8497772`
+
+- :ref:`exhale_function_eft_8hpp_1a49deab3a03d0843198d4136af18aaa98`
+
+- :ref:`exhale_function_eft_8hpp_1a18e21b4971e80a3a649d1c09caa829fa`
+
+- :ref:`exhale_function_eft_8hpp_1a27104bd6301b4a7b62fa015c4418136d`
+
+- :ref:`exhale_function_eft_8hpp_1a124e0c42bb80c15a16692346410c73ee`
+
+- :ref:`exhale_function_eft_8hpp_1a7d52833a60a4976c345402bb6dba50fd`
+
+- :ref:`exhale_function_eft_8hpp_1adcb7d0533483d9fe6736488b0987fa58`
+
+- :ref:`exhale_function_eft_8hpp_1ae5e334a639cab7b5374fb6756b42f99f`
+
+- :ref:`exhale_function_eft_8hpp_1a478efe22ccbff3b27fa8df7082c80976`
+
+- :ref:`exhale_function_eft_8hpp_1a5fbb3465c22207167a9a09dad2e1dd0f`
+
+- :ref:`exhale_function_eft_8hpp_1a2fb4845e9fe6b7d233b80842955badab`
+
+- :ref:`exhale_function_eft_8hpp_1a318b40f5ce6830e007387562f544da03`
+
+- :ref:`exhale_function_eft_8hpp_1ad87ae9d3ff5f36c02e73a9536fbd0e1e`
+
+- :ref:`exhale_function_eft_8hpp_1abf858e768f2b69e4cdf4c79bdffe5cac`
+
+- :ref:`exhale_function_eft_8hpp_1a1b3fa4b88cf4da20e47436f57a37469a`
+
+- :ref:`exhale_function_eft_8hpp_1aa3ce8acd0b780597414b0851badf74a8`
+
+- :ref:`exhale_function_eft_8hpp_1a8417ed8109758a2f4c58cbeb746a9a77`
+
+- :ref:`exhale_function_eft_8hpp_1aa8c5564b2974cb0122c2f867c3e94d70`
+
+- :ref:`exhale_function_eft_8hpp_1a3a19cbfcfda24d0fee377e700d5a5c26`
+
+- :ref:`exhale_function_simd_2math_8hpp_1aa317b37361f19a586064c7c2d58b2634`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a18cf970f61198dec5e1d77e27b7b9ccc`
+
+- :ref:`exhale_function_eft_8hpp_1a611a739bf3fbdaa36a2b983348489052`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a2a8f9d672fdedf0f9fe604bbefefe7b6`
+
+- :ref:`exhale_function_eft_8hpp_1aa7d69e576e0126e05a2e5322c14dd918`

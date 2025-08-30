@@ -1,0 +1,14 @@
+.. _exhale_function_parse__quantity_8hpp_1a01095faafdf9d935f1941c70232fd3df:
+
+Template Function wt::stoq_strict(const std::string&, const Q&)
+===============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::stoq_strict(const std::string&, const Q&)
+   :project: wave_tracer

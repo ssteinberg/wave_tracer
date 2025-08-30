@@ -1,0 +1,14 @@
+.. _exhale_function_perf__stat_8hpp_1aa230d5a16dd1a381c5df8166a864596d:
+
+Function wt::gui::build_perf_stats
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_perf_stat.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::gui::build_perf_stats()
+   :project: wave_tracer

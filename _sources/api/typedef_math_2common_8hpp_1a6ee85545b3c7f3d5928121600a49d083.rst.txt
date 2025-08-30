@@ -1,0 +1,14 @@
+.. _exhale_typedef_math_2common_8hpp_1a6ee85545b3c7f3d5928121600a49d083:
+
+Typedef wt::limits
+==================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::limits
+   :project: wave_tracer

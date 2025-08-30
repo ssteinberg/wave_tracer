@@ -1,0 +1,65 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ball.hpp:
+
+File ball.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect/ball.hpp``)
+---------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ball.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/intersect/intersect_defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`)
+
+- ``wt/math/shapes/aabb.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp`)
+
+- ``wt/math/shapes/ball.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ball.hpp`)
+
+- ``wt/math/simd/wide_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`)
+
+- ``wt/math/util.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__intersect`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_intersect_2ball_8hpp_1aa68728106a15250427c7b66d07bbd863`
+
+- :ref:`exhale_function_intersect_2ball_8hpp_1a01045b0840caabcefca1e3233ca62059`
+
+- :ref:`exhale_function_intersect_2ball_8hpp_1a58fee5aa1f5fc5bb88fb714410627b28`
+
+- :ref:`exhale_function_intersect_2ball_8hpp_1a36812a94d99b453ae1fea78028b9341d`
+

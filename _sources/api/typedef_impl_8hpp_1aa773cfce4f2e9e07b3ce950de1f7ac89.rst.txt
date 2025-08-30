@@ -1,0 +1,14 @@
+.. _exhale_typedef_impl_8hpp_1aa773cfce4f2e9e07b3ce950de1f7ac89:
+
+Typedef wt::gui::perf_stats_t
+=============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_impl.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::gui::perf_stats_t
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1af9629d3544431657d24d8aa665106b20:
+
+Function wt::simd::eq(simd_avx_t<float, 8>, simd_avx_t<float, 8>)
+=================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::eq(simd_avx_t<float, 8>, simd_avx_t<float, 8>)
+   :project: wave_tracer

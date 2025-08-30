@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a4ba4c49af0f68d8355b494ad467380b9:
+
+Template Function wt::m::max(const T&, const T&)
+================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::max(const T&, const T&)
+   :project: wave_tracer

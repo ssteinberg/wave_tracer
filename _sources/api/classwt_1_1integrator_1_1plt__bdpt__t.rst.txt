@@ -1,0 +1,36 @@
+.. _exhale_class_classwt_1_1integrator_1_1plt__bdpt__t:
+
+Class plt_bdpt_t
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_bdpt_plt_bdpt.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1integrator_1_1plt__bdpt__t_1_1options__t`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::integrator::integrator_t`` (:ref:`exhale_class_classwt_1_1integrator_1_1integrator__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::integrator::plt_bdpt_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,73 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp:
+
+File vecmath.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/vecmath.hpp``)
+--------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/eft/eft.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`)
+
+- ``wt/math/quantity/quantity_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`)
+
+- ``wt/math/type_traits.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_type_traits.hpp`)
+
+- ``wt/math/unit_vector/unit_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_unit_vector.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__m`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_vecmath_8hpp_1a51ee7ed99c8bd7e753c5869ba9f29d04`
+
+- :ref:`exhale_function_vecmath_8hpp_1ad206a42a4945c5e3c1deeb63d946edd0`
+
+- :ref:`exhale_function_vecmath_8hpp_1a43f7f5b1daf7998a505a84771e0bfe44`
+
+- :ref:`exhale_function_vecmath_8hpp_1aac9b4b7040b351c0ff5fc2ec9392d5c4`
+
+- :ref:`exhale_function_vecmath_8hpp_1a0202818a38c2cc16a5a1a8c6dc681019`
+
+- :ref:`exhale_function_vecmath_8hpp_1a9da34916eb90f6cf9a45f39b8a754a49`
+

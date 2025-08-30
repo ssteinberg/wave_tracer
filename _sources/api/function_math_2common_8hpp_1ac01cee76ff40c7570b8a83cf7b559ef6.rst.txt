@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1ac01cee76ff40c7570b8a83cf7b559ef6:
+
+Function wt::m::sqrt(const c_t)
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::sqrt(const c_t)
+   :project: wave_tracer

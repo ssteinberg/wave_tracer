@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a813d3967f4ffbba07693a818b65e2805:
+
+Function wt::m::isfinite(const c_t&)
+====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::isfinite(const c_t&)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_plt__path__detail_8hpp_1a947a89a4cce4b8d1a873c9de6c98e602:
+
+Function wt::integrator::plt_path::splat_backward
+=================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_plt_path_plt_path_detail.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::plt_path::splat_backward(const integrator_context_t&, const sensor::block_handle_t&, const sensor::sensor_element_sample_t&, const radiant_flux_stokes_t&, const wavenumber_t&)
+   :project: wave_tracer

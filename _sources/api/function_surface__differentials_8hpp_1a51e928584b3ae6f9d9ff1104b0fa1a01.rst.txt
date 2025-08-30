@@ -1,0 +1,14 @@
+.. _exhale_function_surface__differentials_8hpp_1a51e928584b3ae6f9d9ff1104b0fa1a01:
+
+Function wt::mesh::surface_differentials_for_triangle
+=====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_mesh_surface_differentials.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::mesh::surface_differentials_for_triangle(const pqvec3_t&, const pqvec3_t&, const pqvec3_t&, const vec2_t&, const vec2_t&, const vec2_t&)
+   :project: wave_tracer

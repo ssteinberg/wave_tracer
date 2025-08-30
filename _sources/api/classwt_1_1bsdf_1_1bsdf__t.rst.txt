@@ -1,0 +1,39 @@
+.. _exhale_class_classwt_1_1bsdf_1_1bsdf__t:
+
+Class bsdf_t
+============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bsdf_bsdf.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::scene::scene_element_t`` (:ref:`exhale_class_classwt_1_1scene_1_1scene__element__t`)
+
+
+Derived Types
+*************
+
+- ``public wt::bsdf::composite_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1composite__t`)
+- ``public wt::bsdf::dielectric_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1dielectric__t`)
+- ``public wt::bsdf::diffuse_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1diffuse__t`)
+- ``public wt::bsdf::mask_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1mask__t`)
+- ``public wt::bsdf::normalmap_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1normalmap__t`)
+- ``public wt::bsdf::scale_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1scale__t`)
+- ``public wt::bsdf::surface_spm_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1surface__spm__t`)
+- ``public wt::bsdf::two_sided_t`` (:ref:`exhale_class_classwt_1_1bsdf_1_1two__sided__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::bsdf::bsdf_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

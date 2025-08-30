@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1ae6fbf45c516a606f49ee3efc3a83def2:
+
+Template Function wt::m::select
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::select(const wide_vector<W, N, Q>&, const wide_vector<W, N, Q>&)
+   :project: wave_tracer

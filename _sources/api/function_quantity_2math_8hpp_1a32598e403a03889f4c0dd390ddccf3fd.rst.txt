@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a32598e403a03889f4c0dd390ddccf3fd:
+
+Function wt::m::tan
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::tan(const Angle auto)
+   :project: wave_tracer

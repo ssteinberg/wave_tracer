@@ -1,0 +1,37 @@
+
+.. _namespace_wt__thread_pool:
+
+Namespace wt::thread_pool
+=========================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1thread__pool_1_1tpool__t_1_1mutable__data__t`
+
+- :ref:`exhale_struct_structwt_1_1thread__pool_1_1tpool__t_1_1task__t`
+
+- :ref:`exhale_class_classwt_1_1thread__pool_1_1tpool__t`
+
+- :ref:`exhale_class_classwt_1_1thread__pool_1_1tpool__tids__t`
+
+- :ref:`exhale_class_classwt_1_1thread__pool_1_1tpool__worker__arena__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_thread__pool_2utils_8hpp_1a34d00e83e83d9aacbe4c0081804431e2`
+
+- :ref:`exhale_function_thread__pool_2utils_8hpp_1a239d731224308ea89156ebb15ea4f1b6`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_tpool_8hpp_1ae98b6a16f4b059f6d8b84e0d998868f4`

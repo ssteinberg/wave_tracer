@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1ac76e5093c4433d45c47290d4b9050f36:
+
+Template Function wt::m::prod(const std::array<T, N>&)
+======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::prod(const std::array<T, N>&)
+   :project: wave_tracer

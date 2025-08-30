@@ -1,0 +1,14 @@
+.. _exhale_function_termcolor_8hpp_1a45d5fbb6b78b0c72ce31eb98f5e915a2:
+
+Function wt::logger::termcolour::set_stream_colour
+==================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::logger::termcolour::set_stream_colour(std::ostream&, enum colour)
+   :project: wave_tracer

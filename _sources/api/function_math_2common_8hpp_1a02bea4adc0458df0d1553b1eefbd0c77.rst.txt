@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a02bea4adc0458df0d1553b1eefbd0c77:
+
+Template Function wt::m::diagonal_mat
+=====================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::diagonal_mat(const glm::vec<N, T>&)
+   :project: wave_tracer

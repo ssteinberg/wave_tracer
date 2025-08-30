@@ -1,0 +1,14 @@
+.. _exhale_function_utd_8hpp_1a46fe591269664846841657ce483b26a4:
+
+Template Function wt::utd::UTDa
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_fsd_utd.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::utd::UTDa(const Angle auto, f_t)
+   :project: wave_tracer

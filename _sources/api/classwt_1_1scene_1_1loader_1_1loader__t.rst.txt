@@ -1,0 +1,36 @@
+.. _exhale_class_classwt_1_1scene_1_1loader_1_1loader__t:
+
+Class loader_t
+==============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structwt_1_1scene_1_1loader_1_1loader__t_1_1version__t`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public wt::scene::loader::xml::xml_loader_t`` (:ref:`exhale_class_classwt_1_1scene_1_1loader_1_1xml_1_1xml__loader__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::scene::loader::loader_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

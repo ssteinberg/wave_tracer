@@ -1,0 +1,222 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp:
+
+File wide_vector.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/simd``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/simd/wide_vector.hpp``)
+-----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``bitset``
+
+- ``common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`)
+
+- ``engines/simd_emulation.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_emulation.hpp`)
+
+- ``math.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`)
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_defs.hpp`)
+
+- ``wt/math/quantity/defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_defs.hpp`)
+
+- ``wt/math/quantity/quantity_vector.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_quantity_vector.hpp`)
+
+- ``wt/math/quantity/zero.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_zero.hpp`)
+
+- ``wt/util/concepts.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_concepts.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_node.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_frame.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ball.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_ray.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_ball.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_elliptic_cone.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_format.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_util.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__simd`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1aligned__data__t`
+
+- :ref:`exhale_struct_structwt_1_1simd_1_1unaligned__data__t`
+
+- :ref:`exhale_struct_structwt_1_1wide__vector`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_wide__vector_8hpp_1a2006102be8ddabd8e82c44e9174eb1c5`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1ae7a1ca8b3763f1f006e19a180fd8682b`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a12413424da5988757cf6e5e30776efef`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a6e3e8ed8895d2f0fe3eb4a9f6708ec55`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1aee0c62409a5666f7d857ce330c7e8032`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1ab94e472c01d3f1d7258a0100de0dec0f`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1af82700ccaa7136f74452cd446d630b13`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a0292d22c53ee9d37432e010ec6faa03d`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a5416ce7231b34dcd211bc84d8d73420f`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1ae716c574f8911af119eeb6b38e5f16ee`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a27abf417f91a5ae77c74d3a41cd3ee12`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a62c2420965fd83ba1accc3035f8927ed`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a25a9ff8ae46b2410fcfc3ccff19d4b92`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1afb64b8249873e697499572e47b130687`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1ac069b4cf8f4a25d55dabcba9e87acd5a`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a527c86d99399cba44e66d17f3d02ade6`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a7ec3379d6a0aac7f19d3af0da5070841`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1ab268da33c9a04f101737c88709508ec3`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a61ef3b2600282d4b5225d12b2177ef4c`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a7a7fb636791d395c3b22e9623b3e1c78`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1acfec7b33d57a1e6f85fd8c9785215ed9`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a818fc0ce514ae7db0a71b535cd7ece40`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1aeffe41b13d3002c7eb54ab895cf231f5`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a6e3403468066add8df4edc3324b29740`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a731f13189d4105beacfa0fab229e1dd1`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1aa99cc5bae8ede04991e873be1cbfa9a8`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1ab62ce736fa119f4ce7f82d392adb470a`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a2538e25910bd6da218f6cba40662df8b`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a9bd62095482ea3044ecc9c8d6b673896`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a2fd75e63824db49f537239f0dc8391ad`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a5828f6972931324a98fd9f8eed78fc9f`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a036891710ffe8031656a9fc4ba75abb4`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a15c073153a769a6447eb8e9505c40329`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1afff968af5e433be63736122f64cd064a`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a494fff457b636103dd359a96b20d2c97`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a23fb7262c3d3fd87d3223a9d60dc9980`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1af469dfb8f2c8cb8b936e52be7457efdf`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1ac16f7fa13b0eb9636509422c472d77a7`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1af201e91429f86b2717f07b22c73b6a81`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a534519e0cc7d6ad132b03d9290f04892`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1aefcd5fdd9a91640b7eae7bc758650b10`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a24d5ec0cd96e32522bef37e8aa8a26b3`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1af10cd24f38bca680ababa1c3a5616bd6`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1aab9e4391bcf6fd3dd75cf232e43a1309`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1af4a7f8ed9efdc6bfb55de0deaf5676d9`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a9cd136d37d302d96a42f8be52a586894`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a63d928301a3c45ee96a2baa3a87f4718`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a6a42f631a1d714621abea0efdfc469ef`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1aadc9ad9490d6b7f1b551d1eefe3e15f6`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1aee4952f8eef9530a0c465f6ee56919c2`
+
+- :ref:`exhale_typedef_wide__vector_8hpp_1a77230db53da189fc56cceea3b15e0b6a`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_wide__vector_8hpp_1a0ed74cfb45050e946f87f001aa2916f4`
+
+- :ref:`exhale_variable_wide__vector_8hpp_1a59c4f987345727e54f3da94cf62f52b6`
+

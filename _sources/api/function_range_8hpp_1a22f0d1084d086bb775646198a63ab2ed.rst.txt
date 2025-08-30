@@ -1,0 +1,14 @@
+.. _exhale_function_range_8hpp_1a22f0d1084d086bb775646198a63ab2ed:
+
+Template Function wt::operator\*(const range_t<T>&, f_t)
+========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_range.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::operator*(const range_t<T>&, f_t)
+   :project: wave_tracer

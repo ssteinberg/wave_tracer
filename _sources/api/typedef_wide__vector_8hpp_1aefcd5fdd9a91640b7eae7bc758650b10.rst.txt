@@ -1,0 +1,14 @@
+.. _exhale_typedef_wide__vector_8hpp_1aefcd5fdd9a91640b7eae7bc758650b10:
+
+Typedef wt::simd::bool_mask
+===========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_wide_vector.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::simd::bool_mask
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_vecmath_8hpp_1a0202818a38c2cc16a5a1a8c6dc681019:
+
+Template Function wt::m::normalize
+==================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_vecmath.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::normalize(const V&)
+   :project: wave_tracer

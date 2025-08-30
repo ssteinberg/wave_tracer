@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1a97146b0bf1c1569f83a6a7c17cc0d4e8:
+
+Template Function wt::m::iszero(const glm::vec<N, T>&)
+======================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::iszero(const glm::vec<N, T>&)
+   :project: wave_tracer

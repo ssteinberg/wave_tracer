@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_8hpp_1adb90db1379f3b140987a4e0c9c34dec7:
+
+Template Function wt::scene::loader::load_quantity_texture_element
+==================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_texture_quantity.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::scene::loader::load_quantity_texture_element(const std::string&, const scene::loader::node_t&, const std::string&, std::unique_ptr<texture::quantity_t<Q>>&, scene::loader::loader_t *, const wt::wt_context_t&)
+   :project: wave_tracer

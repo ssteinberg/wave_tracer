@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1SVD__ret__t:
+
+Struct SVD_ret_t
+================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_linalg.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::SVD_ret_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

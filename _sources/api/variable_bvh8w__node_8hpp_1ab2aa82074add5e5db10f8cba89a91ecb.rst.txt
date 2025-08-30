@@ -1,0 +1,14 @@
+.. _exhale_variable_bvh8w__node_8hpp_1ab2aa82074add5e5db10f8cba89a91ecb:
+
+Variable wt::ads::bvh8w::aabbs_per_node
+=======================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w_node.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: wt::ads::bvh8w::aabbs_per_node
+   :project: wave_tracer

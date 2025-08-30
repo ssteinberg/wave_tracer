@@ -1,0 +1,124 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp:
+
+Program Listing for File bvh8w.hpp
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w_bvh8w.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads/bvh8w/bvh8w.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    *
+    * wave tracer
+    * Copyright  Shlomi Steinberg
+    *
+    * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+    *
+    */
+   
+   #pragma once
+   
+   #include <wt/math/shapes/aabb.hpp>
+   #include <wt/math/common.hpp>
+   #include <wt/math/shapes/elliptic_cone.hpp>
+   #include <wt/wt_context.hpp>
+   
+   #include <wt/ads/ads.hpp>
+   #include "bvh8w_node.hpp"
+   
+   namespace wt::ads {
+   
+   namespace construction {
+   class bvh8w_constructor_t;
+   }
+   
+   class bvh8w_t final : public ads_t {
+       friend class construction::bvh8w_constructor_t;
+   
+   public:
+       using node_t = bvh8w::node_t;
+       using leaf_node_t = bvh8w::leaf_node_t;
+   
+       struct tris_vectorized_data_t {
+           std::vector<length_t> ax, ay, az;
+           std::vector<length_t> bx, by, bz;
+           std::vector<length_t> cx, cy, cz;
+           std::vector<f_t> nx, ny, nz;
+       };
+   
+   private:
+       const std::vector<node_t> nodes;
+       const std::vector<leaf_node_t> leaf_nodes;
+       const tris_vectorized_data_t vectorized_data;
+   
+       const aabb_t world;
+   
+       // some stats
+       const f_t sah_cost, occupancy;
+       const std::size_t max_depth;
+   
+   public:
+       bvh8w_t(std::vector<node_t> nodes,
+               std::vector<leaf_node_t> leaf_nodes,
+               tris_vectorized_data_t vectorized_data,
+               std::vector<tri_t> tris,
+               const aabb_t& world,
+               f_t sah_cost,
+               f_t occupancy,
+               std::size_t max_depth) noexcept
+           : ads_t(std::move(tris)),
+             nodes(std::move(nodes)),
+             leaf_nodes(std::move(leaf_nodes)),
+             vectorized_data(std::move(vectorized_data)),
+             world(world),
+             sah_cost(sah_cost),
+             occupancy(occupancy),
+             max_depth(max_depth)
+       {}
+   
+       [[nodiscard]] std::size_t nodes_count() const noexcept override { return nodes.size(); }
+   
+       [[nodiscard]] inline const auto& vectorized_tri_data() const noexcept {
+           return vectorized_data;
+       }
+   
+       [[nodiscard]] inline const std::int32_t root_ptr() const noexcept {
+           return 1;
+       }
+       [[nodiscard]] inline const node_t& node(idx_t nidx) const noexcept {
+           return nodes[nidx];
+       }
+       [[nodiscard]] inline const leaf_node_t& leaf_node(idx_t nidx) const noexcept {
+           return leaf_nodes[nidx];
+       }
+   
+       [[nodiscard]] const aabb_t& V() const noexcept override {
+           return world;
+       }
+   
+       [[nodiscard]] intersection_record_t intersect(
+           const ball_t &ball,
+           const intersect_opts_t& opts = intersect_opts_t::defaults()) const noexcept override;
+   
+       [[nodiscard]] intersection_record_t intersect(
+           const ray_t &ray,
+           const pqrange_t<> range = { 0 * u::m, limits<length_t>::infinity() }) const noexcept override;
+   
+       [[nodiscard]] intersection_record_t intersect(
+           const elliptic_cone_t &cone,
+           const pqrange_t<> range = { 0 * u::m, limits<length_t>::infinity() },
+           const intersect_opts_t& opts = intersect_opts_t::defaults()) const noexcept override;
+   
+       [[nodiscard]] bool shadow(
+           const ray_t &ray, const pqrange_t<> range) const noexcept override;
+   
+       [[nodiscard]] bool shadow(
+           const elliptic_cone_t &cone, const pqrange_t<> range) const noexcept override;
+   
+       [[nodiscard]] scene::element::info_t description() const override;
+   };
+   
+   }

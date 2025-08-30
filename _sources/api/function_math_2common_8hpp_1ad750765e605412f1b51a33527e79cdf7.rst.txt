@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1ad750765e605412f1b51a33527e79cdf7:
+
+Template Function wt::m::isfinite(const glm::mat<N, M, T>&)
+===========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::isfinite(const glm::mat<N, M, T>&)
+   :project: wave_tracer

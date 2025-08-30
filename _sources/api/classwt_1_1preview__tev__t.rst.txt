@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1preview__tev__t:
+
+Class preview_tev_t
+===================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_preview_preview_tev.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::preview_interface_t`` (:ref:`exhale_class_classwt_1_1preview__interface__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::preview_tev_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

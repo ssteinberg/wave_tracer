@@ -1,0 +1,83 @@
+
+.. _namespace_wt__sensor:
+
+Namespace wt::sensor
+====================
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt__sensor__mask`
+
+- :ref:`namespace_wt__sensor__response`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1sensor_1_1block__handle__t`
+
+- :ref:`exhale_struct_structwt_1_1sensor_1_1film__t_1_1rfilter__weights__t`
+
+- :ref:`exhale_struct_structwt_1_1sensor_1_1padded__block__t`
+
+- :ref:`exhale_struct_structwt_1_1sensor_1_1sensor__element__sample__t`
+
+- :ref:`exhale_struct_structwt_1_1sensor_1_1sensor__element__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__backed__sensor__generic__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__backed__sensor__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__storage__handle__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__storage__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1film__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1perspective__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1sensor__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1virtual__coverage__sensor__t`
+
+- :ref:`exhale_class_classwt_1_1sensor_1_1virtual__plane__sensor__t`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_sensor__flags_8hpp_1ad47474be1a9a96c84aaff1ff75d3fa8a`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_sensor_2film_2defs_8hpp_1af65d30d2f1f18d929cce4a6b46bcf71d`
+
+- :ref:`exhale_typedef_sensor_2film_2defs_8hpp_1a6ac5b5b3ffe73fd24593345744ed2340`
+
+- :ref:`exhale_typedef_film__backed__sensor_8hpp_1adac77d395d258926c93fa0a567f28e49`
+
+- :ref:`exhale_typedef_film__backed__sensor_8hpp_1a1638e1e91312dd19d51c3d2e73d80283`
+
+- :ref:`exhale_typedef_sensor_2film_2defs_8hpp_1a2ad76f1e7fabc2a550d34d26f2a75b43`
+
+- :ref:`exhale_typedef_perspective_8hpp_1a83639b0a0fde9e5c15443ef175a6a194`
+
+- :ref:`exhale_typedef_perspective_8hpp_1a28943f6053d3f788274d5da1d5a45e4a`
+
+- :ref:`exhale_typedef_sensor_2film_2defs_8hpp_1a3009d8b6aa4c14da609531b23338b1ea`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_sensor_2film_2defs_8hpp_1a230b9d53719967b6fcce8805ed0a2a75`

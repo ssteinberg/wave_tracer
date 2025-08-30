@@ -1,0 +1,14 @@
+.. _exhale_function_eft_8hpp_1a478efe22ccbff3b27fa8df7082c80976:
+
+Template Function wt::m::eft::sum(const vec3<T>&)
+=================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_eft_eft.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::eft::sum(const vec3<T>&)
+   :project: wave_tracer

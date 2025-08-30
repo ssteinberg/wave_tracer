@@ -1,0 +1,14 @@
+.. _exhale_function_quantity_2math_8hpp_1a92c57bced8b41df0033ec4e6843e3ee6:
+
+Function wt::m::acos
+====================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_quantity_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::acos(const Numeric auto)
+   :project: wave_tracer

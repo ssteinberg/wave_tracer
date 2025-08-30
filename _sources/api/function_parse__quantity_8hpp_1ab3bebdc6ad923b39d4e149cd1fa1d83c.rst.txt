@@ -1,0 +1,14 @@
+.. _exhale_function_parse__quantity_8hpp_1ab3bebdc6ad923b39d4e149cd1fa1d83c:
+
+Function wt::operator>>(std::istream&, Temperature auto&)
+=========================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_parse_quantity.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::operator>>(std::istream&, Temperature auto&)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_edge__classification_8hpp_1a8d6228dce81056316e6937fcc9ec55bd:
+
+Template Function wt::ads::construction::find_edges(const Ads \*, std::vector<tri_t>&, const wt::wt_context_t&, progress_track_t&)
+==================================================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::ads::construction::find_edges(const Ads *, std::vector<tri_t>&, const wt::wt_context_t&, progress_track_t&)
+   :project: wave_tracer

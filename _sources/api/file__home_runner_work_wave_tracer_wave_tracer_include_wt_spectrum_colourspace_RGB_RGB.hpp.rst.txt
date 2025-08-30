@@ -1,0 +1,92 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp:
+
+File RGB.hpp
+============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/colourspace/RGB``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/spectrum/colourspace/RGB/RGB.hpp``)
+------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_RGB_RGB.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/spectrum/colourspace/whitepoint.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_spectrum_colourspace_whitepoint.hpp`)
+
+- ``wt/util/unreachable.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_unreachable.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_common.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_pixel_layout.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_texture2d_storage.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_response_RGB.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__colourspace`
+
+- :ref:`namespace_wt__colourspace__sRGB`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_spectrum_2colourspace_2RGB_2RGB_8hpp_1a07aca99cf7d9cdf8f9f94e59ae3b1b8f`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a0889b7b2b0597fc2e3fe27f9bb2bf5cd`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a82ccbd372becf6bbac5c16eb36a29bea`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a69cd1c1692b2970125187cff00c0115a`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a91d5efbcce5757f6e45be3f9111670cd`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1ad0948b4295ead96d500dc8b283caad01`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a8982202584055b696efecc3a7ed3b635`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a3e41794d4dc7f323316dbef8dd79c896`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1a4cacf5ae23a47ba6a5f054d09174f255`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1acf4b324bb18e287393a3898bf574966c`
+
+- :ref:`exhale_function_spectrum_2colourspace_2RGB_2RGB_8hpp_1ab6042e2ef2ed30acfd1ae72f90c222c2`
+

@@ -1,0 +1,37 @@
+.. _dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads:
+
+
+Directory ads
+=============
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``/home/runner/work/wave_tracer/wave_tracer/include/wt/ads``
+
+Subdirectories
+--------------
+
+- :ref:`dir__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh8w`
+
+
+Files
+-----
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_constructor.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_constructor_stats.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads_stats.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_constructor.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_bvh_node.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_common.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_edge_classification.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_intersection_record.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_traversal_common.hpp`
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_util.hpp`
+
+

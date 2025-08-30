@@ -1,0 +1,14 @@
+.. _exhale_typedef_sensor_2film_2defs_8hpp_1a6ac5b5b3ffe73fd24593345744ed2340:
+
+Typedef wt::sensor::developed_scalar_film_t
+===========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_sensor_film_defs.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::sensor::developed_scalar_film_t
+   :project: wave_tracer

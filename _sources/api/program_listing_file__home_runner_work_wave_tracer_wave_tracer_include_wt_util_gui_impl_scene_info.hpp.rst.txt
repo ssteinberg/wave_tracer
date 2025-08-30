@@ -1,0 +1,59 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_scene_info.hpp:
+
+Program Listing for File scene_info.hpp
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_impl_scene_info.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/impl/scene_info.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   #include <memory>
+   #include <vector>
+   
+   #include <wt/scene/element/info.hpp>
+   #include <wt/sensor/sensor.hpp>
+   
+   #include <wt/util/gui/utils.hpp>
+   
+   namespace wt::gui {
+   
+   struct impl_t;
+   
+   struct scene_info_t {
+       std::string name,data,id;
+       std::vector<std::unique_ptr<scene_info_t>> children;
+   
+       using plot_type = spectral_plot_t<512,3>;
+       std::unique_ptr<plot_type> plot;
+       std::unique_ptr<gl_image_t> image;
+   
+       // addresses used for imgui id, values irrelevant.
+       void *popupid, *buttonid;
+       bool popup_open = false;
+       std::string popup_lbl;
+   
+       void draw_imgui_table_node(const impl_t* pimpl, int node_flags = 0) noexcept;
+   };
+   
+   std::unique_ptr<scene_info_t> build_scene_info(
+           const std::string_view prefix,
+           std::optional<std::string> name,
+           const scene::element::info_t& info,
+           const sensor::sensor_t& sensor) noexcept;
+   
+   }

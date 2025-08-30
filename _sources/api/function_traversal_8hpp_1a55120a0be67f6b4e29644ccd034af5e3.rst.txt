@@ -1,0 +1,14 @@
+.. _exhale_function_traversal_8hpp_1a55120a0be67f6b4e29644ccd034af5e3:
+
+Function wt::integrator::offseted_ray_origin(const vertex_geo_variant_t&, const ray_t&)
+=======================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::offseted_ray_origin(const vertex_geo_variant_t&, const ray_t&)
+   :project: wave_tracer

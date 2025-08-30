@@ -1,0 +1,14 @@
+.. _exhale_function_traversal_8hpp_1afec5ee0873217e2efb8cd1239cedafbf:
+
+Function wt::integrator::max_ballistic_distance
+===============================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::integrator::max_ballistic_distance(const Wavelength auto, const std::uint32_t, const length_t)
+   :project: wave_tracer

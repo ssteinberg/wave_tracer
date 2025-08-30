@@ -1,0 +1,14 @@
+.. _exhale_function_linalg_8hpp_1a46247a70acd701a84df51d4debe41af8:
+
+Function wt::QR
+===============
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_linalg.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::QR(const mat2_t&)
+   :project: wave_tracer

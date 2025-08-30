@@ -1,0 +1,46 @@
+
+.. _namespace_wt__beam:
+
+Namespace wt::beam
+==================
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structwt_1_1beam_1_1beam__radiometric__data__t`
+
+- :ref:`exhale_struct_structwt_1_1beam_1_1beam__radiometric__data__t_3_01transport__e_1_1backward_00_01Q_01_4`
+
+- :ref:`exhale_struct_structwt_1_1beam_1_1beam__radiometric__data__t_3_01transport__e_1_1forward_00_01Q_01_4`
+
+- :ref:`exhale_struct_structwt_1_1beam_1_1phase__space__extent__t`
+
+- :ref:`exhale_struct_structwt_1_1beam_1_1sourcing__geometry__t`
+
+- :ref:`exhale_class_classwt_1_1beam_1_1beam__generic__t`
+
+- :ref:`exhale_class_classwt_1_1beam_1_1gaussian__wavefront__t`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_beam_8hpp_1a8dd51ea4dd261eecb4557d914ce8acc1`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_beam_8hpp_1a4fc3eb6f13dd35559f2891f746fb7273`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_beam__geometry_8hpp_1a578ba889055087acc8a87d7c2c8ab302`

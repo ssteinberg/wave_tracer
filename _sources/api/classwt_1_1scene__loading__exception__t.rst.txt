@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1scene__loading__exception__t:
+
+Class scene_loading_exception_t
+===============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_loader_loader.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::runtime_error``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::scene_loading_exception_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

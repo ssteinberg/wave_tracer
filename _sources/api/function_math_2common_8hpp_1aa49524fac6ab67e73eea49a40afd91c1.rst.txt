@@ -1,0 +1,14 @@
+.. _exhale_function_math_2common_8hpp_1aa49524fac6ab67e73eea49a40afd91c1:
+
+Template Function wt::m::determinant(const mat4<T>&)
+====================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::determinant(const mat4<T>&)
+   :project: wave_tracer

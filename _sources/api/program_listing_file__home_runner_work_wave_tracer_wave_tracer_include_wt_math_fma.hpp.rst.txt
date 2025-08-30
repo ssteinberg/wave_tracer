@@ -1,0 +1,129 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp:
+
+Program Listing for File fma.hpp
+================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_fma.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/fma.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <cmath>
+   
+   #include <wt/math/defs.hpp>
+   #include <wt/math/quantity/quantity_vector.hpp>
+   #include <wt/math/unit_vector/unit_vector.hpp>
+   
+   #include <wt/util/concepts.hpp>
+   #include <wt/math/type_traits.hpp>
+   
+   namespace wt::m {
+   
+   constexpr inline auto fma(const FloatingPoint auto f1, const FloatingPoint auto f2, const FloatingPoint auto f3) noexcept {
+       return std::fma(f1,f2,f3);
+   }
+   constexpr inline auto fma(const FloatingPoint auto f1, const Complex auto f2, const Complex auto f3) noexcept {
+       // TODO: eft complex fma
+       return f1*f2+f3;
+   }
+   constexpr inline auto fma(const Complex auto f1, const FloatingPoint auto f2, const Complex auto f3) noexcept {
+       // TODO: eft complex fma
+       return f1*f2+f3;
+   }
+   constexpr inline auto fma(const Complex auto f1, const Complex auto f2, const Complex auto f3) noexcept {
+       // TODO: eft complex fma
+       return f1*f2+f3;
+   }
+   constexpr inline auto fma(const std::integral auto i1, const std::integral auto i2, const std::integral auto i3) noexcept {
+       return i1*i2+i3;
+   }
+   
+   template <FloatingPoint T, std::size_t N, std::size_t M>
+   constexpr inline auto fma(const glm::mat<N,M,T>& m1, const glm::mat<N,M,T>& m2, const glm::mat<N,M,T>& m3) noexcept {
+       return glm::fma(m1,m2,m3);
+   }
+   
+   template <Quantity Q1, Quantity Q2>
+   constexpr inline auto fma(const Q1& q1, const Q2& q2,
+                             const decltype(std::declval<Q1>()*std::declval<Q2>())& q3) noexcept {
+       using Q3 = decltype(std::declval<Q1>()*std::declval<Q2>());
+       using T1 = Q1::rep;
+       using T2 = Q2::rep;
+       using T3 = Q3::rep;
+       const auto f1 = T1{ q1/Q1::unit };
+       const auto f2 = T2{ q2/Q2::unit };
+       const auto f3 = T3{ q3/Q3::unit };
+       return Q3(fma(f1,f2,f3) * Q3::unit);
+   }
+   template <Numeric T1, Quantity Q>
+   constexpr inline Q fma(const T1& f1, const Q& q2, const Q& q3) noexcept {
+       using T = Q::rep;
+       const auto f2 = T{ q2/Q::unit };
+       const auto f3 = T{ q3/Q::unit };
+       return fma(f1,f2,f3) * Q::unit;
+   }
+   template <Quantity Q, Numeric T2>
+   constexpr inline Q fma(const Q& q1, const T2& f2, const Q& q3) noexcept {
+       using T = Q::rep;
+       const auto f1 = T{ q1/Q::unit };
+       const auto f3 = T{ q3/Q::unit };
+       return fma(f1,f2,f3) * Q::unit;
+   }
+   
+   template <Vector V1, Vector V2, Vector V3>
+   constexpr inline auto fma(const V1& v1, 
+                             const V2& v2, 
+                             const V3& v3) noexcept
+       requires (element_count_v<V1> == element_count_v<V2> && element_count_v<V1> == element_count_v<V3>)
+   {
+       constexpr auto N = element_count_v<V1>;
+       using R = decltype(fma(v1[0],v2[0],v3[0]));
+       using V = vector_t<N,R>;
+       V ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = fma(v1[i], v2[i], v3[i]);
+       return ret;
+   }
+   template <Scalar S, Vector V2, Vector V3>
+   constexpr inline auto fma(const S& s, 
+                             const V2& v2, 
+                             const V3& v3) noexcept
+       requires (element_count_v<V2> == element_count_v<V3>)
+   {
+       constexpr auto N = element_count_v<V2>;
+       using R = decltype(fma(s,v2[0],v3[0]));
+       using V = vector_t<N,R>;
+       V ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = fma(s, v2[i], v3[i]);
+       return ret;
+   }
+   template <Vector V1, Scalar S, Vector V3>
+   constexpr inline auto fma(const V1& v1,
+                             const S& s,
+                             const V3& v3) noexcept
+       requires (element_count_v<V1> == element_count_v<V3>)
+   {
+       constexpr auto N = element_count_v<V1>;
+       using R = decltype(fma(v1[0],s,v3[0]));
+       using V = vector_t<N,R>;
+       V ret;
+       for (auto i=0ul;i<N;++i)
+           ret[i] = fma(v1[i], s, v3[i]);
+       return ret;
+   }
+   
+   }

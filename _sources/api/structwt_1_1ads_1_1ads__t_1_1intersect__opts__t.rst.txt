@@ -1,0 +1,23 @@
+.. _exhale_struct_structwt_1_1ads_1_1ads__t_1_1intersect__opts__t:
+
+Struct ads_t::intersect_opts_t
+==============================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_ads_ads.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classwt_1_1ads_1_1ads__t`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::ads::ads_t::intersect_opts_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

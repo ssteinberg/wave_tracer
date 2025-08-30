@@ -1,0 +1,81 @@
+
+.. _file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp:
+
+File misc.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+Definition (``/home/runner/work/wave_tracer/wave_tracer/include/wt/math/intersect/misc.hpp``)
+---------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_misc.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``intersect_defs.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_intersect_defs.hpp`)
+
+- ``optional``
+
+- ``utility``
+
+- ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)
+
+- ``wt/math/shapes/aabb.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_shapes_aabb.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_clip.hpp`
+
+- :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_wt`
+
+- :ref:`namespace_wt__intersect`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_misc_8hpp_1acb477a48183a2317b4a9ecb96864654c`
+
+- :ref:`exhale_function_misc_8hpp_1a92b306595c499ab4289abb0e62183cc7`
+
+- :ref:`exhale_function_misc_8hpp_1a9e6a4825a407179ee1ac93b1ad5797e3`
+
+- :ref:`exhale_function_misc_8hpp_1ae40fabf83321231722dfdf9ba32e1cca`
+
+- :ref:`exhale_function_misc_8hpp_1a57b1c01a435c1292d59e4d4a41c660fc`
+
+- :ref:`exhale_function_misc_8hpp_1aa0673605bc912927e7d0eafd7db681ca`
+
+- :ref:`exhale_function_misc_8hpp_1a7ea34efdfc135898509b8e890e4c1e5d`
+
+- :ref:`exhale_function_misc_8hpp_1ad1bf00c33aaf512ba8ef9dcc49721c71`
+
+- :ref:`exhale_function_misc_8hpp_1a7e941e634bedd97e6216735a58ba09e9`
+

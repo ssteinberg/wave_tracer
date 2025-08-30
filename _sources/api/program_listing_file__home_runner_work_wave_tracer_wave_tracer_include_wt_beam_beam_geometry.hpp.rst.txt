@@ -1,0 +1,287 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp:
+
+Program Listing for File beam_geometry.hpp
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_beam_beam_geometry.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/beam/beam_geometry.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <cassert>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/math/frame.hpp>
+   #include <wt/math/shapes/elliptic_cone.hpp>
+   
+   #include <wt/beam/gaussian_wavefront.hpp>
+   
+   #include <wt/interaction/intersection.hpp>
+   
+   namespace wt::beam {
+   
+   // the ratio between the envelope length of a beam to its spatial standard deviation
+   // (i.e., we trace a 3*stddev beam envelope)
+   static constexpr f_t beam_cross_section_envelope = gaussian_wavefront_t::beam_cross_section_envelope;
+   
+   
+   struct phase_space_extent_t {
+       area_t spatial_extent;
+       f_t tan_alpha;
+       wavenumber_t k;
+   
+       // SBP of MUB is ¼ (½ per dimension on the cross section)
+       static constexpr auto mub_sbp = f_t(1)/4;
+   
+       [[nodiscard]] inline auto sbp() const noexcept {
+           const auto area_stddev = spatial_extent / m::sqr(beam_cross_section_envelope);
+           const auto wavevector_stddev = m::sqr(k*tan_alpha / beam_cross_section_envelope);
+           return u::to_num(area_stddev * wavevector_stddev);
+       }
+   
+       [[nodiscard]] inline bool is_mub() const noexcept {
+           constexpr auto tolerance = f_t(3e-7);
+           return sbp() >= mub_sbp - tolerance;
+       }
+   
+       [[nodiscard]] inline auto enlarge(f_t scale) const noexcept {
+           if (scale==1) 
+               return *this;
+           return phase_space_extent_t{
+               .spatial_extent = spatial_extent * m::sqr(scale),
+               .tan_alpha = tan_alpha * scale,
+               .k = k,
+           };
+       }
+   
+       [[nodiscard]] inline auto make_mub() const noexcept {
+           const auto sbp = this->sbp();
+           phase_space_extent_t ret = {};
+   
+           if (sbp==zero) {
+               // build a MUB
+               assert(tan_alpha>zero || spatial_extent>zero);  // otherwise nothing we can do
+   
+               if (tan_alpha>0) {
+                   ret = phase_space_extent_t{
+                       .spatial_extent = minimum_uncertainty_spatial_extent(this->tan_alpha, this->k),
+                       .tan_alpha = this->tan_alpha,
+                       .k = this->k,
+                   };
+               } else {
+                   ret = phase_space_extent_t{
+                       .spatial_extent = this->spatial_extent,
+                       .tan_alpha = minimum_uncertainty_tan_alpha(this->spatial_extent, this->k),
+                       .k = this->k,
+                   };
+               }
+           } else {
+               auto scale = (f_t)(mub_sbp / sbp);
+               assert(scale>0 && m::isfinite(scale));
+               if (scale<=1)
+                   return *this;
+   
+               // per phase-space dimension (i.e., per spatial and angular component, per dimension)
+               scale = m::sqrt(m::sqrt(scale));
+               ret = enlarge(scale);
+           }
+   
+           assert(ret.is_mub());
+           return ret;
+       }
+   
+       [[nodiscard]] static constexpr inline f_t minimum_uncertainty_tan_alpha(
+               const Length auto spatial_length,
+               const Wavenumber auto k) noexcept {
+           const auto tan_alpha = spatial_length > zero ?
+               m::sqrt(mub_sbp) * m::sqr(beam_cross_section_envelope) / u::to_num(k * spatial_length) :
+               0;
+   
+           if (spatial_length > zero) {
+               const auto& temp = phase_space_extent_t{ .spatial_extent=m::sqr(spatial_length), .tan_alpha=tan_alpha, .k=k };
+               assert(temp.is_mub());
+           }
+   
+           return tan_alpha;
+       }
+   
+       [[nodiscard]] static constexpr inline f_t minimum_uncertainty_tan_alpha(
+               const Area auto spatial_extent,
+               const Wavenumber auto k) noexcept {
+           const auto tan_alpha = spatial_extent > zero ?
+               u::to_num(m::sqrt(mub_sbp / spatial_extent) * m::sqr(beam_cross_section_envelope) / k) :
+               0;
+   
+           if (spatial_extent > zero) {
+               const auto& temp = phase_space_extent_t{ .spatial_extent=spatial_extent, .tan_alpha=tan_alpha, .k=k };
+               assert(temp.is_mub());
+           }
+   
+           return tan_alpha;
+       }
+   
+       [[nodiscard]] static constexpr inline f_t minimum_uncertainty_tan_alpha(
+               const pqvec2_t spatial_lengths,
+               const Wavenumber auto k) noexcept {
+           return minimum_uncertainty_tan_alpha((spatial_lengths.x+spatial_lengths.y)/2, k);
+       }
+   
+       [[nodiscard]] static constexpr inline area_t minimum_uncertainty_spatial_extent(
+               const f_t tan_alpha,
+               const Wavenumber auto k) noexcept {
+           const auto spatial_length = tan_alpha > 0 ? 
+               m::sqrt(mub_sbp) * m::sqr(beam_cross_section_envelope) / (k * tan_alpha) :
+               0 * u::m;
+           const auto spatial_extent = m::sqr(spatial_length);
+   
+           if (tan_alpha > 0) {
+               const auto& temp = phase_space_extent_t{ .spatial_extent=spatial_extent, .tan_alpha=tan_alpha, .k=k };
+               assert(temp.is_mub());
+           }
+   
+           return spatial_extent;
+       }
+   };
+   
+   
+   struct sourcing_geometry_t {
+       dir3_t x = { 1,0,0 };
+       pqvec2_t initial_spatial_lengths;    // spatial lengths (x lies in world direction of 'x')
+       f_t tan_alpha;
+   
+       const intersection_surface_t* surface = nullptr;
+   
+       wavenumber_t k;
+       
+       [[nodiscard]] inline auto phase_space_extent() const noexcept {
+           return phase_space_extent_t{
+               .spatial_extent = m::prod(initial_spatial_lengths),
+               .tan_alpha = tan_alpha,
+               .k = k,
+           };
+       }
+   
+       [[nodiscard]] inline auto envelope(const ray_t& ray, length_t& self_intersection_distance) const noexcept {
+           if (surface) {
+               // beam through world ellipsoid
+               const auto X = x * initial_spatial_lengths.x;
+               const auto Y = m::cross(x,surface->geo.n) * initial_spatial_lengths.y;
+               return elliptic_cone_t::cone_through_ellipse(
+                       X, Y, surface->geo.n, 
+                       ray, tan_alpha,
+                       &self_intersection_distance);
+           }
+   
+           self_intersection_distance = 0*u::m;        // not a surface, no self intersection
+           if (initial_spatial_lengths.x!=initial_spatial_lengths.y) {
+               // sourced cone is eccentric
+               const auto initial_x = m::max_element(initial_spatial_lengths);
+               const auto e = m::min_element(initial_spatial_lengths) / initial_x;
+   
+               return elliptic_cone_t(ray, x, tan_alpha, f_t(e), initial_x);
+           } else {
+               // isotropic
+               return elliptic_cone_t(ray, tan_alpha, initial_spatial_lengths.x);
+           }
+       }
+   
+       static auto source_mub_from(const f_t tan_alpha,
+                                   const Wavenumber auto k) noexcept {
+           assert(tan_alpha>=0);
+           const auto spatial_length = m::sqrt(phase_space_extent_t::minimum_uncertainty_spatial_extent(tan_alpha, k));
+           return sourcing_geometry_t{
+               .initial_spatial_lengths = pqvec2_t{ spatial_length },
+               .tan_alpha = tan_alpha,
+               .k = k,
+           };
+       }
+   
+       static auto source_mub_from(const length_t initial_spatial_length,
+                                   const Wavenumber auto k) noexcept {
+           assert(initial_spatial_length>=zero);
+           return sourcing_geometry_t{
+               .initial_spatial_lengths = pqvec2_t{ initial_spatial_length },
+               .tan_alpha = phase_space_extent_t::minimum_uncertainty_tan_alpha(initial_spatial_length, k),
+               .k = k,
+           };
+       }
+   
+       static auto source_mub_from(const pqvec2_t initial_spatial_lengths,
+                                   const dir3_t x,
+                                   const Wavenumber auto k) noexcept {
+           assert(initial_spatial_lengths.x>=zero);
+           assert(initial_spatial_lengths.y>=zero);
+           return sourcing_geometry_t{
+               .x = x,
+               .initial_spatial_lengths = initial_spatial_lengths,
+               .tan_alpha = phase_space_extent_t::minimum_uncertainty_tan_alpha(initial_spatial_lengths, k),
+               .k = k,
+           };
+       }
+   
+       static auto source_mub_from(const intersection_surface_t* surface,
+                                   const Wavenumber auto k) noexcept {
+           assert(!!surface);
+   
+           const auto initial_spatial_lengths = pqvec2_t{ surface->footprint.la, surface->footprint.lb };
+           assert(m::min_element(initial_spatial_lengths)>zero);
+   
+           return sourcing_geometry_t{
+               .x = surface->geo.to_world(dir3_t{ surface->footprint.x,0 }),
+               .initial_spatial_lengths = initial_spatial_lengths,
+               .tan_alpha = phase_space_extent_t::minimum_uncertainty_tan_alpha(initial_spatial_lengths, k),
+               .surface = surface,
+               .k = k,
+           };
+       }
+   
+       static auto source(const length_t initial_spatial_length,
+                          const f_t tan_alpha,
+                          const Wavenumber auto k) noexcept {
+           assert(initial_spatial_length>=zero);
+           assert(tan_alpha>=0);
+           return sourcing_geometry_t{
+               .initial_spatial_lengths = pqvec2_t{ initial_spatial_length },
+               .tan_alpha = tan_alpha,
+               .k = k,
+           };
+       }
+   
+       static auto source(const phase_space_extent_t& extent) noexcept {
+           assert(extent.spatial_extent>=zero);
+           assert(extent.tan_alpha>=0);
+           return sourcing_geometry_t{
+               .initial_spatial_lengths = pqvec2_t{ m::sqrt(extent.spatial_extent) },
+               .tan_alpha = extent.tan_alpha,
+               .k = extent.k,
+           };
+       }
+   
+       static auto source(const intersection_surface_t* surface,
+                          const phase_space_extent_t& extent) noexcept {
+           assert(!!surface);
+   
+           return sourcing_geometry_t{
+               .x = surface->geo.t,
+               .initial_spatial_lengths = pqvec2_t{ m::sqrt(extent.spatial_extent) },
+               .tan_alpha = extent.tan_alpha,
+               .surface = surface,
+               .k = extent.k,
+           };
+       }
+   };
+   
+   }

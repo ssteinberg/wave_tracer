@@ -1,0 +1,14 @@
+.. _exhale_function_cone__intersection__tolerance_8hpp_1a6285be55473eec4fbc2baed632c90f0b:
+
+Function wt::intersect::cone_intersection_tolerance
+===================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_intersect_cone_intersection_tolerance.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::intersect::cone_intersection_tolerance(const pqvec3_t&, const aabb_t&)
+   :project: wave_tracer

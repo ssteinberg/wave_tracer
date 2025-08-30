@@ -1,0 +1,215 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp:
+
+Program Listing for File utils.hpp
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/gui/imgui/utils.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <string>
+   
+   #include <wt/math/common.hpp>
+   #include <wt/bitmap/bitmap.hpp>
+   
+   #include <wt/util/logger/logger.hpp>
+   
+   #include <wt/util/gui/utils.hpp>
+   #include <wt/util/gui/imgui/imgui.hpp>
+   #include <wt/util/gui/impl/common.hpp>
+   
+   #include <imgui_internal.h>
+   
+   
+   namespace wt::gui {
+   
+   inline ImVec2 text_size(const std::string& str, float font_size, ImFont* font = nullptr) {
+       using namespace ImGui;
+   
+       ImGuiContext& g = *GImGui;
+   
+       if (!font)
+           font = g.Font;
+       if (str.empty())
+           return { .0f, font_size };
+   
+       ImVec2 text_size = font->CalcTextSizeA(
+           font_size, FLT_MAX, -1,
+           &*str.begin(), &*str.end());
+       text_size.x = m::ceil(text_size.x);
+   
+       return text_size;
+   }
+   
+   
+   inline bool imgui_begin_popup_ex(const std::string& name, bool* p_open, ImGuiID id, ImGuiWindowFlags extra_window_flags) noexcept {
+       using namespace ImGui;
+   
+       ImGuiContext& g = *GImGui;
+       if (!IsPopupOpen(id, ImGuiPopupFlags_None)) {
+           g.NextWindowData.ClearFlags(); // We behave like Begin() and need to consume those values
+           return false;
+       }
+   
+       bool is_open = Begin(name.c_str(), p_open, extra_window_flags | ImGuiWindowFlags_Popup | ImGuiWindowFlags_NoDocking);
+       if (!is_open) // NB: Begin can return false when the popup is completely clipped (e.g. zero size display)
+           EndPopup();
+       //g.CurrentWindow->FocusRouteParentWindow = g.CurrentWindow->ParentWindowInBeginStack;
+       return is_open;
+   }
+   
+   inline void imgui_hover_tooltip(const char* tip) {
+       if (!*tip) return;
+       if (ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenDisabled)) {
+           ImGui::SetTooltip("%s", tip);
+       }
+   }
+   
+   inline void imgui_loading_progress_bar(const std::string& prefix, const vec3_t& colour, float p) {
+       ImGui::SetCursorPosX(20);
+   
+       // play with colour
+       const auto text_colour = (vec3<float>)m::mix<f_t>(colour, vec3_t{ 1 }, .5f);
+       vec3<float> bar_colour;
+       ImVec4 c = ImVec4(0, 0, 0, 1);
+       ImGui::ColorConvertRGBtoHSV((float)colour.x, (float)colour.y, (float)colour.z, c.x, c.y, c.z);
+       c.y = m::mix<f_t>(c.y/2,c.y,p);
+       c.z = m::mix<f_t>(c.z/2,c.z,p);
+       ImGui::ColorConvertHSVtoRGB(c.x, c.y, c.z, bar_colour.x, bar_colour.y, bar_colour.z);
+   
+       ImGui::PushStyleColor(ImGuiCol_Text, ImVec4{ text_colour.x,text_colour.y,text_colour.z,1});
+       ImGui::Text("%s", prefix.c_str());
+       ImGui::PopStyleColor();
+   
+       ImGui::SameLine(192);
+   
+       ImGui::PushStyleColor(ImGuiCol_PlotHistogram, ImVec4{ bar_colour.x,bar_colour.y,bar_colour.z,1});
+       ImGui::ProgressBar(p, ImVec2{ 313, 0 });
+       ImGui::PopStyleColor();
+   }
+   
+   inline ImGuiID dockspace_over_viewport(
+           ImGuiID dockspace_id,
+           const ImGuiViewport* viewport,
+           ImGuiDockNodeFlags dockspace_flags,
+           const ImVec2 inset_topleft = {},
+           const ImVec2 inset_bottomright = {},
+           const ImGuiWindowClass* window_class = nullptr) {
+       using namespace ImGui;
+       
+       if (!viewport)
+           viewport = GetMainViewport();
+   
+       // Submit a window filling the entire viewport
+       SetNextWindowPos(viewport->WorkPos + inset_topleft);
+       SetNextWindowSize(viewport->WorkSize - inset_topleft - inset_bottomright);
+       SetNextWindowViewport(viewport->ID);
+   
+       ImGuiWindowFlags host_window_flags = 0; //ImGuiWindowFlags_MenuBar;
+       host_window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoDocking;
+       host_window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+       if (dockspace_flags & ImGuiDockNodeFlags_PassthruCentralNode)
+           host_window_flags |= ImGuiWindowFlags_NoBackground;
+   
+       // FIXME-OPT: When using ImGuiDockNodeFlags_KeepAliveOnly with DockSpaceOverViewport() we might be able to spare submitting the window,
+       // since DockSpace() with that flag doesn't need a window. We'd only need to compute the default ID accordingly.
+       if (dockspace_flags & ImGuiDockNodeFlags_KeepAliveOnly)
+           host_window_flags |= ImGuiWindowFlags_NoMouseInputs;
+   
+       char label[32];
+       ImFormatString(label, IM_ARRAYSIZE(label), "WindowOverViewport_%08X", viewport->ID);
+   
+       PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+       PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+       PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
+       Begin(label, nullptr, host_window_flags);
+       PopStyleVar(3);
+   
+       // Submit the dockspace
+       if (dockspace_id == 0)
+           dockspace_id = GetID("DockSpace");
+       DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags, window_class);
+   
+       End();
+   
+       return dockspace_id;
+   }
+   
+   template <typename Plot>
+   inline void plot_graph(
+           const ImVec2 size,
+           Plot& hist,
+           ImFont* font = nullptr,
+           int plot_flags = ImPlotFlags_CanvasOnly | ImPlotFlags_Crosshairs,
+           int extra_axis_flags = 0) noexcept {
+       ImGui::PushFont(font, 11);
+       ImGui::PushStyleColor(ImGuiCol_Text, ImVec4{ .4,.4,.4,1 });
+       ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4{ 0,0,0,0 });
+   
+       const auto axis_flags = extra_axis_flags | ImPlotAxisFlags_NoLabel | ImPlotAxisFlags_NoSideSwitch | ImPlotAxisFlags_NoHighlight | ImPlotAxisFlags_AutoFit;
+   
+       if (hist.new_data) {
+           hist.new_data = false;
+           ImPlot::SetNextAxisToFit(ImAxis_Y1);
+       }
+   
+       ImPlot::PushStyleVar(ImPlotStyleVar_LineWeight, 1.f);
+   
+       if (ImPlot::BeginPlot(hist.imgui_ids[0], size, plot_flags)) {
+           auto xflags = axis_flags, yflags = axis_flags;
+           if (!hist.has_xticks) xflags |= ImPlotAxisFlags_NoTickLabels | ImPlotAxisFlags_NoTickMarks;
+           if (!hist.has_yticks) yflags |= ImPlotAxisFlags_NoTickLabels | ImPlotAxisFlags_NoTickMarks;
+   
+           ImPlot::SetupAxes(nullptr,nullptr, xflags, yflags);
+           if constexpr (Plot::has_xticks)
+               ImPlot::SetupAxisTicks(ImAxis_X1, hist.xticks.data(), hist.xticks.size(), hist.xtick_labels_cstr.data());
+           if constexpr (Plot::has_yticks)
+               ImPlot::SetupAxisTicks(ImAxis_Y1, hist.yticks.data(), hist.yticks.size(), hist.ytick_labels_cstr.data());
+   
+           if (hist.channels>=3) {
+               ImPlot::SetNextFillStyle(plot_col_rgb1);
+               ImPlot::SetNextLineStyle(plot_col_rgb1_line);
+               ImPlot::PlotLine(hist.imgui_ids[0], &hist.data.data()[0*hist.bins], hist.bins, 1,0, ImPlotLineFlags_Shaded);
+               ImPlot::SetNextFillStyle(plot_col_rgb2);
+               ImPlot::SetNextLineStyle(plot_col_rgb2_line);
+               ImPlot::PlotLine(hist.imgui_ids[0], &hist.data.data()[1*hist.bins], hist.bins, 1,0, ImPlotLineFlags_Shaded);
+               ImPlot::SetNextFillStyle(plot_col_rgb3);
+               ImPlot::SetNextLineStyle(plot_col_rgb3_line);
+               ImPlot::PlotShaded(hist.imgui_ids[0], &hist.data.data()[2*hist.bins], hist.bins);
+           } else if (hist.channels==2) {
+               ImPlot::SetNextFillStyle(plot_col_twin1);
+               ImPlot::SetNextLineStyle(plot_col_twin1_line);
+               ImPlot::PlotLine(hist.imgui_ids[0], &hist.data.data()[0*hist.bins], hist.bins, 1,0, ImPlotLineFlags_Shaded);
+               ImPlot::SetNextFillStyle(plot_col_twin2);
+               ImPlot::SetNextLineStyle(plot_col_twin2_line);
+               ImPlot::PlotLine(hist.imgui_ids[0], &hist.data.data()[1*hist.bins], hist.bins, 1,0, ImPlotLineFlags_Shaded);
+           } else {
+               ImPlot::SetNextFillStyle(plot_col_mono);
+               ImPlot::SetNextLineStyle(plot_col_mono_line);
+               ImPlot::PlotLine(hist.imgui_ids[0], &hist.data.data()[0*hist.bins], hist.bins, 1,0, ImPlotLineFlags_Shaded);
+           }
+   
+           ImPlot::EndPlot();
+       }
+   
+       ImPlot::PopStyleVar();
+   
+       ImGui::PopStyleColor(2);
+       ImGui::PopFont();
+   }
+   
+   }

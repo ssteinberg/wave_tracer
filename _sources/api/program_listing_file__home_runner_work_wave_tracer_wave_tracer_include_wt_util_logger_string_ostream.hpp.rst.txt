@@ -1,0 +1,103 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp:
+
+Program Listing for File string_ostream.hpp
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/util/logger/string_ostream.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <streambuf>
+   #include <ostream>
+   #include <string>
+   #include <vector>
+   #include <mutex>
+   
+   namespace wt::logger {
+   
+   namespace _detail {
+   
+   template <int mark>
+   class string_stringbuf : public std::streambuf {
+   public:
+       using mutex_type = std::mutex;
+       using target_type = std::vector<std::pair<int,std::string>>;
+   
+       string_stringbuf(target_type& target, mutex_type& mtx)
+           : target_(target), mtx_(mtx) {}
+   
+   protected:
+       int_type overflow(int_type ch) override {
+           if (traits_type::eq_int_type(ch, traits_type::eof()))
+               return traits_type::not_eof(ch);
+   
+           handle_chars(reinterpret_cast<char_type*>(&ch), 1);
+           return ch;
+       }
+   
+       std::streamsize xsputn(const char_type* s,
+                              std::streamsize  n) override {
+           handle_chars(s, static_cast<std::size_t>(n));
+           return n;
+       }
+   
+   private:
+       void handle_chars(const char_type* s, std::size_t n) {
+           std::size_t start = 0;
+           for (auto i=0ul; i<n; ++i) {
+               if (s[i] == '\n') {
+                   pending_.append(s + start, i - start + 1);
+                   commit_pending();
+                   start = i + 1;
+               }
+           }
+           pending_.append(s + start, n - start);
+       }
+   
+       void commit_pending() {
+           std::scoped_lock lock(mtx_);
+           target_.emplace_back(mark, std::move(pending_));
+           pending_ = {};
+       }
+   
+       target_type& target_;
+       mutex_type& mtx_;
+       std::string pending_;
+   };
+   
+   }
+   
+   
+   template <int mark>
+   class string_ostream : public std::ostream {
+       using stringbuf_t = _detail::string_stringbuf<mark>;
+   
+   public:
+       string_ostream(stringbuf_t::target_type& target,
+                      stringbuf_t::mutex_type& mtx)
+           : std::ostream(nullptr),
+             buf_(target, mtx)
+       {
+           rdbuf(&buf_);
+       }
+   
+   private:
+       stringbuf_t buf_;
+   };
+   
+   
+   }

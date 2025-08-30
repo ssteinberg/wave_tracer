@@ -1,0 +1,29 @@
+.. _exhale_class_classwt_1_1scene_1_1interrupts_1_1interrupt__t:
+
+Class interrupt_t
+=================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_interrupts.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public wt::scene::interrupts::capture_intermediate_t`` (:ref:`exhale_class_classwt_1_1scene_1_1interrupts_1_1capture__intermediate__t`)
+- ``public wt::scene::interrupts::pause_t`` (:ref:`exhale_class_classwt_1_1scene_1_1interrupts_1_1pause__t`)
+- ``public wt::scene::interrupts::resume_t`` (:ref:`exhale_class_classwt_1_1scene_1_1interrupts_1_1resume__t`)
+- ``public wt::scene::interrupts::terminate_t`` (:ref:`exhale_class_classwt_1_1scene_1_1interrupts_1_1terminate__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::scene::interrupts::interrupt_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

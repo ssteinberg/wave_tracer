@@ -1,0 +1,14 @@
+.. _exhale_typedef_math_2transform_2transform_8hpp_1aaf8f5116e07221f49b811f32fc073a64:
+
+Typedef wt::transform_d_t
+=========================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_transform_transform.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::transform_d_t
+   :project: wave_tracer

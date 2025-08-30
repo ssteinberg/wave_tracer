@@ -1,0 +1,14 @@
+.. _exhale_function_simd__avx_8hpp_1aa91390105b69e270626121e09a51e258:
+
+Function wt::simd::unpack_512d_to_2x256d(simd_avx_t<double, 8>, simd_avx_t<double, 4>&, simd_avx_t<double, 4>&)
+===============================================================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_engines_simd_avx.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::simd::unpack_512d_to_2x256d(simd_avx_t<double, 8>, simd_avx_t<double, 4>&, simd_avx_t<double, 4>&)
+   :project: wave_tracer

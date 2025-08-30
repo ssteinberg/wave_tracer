@@ -1,0 +1,93 @@
+
+.. _program_listing_file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp:
+
+Program Listing for File emitter_sample.hpp
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_emitter_sample.hpp>` (``/home/runner/work/wave_tracer/wave_tracer/include/wt/scene/emitter_sample.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+   *
+   * wave tracer
+   * Copyright  Shlomi Steinberg
+   *
+   * LICENSE: Creative Commons Attribution-NonCommercial 4.0 International
+   *
+   */
+   
+   #pragma once
+   
+   #include <optional>
+   
+   #include <wt/sampler/density.hpp>
+   
+   #include <wt/beam/beam.hpp>
+   #include <wt/interaction/intersection.hpp>
+   
+   namespace wt {
+   
+   class scene_t;
+   namespace emitter { class emitter_t; }
+   namespace sensor  { class sensor_t; }
+   
+   struct emitter_direct_sample_t {
+       const emitter::emitter_t *emitter=nullptr;
+       f_t emitter_pdf=0;
+   
+       solid_angle_sampling_pd_t dpd;
+   
+       spectral_radiance_beam_t beam;
+   
+       std::optional<intersection_surface_t> surface;
+   };
+   
+   struct emitter_direct_sample_pdf_t {
+       f_t emitter_pdf=0;
+       solid_angle_sampling_pd_t dpd;
+   };
+   
+   struct emitter_sample_t {
+       spectral_radiant_flux_beam_t beam;
+   
+       area_sampling_pd_t ppd;
+       solid_angle_sampling_pd_t dpd;
+   
+       std::optional<intersection_surface_t> surface;
+   };
+   
+   struct wavenumber_sample_t {
+       wavenumber_t k;
+       wavenumber_sampling_pd_t wpd;
+   
+       [[nodiscard]] inline wavelength_t to_wavelength() const noexcept {
+           return wavenum_to_wavelen(k);
+       }
+       [[nodiscard]] inline wavelength_sampling_pd_t wpd_to_wavelength_density() const noexcept {
+           if (wpd.is_discrete())
+               return wavelength_sampling_pd_t::discrete(wpd.mass());
+   
+           const auto lambda = to_wavelength();
+           return k / lambda * wpd.density();
+       }
+   };
+   
+   
+   struct emitter_wavenumber_sample_t {
+       const emitter::emitter_t *emitter=nullptr;
+       f_t emitter_pdf;
+   
+       wavenumber_sample_t wavenumber;
+   };
+   struct emitter_beam_wavenumber_sample_t {
+       const emitter::emitter_t *emitter=nullptr;
+       f_t emitter_pdf;
+   
+       emitter_sample_t emitter_sample;
+       wavenumber_sample_t wavenumber;
+   };
+   
+   }

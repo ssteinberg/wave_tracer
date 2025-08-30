@@ -1,0 +1,14 @@
+.. _exhale_function_gui_2imgui_2utils_8hpp_1a5c3aa0c7a1bae89a091e761776e9ab99:
+
+Function wt::gui::dockspace_over_viewport
+=========================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_gui_imgui_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::gui::dockspace_over_viewport(ImGuiID, const ImGuiViewport *, ImGuiDockNodeFlags, const ImVec2, const ImVec2, const ImGuiWindowClass *)
+   :project: wave_tracer

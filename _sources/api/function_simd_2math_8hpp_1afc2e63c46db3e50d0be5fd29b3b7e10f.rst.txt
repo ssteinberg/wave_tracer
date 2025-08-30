@@ -1,0 +1,14 @@
+.. _exhale_function_simd_2math_8hpp_1afc2e63c46db3e50d0be5fd29b3b7e10f:
+
+Template Function wt::m::clamp01(const wide_vector<W, N, Q>&)
+=============================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_simd_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::clamp01(const wide_vector<W, N, Q>&)
+   :project: wave_tracer

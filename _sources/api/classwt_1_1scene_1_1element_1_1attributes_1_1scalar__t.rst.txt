@@ -1,0 +1,26 @@
+.. _exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1scalar__t:
+
+Template Class scalar_t
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_scene_element_attributes.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public wt::scene::element::attributes::data_attribute_t`` (:ref:`exhale_class_classwt_1_1scene_1_1element_1_1attributes_1_1data__attribute__t`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: wt::scene::element::attributes::scalar_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

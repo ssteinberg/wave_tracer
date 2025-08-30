@@ -1,0 +1,17 @@
+.. _exhale_struct_structwt_1_1integrator_1_1traversal__opts__t:
+
+Struct traversal_opts_t
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_integrator_traversal.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: wt::integrator::traversal_opts_t
+   :project: wave_tracer
+   :members:
+   :protected-members:
+   :undoc-members:

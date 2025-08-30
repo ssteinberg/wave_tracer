@@ -1,0 +1,14 @@
+.. _exhale_function_unit__vector_2math_8hpp_1aa9fbf2a0612efaed4d4b7da2d344528d:
+
+Template Function wt::operator\*(const unit_vector<N, T>&, const Q&)
+====================================================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_unit_vector_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::operator*(const unit_vector<N, T>&, const Q&)
+   :project: wave_tracer

@@ -1,0 +1,14 @@
+.. _exhale_function_erf__lut_8hpp_1aff5d11500ca84341bb023442bc3688f7:
+
+Function wt::m::erf_lut
+=======================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_erf_lut.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: wt::m::erf_lut(const f_t)
+   :project: wave_tracer

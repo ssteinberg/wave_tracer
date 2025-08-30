@@ -1,0 +1,14 @@
+.. _exhale_typedef_stokes_8hpp_1aae758c1ed198538eeb730e0cadcf26e3:
+
+Typedef wt::QE_solid_angle_stokes_t
+===================================
+
+- Defined in :ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_interaction_polarimetric_stokes.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wt::QE_solid_angle_stokes_t
+   :project: wave_tracer
