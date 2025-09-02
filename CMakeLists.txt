@@ -12,10 +12,8 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} build_type)
 # and set build target to the common debug or release
 if(build_type STREQUAL debug OR build_type STREQUAL debugog)
     set(CMAKE_BUILD_TYPE "Debug")
-    set(CMAKE_BUILD_TYPE "Release")
     message("DEBUG build")
 elseif(build_type STREQUAL release OR build_type STREQUAL profile)
-    set(CMAKE_BUILD_TYPE "Debug")
     set(CMAKE_BUILD_TYPE "Release")
     message("RELEASE build")
 else()
@@ -226,7 +224,19 @@ else()
 endif(DBL_PRECISION)
 
 # SIMD
-if(SIMD_AVX)
+# Detect architecture
+include(CheckCXXSourceCompiles)
+check_cxx_source_compiles("
+    int main() {
+        #ifdef __ARM_ARCH
+            return 0;
+        #else
+            #error Not ARM
+        #endif
+    }
+" IS_ARM_ARCH)
+
+if(SIMD_AVX AND NOT IS_ARM_ARCH)
     message("SIMD turned on: using AVX")
 
     add_compile_definitions(SIMD_AVX)
@@ -240,22 +250,24 @@ if(SIMD_AVX)
             -mavx -mavx2
         )
     endif()
+elseif(SIMD_AVX AND IS_ARM_ARCH)
+    message("SIMD AVX requested but not available on ARM architecture - disabling AVX")
+endif()
 
-    # double precision requires AVX512f/dq support
-    if(DBL_PRECISION)
-        message("Compiling with double-precision and AVX: ensure target has AVX512f/dq support")
+# double precision requires AVX512f/dq support (only for x86)
+if(SIMD_AVX AND NOT IS_ARM_ARCH AND DBL_PRECISION)
+    message("Compiling with double-precision and AVX: ensure target has AVX512f/dq support")
 
-        if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-            target_compile_options(wave_tracer PRIVATE
-                /arch:AVX512
-            )
-        else()
-            target_compile_options(wave_tracer PRIVATE 
-                -mavx512f -mavx512dq
-            )
-        endif()    
-    endif(DBL_PRECISION)
-endif(SIMD_AVX)
+    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+        target_compile_options(wave_tracer PRIVATE
+            /arch:AVX512
+        )
+    else()
+        target_compile_options(wave_tracer PRIVATE
+            -mavx512f -mavx512dq
+        )
+    endif()
+endif()
 
 if(WIN32)
 	add_compile_definitions(_windows)
@@ -285,7 +297,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
         -Wno-psabi
     )
 elseif("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
-    target_compile_options(wave_tracer PRIVATE 
+    target_compile_options(wave_tracer PRIVATE
 	-march=native
         -pipe 
         -funroll-loops
