@@ -12,6 +12,7 @@
 #include <fstream>
 #include <filesystem>
 #include <chrono>
+#include <ctime>
 
 namespace wt::logger {
 
@@ -26,9 +27,20 @@ protected:
     [[nodiscard]] std::string prefix() const noexcept {
         using namespace std::chrono;
         auto now_ms = floor<milliseconds>(system_clock::now());
+#if defined(__cpp_lib_chrono) && __cpp_lib_chrono >= 201907L && defined(__cpp_lib_format)
         return std::format("{:%F %T %z %Z}", zoned_time{ current_zone(), now_ms }) +
                (!name.empty() ? "[" + name + "] " : std::string{}) +
                "\t ――  ";
+#else
+        // Fallback for systems without full C++20 chrono support
+        auto time_t_now = system_clock::to_time_t(system_clock::now());
+        auto tm_now = *std::localtime(&time_t_now);
+        return std::format("{:04d}-{:02d}-{:02d} {:02d}:{:02d}:{:02d}",
+                          tm_now.tm_year + 1900, tm_now.tm_mon + 1, tm_now.tm_mday,
+                          tm_now.tm_hour, tm_now.tm_min, tm_now.tm_sec) +
+               (!name.empty() ? "[" + name + "] " : std::string{}) +
+               "\t ――  ";
+#endif
     }
 
     // put a single character
