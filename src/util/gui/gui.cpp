@@ -1211,8 +1211,11 @@ inline void loading_popup(const gui_t::bootstrap_data_t& bs) {
 
     imgui_loading_progress_bar("Constructing ADS", vec3_t{ .2,.2,1 },
                                bs.ads_construction_progress.load());
-    if (const auto ads_status = bs.ads_construction_status.load(); ads_status)
-        imgui_hover_tooltip(ads_status->c_str());
+    {
+        std::lock_guard<std::mutex> lock(bs.ads_construction_status_mutex);
+        if (const auto ads_status = bs.ads_construction_status; ads_status)
+            imgui_hover_tooltip(ads_status->c_str());
+    }
 
     ImGui::End();
 }
