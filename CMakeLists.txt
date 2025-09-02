@@ -159,6 +159,7 @@ set(SRC
 
     src/util/font_renderer.cpp
     src/util/logger.cpp
+    src/util/termcolor.cpp
     src/util/math_expression.cpp
     src/util/preview_tev.cpp
     src/util/tpool.cpp
@@ -417,7 +418,7 @@ endif()
 find_package(PNG)
 find_package(libdeflate CONFIG REQUIRED)
 find_package(OpenEXR CONFIG REQUIRED)
-find_package(Freetype CONFIG REQUIRED)
+find_package(Freetype REQUIRED)
 
 find_package(TBB CONFIG REQUIRED)
 
