@@ -84,9 +84,9 @@ Functions
 
 - :ref:`exhale_function_stokes_8hpp_1a63b8369e0e86908fc6d60df427c1ac9b`
 
-- :ref:`exhale_function_stokes_8hpp_1a58f224265b4c5e1b7b701e287d7a5cb7`
-
 - :ref:`exhale_function_stokes_8hpp_1a311f641d2814dec05e8d9a843fa3de93`
+
+- :ref:`exhale_function_stokes_8hpp_1a58f224265b4c5e1b7b701e287d7a5cb7`
 
 - :ref:`exhale_function_stokes_8hpp_1a691507fadec21ebfa40ee48d5776400c`
 

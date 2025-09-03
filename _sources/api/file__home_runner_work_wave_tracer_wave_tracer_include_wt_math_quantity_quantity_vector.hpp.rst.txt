@@ -160,11 +160,11 @@ Functions
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a94d2b56aa734e21dd047f28d20d582f7`
 
-- :ref:`exhale_function_quantity__vector_8hpp_1a8046abec5719302ab215695ad5d85efe`
-
 - :ref:`exhale_function_quantity__vector_8hpp_1a1521d1eb8a8cc2e3a5976a2c885c82ec`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1ad72d204441761c0dcc8a6b4bb153f960`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a8046abec5719302ab215695ad5d85efe`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1afd32254e32574bf29367ebef86b9a433`
 

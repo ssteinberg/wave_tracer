@@ -74,9 +74,9 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_barycentric_8hpp_1a98ec345d0b4c4843640ccd8debfa34bd`
-
 - :ref:`exhale_function_barycentric_8hpp_1add27ee64bfc57469fa04b17c8878a345`
+
+- :ref:`exhale_function_barycentric_8hpp_1a98ec345d0b4c4843640ccd8debfa34bd`
 
 - :ref:`exhale_function_barycentric_8hpp_1a5e15126336bc474af94c9de5e1f5aebf`
 

@@ -116,9 +116,9 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a38b3bd8622024939ce7cac54e6027ca9`
-
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1a2631121d3f97d7d964a46446f136c2c5`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a38b3bd8622024939ce7cac54e6027ca9`
 
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1aa59c20107ebe053b56da9faf2261bcc0`
 
@@ -130,13 +130,13 @@ Functions
 
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1a58e2f9ed75a1c274c0b8e12e596a6d1e`
 
-- :ref:`exhale_function_bitmap_2bitmap_8hpp_1af83567b2110249ac4e921f2c9fc5a044`
-
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1abc88b9157564cb449251ebb406745b26`
 
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1a00af6a1dde528c3e522f71a171a20f06`
 
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1a76fc1f291d4db9bf7c9170f84f3f04d4`
+
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1af83567b2110249ac4e921f2c9fc5a044`
 
 
 Typedefs

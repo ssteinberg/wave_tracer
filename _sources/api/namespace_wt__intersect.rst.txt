@@ -73,9 +73,9 @@ Functions
 
 - :ref:`exhale_function_intersect_2ray_8hpp_1a1b9359ea4240199b7b861cb79ee464fd`
 
-- :ref:`exhale_function_intersect_2ray_8hpp_1a1a7b1c99b07d7ad56857eead3d337e50`
-
 - :ref:`exhale_function_intersect_2ray_8hpp_1a440e3316530ff1a37a6b89d7316efd26`
+
+- :ref:`exhale_function_intersect_2ray_8hpp_1a1a7b1c99b07d7ad56857eead3d337e50`
 
 - :ref:`exhale_function_intersect_2ray_8hpp_1a0f910d2c895e1fe20aa008f69f82fcb8`
 

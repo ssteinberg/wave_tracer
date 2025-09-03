@@ -27,6 +27,8 @@ Includes
 
 - ``chrono`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_format_chrono.hpp`)
 
+- ``ctime``
+
 - ``filesystem``
 
 - ``fstream``

@@ -61,8 +61,6 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_fma_8hpp_1ad2f5df90f33fb9e945c43d26d7a406f1`
-
 - :ref:`exhale_function_fma_8hpp_1a1dd5a62b93abe9700aae1dc6e9f1fafe`
 
 - :ref:`exhale_function_fma_8hpp_1a9e7c715754e6802029ee5eb718131f61`
@@ -84,4 +82,6 @@ Functions
 - :ref:`exhale_function_fma_8hpp_1a09cc4f901bf15a791bb19b7310425493`
 
 - :ref:`exhale_function_fma_8hpp_1a96d1358bf59886322a63342be00b7697`
+
+- :ref:`exhale_function_fma_8hpp_1ad2f5df90f33fb9e945c43d26d7a406f1`
 

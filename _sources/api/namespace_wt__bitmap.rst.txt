@@ -68,13 +68,13 @@ Functions
 
 - :ref:`exhale_function_texel__convert_8hpp_1ae32d1fa153953314c12cfe894c4fcce9`
 
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1aa59c20107ebe053b56da9faf2261bcc0`
+
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1a56a9f4b81429742be82b8878fda5aa55`
 
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1a83e46f1c2e884c465cc063d52318ebad`
 
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1a4d1f6d618d72f2d74f5541cd475e7c17`
-
-- :ref:`exhale_function_bitmap_2bitmap_8hpp_1aa59c20107ebe053b56da9faf2261bcc0`
 
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1a58e2f9ed75a1c274c0b8e12e596a6d1e`
 
@@ -86,25 +86,25 @@ Functions
 
 - :ref:`exhale_function_load2d_8hpp_1a94f389578a27b1ff4a98169b493932a4`
 
+- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a76fc1f291d4db9bf7c9170f84f3f04d4`
+
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1abc88b9157564cb449251ebb406745b26`
 
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1a00af6a1dde528c3e522f71a171a20f06`
 
 - :ref:`exhale_function_bitmap_2bitmap_8hpp_1af83567b2110249ac4e921f2c9fc5a044`
 
-- :ref:`exhale_function_bitmap_2bitmap_8hpp_1a76fc1f291d4db9bf7c9170f84f3f04d4`
-
 - :ref:`exhale_function_texture2d__storage_8hpp_1af4c92e8e599a3e26de73cbe76645d017`
 
 - :ref:`exhale_function_texture2d__storage_8hpp_1a99c0bd69a97c721509ffa3725e549e04`
 
-- :ref:`exhale_function_write2d_8hpp_1aa3fbd1146b5d66d8481b628dc54e53c8`
-
 - :ref:`exhale_function_write2d_8hpp_1ae391fbfa4ca59877d31363e41701e83b`
 
-- :ref:`exhale_function_write2d_8hpp_1a188a71e440f721a9b97749c6b6cf7b3a`
+- :ref:`exhale_function_write2d_8hpp_1aa3fbd1146b5d66d8481b628dc54e53c8`
 
 - :ref:`exhale_function_write2d_8hpp_1affb8eb5a9e79669a582018ec4aed7c61`
+
+- :ref:`exhale_function_write2d_8hpp_1a188a71e440f721a9b97749c6b6cf7b3a`
 
 
 Typedefs

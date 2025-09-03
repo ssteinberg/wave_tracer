@@ -117,15 +117,15 @@ Functions
 
 - :ref:`exhale_function_quantity_2math_8hpp_1aea1fed6b407781e777b20bf96f009c09`
 
+- :ref:`exhale_function_quantity_2math_8hpp_1a9f9b79de1fa7ac42f705b31931b3a116`
+
 - :ref:`exhale_function_quantity_2math_8hpp_1a9f3c5c3219bca85d5c2bc1fffe0f0898`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1a58de311ec206b3cfa973c2bc998c50c2`
 
-- :ref:`exhale_function_quantity_2math_8hpp_1a9f9b79de1fa7ac42f705b31931b3a116`
+- :ref:`exhale_function_quantity_2math_8hpp_1a7ef14859fcd2dfeb4317ff495f9a540f`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1a04ba7f4111fd4507fc535e853a159315`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1a7ef14859fcd2dfeb4317ff495f9a540f`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1aafb5e3f0c9c72dfaad42cf4ab647d897`
 

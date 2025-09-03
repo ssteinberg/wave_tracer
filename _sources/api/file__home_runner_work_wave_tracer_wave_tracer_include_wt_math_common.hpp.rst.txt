@@ -480,6 +480,8 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a929cbc93b219b6d64db1284c6642f416`
 
+- :ref:`exhale_function_math_2common_8hpp_1a5559482d46b414682ac348b2096023f6`
+
 - :ref:`exhale_function_math_2common_8hpp_1a7c0dac528fb4b5acc841775bd2e33394`
 
 - :ref:`exhale_function_math_2common_8hpp_1a0828394a31a30bf8cda0417232ea0f84`
@@ -495,8 +497,6 @@ Functions
 - :ref:`exhale_function_math_2common_8hpp_1a4ba4c49af0f68d8355b494ad467380b9`
 
 - :ref:`exhale_function_math_2common_8hpp_1a396ec7df35ffe6dc1c268f0e27ec28d3`
-
-- :ref:`exhale_function_math_2common_8hpp_1a5559482d46b414682ac348b2096023f6`
 
 - :ref:`exhale_function_math_2common_8hpp_1a8f390d21a5d751d9526842357ad9bd5a`
 
@@ -514,6 +514,8 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a07bcb0a4730d5118721a062c0d79e5dd`
 
+- :ref:`exhale_function_math_2common_8hpp_1a819d4fa2de93fb8044f5a16bea101d93`
+
 - :ref:`exhale_function_math_2common_8hpp_1af45939b719d26e225e77fbd33820f562`
 
 - :ref:`exhale_function_math_2common_8hpp_1a6da6d2bb9f629fd781394572ea7af232`
@@ -529,8 +531,6 @@ Functions
 - :ref:`exhale_function_math_2common_8hpp_1a08f44b909ad5790238e36d53932b2b62`
 
 - :ref:`exhale_function_math_2common_8hpp_1a0f8dcee12dd323c8da035c44a5eab1d4`
-
-- :ref:`exhale_function_math_2common_8hpp_1a819d4fa2de93fb8044f5a16bea101d93`
 
 - :ref:`exhale_function_math_2common_8hpp_1a910d64964bd3a6062005167c22fc7904`
 
@@ -556,9 +556,9 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a796ed79369711042358713e6b54f339a`
 
-- :ref:`exhale_function_math_2common_8hpp_1a20d7c5e43f139d9c91fd7f20d4108943`
-
 - :ref:`exhale_function_math_2common_8hpp_1aeb6f9d75ad126d25bccb26b22863d06f`
+
+- :ref:`exhale_function_math_2common_8hpp_1a20d7c5e43f139d9c91fd7f20d4108943`
 
 - :ref:`exhale_function_math_2common_8hpp_1a6f9db0e9e49957c4fae9aeaa28219c62`
 

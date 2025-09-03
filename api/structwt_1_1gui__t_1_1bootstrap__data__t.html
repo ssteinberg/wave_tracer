@@ -680,6 +680,8 @@
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1integrator_1_1integrator__t.html">Class integrator_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1integrator_1_1plt__bdpt__t.html">Class plt_bdpt_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1integrator_1_1plt__path__t.html">Class plt_path_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html">Class basic_osyncstream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html">Class basic_osyncstream::sync_streambuf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1file__logger__t.html">Class file_logger_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1indicators_1_1block__progress__bar__t.html">Class block_progress_bar_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1indicators_1_1dynamic__progress.html">Class dynamic_progress</a></li>
@@ -1014,7 +1016,7 @@
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1a809881c7e3ef0412e5d1e5cd9b879e18.html">Function wt::logger::termcolour::green</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1ace039183fe5d11ba5cfee338aba53346.html">Function wt::logger::termcolour::grey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1aae85f8a1ceb9f11ba5ef490b15210d19.html">Function wt::logger::termcolour::is_colourized(std::ostream&amp;)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1abdc6a0934b76a346087ba6addcc7a308.html">Function wt::logger::termcolour::is_colourized(std::osyncstream&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1a27626bc13fdd7d8b98e9dad6151a149e.html">Function wt::logger::termcolour::is_colourized(basic_osyncstream&amp;)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1a473913a149e25028064e1e2948bfb79c.html">Function wt::logger::termcolour::italic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1a4785edcf419f227a28cde9825e11a913.html">Function wt::logger::termcolour::magenta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1ae5057741cbebe0e094502fe573a9b325.html">Function wt::logger::termcolour::move_down</a></li>
@@ -2304,7 +2306,12 @@
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N2wt5gui_t16bootstrap_data_t23ads_construction_statusE">
-<span id="_CPPv3N2wt5gui_t16bootstrap_data_t23ads_construction_statusE"></span><span id="_CPPv2N2wt5gui_t16bootstrap_data_t23ads_construction_statusE"></span><span id="wt::gui_t::bootstrap_data_t::ads_construction_status__std::atomic:std::shared_ptr:ss::"></span><span class="target" id="structwt_1_1gui__t_1_1bootstrap__data__t_1a7de3caafd19ef59f6ef37762a1ec0463"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">atomic</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ads_construction_status</span></span></span><br /></dt>
+<span id="_CPPv3N2wt5gui_t16bootstrap_data_t23ads_construction_statusE"></span><span id="_CPPv2N2wt5gui_t16bootstrap_data_t23ads_construction_statusE"></span><span id="wt::gui_t::bootstrap_data_t::ads_construction_status__std::shared_ptr:ss:"></span><span class="target" id="structwt_1_1gui__t_1_1bootstrap__data__t_1af92ea53e04b025c1b4194fddbe945fc2"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ads_construction_status</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N2wt5gui_t16bootstrap_data_t29ads_construction_status_mutexE">
+<span id="_CPPv3N2wt5gui_t16bootstrap_data_t29ads_construction_status_mutexE"></span><span id="_CPPv2N2wt5gui_t16bootstrap_data_t29ads_construction_status_mutexE"></span><span id="wt::gui_t::bootstrap_data_t::ads_construction_status_mutex__std::mutex"></span><span class="target" id="structwt_1_1gui__t_1_1bootstrap__data__t_1a39339f17efffb1aff48fc55a834493e7"></span><span class="k"><span class="pre">mutable</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mutex</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ads_construction_status_mutex</span></span></span><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -2384,6 +2391,7 @@
 <li><a class="reference internal" href="#_CPPv4N2wt5gui_t16bootstrap_data_t25resource_loading_progressE"><code class="docutils literal notranslate"><span class="pre">resource_loading_progress</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N2wt5gui_t16bootstrap_data_t25ads_construction_progressE"><code class="docutils literal notranslate"><span class="pre">ads_construction_progress</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N2wt5gui_t16bootstrap_data_t23ads_construction_statusE"><code class="docutils literal notranslate"><span class="pre">ads_construction_status</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N2wt5gui_t16bootstrap_data_t29ads_construction_status_mutexE"><code class="docutils literal notranslate"><span class="pre">ads_construction_status_mutex</span></code></a></li>
 </ul>
 </li>
 </ul>

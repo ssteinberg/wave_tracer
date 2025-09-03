@@ -65,11 +65,11 @@ Functions
 
 - :ref:`exhale_function_simd_2math_8hpp_1ac0458c9840dab456883ca35daa1b315c`
 
-- :ref:`exhale_function_simd_2math_8hpp_1a7d8d30a085382ab9106b2973722a189e`
-
 - :ref:`exhale_function_simd_2math_8hpp_1a8d3dd45c37ec60444c8e98fb3527618f`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a338739b37e1a57fe6347d52cc7f23235`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a7d8d30a085382ab9106b2973722a189e`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a28fc8dace1872d2222f753e1ffbbedc8`
 
@@ -105,21 +105,21 @@ Functions
 
 - :ref:`exhale_function_simd_2math_8hpp_1a98745fe5b99cfe72ccdc895fd9aace31`
 
+- :ref:`exhale_function_simd_2math_8hpp_1a55afe82063584724802b3b3ded635d8d`
+
 - :ref:`exhale_function_simd_2math_8hpp_1a95f53d7b66309c6dbb6b082d28151ead`
 
 - :ref:`exhale_function_simd_2math_8hpp_1ac95ea97488e5e0a7aeaa8f5c59d3e2aa`
 
-- :ref:`exhale_function_simd_2math_8hpp_1a55afe82063584724802b3b3ded635d8d`
+- :ref:`exhale_function_simd_2math_8hpp_1a72f3bac8cf4c2f9a5c48c0a932e5d7ea`
 
 - :ref:`exhale_function_simd_2math_8hpp_1aa98e9800f0ab554fa1469203c29e8015`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a7a177826060163422b9ca892ed89baa8`
 
-- :ref:`exhale_function_simd_2math_8hpp_1a72f3bac8cf4c2f9a5c48c0a932e5d7ea`
+- :ref:`exhale_function_simd_2math_8hpp_1aa97846e4556ca4e36aeb891b7becbf18`
 
 - :ref:`exhale_function_simd_2math_8hpp_1ac2021fcef22a96527f2595677cfd5a37`
-
-- :ref:`exhale_function_simd_2math_8hpp_1aa97846e4556ca4e36aeb891b7becbf18`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a9c92cf27a16a1711335f7a91a8413a72`
 
@@ -132,6 +132,12 @@ Functions
 - :ref:`exhale_function_simd_2math_8hpp_1af0cfd5b3c7238df18d7cc4e6f3cf3ea1`
 
 - :ref:`exhale_function_simd_2math_8hpp_1aba592c3a2e15963f815dcfec8827b97c`
+
+- :ref:`exhale_function_simd_2math_8hpp_1ab9401fb8b77a98e3312da507ddfeb7f1`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a0534d69a875dc5599c1212956b0843a2`
+
+- :ref:`exhale_function_simd_2math_8hpp_1af6674a3864c6ea5ae0936d28a7da12b2`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a4135ee7734232b5b84b8ae7452bee0f8`
 
@@ -151,29 +157,23 @@ Functions
 
 - :ref:`exhale_function_simd_2math_8hpp_1abb0ebc3606a48ea1175526d41510cbb7`
 
-- :ref:`exhale_function_simd_2math_8hpp_1a0534d69a875dc5599c1212956b0843a2`
-
 - :ref:`exhale_function_simd_2math_8hpp_1afc9a656653eb0eea74d1049ae1cb9dfa`
-
-- :ref:`exhale_function_simd_2math_8hpp_1ab9401fb8b77a98e3312da507ddfeb7f1`
-
-- :ref:`exhale_function_simd_2math_8hpp_1af6674a3864c6ea5ae0936d28a7da12b2`
-
-- :ref:`exhale_function_simd_2math_8hpp_1a861911dcca3975a2a9e46e21c42f1a11`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a56d10b8ddce407d21bfab5a12cf2a716`
 
-- :ref:`exhale_function_simd_2math_8hpp_1a1e9380ba06ceac6d16e3ff8c271295b6`
+- :ref:`exhale_function_simd_2math_8hpp_1a861911dcca3975a2a9e46e21c42f1a11`
 
 - :ref:`exhale_function_simd_2math_8hpp_1ac44c603e7bc2552a5ba757e4362f9011`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a1e9380ba06ceac6d16e3ff8c271295b6`
+
+- :ref:`exhale_function_simd_2math_8hpp_1afb8fb03b0d381ed9798a0d9e4306b14e`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a4c1b13a3bab5c806db904921f4e4f1cc`
 
 - :ref:`exhale_function_simd_2math_8hpp_1ad6a6ec6f6f0d5b691c55b4ef95da5bea`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a2e83b1311c0dd91dd6aaaaeee18f748e`
-
-- :ref:`exhale_function_simd_2math_8hpp_1afb8fb03b0d381ed9798a0d9e4306b14e`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a49827b25e97aae980752fe1d8f61d3d3`
 

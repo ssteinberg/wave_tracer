@@ -31,8 +31,6 @@ Includes
 
 - ``iostream``
 
-- ``syncstream``
-
 - ``unistd.h``
 
 
@@ -123,7 +121,7 @@ Functions
 
 - :ref:`exhale_function_termcolor_8hpp_1aae85f8a1ceb9f11ba5ef490b15210d19`
 
-- :ref:`exhale_function_termcolor_8hpp_1abdc6a0934b76a346087ba6addcc7a308`
+- :ref:`exhale_function_termcolor_8hpp_1a27626bc13fdd7d8b98e9dad6151a149e`
 
 - :ref:`exhale_function_termcolor_8hpp_1a473913a149e25028064e1e2948bfb79c`
 

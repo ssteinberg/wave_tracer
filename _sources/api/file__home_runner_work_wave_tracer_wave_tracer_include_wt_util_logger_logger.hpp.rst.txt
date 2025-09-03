@@ -35,11 +35,11 @@ Includes
 
 - ``optional``
 
+- ``ostream`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
+
 - ``progressbar.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_progressbar.hpp`)
 
 - ``string`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_string_ostream.hpp`)
-
-- ``syncstream``
 
 - ``termcolor.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_util_logger_termcolor.hpp`)
 
@@ -98,6 +98,10 @@ Classes
 - :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1logger__progress__bar__t`
 
 - :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1osyncstreams__t`
+
+- :ref:`exhale_class_classwt_1_1logger_1_1basic__osyncstream`
+
+- :ref:`exhale_class_classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf`
 
 - :ref:`exhale_class_classwt_1_1logger_1_1logger__t`
 

@@ -27,6 +27,8 @@ Includes
 
 - ``memory``
 
+- ``mutex``
+
 - ``wt/bitmap/bitmap.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_bitmap_bitmap.hpp`)
 
 - ``wt/math/common.hpp`` (:ref:`file__home_runner_work_wave_tracer_wave_tracer_include_wt_math_common.hpp`)

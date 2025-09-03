@@ -17,9 +17,9 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a413573986df569b6c9f79e9ba0328dae`
-
 - :ref:`exhale_function_quantity__vector_8hpp_1aaff086da2085ff2c267640ce1f0785ee`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a413573986df569b6c9f79e9ba0328dae`
 
 - :ref:`exhale_function_math_2quantity_2defs_8hpp_1afb24d937d4aa63b0f9dffbc0bbfd0b57`
 
@@ -43,9 +43,9 @@ Functions
 
 - :ref:`exhale_function_math_2quantity_2defs_8hpp_1ae8dd28ef7f1a6682b2530fa9f0efc349`
 
-- :ref:`exhale_function_quantity__vector_8hpp_1a499aebb3d635e987e72ff07fbfb52d0c`
-
 - :ref:`exhale_function_math_2quantity_2defs_8hpp_1a3a52776bbfd007628b7687e2380ec7cf`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a499aebb3d635e987e72ff07fbfb52d0c`
 
 - :ref:`exhale_function_math_2quantity_2defs_8hpp_1ae99b655d42f4b628c2e0d1d04556a4b2`
 
@@ -53,13 +53,13 @@ Functions
 
 - :ref:`exhale_function_math_2quantity_2defs_8hpp_1a71727390ae6edcd1ac05cf37362ab2ec`
 
-- :ref:`exhale_function_math_2quantity_2defs_8hpp_1acb353c14efd0c0e8c16ff01bd40ab092`
-
 - :ref:`exhale_function_quantity__vector_8hpp_1a72abd4b0c2e93ddbaa788800cd3ea2ed`
 
-- :ref:`exhale_function_quantity__vector_8hpp_1ad05e4edb545cb98fef09b2ffe4b816d9`
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1acb353c14efd0c0e8c16ff01bd40ab092`
 
 - :ref:`exhale_function_math_2quantity_2defs_8hpp_1ab6a8a403ed4a61b90c23e5e8a25c4ca2`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1ad05e4edb545cb98fef09b2ffe4b816d9`
 
 - :ref:`exhale_function_math_2quantity_2defs_8hpp_1acc337f3e96720e02f68bcab412e4ae8b`
 
@@ -73,10 +73,10 @@ Functions
 
 - :ref:`exhale_function_math_2quantity_2defs_8hpp_1ae3e336c29435e4a9da8e27f8c89364ef`
 
-- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a93348d33e630209cf5d8937cecf6fc56`
-
 - :ref:`exhale_function_quantity__vector_8hpp_1a37dde1594807fcf052455f2f335b5d11`
 
-- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a7e457f182af98e091484f3d805811a2e`
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a93348d33e630209cf5d8937cecf6fc56`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1ac49b1217443bafbb060b565df10b2ad9`
+
+- :ref:`exhale_function_math_2quantity_2defs_8hpp_1a7e457f182af98e091484f3d805811a2e`

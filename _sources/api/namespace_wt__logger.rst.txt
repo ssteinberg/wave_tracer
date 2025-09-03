@@ -27,6 +27,10 @@ Classes
 
 - :ref:`exhale_struct_structwt_1_1logger_1_1logger__t_1_1osyncstreams__t`
 
+- :ref:`exhale_class_classwt_1_1logger_1_1basic__osyncstream`
+
+- :ref:`exhale_class_classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf`
+
 - :ref:`exhale_class_classwt_1_1logger_1_1file__logger__t`
 
 - :ref:`exhale_class_classwt_1_1logger_1_1logger__t`

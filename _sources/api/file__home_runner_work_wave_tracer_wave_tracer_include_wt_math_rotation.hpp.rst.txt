@@ -57,7 +57,7 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_rotation_8hpp_1a80893e102658c983fec72d657906e8cd`
-
 - :ref:`exhale_function_rotation_8hpp_1a61637f12b5895673e32177798a9dc97e`
+
+- :ref:`exhale_function_rotation_8hpp_1a80893e102658c983fec72d657906e8cd`
 

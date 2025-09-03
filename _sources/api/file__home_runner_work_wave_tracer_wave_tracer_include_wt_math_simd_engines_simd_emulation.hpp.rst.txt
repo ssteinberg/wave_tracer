@@ -114,13 +114,13 @@ Functions
 
 - :ref:`exhale_function_simd__emulation_8hpp_1afaad572b0ca6c6893a87aeab7bfb183e`
 
-- :ref:`exhale_function_simd__emulation_8hpp_1a472e51cdc6251553fa41ace2c12a8ce8`
-
-- :ref:`exhale_function_simd__emulation_8hpp_1a64a3d97254143824b1c34c46222a9899`
-
 - :ref:`exhale_function_simd__emulation_8hpp_1a4c7cdb4920c0908379a39b20aa93cba9`
 
 - :ref:`exhale_function_simd__emulation_8hpp_1a33207a8d94b4e7136dee499e0e53f518`
+
+- :ref:`exhale_function_simd__emulation_8hpp_1a472e51cdc6251553fa41ace2c12a8ce8`
+
+- :ref:`exhale_function_simd__emulation_8hpp_1a64a3d97254143824b1c34c46222a9899`
 
 - :ref:`exhale_function_simd__emulation_8hpp_1a6949ed35f2425b50d85f65eb3bc51614`
 
@@ -152,13 +152,13 @@ Functions
 
 - :ref:`exhale_function_simd__emulation_8hpp_1a57442173acd28de23b96801074341d6d`
 
+- :ref:`exhale_function_simd__emulation_8hpp_1a15ef4f3a7300b9ba22e2d18d1a6efb0b`
+
 - :ref:`exhale_function_simd__emulation_8hpp_1ad3418b39caa5d20264587f813853d0ae`
 
 - :ref:`exhale_function_simd__emulation_8hpp_1a9b78e12b820a78104f21cfe128b8fbef`
 
 - :ref:`exhale_function_simd__emulation_8hpp_1a53157bcd318015d1642c7de4f273c331`
-
-- :ref:`exhale_function_simd__emulation_8hpp_1a15ef4f3a7300b9ba22e2d18d1a6efb0b`
 
 - :ref:`exhale_function_simd__emulation_8hpp_1acc29a2dd80b6d3a79d6748c3e6a8187b`
 

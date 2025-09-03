@@ -680,6 +680,8 @@
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1integrator_1_1integrator__t.html">Class integrator_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1integrator_1_1plt__bdpt__t.html">Class plt_bdpt_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1integrator_1_1plt__path__t.html">Class plt_path_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html">Class basic_osyncstream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html">Class basic_osyncstream::sync_streambuf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1file__logger__t.html">Class file_logger_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1indicators_1_1block__progress__bar__t.html">Class block_progress_bar_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1indicators_1_1dynamic__progress.html">Class dynamic_progress</a></li>
@@ -1014,7 +1016,7 @@
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1a809881c7e3ef0412e5d1e5cd9b879e18.html">Function wt::logger::termcolour::green</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1ace039183fe5d11ba5cfee338aba53346.html">Function wt::logger::termcolour::grey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1aae85f8a1ceb9f11ba5ef490b15210d19.html">Function wt::logger::termcolour::is_colourized(std::ostream&amp;)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1abdc6a0934b76a346087ba6addcc7a308.html">Function wt::logger::termcolour::is_colourized(std::osyncstream&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1a27626bc13fdd7d8b98e9dad6151a149e.html">Function wt::logger::termcolour::is_colourized(basic_osyncstream&amp;)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1a473913a149e25028064e1e2948bfb79c.html">Function wt::logger::termcolour::italic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1a4785edcf419f227a28cde9825e11a913.html">Function wt::logger::termcolour::magenta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1ae5057741cbebe0e094502fe573a9b325.html">Function wt::logger::termcolour::move_down</a></li>
@@ -4570,6 +4572,7 @@
 <li class="toctree-l4"><a class="reference internal" href="structwt_1_1gui__t_1_1bootstrap__data__t.html#_CPPv4N2wt5gui_t16bootstrap_data_t25resource_loading_progressE"><code class="docutils literal notranslate"><span class="pre">resource_loading_progress</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwt_1_1gui__t_1_1bootstrap__data__t.html#_CPPv4N2wt5gui_t16bootstrap_data_t25ads_construction_progressE"><code class="docutils literal notranslate"><span class="pre">ads_construction_progress</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwt_1_1gui__t_1_1bootstrap__data__t.html#_CPPv4N2wt5gui_t16bootstrap_data_t23ads_construction_statusE"><code class="docutils literal notranslate"><span class="pre">ads_construction_status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwt_1_1gui__t_1_1bootstrap__data__t.html#_CPPv4N2wt5gui_t16bootstrap_data_t29ads_construction_status_mutexE"><code class="docutils literal notranslate"><span class="pre">ads_construction_status_mutex</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -8645,6 +8648,7 @@
 <li class="toctree-l5"><a class="reference internal" href="classwt_1_1gui__t.html#_CPPv4N2wt5gui_t16bootstrap_data_t25resource_loading_progressE"><code class="docutils literal notranslate"><span class="pre">resource_loading_progress</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="classwt_1_1gui__t.html#_CPPv4N2wt5gui_t16bootstrap_data_t25ads_construction_progressE"><code class="docutils literal notranslate"><span class="pre">ads_construction_progress</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="classwt_1_1gui__t.html#_CPPv4N2wt5gui_t16bootstrap_data_t23ads_construction_statusE"><code class="docutils literal notranslate"><span class="pre">ads_construction_status</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="classwt_1_1gui__t.html#_CPPv4N2wt5gui_t16bootstrap_data_t29ads_construction_status_mutexE"><code class="docutils literal notranslate"><span class="pre">ads_construction_status_mutex</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -8740,6 +8744,57 @@
 <li class="toctree-l5"><a class="reference internal" href="classwt_1_1integrator_1_1plt__path__t.html#_CPPv4N2wt10integrator10plt_path_t9options_t19transport_directionE"><code class="docutils literal notranslate"><span class="pre">transport_direction</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html">Class basic_osyncstream</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#nested-relationships">Nested Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#nested-types">Nested Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#_CPPv4N2wt6logger17basic_osyncstreamE"><code class="docutils literal notranslate"><span class="pre">wt::logger::basic_osyncstream</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#_CPPv4N2wt6logger17basic_osyncstream17basic_osyncstreamERNSt7ostreamE"><code class="docutils literal notranslate"><span class="pre">basic_osyncstream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#_CPPv4N2wt6logger17basic_osyncstream17basic_osyncstreamERK17basic_osyncstream"><code class="docutils literal notranslate"><span class="pre">basic_osyncstream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#_CPPv4N2wt6logger17basic_osyncstream17basic_osyncstreamERR17basic_osyncstream"><code class="docutils literal notranslate"><span class="pre">basic_osyncstream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#_CPPv4N2wt6logger17basic_osyncstreamaSERK17basic_osyncstream"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#_CPPv4N2wt6logger17basic_osyncstreamaSERR17basic_osyncstream"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#_CPPv4N2wt6logger17basic_osyncstream4emitEv"><code class="docutils literal notranslate"><span class="pre">emit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream.html#_CPPv4NK2wt6logger17basic_osyncstream11get_wrappedEv"><code class="docutils literal notranslate"><span class="pre">get_wrapped()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html">Class basic_osyncstream::sync_streambuf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#nested-relationships">Nested Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#_CPPv4N2wt6logger17basic_osyncstream14sync_streambufE"><code class="docutils literal notranslate"><span class="pre">wt::logger::basic_osyncstream::sync_streambuf</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#_CPPv4N2wt6logger17basic_osyncstream14sync_streambuf14sync_streambufEPNSt7ostreamE"><code class="docutils literal notranslate"><span class="pre">sync_streambuf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#_CPPv4N2wt6logger17basic_osyncstream14sync_streambuf14sync_streambufERK14sync_streambuf"><code class="docutils literal notranslate"><span class="pre">sync_streambuf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#_CPPv4N2wt6logger17basic_osyncstream14sync_streambufaSERK14sync_streambuf"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#_CPPv4N2wt6logger17basic_osyncstream14sync_streambuf8overflowE8int_type"><code class="docutils literal notranslate"><span class="pre">overflow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwt_1_1logger_1_1basic__osyncstream_1_1sync__streambuf.html#_CPPv4N2wt6logger17basic_osyncstream14sync_streambuf6xsputnEPKcNSt10streamsizeE"><code class="docutils literal notranslate"><span class="pre">xsputn()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -14348,9 +14403,9 @@
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="function_termcolor_8hpp_1abdc6a0934b76a346087ba6addcc7a308.html">Function wt::logger::termcolour::is_colourized(std::osyncstream&amp;)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1abdc6a0934b76a346087ba6addcc7a308.html#function-documentation">Function Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="function_termcolor_8hpp_1abdc6a0934b76a346087ba6addcc7a308.html#_CPPv4N2wt6logger10termcolour13is_colourizedERNSt11osyncstreamE"><code class="docutils literal notranslate"><span class="pre">is_colourized()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="function_termcolor_8hpp_1a27626bc13fdd7d8b98e9dad6151a149e.html">Function wt::logger::termcolour::is_colourized(basic_osyncstream&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_termcolor_8hpp_1a27626bc13fdd7d8b98e9dad6151a149e.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_termcolor_8hpp_1a27626bc13fdd7d8b98e9dad6151a149e.html#_CPPv4N2wt6logger10termcolour13is_colourizedER17basic_osyncstream"><code class="docutils literal notranslate"><span class="pre">is_colourized()</span></code></a></li>
 </ul>
 </li>
 </ul>
