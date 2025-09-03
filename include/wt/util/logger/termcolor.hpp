@@ -19,10 +19,16 @@
 #include <cassert>
 #include <cstdint>
 #include <iostream>
+#ifdef __cpp_lib_syncstream
 #include <syncstream>
+#endif
 
 namespace wt::logger {
 
+// Forward declarations
+#ifndef __cpp_lib_syncstream
+class basic_osyncstream;
+#endif
 
 //
 // based on github.com/p-ranav/indicators by Pranav
@@ -383,12 +389,12 @@ inline bool is_atty(const std::ostream& stream) noexcept {
     return ::isatty(fileno(std_stream));
 #endif
 }
-inline bool is_atty(std::osyncstream& stream) noexcept {
-    const auto sb = stream.get_wrapped();
-    if (!sb)
-        return false;
-    return sb==std::cout.rdbuf() || sb==std::cerr.rdbuf() || sb==std::clog.rdbuf();
-}
+// Forward declarations for non-inline functions
+#ifdef __cpp_lib_syncstream
+bool is_atty(std::osyncstream& stream) noexcept;
+#else
+bool is_atty(basic_osyncstream& stream) noexcept;
+#endif
 
 }
 
@@ -408,9 +414,11 @@ inline bool is_colourized(std::ostream& stream) noexcept {
 /**
  * @brief Check if a stream supports coloured output.
  */
-inline bool is_colourized(std::osyncstream& stream) noexcept {
-    return _detail::is_atty(stream);
-}
+#ifdef __cpp_lib_syncstream
+bool is_colourized(std::osyncstream& stream) noexcept;
+#else
+bool is_colourized(basic_osyncstream& stream) noexcept;
+#endif
 
 inline void move_up(std::ostream &os, int lines) noexcept { os << "\033[" << lines << "A"; }
 inline void move_down(std::ostream &os, int lines) noexcept { os << "\033[" << lines << "B"; }

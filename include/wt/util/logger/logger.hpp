@@ -10,7 +10,12 @@
 #pragma once
 
 #include <string>
+#ifdef __cpp_lib_syncstream
 #include <syncstream>
+#else
+#include <ostream>
+#include <mutex>
+#endif
 
 #include <memory>
 #include <vector>
@@ -25,20 +30,84 @@
 #include "termcolor.hpp"
 #include "progressbar.hpp"
 
-
 namespace wt::logger {
 
 using log_verbosity_e = verbosity_e;
 
+#ifndef __cpp_lib_syncstream
+class basic_osyncstream : public std::ostream {
+    std::ostream* wrapped;
+    static std::mutex mutex;
+
+    class sync_streambuf : public std::streambuf {
+        std::ostream* wrapped;
+    public:
+        sync_streambuf(std::ostream* os) : wrapped(os) {}
+        sync_streambuf(const sync_streambuf& other) : wrapped(other.wrapped) {}
+        sync_streambuf& operator=(const sync_streambuf& other) {
+            if (this != &other) {
+                wrapped = other.wrapped;
+            }
+            return *this;
+        }
+
+    protected:
+        int_type overflow(int_type c) override {
+            std::lock_guard<std::mutex> lock(mutex);
+            return wrapped->rdbuf()->sputc(c);
+        }
+
+        std::streamsize xsputn(const char* s, std::streamsize count) override {
+            std::lock_guard<std::mutex> lock(mutex);
+            return wrapped->rdbuf()->sputn(s, count);
+        }
+    } buf;
+
+public:
+    explicit basic_osyncstream(std::ostream& os) : std::ostream(&buf), wrapped(&os), buf(&os) {}
+    basic_osyncstream(const basic_osyncstream& other) : std::ostream(&buf), wrapped(other.wrapped), buf(other.buf) {}
+    basic_osyncstream(basic_osyncstream&& other) noexcept : std::ostream(&buf), wrapped(other.wrapped), buf(std::move(other.buf)) {}
+
+    basic_osyncstream& operator=(const basic_osyncstream& other) {
+        if (this != &other) {
+            wrapped = other.wrapped;
+            buf = other.buf;
+        }
+        return *this;
+    }
+    basic_osyncstream& operator=(basic_osyncstream&& other) noexcept {
+        if (this != &other) {
+            wrapped = other.wrapped;
+            buf = std::move(other.buf);
+        }
+        return *this;
+    }
+
+    void emit() {
+        std::lock_guard<std::mutex> lock(mutex);
+        wrapped->flush();
+    }
+
+    std::streambuf* get_wrapped() const {
+        return wrapped ? wrapped->rdbuf() : nullptr;
+    }
+};
+#endif
+
 class logger_t {
     using endl_type = std::ostream&(std::ostream&);
+#ifdef __cpp_lib_syncstream
+    using osyncstream = std::osyncstream;
+#else
+    using osyncstream = basic_osyncstream;
+#endif
 
     static constexpr auto progress_bar_width = 34;
 
 public:
     // synced-streams, each with its own verbosity level
     struct osyncstreams_t {
-        std::vector<std::pair<std::osyncstream, log_verbosity_e>> ss;
+        std::vector<std::pair<osyncstream, log_verbosity_e>> ss;
         std::vector<const std::ostream*> os_refs;
 
         void set(const std::vector<std::pair<std::ostream*,log_verbosity_e>>& oss) {
@@ -57,7 +126,7 @@ public:
                 os_refs.reserve(oss.size());
 
                 for (const auto& s : oss) {
-                    ss.emplace_back(std::osyncstream{ *s.first }, s.second);
+                    ss.emplace_back(osyncstream{ *s.first }, s.second);
                     os_refs.emplace_back(s.first);
                     if (termcolour::is_colourized(*s.first))
                         termcolour::set_colourized(ss.back().first);

@@ -18,6 +18,10 @@
 #include <wt/util/logger/progressbar.hpp>
 #include <wt/util/logger/termcolor.hpp>
 
+#ifndef __cpp_lib_syncstream
+std::mutex wt::logger::basic_osyncstream::mutex;
+#endif
+
 
 using namespace wt;
 using namespace logger;
