@@ -316,15 +316,15 @@ Program Listing for File cone.hpp
    
        const auto& o = pqvec3_w8_t{ cone.o() };
        // AABB vertices
-       const auto& verts = pqvec3_w8_t{
+       auto verts = pqvec3_w8_t{
            m::select<0xaa>(length_w8_t{ aabb.min.x },length_w8_t{ aabb.max.x }),
            m::select<0xcc>(length_w8_t{ aabb.min.y },length_w8_t{ aabb.max.y }),
            m::select<0xf0>(length_w8_t{ aabb.min.z },length_w8_t{ aabb.max.z })
        };
-       const auto& local_verts = cone.frame().to_local(verts - o);
+       verts = cone.frame().to_local(verts - o);
    
        // any vertices contained?
-       const auto contains = cone.contains_local(local_verts,range);
+       const auto contains = cone.contains_local(verts,range);
        if (m::any(contains)) return true;
    
        // test all edges
@@ -358,16 +358,16 @@ Program Listing for File cone.hpp
        const auto& frame = cone.frame();
        const auto& o = cone.o();
        // AABB vertices
-       const auto& verts = pqvec3_w8_t{
+       auto verts = pqvec3_w8_t{
            m::select<0xaa>(length_w8_t{ aabb.min.x },length_w8_t{ aabb.max.x }),
            m::select<0xcc>(length_w8_t{ aabb.min.y },length_w8_t{ aabb.max.y }),
            m::select<0xf0>(length_w8_t{ aabb.min.z },length_w8_t{ aabb.max.z })
        };
        const auto vs_z = verts.z();
-       const auto& local_verts = cone.frame().to_local(verts - pqvec3_w8_t{ o });
+       verts = cone.frame().to_local(verts - pqvec3_w8_t{ o });
    
        // find points in cone
-       const auto contains_mask = cone.contains_local(local_verts,range);
+       const auto contains_mask = cone.contains_local(verts,range);
        const auto contains = contains_mask.to_bitmask();
    
        // min/max z
