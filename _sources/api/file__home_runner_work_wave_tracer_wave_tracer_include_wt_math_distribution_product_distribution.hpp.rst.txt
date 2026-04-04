@@ -68,26 +68,6 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_product__distribution_8hpp_1ac66eedc3dc3e01ea68c4f1ef8c257c16`
-
-- :ref:`exhale_function_product__distribution_8hpp_1a33f1015427ecfbb985e6d705010be6fc`
-
-- :ref:`exhale_function_product__distribution_8hpp_1a33dc6d0dbaf9f50602907bb2eaf8631b`
-
-- :ref:`exhale_function_product__distribution_8hpp_1a394eadeb77d8198c5180dde61bba8cc2`
-
-- :ref:`exhale_function_product__distribution_8hpp_1ad224f9da0159644d9b85ef6c62a0ec32`
-
-- :ref:`exhale_function_product__distribution_8hpp_1a4a747d8d7f8a4b0453b749d341843835`
-
-- :ref:`exhale_function_product__distribution_8hpp_1a965b8253c2cf8b88bd5a9fff4ad97901`
-
-- :ref:`exhale_function_product__distribution_8hpp_1ac154d6704046ea61a3690814341f4ce0`
-
-- :ref:`exhale_function_product__distribution_8hpp_1a74dc645a1be35bdd82f9d82d1a22395f`
-
-- :ref:`exhale_function_product__distribution_8hpp_1a3214f8acd95645e651edf7076cae8c73`
-
 - :ref:`exhale_function_product__distribution_8hpp_1a109e607490660ee87b04ee740e29d4eb`
 
 - :ref:`exhale_function_product__distribution_8hpp_1a1fb92e198b35143fa2f48ad5cba022fb`
@@ -141,4 +121,24 @@ Functions
 - :ref:`exhale_function_product__distribution_8hpp_1a3b3191d649af9da1b2f7cc20dad7675e`
 
 - :ref:`exhale_function_product__distribution_8hpp_1a2d5415fb48a2b35e5ce9717a2b370353`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ad224f9da0159644d9b85ef6c62a0ec32`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ac66eedc3dc3e01ea68c4f1ef8c257c16`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a33f1015427ecfbb985e6d705010be6fc`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a33dc6d0dbaf9f50602907bb2eaf8631b`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a74dc645a1be35bdd82f9d82d1a22395f`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a394eadeb77d8198c5180dde61bba8cc2`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a4a747d8d7f8a4b0453b749d341843835`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a965b8253c2cf8b88bd5a9fff4ad97901`
+
+- :ref:`exhale_function_product__distribution_8hpp_1ac154d6704046ea61a3690814341f4ce0`
+
+- :ref:`exhale_function_product__distribution_8hpp_1a3214f8acd95645e651edf7076cae8c73`
 

@@ -24,6 +24,10 @@ Functions
 ---------
 
 
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aea083618ebd28a50ca505f6094186177`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a17abd4640091e75a6fa090476549b18e`
+
 - :ref:`exhale_function_quantity_2math_8hpp_1a3165c7aee47a5ead60012a7ca9e37a05`
 
 - :ref:`exhale_function_math_2common_8hpp_1ae81a79886c76751ba8f97f89786e1886`
@@ -33,10 +37,6 @@ Functions
 - :ref:`exhale_function_quantity__vector_8hpp_1aa3eb607855966f77d71981952548c642`
 
 - :ref:`exhale_function_math_2common_8hpp_1aaf2a6633fc76e1f251b7c7c4c4fbc129`
-
-- :ref:`exhale_function_simd_2math_8hpp_1a17abd4640091e75a6fa090476549b18e`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1aea083618ebd28a50ca505f6094186177`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1a92c57bced8b41df0033ec4e6843e3ee6`
 
@@ -60,6 +60,8 @@ Functions
 
 - :ref:`exhale_function_quantity_2math_8hpp_1ad7fb6d573181db5943f20bc7182143e0`
 
+- :ref:`exhale_function_simd_2math_8hpp_1a28fc8dace1872d2222f753e1ffbbedc8`
+
 - :ref:`exhale_function_quantity_2math_8hpp_1a57f270a9c95f786ddf2cfab9c2d7e4f4`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a130455a8d64e83c3202db043be2fab66`
@@ -70,7 +72,11 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a308885ba02afe3751dc5f58029dec414`
 
-- :ref:`exhale_function_simd_2math_8hpp_1a28fc8dace1872d2222f753e1ffbbedc8`
+- :ref:`exhale_function_quantity__vector_8hpp_1a949ceb4a3c3f5261bcdd58332e8441e8`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a09763ff3bb2429b3591c0e141b64543f`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a2fe19413ec3197ae62cffaf169ad27ab`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a41574de770e3506a52d7257d148d20e6`
 
@@ -79,12 +85,6 @@ Functions
 - :ref:`exhale_function_math_2common_8hpp_1a2a1d7110e04e958bb3c17f4d06c60c63`
 
 - :ref:`exhale_function_math_2common_8hpp_1a5226305380be73c0a7a7dcafeae4b65c`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1a949ceb4a3c3f5261bcdd58332e8441e8`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1a09763ff3bb2429b3591c0e141b64543f`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1a2fe19413ec3197ae62cffaf169ad27ab`
 
 - :ref:`exhale_function_simd_2math_8hpp_1afc2e63c46db3e50d0be5fd29b3b7e10f`
 
@@ -120,13 +120,15 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a9717f720a3bc3e2c0e4e2f440ad435d7`
 
-- :ref:`exhale_function_quantity_2math_8hpp_1a224395a42d455cbbb2616df90f6d620f`
-
 - :ref:`exhale_function_math_2common_8hpp_1af53488cba0d9febac5821babae68e6bb`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a224395a42d455cbbb2616df90f6d620f`
 
 - :ref:`exhale_function_math_2common_8hpp_1a26ac61ad699a7fdaaaf95c3a40c4328d`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a520f1ad6ebd6456360b5216024dc0551`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a611adc16b33d588f6da8a830ad95b20f`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1aba6fbd7a2b1b1f2844c6dd5e88047bb9`
 
@@ -138,21 +140,9 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a46948a72cd1381421db73265f708008b`
 
-- :ref:`exhale_function_simd_2math_8hpp_1a611adc16b33d588f6da8a830ad95b20f`
-
-- :ref:`exhale_function_fma_8hpp_1a9e7c715754e6802029ee5eb718131f61`
-
-- :ref:`exhale_function_simd_2math_8hpp_1a791ceeaad75b3b6f6f4e0fccf0fd6e26`
-
-- :ref:`exhale_function_fma_8hpp_1a39930d2f02475f1e44a9238168413d63`
-
 - :ref:`exhale_function_fma_8hpp_1a09cc4f901bf15a791bb19b7310425493`
 
 - :ref:`exhale_function_fma_8hpp_1ad5585255523c890aa1208e62f3e08595`
-
-- :ref:`exhale_function_fma_8hpp_1a55c30b1e81031296f1ca15c86f94a2ff`
-
-- :ref:`exhale_function_fma_8hpp_1a1dd5a62b93abe9700aae1dc6e9f1fafe`
 
 - :ref:`exhale_function_fma_8hpp_1a823261d4e74c402fd75139387e08618a`
 
@@ -162,9 +152,19 @@ Functions
 
 - :ref:`exhale_function_fma_8hpp_1a96d1358bf59886322a63342be00b7697`
 
+- :ref:`exhale_function_fma_8hpp_1a641d0c055042ea64fd08a2816090adfb`
+
 - :ref:`exhale_function_fma_8hpp_1ac7c473779a0f605d559471be9d95fed5`
 
-- :ref:`exhale_function_fma_8hpp_1a641d0c055042ea64fd08a2816090adfb`
+- :ref:`exhale_function_fma_8hpp_1a9e7c715754e6802029ee5eb718131f61`
+
+- :ref:`exhale_function_fma_8hpp_1a39930d2f02475f1e44a9238168413d63`
+
+- :ref:`exhale_function_fma_8hpp_1a55c30b1e81031296f1ca15c86f94a2ff`
+
+- :ref:`exhale_function_fma_8hpp_1a1dd5a62b93abe9700aae1dc6e9f1fafe`
+
+- :ref:`exhale_function_simd_2math_8hpp_1a791ceeaad75b3b6f6f4e0fccf0fd6e26`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a273ee627e24e83d2e915ba6e6aea852d`
 
@@ -196,9 +196,7 @@ Functions
 
 - :ref:`exhale_function_quantity_2math_8hpp_1a6551376cfd21d4812045eea16a0881a2`
 
-- :ref:`exhale_function_math_2common_8hpp_1a79525b8ee98459a3fe7b87b0fb558947`
-
-- :ref:`exhale_function_math_2common_8hpp_1a813d3967f4ffbba07693a818b65e2805`
+- :ref:`exhale_function_quantity_2math_8hpp_1a1ccc1f1942ae1d1ff90b419cde39c8f3`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a11ae26e68634935e611159dea733cd9c`
 
@@ -206,7 +204,9 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1ad750765e605412f1b51a33527e79cdf7`
 
-- :ref:`exhale_function_quantity_2math_8hpp_1a1ccc1f1942ae1d1ff90b419cde39c8f3`
+- :ref:`exhale_function_math_2common_8hpp_1a813d3967f4ffbba07693a818b65e2805`
+
+- :ref:`exhale_function_math_2common_8hpp_1a79525b8ee98459a3fe7b87b0fb558947`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1a845b5de4a80327c975b68b12bca88361`
 
@@ -220,9 +220,11 @@ Functions
 
 - :ref:`exhale_function_quantity__vector_8hpp_1ad0b5097e155ed128574691882373edc5`
 
+- :ref:`exhale_function_quantity_2math_8hpp_1a31534794325eeba6aeb56c2425a6f454`
+
 - :ref:`exhale_function_quantity__vector_8hpp_1aee661cad23027c0c7f82db94e2361666`
 
-- :ref:`exhale_function_quantity_2math_8hpp_1a31534794325eeba6aeb56c2425a6f454`
+- :ref:`exhale_function_quantity_2math_8hpp_1ac34a0be2a65247286845f355e78aef78`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a056d5b644425c961b1ba3494b54f9078`
 
@@ -232,7 +234,7 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a6d6123f2bf409a55553e77dcb175ed48`
 
-- :ref:`exhale_function_quantity_2math_8hpp_1ac34a0be2a65247286845f355e78aef78`
+- :ref:`exhale_function_quantity_2math_8hpp_1aea1fed6b407781e777b20bf96f009c09`
 
 - :ref:`exhale_function_math_2common_8hpp_1a5fe11243712e250697c4c5d747a76421`
 
@@ -242,33 +244,9 @@ Functions
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a1016e3815bed34b870e178ac9a1b956b`
 
-- :ref:`exhale_function_quantity_2math_8hpp_1aea1fed6b407781e777b20bf96f009c09`
-
 - :ref:`exhale_function_vecmath_8hpp_1a43f7f5b1daf7998a505a84771e0bfe44`
 
 - :ref:`exhale_function_vecmath_8hpp_1aac9b4b7040b351c0ff5fc2ec9392d5c4`
-
-- :ref:`exhale_function_math_2common_8hpp_1a7c0dac528fb4b5acc841775bd2e33394`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1abfc1495f433911cc34cd65fc8be25161`
-
-- :ref:`exhale_function_simd_2math_8hpp_1ac95ea97488e5e0a7aeaa8f5c59d3e2aa`
-
-- :ref:`exhale_function_math_2common_8hpp_1a0828394a31a30bf8cda0417232ea0f84`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1aba3d97738ccb9d1225661c6a8ae97c27`
-
-- :ref:`exhale_function_math_2common_8hpp_1a63d55701b1c2a64a17dda53ffef2e77e`
-
-- :ref:`exhale_function_math_2common_8hpp_1add61f0b7212bda549103e831dc6e5f52`
-
-- :ref:`exhale_function_math_2common_8hpp_1aa28682308aeb6cff6f0ffeb3c0568932`
-
-- :ref:`exhale_function_math_2common_8hpp_1afdd0d321d839ff4963f09532bb8094d3`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1a9f9b79de1fa7ac42f705b31931b3a116`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1a9f3c5c3219bca85d5c2bc1fffe0f0898`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1a58de311ec206b3cfa973c2bc998c50c2`
 
@@ -283,6 +261,34 @@ Functions
 - :ref:`exhale_function_simd_2math_8hpp_1a95f53d7b66309c6dbb6b082d28151ead`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1aa97a989178ce779cfb1c2e7a0d63540c`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1aba3d97738ccb9d1225661c6a8ae97c27`
+
+- :ref:`exhale_function_simd_2math_8hpp_1ac95ea97488e5e0a7aeaa8f5c59d3e2aa`
+
+- :ref:`exhale_function_math_2common_8hpp_1a7c0dac528fb4b5acc841775bd2e33394`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1abfc1495f433911cc34cd65fc8be25161`
+
+- :ref:`exhale_function_math_2common_8hpp_1a0828394a31a30bf8cda0417232ea0f84`
+
+- :ref:`exhale_function_math_2common_8hpp_1a63d55701b1c2a64a17dda53ffef2e77e`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a9f9b79de1fa7ac42f705b31931b3a116`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a9f3c5c3219bca85d5c2bc1fffe0f0898`
+
+- :ref:`exhale_function_math_2common_8hpp_1add61f0b7212bda549103e831dc6e5f52`
+
+- :ref:`exhale_function_math_2common_8hpp_1aa28682308aeb6cff6f0ffeb3c0568932`
+
+- :ref:`exhale_function_math_2common_8hpp_1afdd0d321d839ff4963f09532bb8094d3`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a1eebddb434bc46da7df224322430a141`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a2fe75c6919be49d267910e3e39ebb949`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ac64acfcf0248b8983bc4380578ba079d`
 
 - :ref:`exhale_function_math_2common_8hpp_1a8f390d21a5d751d9526842357ad9bd5a`
 
@@ -300,11 +306,9 @@ Functions
 
 - :ref:`exhale_function_quantity__vector_8hpp_1aec2cee7b2b33743641a38d9cedf062e9`
 
-- :ref:`exhale_function_unit__vector_2math_8hpp_1a1eebddb434bc46da7df224322430a141`
+- :ref:`exhale_function_math_2common_8hpp_1a836165a584ecca8c414905df301a9833`
 
-- :ref:`exhale_function_unit__vector_2math_8hpp_1a2fe75c6919be49d267910e3e39ebb949`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1ac64acfcf0248b8983bc4380578ba079d`
+- :ref:`exhale_function_math_2common_8hpp_1a00bb4770364fc06083d2673f6592b1fb`
 
 - :ref:`exhale_function_math_2common_8hpp_1aa335469d74790641ab982aa192284330`
 
@@ -314,41 +318,17 @@ Functions
 
 - :ref:`exhale_function_quantity__vector_8hpp_1ae0cdcc4bbf7af33dd1f3ffb1576fc232`
 
-- :ref:`exhale_function_quantity__vector_8hpp_1aa7d0f1a4738728479b28e25c295ea246`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1a7f6bfb0cbff5f2285df1667680886435`
-
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a128199e050bc1766f915507b0b96e2c3`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1acbd58c10ab0c0508907f7ec49fe98272`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a76942c28464d02e432dfe44d461d0945`
 
-- :ref:`exhale_function_math_2common_8hpp_1a836165a584ecca8c414905df301a9833`
+- :ref:`exhale_function_quantity__vector_8hpp_1aa7d0f1a4738728479b28e25c295ea246`
 
-- :ref:`exhale_function_math_2common_8hpp_1a00bb4770364fc06083d2673f6592b1fb`
+- :ref:`exhale_function_quantity__vector_8hpp_1a7f6bfb0cbff5f2285df1667680886435`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a94d2b56aa734e21dd047f28d20d582f7`
-
-- :ref:`exhale_function_simd_2math_8hpp_1a7a177826060163422b9ca892ed89baa8`
-
-- :ref:`exhale_function_math_2common_8hpp_1acc512c350a545fbc747a478ac52d97a7`
-
-- :ref:`exhale_function_math_2common_8hpp_1aef39de32632c75c75dd14327bc5fe53e`
-
-- :ref:`exhale_function_math_2common_8hpp_1ad42c16ffb0cccc14f1b3e4431ebb7360`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1aafb5e3f0c9c72dfaad42cf4ab647d897`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1a7ef14859fcd2dfeb4317ff495f9a540f`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1a04ba7f4111fd4507fc535e853a159315`
-
-- :ref:`exhale_function_math_2common_8hpp_1a70a4c8546c467add099960ef515a730c`
-
-- :ref:`exhale_function_math_2common_8hpp_1a08f44b909ad5790238e36d53932b2b62`
-
-- :ref:`exhale_function_math_2common_8hpp_1a0f8dcee12dd323c8da035c44a5eab1d4`
 
 - :ref:`exhale_function_simd_2math_8hpp_1a72f3bac8cf4c2f9a5c48c0a932e5d7ea`
 
@@ -364,7 +344,33 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1af45939b719d26e225e77fbd33820f562`
 
+- :ref:`exhale_function_simd_2math_8hpp_1a7a177826060163422b9ca892ed89baa8`
+
 - :ref:`exhale_function_math_2common_8hpp_1a6da6d2bb9f629fd781394572ea7af232`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1aafb5e3f0c9c72dfaad42cf4ab647d897`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a7ef14859fcd2dfeb4317ff495f9a540f`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a04ba7f4111fd4507fc535e853a159315`
+
+- :ref:`exhale_function_math_2common_8hpp_1a70a4c8546c467add099960ef515a730c`
+
+- :ref:`exhale_function_math_2common_8hpp_1a08f44b909ad5790238e36d53932b2b62`
+
+- :ref:`exhale_function_math_2common_8hpp_1a0f8dcee12dd323c8da035c44a5eab1d4`
+
+- :ref:`exhale_function_math_2common_8hpp_1acc512c350a545fbc747a478ac52d97a7`
+
+- :ref:`exhale_function_math_2common_8hpp_1aef39de32632c75c75dd14327bc5fe53e`
+
+- :ref:`exhale_function_math_2common_8hpp_1ad42c16ffb0cccc14f1b3e4431ebb7360`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1afd02d4794f736ace9d1b10a40422c3bd`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a441286cbb2c145a05f7ea39e69d467df`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a4eb7610da7a4489a1e259377cbe1b52c`
 
 - :ref:`exhale_function_math_2common_8hpp_1a910d64964bd3a6062005167c22fc7904`
 
@@ -382,15 +388,15 @@ Functions
 
 - :ref:`exhale_function_quantity__vector_8hpp_1ab11933eee32aa9614c10b45fa985c0c4`
 
-- :ref:`exhale_function_unit__vector_2math_8hpp_1afd02d4794f736ace9d1b10a40422c3bd`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1a441286cbb2c145a05f7ea39e69d467df`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1a4eb7610da7a4489a1e259377cbe1b52c`
-
 - :ref:`exhale_function_math_2common_8hpp_1aae82c45cde3a7d851478a80c48e67ace`
 
 - :ref:`exhale_function_math_2common_8hpp_1a71f0ea1d8aa2222e573853c2ea9d02db`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a83c2bf484060a49b423ff794ee6e34ff`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aea07ff94fba446362a2029399604d170`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ad4d8a7a87180fd32925d3def57d155ef`
 
 - :ref:`exhale_function_math_2common_8hpp_1a62e9f8c22fe169e7ca869bd883abc221`
 
@@ -404,11 +410,17 @@ Functions
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a3508f03e5235fe27d050d8b5e57c993f`
 
-- :ref:`exhale_function_unit__vector_2math_8hpp_1a83c2bf484060a49b423ff794ee6e34ff`
+- :ref:`exhale_function_quantity__vector_8hpp_1a7f88d7b6f4c43765b95da0452b5099ce`
 
-- :ref:`exhale_function_unit__vector_2math_8hpp_1aea07ff94fba446362a2029399604d170`
+- :ref:`exhale_function_quantity_2math_8hpp_1a9f8236fca3caabe267f127c63632db7f`
 
-- :ref:`exhale_function_unit__vector_2math_8hpp_1ad4d8a7a87180fd32925d3def57d155ef`
+- :ref:`exhale_function_quantity__vector_8hpp_1a522465d6e8cb901857b56a00c35d3108`
+
+- :ref:`exhale_function_range_8hpp_1aff6a37181bd02080840cbb8fe82c2760`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a842bd97646f723e62c55a1dd352ec6fb`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1a56e668f99875e24d4e7393a0f8d007b7`
 
 - :ref:`exhale_function_simd_2math_8hpp_1ac2021fcef22a96527f2595677cfd5a37`
 
@@ -421,18 +433,6 @@ Functions
 - :ref:`exhale_function_math_2common_8hpp_1ad34209fbc5fafb644d0ae51e80c08fbf`
 
 - :ref:`exhale_function_math_2common_8hpp_1a796ed79369711042358713e6b54f339a`
-
-- :ref:`exhale_function_range_8hpp_1aff6a37181bd02080840cbb8fe82c2760`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1a842bd97646f723e62c55a1dd352ec6fb`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1a56e668f99875e24d4e7393a0f8d007b7`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1a7f88d7b6f4c43765b95da0452b5099ce`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1a9f8236fca3caabe267f127c63632db7f`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1a522465d6e8cb901857b56a00c35d3108`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1aa03232b57cbded96ebd1b82da89c856a`
 
@@ -448,37 +448,33 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a6f9db0e9e49957c4fae9aeaa28219c62`
 
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aa075d5ba48f0ad0fb00d49619fe325b5`
+
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a135809543a020da86de628d73d47e071`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a395b0dd4dc80dfb42fcdfbbec425d394`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1aa075d5ba48f0ad0fb00d49619fe325b5`
-
-- :ref:`exhale_function_math_2common_8hpp_1a010b8a37b052ad512f7f846376a0529c`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1a24fca51717a750620f760698bfed98ec`
-
-- :ref:`exhale_function_math_2common_8hpp_1aac2b3df25cb5034be9fedbedf8290f71`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1a07df81b2b334cc16fa7c7c1076b2000f`
-
-- :ref:`exhale_function_math_2common_8hpp_1abd6a055ef6c4fc363e169b814602765a`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1af9906aa44f7e235e1c544497e987b2af`
-
-- :ref:`exhale_function_math_2common_8hpp_1a0a8a8f58a81821520f3e3ce2cae09c02`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1ae7d2baeaba1e0563021f16a62e055d84`
 
 - :ref:`exhale_function_math_2common_8hpp_1a9c66174e0be44a9ed0cda98ae6f693e0`
 
 - :ref:`exhale_function_math_2common_8hpp_1ac76e5093c4433d45c47290d4b9050f36`
 
+- :ref:`exhale_function_quantity__vector_8hpp_1ae7d2baeaba1e0563021f16a62e055d84`
+
+- :ref:`exhale_function_math_2common_8hpp_1a010b8a37b052ad512f7f846376a0529c`
+
+- :ref:`exhale_function_math_2common_8hpp_1aac2b3df25cb5034be9fedbedf8290f71`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a24fca51717a750620f760698bfed98ec`
+
+- :ref:`exhale_function_math_2common_8hpp_1abd6a055ef6c4fc363e169b814602765a`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a07df81b2b334cc16fa7c7c1076b2000f`
+
+- :ref:`exhale_function_math_2common_8hpp_1a0a8a8f58a81821520f3e3ce2cae09c02`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1af9906aa44f7e235e1c544497e987b2af`
+
 - :ref:`exhale_function_math_2common_8hpp_1a7219f29008210360bbf68f56a04e55b4`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1aa5c2fd0ca0b58a9c6a4822e19f0303a9`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1a14c66bc003f70e82c21391387d351a34`
 
 - :ref:`exhale_function_math_2common_8hpp_1ad01ed10d796f269404ade9e4ea47e410`
 
@@ -486,25 +482,29 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1a4829d136748a8968ee1bb6b7225f44b9`
 
+- :ref:`exhale_function_quantity_2math_8hpp_1aa5c2fd0ca0b58a9c6a4822e19f0303a9`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a14c66bc003f70e82c21391387d351a34`
+
 - :ref:`exhale_function_simd_2math_8hpp_1ae6fbf45c516a606f49ee3efc3a83def2`
 
 - :ref:`exhale_function_simd_2math_8hpp_1ae1dbd9debc8b5e77fc4d55c483b29854`
-
-- :ref:`exhale_function_quantity_2math_8hpp_1a11108e841c222ea1079fb3ee2ad8c76a`
-
-- :ref:`exhale_function_quantity__vector_8hpp_1aad7307464ff8505c572ae5f6bd1a2f02`
 
 - :ref:`exhale_function_math_2common_8hpp_1a50b52c3920737be16f95e837fbf5fa60`
 
 - :ref:`exhale_function_math_2common_8hpp_1ad198e4f1897231d37c9d5c2c6a2a57b4`
 
-- :ref:`exhale_function_quantity_2math_8hpp_1af2cd0ef50e4a04f83db34cc5c1896774`
+- :ref:`exhale_function_quantity_2math_8hpp_1a11108e841c222ea1079fb3ee2ad8c76a`
 
-- :ref:`exhale_function_quantity__vector_8hpp_1a8b661a0c11458e8985c7f74b8b7e8aff`
+- :ref:`exhale_function_quantity__vector_8hpp_1aad7307464ff8505c572ae5f6bd1a2f02`
 
 - :ref:`exhale_function_math_2common_8hpp_1a4c20d0bf0c1a966534145a02c78ee75f`
 
 - :ref:`exhale_function_math_2common_8hpp_1ab6c71cc574c5bb324efa7fb152feb977`
+
+- :ref:`exhale_function_quantity__vector_8hpp_1a8b661a0c11458e8985c7f74b8b7e8aff`
+
+- :ref:`exhale_function_quantity_2math_8hpp_1af2cd0ef50e4a04f83db34cc5c1896774`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1af8ce9466a0e68ddb2f22ee8c6e622ca9`
 
@@ -516,6 +516,8 @@ Functions
 
 - :ref:`exhale_function_math_2common_8hpp_1ac01cee76ff40c7570b8a83cf7b559ef6`
 
+- :ref:`exhale_function_simd_2math_8hpp_1a676782067b525c10790b020a11166023`
+
 - :ref:`exhale_function_math_2common_8hpp_1a918006e3547d0640b60e4b81ff914d49`
 
 - :ref:`exhale_function_math_2common_8hpp_1a3fcea4728be6de05f552eeb90fade063`
@@ -526,13 +528,7 @@ Functions
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a42e2a13743f87cc4d5987b45ef84dd65`
 
-- :ref:`exhale_function_simd_2math_8hpp_1a676782067b525c10790b020a11166023`
-
 - :ref:`exhale_function_unit__vector_2math_8hpp_1ada730629b5fc36881be0be21f7536a93`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1a6a8697385bb25840d0e5c397b4e56fdc`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1a4a8c47ca1ca8fb8fdd604085635c859c`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a98680f85e5ea3e2f1fbf16f43bb8c8db`
 
@@ -541,6 +537,10 @@ Functions
 - :ref:`exhale_function_quantity__vector_8hpp_1aded36c182107de9df5a351712ad4f222`
 
 - :ref:`exhale_function_quantity__vector_8hpp_1a6b1e9ed2429b7c3bda4e6bbed0872972`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a6a8697385bb25840d0e5c397b4e56fdc`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a4a8c47ca1ca8fb8fdd604085635c859c`
 
 - :ref:`exhale_function_quantity_2math_8hpp_1a32598e403a03889f4c0dd390ddccf3fd`
 

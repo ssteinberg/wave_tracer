@@ -79,17 +79,17 @@ Functions
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a4eb7610da7a4489a1e259377cbe1b52c`
 
+- :ref:`exhale_function_unit__vector_2math_8hpp_1a83c2bf484060a49b423ff794ee6e34ff`
+
 - :ref:`exhale_function_unit__vector_2math_8hpp_1aea07ff94fba446362a2029399604d170`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1ad4d8a7a87180fd32925d3def57d155ef`
 
-- :ref:`exhale_function_unit__vector_2math_8hpp_1a83c2bf484060a49b423ff794ee6e34ff`
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aa075d5ba48f0ad0fb00d49619fe325b5`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a135809543a020da86de628d73d47e071`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a395b0dd4dc80dfb42fcdfbbec425d394`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1aa075d5ba48f0ad0fb00d49619fe325b5`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1ada730629b5fc36881be0be21f7536a93`
 
@@ -99,27 +99,27 @@ Functions
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a41f3e8fbaa027a0c653167fe584cfe75`
 
-- :ref:`exhale_function_unit__vector_2math_8hpp_1aa9fbf2a0612efaed4d4b7da2d344528d`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1acbc5b4edcdbc5223c5b96c8c4cdc9584`
-
 - :ref:`exhale_function_unit__vector_2math_8hpp_1afca7c5d44895736b54f51a2b14915a68`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1aee44458fc45913ecf9082341e15874c0`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1afc4f4e7e3c80d0a38c71f5c2284be71c`
 
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aa9fbf2a0612efaed4d4b7da2d344528d`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1acbc5b4edcdbc5223c5b96c8c4cdc9584`
+
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a286579a6e75b1402f6affc51059afd21`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a7bdf004621cbc46cae629bc13160026b`
 
-- :ref:`exhale_function_unit__vector_2math_8hpp_1ac98c85afe66f6ee18ca7819cc1e537a6`
-
-- :ref:`exhale_function_unit__vector_2math_8hpp_1aa5552472e5c086d20025903e4f8a531d`
-
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a648995ca7df9f30cfd337a45ec49dd57`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a70cc5116d0f6dbf9e98f9241457a46a7`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1ac98c85afe66f6ee18ca7819cc1e537a6`
+
+- :ref:`exhale_function_unit__vector_2math_8hpp_1aa5552472e5c086d20025903e4f8a531d`
 
 - :ref:`exhale_function_unit__vector_2math_8hpp_1a027f514924a1c0a21194fd954d24462b`
 

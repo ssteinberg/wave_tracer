@@ -71,9 +71,9 @@ Functions
 
 - :ref:`exhale_function_math_2util_8hpp_1a6b23c2e8acf0c344663108be8ae83574`
 
-- :ref:`exhale_function_math_2util_8hpp_1a79fd43cc7b2dc5bf945a8b5d399bbd92`
-
 - :ref:`exhale_function_math_2util_8hpp_1aed3d17c5a69dc951f135cfcbf8717a01`
+
+- :ref:`exhale_function_math_2util_8hpp_1a79fd43cc7b2dc5bf945a8b5d399bbd92`
 
 - :ref:`exhale_function_math_2util_8hpp_1a111f920766c9d267bc04c07309689121`
 

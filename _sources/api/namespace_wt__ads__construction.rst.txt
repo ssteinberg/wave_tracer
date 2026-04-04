@@ -27,6 +27,6 @@ Functions
 
 - :ref:`exhale_function_edge__classification_8hpp_1ad6fe5e12c20e1ed938a17b939655b1cc`
 
-- :ref:`exhale_function_edge__classification_8hpp_1ad489f5bb349e954eef297e34aeb7c089`
-
 - :ref:`exhale_function_edge__classification_8hpp_1a8d6228dce81056316e6937fcc9ec55bd`
+
+- :ref:`exhale_function_edge__classification_8hpp_1ad489f5bb349e954eef297e34aeb7c089`

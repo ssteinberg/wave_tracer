@@ -59,7 +59,7 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_for__range_8hpp_1a090227d6fd4a605e74bab9ab2844aff8`
-
 - :ref:`exhale_function_for__range_8hpp_1ae5d8153aa49ce78615903ac76104c926`
+
+- :ref:`exhale_function_for__range_8hpp_1a090227d6fd4a605e74bab9ab2844aff8`
 

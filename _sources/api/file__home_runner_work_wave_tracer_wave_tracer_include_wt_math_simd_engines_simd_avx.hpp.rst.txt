@@ -74,13 +74,13 @@ Functions
 
 - :ref:`exhale_function_simd__avx_8hpp_1a85e821d6026778b67ffe7f7c3f19b12a`
 
+- :ref:`exhale_function_simd__avx_8hpp_1af816cdb77bdd9b0e89f7fa46cfa6d39b`
+
 - :ref:`exhale_function_simd__avx_8hpp_1a50a847e8ea7683b6260c9d588b9b8d2e`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a7e18d49d3baf57506cd33f4d092ef935`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a641482b9c8790136aff55c0a12c251c6`
-
-- :ref:`exhale_function_simd__avx_8hpp_1af816cdb77bdd9b0e89f7fa46cfa6d39b`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a4b2f2b3e0086ec026f103eac518e0748`
 
@@ -142,13 +142,13 @@ Functions
 
 - :ref:`exhale_function_simd__avx_8hpp_1a9439a069200e898f62804fc60df85f2d`
 
-- :ref:`exhale_function_simd__avx_8hpp_1a02b3e389af004f18987c636361ed33a3`
-
-- :ref:`exhale_function_simd__avx_8hpp_1af5484738b1c6206ca62d36bb790912ab`
-
 - :ref:`exhale_function_simd__avx_8hpp_1a0134a0541c99349a526e1dd60fc52eca`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a5986783a8d588a14f1aba3c7741d8636`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a02b3e389af004f18987c636361ed33a3`
+
+- :ref:`exhale_function_simd__avx_8hpp_1af5484738b1c6206ca62d36bb790912ab`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a635ca93d611bedc99d3068920d545962`
 
@@ -266,13 +266,13 @@ Functions
 
 - :ref:`exhale_function_simd__avx_8hpp_1a6daa7002e1507618a699bf65a50cc1cd`
 
-- :ref:`exhale_function_simd__avx_8hpp_1a15829b784082d8ef1f42b0b23ac6147a`
-
 - :ref:`exhale_function_simd__avx_8hpp_1af5ea4145df0be845ef6ff956448e2cca`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a3ca885bc43c3360fa0e7efaa86439586`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a2dc4c44c48be59fdac04d62125418ede`
+
+- :ref:`exhale_function_simd__avx_8hpp_1a15829b784082d8ef1f42b0b23ac6147a`
 
 - :ref:`exhale_function_simd__avx_8hpp_1af9410864335ec9b6d50fb8666c7b8b6e`
 
@@ -282,13 +282,13 @@ Functions
 
 - :ref:`exhale_function_simd__avx_8hpp_1a6d0069adbccfdd56eb01c523911098f0`
 
-- :ref:`exhale_function_simd__avx_8hpp_1ab29ec5ff394d480c86e9ecf0c7fd3204`
-
 - :ref:`exhale_function_simd__avx_8hpp_1a508048bc6a526898aa00d543ac15f5df`
 
 - :ref:`exhale_function_simd__avx_8hpp_1aef5ce76c23bf2cc59a581cb75ace3499`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a50c4677ebfe3e7d0d81f3731bb345d98`
+
+- :ref:`exhale_function_simd__avx_8hpp_1ab29ec5ff394d480c86e9ecf0c7fd3204`
 
 - :ref:`exhale_function_simd__avx_8hpp_1a4a3a42f138cf1ce20ed3434610d55a71`
 

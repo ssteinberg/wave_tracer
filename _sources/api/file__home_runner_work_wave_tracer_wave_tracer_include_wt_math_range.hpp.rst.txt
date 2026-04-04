@@ -133,9 +133,9 @@ Functions
 
 - :ref:`exhale_function_range_8hpp_1a22f0d1084d086bb775646198a63ab2ed`
 
-- :ref:`exhale_function_range_8hpp_1a820590a9439608d7cba5e38a37b5dd2d`
-
 - :ref:`exhale_function_range_8hpp_1a2924ab18e38210665dfacac5bbc8cce4`
+
+- :ref:`exhale_function_range_8hpp_1a820590a9439608d7cba5e38a37b5dd2d`
 
 
 Typedefs
