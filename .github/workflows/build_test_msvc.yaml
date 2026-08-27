@@ -6,7 +6,12 @@ on:
      paths:
        - src/**
        - include/**
-     branches: [main]
+       - deps/**
+       - CMakeLists.txt
+       - .gitmodules
+       - .github/workflows/build_test_msvc.yaml
+     branches: [main, macos-port]
+   workflow_dispatch:
 permissions:
    contents: read
 
@@ -14,7 +19,7 @@ jobs:
   build_windows:
      name: Test build and compilation
 
-     timeout-minutes: 200
+     timeout-minutes: 240
      runs-on: windows-latest
      env:
        VCPKG_ROOT: "vcpkg"
@@ -29,7 +34,8 @@ jobs:
 
        - name: Update submodules
          run: |
-           git rm scenes || true; git submodule update --init --recursive
+           git rm -r --cached scenes 2>/dev/null || true
+           git submodule update --init --recursive
 
        - name: Configure
          run: |
@@ -40,5 +46,4 @@ jobs:
 
        - name: Test run
          run: |
-           build/wave_tracer version 1>&2
-
+           ./build/Release/wave_tracer.exe version 1>&2

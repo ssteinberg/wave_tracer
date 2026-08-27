@@ -41,11 +41,12 @@ namespace wt::gui {
 
 using perf_stats_t = std::vector<perf_stat_t>;
 
-// libc++ (as used on Apple platforms) does not provide the C++20
-// std::atomic<std::shared_ptr<T>> partial specialization (unlike libstdc++).
-// Provide a minimal mutex-based replacement supporting the interface used in
-// this file, so that the rest of the code remains unchanged.
-#ifdef _LIBCPP_VERSION
+// The C++20 std::atomic<std::shared_ptr<T>> partial specialization is only
+// provided by libstdc++ (GCC 12+). libc++ (Apple) and MSVC (Windows) do not
+// implement it (no __cpp_lib_atomic_shared_ptr). Provide a minimal mutex-based
+// replacement supporting the interface used in this file, so that the rest of
+// the code remains unchanged.
+#ifndef __cpp_lib_atomic_shared_ptr
 template <typename T>
 class atomic_shared_ptr_t {
     mutable std::mutex mtx;
@@ -491,7 +492,7 @@ private:
     logger::string_ostream<log_type_e::cwarn> cwrn;
     logger::string_ostream<log_type_e::cerr> cerr;
 
-#ifdef _LIBCPP_VERSION
+#ifndef __cpp_lib_atomic_shared_ptr
     mutable atomic_shared_ptr_t<preview_bitmap_t> preview_surface;
     mutable atomic_shared_ptr_t<preview_bitmap_polarimetric_t> preview_surface_polarimetric;
     mutable atomic_shared_ptr_t<histogram_t<>> new_image_histogram;

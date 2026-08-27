@@ -445,9 +445,9 @@ target_link_libraries(wave_tracer PRIVATE
     pugixml::pugixml
 )
 
-# libstdc++fs and libatomic are GCC/Linux-only; libc++ on macOS provides
-# std::filesystem and atomics without extra link libraries.
-if(NOT APPLE)
+# libstdc++fs and libatomic are GCC/Linux-only; libc++ (macOS) and MSVC
+# (Windows) provide std::filesystem and atomics without extra link libraries.
+if(NOT APPLE AND NOT WIN32)
     target_link_libraries(wave_tracer PRIVATE stdc++fs atomic)
 endif()
 
@@ -497,20 +497,14 @@ if(BUILD_GUI)
         ${GLEW_INCLUDE_DIRS}
     )
 
-    if(APPLE)
-        # macOS has no libGL; link against the OpenGL framework via CMake's
-        # FindOpenGL imported target instead.
-        find_package(OpenGL REQUIRED)
-        target_link_libraries(wave_tracer PUBLIC
-            OpenGL::GL
-            GLEW::GLEW
-        )
-    else()
-        target_link_libraries(wave_tracer PUBLIC
-            GL
-            GLEW::GLEW
-        )
-    endif()
+    # Use CMake's FindOpenGL imported target, which resolves to the correct
+    # library on every platform: libGL (Linux), the OpenGL framework (macOS),
+    # and opengl32.lib (Windows). The bare "GL" name only works on Linux.
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(wave_tracer PUBLIC
+        OpenGL::GL
+        GLEW::GLEW
+    )
 endif(BUILD_GUI)
 
 
