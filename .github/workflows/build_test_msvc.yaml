@@ -33,6 +33,7 @@ jobs:
          uses: lukka/run-vcpkg@v11
 
        - name: Update submodules
+         shell: bash
          run: |
            git rm -r --cached scenes 2>/dev/null || true
            git submodule update --init --recursive
