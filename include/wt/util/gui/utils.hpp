@@ -160,7 +160,7 @@ struct gl_images_t {
         static constexpr GLenum gl_input_type = GL_FLOAT;
 
         handles = std::array<GLuint,4>{ 0,0,0,0 };
-        glGenTextures(4, handles->begin());
+        glGenTextures(4, handles->data());
 
         for (auto i=0;i<4;++i) {
             glBindTexture(GL_TEXTURE_2D, (*handles)[i]);
@@ -176,7 +176,7 @@ struct gl_images_t {
 
     ~gl_images_t() {
         if (handles)
-            glDeleteTextures(4, handles->begin());
+            glDeleteTextures(4, handles->data());
     }
 
     gl_images_t(gl_images_t&& o) noexcept
@@ -188,7 +188,7 @@ struct gl_images_t {
         width  = o.width;
         height = o.height;
         if (handles)
-            glDeleteTextures(4, handles->begin());
+            glDeleteTextures(4, handles->data());
         handles = o.handles;
         o.handles = std::nullopt;
         images = std::move(o.images);

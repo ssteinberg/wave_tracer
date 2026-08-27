@@ -113,7 +113,7 @@ public:
         }
 
         const auto xrange = pwld.range() & range;
-        const auto bins = m::max(1ul, std::size_t(xrange.length() / dx)) + 1;
+        const auto bins = m::max(std::size_t{1}, std::size_t(xrange.length() / dx)) + 1;
 
         std::vector<f_t> ys;
         ys.resize(bins);

@@ -43,7 +43,7 @@ mesh_t obj_loader::load_obj(const std::string& shape_id,
         reader_config.mtl_search_path = path.parent_path().string();
 
         tinyobj::ObjReader reader;
-        if (!reader.ParseFromFile(path.c_str(), reader_config)) {
+        if (!reader.ParseFromFile(path.string(), reader_config)) {
             if (!reader.Error().empty())
                 logger::cerr(verbosity_e::important) << "(obj loader) Loading failed: " << reader.Error() << '\n';
             throw std::runtime_error("(obj loader) obj loading failed");

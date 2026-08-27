@@ -37,7 +37,7 @@ struct impl_t {
         if (error) 
             throw std::runtime_error("Freetype2 error: " + std::string{ FT_Error_String(error) });
 
-        error = FT_New_Face(ft2_library, font_path.c_str(), 0, &ft2_face);
+        error = FT_New_Face(ft2_library, font_path.string().c_str(), 0, &ft2_face);
         if (error) 
             throw std::runtime_error("Freetype2 error: " + std::string{ FT_Error_String(error) });
     }

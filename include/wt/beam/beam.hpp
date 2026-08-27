@@ -254,7 +254,11 @@ struct beam_radiometric_data_t<transport_e::backward, Q> {
  */
 template <beam::transport_e Transport, Quantity Q>
 class beam_t final : public beam::beam_generic_t {
-    template <beam::transport_e,Quantity>
+    // Note: use fresh template parameter names here (not Transport/Quantity,
+    // which shadow the enclosing class' parameters); MSVC otherwise binds the
+    // friend's parameters to the enclosing ones and only befriends the same
+    // instantiation instead of all specializations.
+    template <beam::transport_e Transport2, Quantity Q2>
     friend class beam_t;
 
     using data_t = beam::beam_radiometric_data_t<Transport, Q>;
