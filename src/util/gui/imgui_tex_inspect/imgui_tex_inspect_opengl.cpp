@@ -216,7 +216,10 @@ void main() {
 
 const GLchar *fragment_shader_glsl_410_core = 
 R"(
-vec3 colourmaps[256*6] = {
+// Note: initializer lists for arrays are not supported by the GLSL
+// compiler on macOS (OpenGL 4.1). Array constructor syntax is used instead,
+// which is valid on all platforms.
+vec3 colourmaps[256*6] = vec3[256*6](
     // magma
         vec3(0.001462, 0.000466, 0.013866),
         vec3(0.002258, 0.001295, 0.018331),
@@ -1764,7 +1767,7 @@ vec3 colourmaps[256*6] = {
         vec3(1.0000, 0.9094, 0.2634),
         vec3(1.0000, 0.9131, 0.2680),
         vec3(1.0000, 0.9169, 0.2731)
-};
+);
 
 uniform sampler2D Texture;
 uniform sampler2D Texture0;
@@ -1969,9 +1972,11 @@ void main() {
                 ct.xyz = vec3(0);
         } else if (mode==3) {
             // FC
-            const float fc_min = mode_data.y;
-            const float fc_max = mode_data.z;
-            const int channel = floatBitsToInt(mode_data.x);
+            // Note: const initializers from uniforms are not allowed on
+            // macOS (OpenGL 4.1); omit const here.
+            float fc_min = mode_data.y;
+            float fc_max = mode_data.z;
+            int channel = floatBitsToInt(mode_data.x);
 
             float val;
             if (channel == 3)

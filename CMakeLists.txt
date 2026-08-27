@@ -434,8 +434,6 @@ target_include_directories(wave_tracer PRIVATE
 )
 
 target_link_libraries(wave_tracer PRIVATE
-    stdc++fs atomic
-
     PNG::PNG
     $<IF:$<TARGET_EXISTS:libdeflate::libdeflate_shared>,libdeflate::libdeflate_shared,libdeflate::libdeflate_static>
     OpenEXR::OpenEXR
@@ -446,6 +444,12 @@ target_link_libraries(wave_tracer PRIVATE
     yaml-cpp::yaml-cpp
     pugixml::pugixml
 )
+
+# libstdc++fs and libatomic are GCC/Linux-only; libc++ on macOS provides
+# std::filesystem and atomics without extra link libraries.
+if(NOT APPLE)
+    target_link_libraries(wave_tracer PRIVATE stdc++fs atomic)
+endif()
 
 if(BUILD_GUI)
     find_package(SDL3 CONFIG REQUIRED)
@@ -493,10 +497,20 @@ if(BUILD_GUI)
         ${GLEW_INCLUDE_DIRS}
     )
 
-    target_link_libraries(wave_tracer PUBLIC
-        GL
-        GLEW::GLEW
-    )
+    if(APPLE)
+        # macOS has no libGL; link against the OpenGL framework via CMake's
+        # FindOpenGL imported target instead.
+        find_package(OpenGL REQUIRED)
+        target_link_libraries(wave_tracer PUBLIC
+            OpenGL::GL
+            GLEW::GLEW
+        )
+    else()
+        target_link_libraries(wave_tracer PUBLIC
+            GL
+            GLEW::GLEW
+        )
+    endif()
 endif(BUILD_GUI)
 
 

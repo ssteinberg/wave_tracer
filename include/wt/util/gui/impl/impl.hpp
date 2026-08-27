@@ -12,6 +12,7 @@
 #include <string>
 #include <memory>
 #include <atomic>
+#include <mutex>
 #include <optional>
 
 #include <chrono>
@@ -39,6 +40,44 @@
 namespace wt::gui {
 
 using perf_stats_t = std::vector<perf_stat_t>;
+
+// libc++ (as used on Apple platforms) does not provide the C++20
+// std::atomic<std::shared_ptr<T>> partial specialization (unlike libstdc++).
+// Provide a minimal mutex-based replacement supporting the interface used in
+// this file, so that the rest of the code remains unchanged.
+#ifdef _LIBCPP_VERSION
+template <typename T>
+class atomic_shared_ptr_t {
+    mutable std::mutex mtx;
+    std::shared_ptr<T> ptr;
+public:
+    atomic_shared_ptr_t() noexcept = default;
+    atomic_shared_ptr_t(std::shared_ptr<T> p) noexcept : ptr(std::move(p)) {}
+
+    std::shared_ptr<T> load(std::memory_order = std::memory_order_seq_cst) const noexcept {
+        std::lock_guard<std::mutex> lk(mtx);
+        return ptr;
+    }
+    void store(std::shared_ptr<T> p, std::memory_order = std::memory_order_seq_cst) noexcept {
+        std::lock_guard<std::mutex> lk(mtx);
+        ptr = std::move(p);
+    }
+    atomic_shared_ptr_t& operator=(std::shared_ptr<T> p) noexcept {
+        store(std::move(p));
+        return *this;
+    }
+    bool compare_exchange_weak(std::shared_ptr<T>& expected, std::shared_ptr<T> desired,
+                               std::memory_order, std::memory_order) noexcept {
+        std::lock_guard<std::mutex> lk(mtx);
+        if (ptr == expected) {
+            ptr = std::move(desired);
+            return true;
+        }
+        expected = ptr;
+        return false;
+    }
+};
+#endif
 
 struct impl_t {
     impl_t(wt_context_t& ctx,
@@ -452,12 +491,21 @@ private:
     logger::string_ostream<log_type_e::cwarn> cwrn;
     logger::string_ostream<log_type_e::cerr> cerr;
 
+#ifdef _LIBCPP_VERSION
+    mutable atomic_shared_ptr_t<preview_bitmap_t> preview_surface;
+    mutable atomic_shared_ptr_t<preview_bitmap_polarimetric_t> preview_surface_polarimetric;
+    mutable atomic_shared_ptr_t<histogram_t<>> new_image_histogram;
+    mutable std::atomic<f_t> in_spe_completed;
+
+    mutable atomic_shared_ptr_t<perf_stats_t> new_perf_stats;
+#else
     mutable std::atomic<std::shared_ptr<preview_bitmap_t>> preview_surface;
     mutable std::atomic<std::shared_ptr<preview_bitmap_polarimetric_t>> preview_surface_polarimetric;
     mutable std::atomic<std::shared_ptr<histogram_t<>>> new_image_histogram;
     mutable std::atomic<f_t> in_spe_completed;
 
     mutable std::atomic<std::shared_ptr<perf_stats_t>> new_perf_stats;
+#endif
 
 public:
     const std::string wtversion_string;

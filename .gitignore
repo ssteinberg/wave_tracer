@@ -24,3 +24,6 @@ mipmap_cache
 
 perf_stats.csv
 log.txt
+
+# imgui runtime layout file
+imgui.ini

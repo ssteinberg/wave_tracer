@@ -11,6 +11,7 @@
 
 #include <bit>
 #include <cmath>
+#include <concepts>
 #include <cstring>
 #include <limits>
 
@@ -216,6 +217,19 @@ constexpr inline auto max(const glm::mat<N,M,T>& m1, const glm::mat<N,M,T>& m2, 
     return glm::max(glm::max(m1,m2),glm::max(m3,m4));
 }
 
+
+// libc++ (as used on Apple platforms) rejects std::pow(T,T) when invoked
+// through its generic arithmetic-promotion template -- which is what happens
+// when calling m::pow<f_t>(x,y) with an explicit template argument (libstdc++
+// accepts this). Provide constrained scalar overloads that dispatch to the
+// exact powf/pow implementations; they are preferred over the unconstrained
+// std::pow template during overload resolution.
+#ifdef _LIBCPP_VERSION
+template <typename T> requires std::same_as<T, float>
+inline float pow(T x, T y) noexcept { return std::powf(x, y); }
+template <typename T> requires std::same_as<T, double>
+inline double pow(T x, T y) noexcept { return std::pow(x, y); }
+#endif
 
 using glm::pow;
 using glm::log;

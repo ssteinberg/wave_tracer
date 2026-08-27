@@ -30,7 +30,12 @@ void impl_t::init(const wt_context_t& ctx) {
     // allow screensaver
     SDL_EnableScreenSaver();
 
+#ifdef __APPLE__
+    // macOS only supports OpenGL 4.1, i.e. GLSL 4.10
+    const char* glsl_version = "#version 410";
+#else
     const char* glsl_version = "#version 420";
+#endif
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
