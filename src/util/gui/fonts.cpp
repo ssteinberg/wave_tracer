@@ -29,7 +29,7 @@ void impl_t::load_fonts() {
     const auto mono_path = ctx.resolve_path(std::filesystem::path{ "data" } / "fonts" / mono_font);
 
     // base font for common and latin glyph range
-    if (fft_path) io->Fonts->AddFontFromFileTTF(fft_path->c_str());
+    if (fft_path) io->Fonts->AddFontFromFileTTF(fft_path->string().c_str());
     else {
         logger::cwarn() << "font \'" << base_font << "\' not found.\n";
         io->Fonts->AddFontDefault();
@@ -40,15 +40,15 @@ void impl_t::load_fonts() {
 
     // fontawesome icons
     if (fa1_path && fa2_path) {
-        io->Fonts->AddFontFromFileTTF(fa1_path->c_str(), 0, &config);
-        io->Fonts->AddFontFromFileTTF(fa2_path->c_str(), 0, &config);
+        io->Fonts->AddFontFromFileTTF(fa1_path->string().c_str(), 0, &config);
+        io->Fonts->AddFontFromFileTTF(fa2_path->string().c_str(), 0, &config);
     }
     else
         logger::cwarn() << "font \'" << fa1_font << "\' or \'" << fa2_font << "\' not found.\n";
 
     // generic font for all misc unicode and symbols
     if (misc_path) {
-        io->Fonts->AddFontFromFileTTF(misc_path->c_str(), 0, &config);
+        io->Fonts->AddFontFromFileTTF(misc_path->string().c_str(), 0, &config);
     }
     else
         logger::cwarn() << "font \'" << misc_font << "\' not found.\n";
@@ -57,7 +57,7 @@ void impl_t::load_fonts() {
 
     // separate monospaced font
     if (mono_path) {
-        this->mono_font = io->Fonts->AddFontFromFileTTF(mono_path->c_str());
+        this->mono_font = io->Fonts->AddFontFromFileTTF(mono_path->string().c_str());
     }
     else
         logger::cwarn() << "font \'" << mono_font << "\' not found.\n";

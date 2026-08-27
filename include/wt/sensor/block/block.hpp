@@ -27,9 +27,12 @@ struct block_handle_t {
 
     block_handle_t() = default;
     block_handle_t(block_handle_t&&) = default;
-
-    block_handle_t(const block_handle_t&) = delete;
-    block_handle_t& operator=(const block_handle_t&) = delete;
+    // Note: kept copyable because MSVC's std::packaged_task requires a
+    // copy-assignable result type (completed_render_job_t wraps this handle);
+    // libstdc++/libc++ accept move-only results there, MSVC does not.
+    block_handle_t(const block_handle_t&) = default;
+    block_handle_t& operator=(const block_handle_t&) = default;
+    block_handle_t& operator=(block_handle_t&&) = default;
 };
 
 }

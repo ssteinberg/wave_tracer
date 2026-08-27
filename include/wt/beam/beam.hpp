@@ -271,6 +271,11 @@ private:
     wavenumber_t beamk;
     alignas(16) data_t data;
 
+public:
+    // Rebuilds a beam with new radiometric data; kept public because the
+    // inline friend operators (operator*/operator/) construct beams of a
+    // *different* Quantity instantiation, which MSVC does not allow access
+    // to through a "friend class" declaration.
     beam_t(const beam::beam_generic_t& o,
            const data_t& data,
            const wavenumber_t k) noexcept
