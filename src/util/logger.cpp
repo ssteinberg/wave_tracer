@@ -7,7 +7,17 @@
 *
 */
 
+#ifdef WIN32
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
 #include <sys/ioctl.h>
+#endif
 #include <optional>
 
 #include <vector>
@@ -51,9 +61,19 @@ namespace indicators {
 namespace _detail {
 
 inline std::pair<size_t, size_t> terminal_size() {
+#ifdef WIN32
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    if (GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+        return {
+            static_cast<size_t>(csbi.srWindow.Bottom - csbi.srWindow.Top + 1),
+            static_cast<size_t>(csbi.srWindow.Right - csbi.srWindow.Left + 1)
+        };
+    return { 0, 0 };
+#else
     struct winsize size{};
     ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
     return {static_cast<size_t>(size.ws_row), static_cast<size_t>(size.ws_col)};
+#endif
 }
 inline size_t terminal_width() { return terminal_size().second; }
 

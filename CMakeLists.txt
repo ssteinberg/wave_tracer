@@ -434,8 +434,6 @@ target_include_directories(wave_tracer PRIVATE
 )
 
 target_link_libraries(wave_tracer PRIVATE
-    stdc++fs atomic
-
     PNG::PNG
     $<IF:$<TARGET_EXISTS:libdeflate::libdeflate_shared>,libdeflate::libdeflate_shared,libdeflate::libdeflate_static>
     OpenEXR::OpenEXR
@@ -446,6 +444,12 @@ target_link_libraries(wave_tracer PRIVATE
     yaml-cpp::yaml-cpp
     pugixml::pugixml
 )
+
+# libstdc++fs and libatomic are GCC/Linux-only; libc++ (macOS) and MSVC
+# (Windows) provide std::filesystem and atomics without extra link libraries.
+if(NOT APPLE AND NOT WIN32)
+    target_link_libraries(wave_tracer PRIVATE stdc++fs atomic)
+endif()
 
 if(BUILD_GUI)
     find_package(SDL3 CONFIG REQUIRED)
@@ -493,8 +497,12 @@ if(BUILD_GUI)
         ${GLEW_INCLUDE_DIRS}
     )
 
+    # Use CMake's FindOpenGL imported target, which resolves to the correct
+    # library on every platform: libGL (Linux), the OpenGL framework (macOS),
+    # and opengl32.lib (Windows). The bare "GL" name only works on Linux.
+    find_package(OpenGL REQUIRED)
     target_link_libraries(wave_tracer PUBLIC
-        GL
+        OpenGL::GL
         GLEW::GLEW
     )
 endif(BUILD_GUI)

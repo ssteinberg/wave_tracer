@@ -6,7 +6,12 @@ on:
      paths:
        - src/**
        - include/**
-     branches: [main]
+       - deps/**
+       - CMakeLists.txt
+       - .gitmodules
+       - .github/workflows/build_test_msvc.yaml
+     branches: [main, macos-port]
+   workflow_dispatch:
 permissions:
    contents: read
 
@@ -14,7 +19,7 @@ jobs:
   build_windows:
      name: Test build and compilation
 
-     timeout-minutes: 200
+     timeout-minutes: 240
      runs-on: windows-latest
      env:
        VCPKG_ROOT: "vcpkg"
@@ -28,8 +33,10 @@ jobs:
          uses: lukka/run-vcpkg@v11
 
        - name: Update submodules
+         shell: bash
          run: |
-           git rm scenes || true; git submodule update --init --recursive
+           git rm -r --cached scenes 2>/dev/null || true
+           git submodule update --init --recursive
 
        - name: Configure
          run: |
@@ -39,6 +46,25 @@ jobs:
            cmake --build ./build --config Release
 
        - name: Test run
+         shell: bash
          run: |
-           build/wave_tracer version 1>&2
+           # vcpkg (manifest mode) installs runtime DLLs alongside the build
+           # tree, and sockpp is built as a shared library inside build/deps;
+           # add both to PATH so the exe can locate its runtime dependencies.
+           export PATH="$PWD/build/vcpkg_installed/x64-windows/bin:$PWD/build/deps/sockpp/src/Release:$PATH"
+           ./build/Release/wave_tracer.exe version 1>&2
 
+       - name: Package
+         shell: bash
+         run: |
+           mkdir -p pkg/wave_tracer
+           cp build/Release/wave_tracer.exe pkg/wave_tracer/
+           cp build/vcpkg_installed/x64-windows/bin/*.dll pkg/wave_tracer/ 2>/dev/null || true
+           cp build/deps/sockpp/src/Release/*.dll pkg/wave_tracer/ 2>/dev/null || true
+           ls -la pkg/wave_tracer/
+
+       - name: Upload artifact
+         uses: actions/upload-artifact@v4
+         with:
+           name: wave_tracer-windows-x64
+           path: pkg/wave_tracer/

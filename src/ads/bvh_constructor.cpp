@@ -184,7 +184,13 @@ bvh_constructor_t::bvh_constructor_t(
                     tbvhtris.emplace_back(u::to_m(t.c.x), u::to_m(t.c.y), u::to_m(t.c.z), 0);
                 }
 
+#if defined(__aarch64__) || defined(__arm64__) || defined(_M_ARM64)
+                // On ARM, AVX is unavailable; Build() dispatches to the NEON
+                // builder at runtime.
+                tbvh.Build(tbvhtris.data(), tbvhtris.size()/3);
+#else
                 tbvh.BuildAVX(tbvhtris.data(), tbvhtris.size()/3);
+#endif
             }
 #else
             {

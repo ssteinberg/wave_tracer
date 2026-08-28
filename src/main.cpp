@@ -16,6 +16,9 @@
 #include <utility>
 #include <stdexcept>
 
+#include <cerrno>
+#include <cstring>
+
 #include <filesystem>
 #include <sstream>
 #include <format>

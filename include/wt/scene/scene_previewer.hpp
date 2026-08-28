@@ -32,7 +32,7 @@ private:
     struct alignas(64) sensor_t {
         const sensor::film_storage_handle_t* film_handle = nullptr;
 
-        mutable std::atomic_flag preview_processed = true;
+        mutable std::atomic<bool> preview_processed{ true };
         mutable f_t fractional_spe_complete = 0;
     };
     struct alignas(64) termination_signal_t {
@@ -74,7 +74,7 @@ private:
     bool process_previews() const noexcept {
         bool updated = false;
         for (const auto& sensor : sensors) {
-            if (sensor.second->preview_processed.test_and_set(std::memory_order_acquire))
+            if (sensor.second->preview_processed.exchange(true, std::memory_order_acquire))
                 continue;
             preview(sensor.first, *sensor.second);
             updated = true;
@@ -156,7 +156,7 @@ public:
 
         const auto& s = *it->second;
         s.fractional_spe_complete = fractional_spe_complete;
-        s.preview_processed.clear(std::memory_order_release);
+        s.preview_processed.store(false, std::memory_order_release);
     }
 };
 

@@ -32,7 +32,7 @@ mesh_t ply_loader::load_ply(const std::string& shape_id,
     std::vector<mesh_t::tri_indices_t> tris;
 
     {
-        miniply::PLYReader reader(path.c_str());
+        miniply::PLYReader reader(path.string().c_str());
         if (!reader.valid())
             throw std::runtime_error("(ply loader) ply loading failed");
 

@@ -43,7 +43,7 @@ void stat_histogram::pretty_print_histogram(std::ostream& os,
     }
     if (!have_of) --count;
 
-    const auto min_size = 8ul;
+    const auto min_size = std::size_t{8};
     constexpr auto max_bins = 50ul;
 
     // trim tail zeros

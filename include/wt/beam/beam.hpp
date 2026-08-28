@@ -254,7 +254,11 @@ struct beam_radiometric_data_t<transport_e::backward, Q> {
  */
 template <beam::transport_e Transport, Quantity Q>
 class beam_t final : public beam::beam_generic_t {
-    template <beam::transport_e,Quantity>
+    // Note: use fresh template parameter names here (not Transport/Quantity,
+    // which shadow the enclosing class' parameters); MSVC otherwise binds the
+    // friend's parameters to the enclosing ones and only befriends the same
+    // instantiation instead of all specializations.
+    template <beam::transport_e Transport2, Quantity Q2>
     friend class beam_t;
 
     using data_t = beam::beam_radiometric_data_t<Transport, Q>;
@@ -267,6 +271,11 @@ private:
     wavenumber_t beamk;
     alignas(16) data_t data;
 
+public:
+    // Rebuilds a beam with new radiometric data; kept public because the
+    // inline friend operators (operator*/operator/) construct beams of a
+    // *different* Quantity instantiation, which MSVC does not allow access
+    // to through a "friend class" declaration.
     beam_t(const beam::beam_generic_t& o,
            const data_t& data,
            const wavenumber_t k) noexcept
