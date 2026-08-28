@@ -53,3 +53,18 @@ jobs:
            # add both to PATH so the exe can locate its runtime dependencies.
            export PATH="$PWD/build/vcpkg_installed/x64-windows/bin:$PWD/build/deps/sockpp/src/Release:$PATH"
            ./build/Release/wave_tracer.exe version 1>&2
+
+        - name: Package
+          shell: bash
+          run: |
+            mkdir -p pkg/wave_tracer
+            cp build/Release/wave_tracer.exe pkg/wave_tracer/
+            cp build/vcpkg_installed/x64-windows/bin/*.dll pkg/wave_tracer/ 2>/dev/null || true
+            cp build/deps/sockpp/src/Release/*.dll pkg/wave_tracer/ 2>/dev/null || true
+            ls -la pkg/wave_tracer/
+
+        - name: Upload artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: wave_tracer-windows-x64
+            path: pkg/wave_tracer/
