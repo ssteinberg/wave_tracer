@@ -46,5 +46,6 @@ jobs:
            cmake --build ./build --config Release
 
        - name: Test run
+         shell: bash
          run: |
            ./build/Release/wave_tracer.exe version 1>&2
