@@ -46,5 +46,10 @@ jobs:
            cmake --build ./build --config Release
 
        - name: Test run
+         shell: bash
          run: |
+           # vcpkg (manifest mode) installs runtime DLLs alongside the build
+           # tree, and sockpp is built as a shared library inside build/deps;
+           # add both to PATH so the exe can locate its runtime dependencies.
+           export PATH="$PWD/build/vcpkg_installed/x64-windows/bin:$PWD/build/deps/sockpp/src/Release:$PATH"
            ./build/Release/wave_tracer.exe version 1>&2
