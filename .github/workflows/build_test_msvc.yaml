@@ -48,4 +48,7 @@ jobs:
        - name: Test run
          shell: bash
          run: |
+           # vcpkg (manifest mode) installs runtime DLLs alongside the build
+           # tree; add them to PATH so the exe can locate OpenEXR/TBB/SDL3 etc.
+           export PATH="$PWD/build/vcpkg_installed/x64-windows/bin:$PATH"
            ./build/Release/wave_tracer.exe version 1>&2
