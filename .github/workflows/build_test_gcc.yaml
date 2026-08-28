@@ -6,7 +6,8 @@ on:
      paths:
        - src/**
        - include/**
-     branches: [main]
+     branches: [main, macos-port]
+   workflow_dispatch:
 permissions:
    contents: read
 
