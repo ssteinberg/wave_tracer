@@ -52,3 +52,16 @@ jobs:
          run: |
            build/wave_tracer version 1>&2
 
+       - name: Package
+         shell: bash
+         run: |
+           mkdir -p pkg
+           cp build/wave_tracer pkg/
+           ls -la pkg/
+
+       - name: Upload artifact
+         uses: actions/upload-artifact@v4
+         with:
+           name: wave_tracer-linux-x64
+           path: pkg/wave_tracer
+
